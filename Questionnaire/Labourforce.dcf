@@ -1,5 +1,5 @@
 ﻿[Dictionary]
-Version=CSPro 7.0
+Version=CSPro 7.1
 Label=Labourforce
 Name=LABOURFORCE_DICT
 RecordTypeStart=1
@@ -478,7 +478,7 @@ Value=4;Stratum 4
 Label=Labourforce record
 Name=LABOURFORCE_REC
 RecordTypeValue='1'
-RecordLen=107
+RecordLen=175
 
 [Item]
 Label=DataEntryID
@@ -576,6 +576,7 @@ Len=1
 [Item]
 Label=Occupancy
 Name=OCCPNCY
+Note=Asked in Vacant form
 Start=32
 Len=2
 
@@ -594,6 +595,7 @@ Len=2
 [Item]
 Label=HTYPE
 Name=HH_TYP
+Note=Asked in Vacant Form
 Start=37
 Len=1
 
@@ -622,263 +624,449 @@ Start=43
 Len=2
 
 [Item]
-Label=Individual No
-Name=INDIVIDUAL_NO
+Label=1. Individual No
+Name=C1_INDNO
 Start=45
 Len=2
 
 [Item]
-Label=Sex
-Name=SEX
+Label=3. Sex
+Name=C3_SEX
 Start=47
 Len=1
 
 [Item]
-Label=Relation to Head
-Name=RELHD
+Label=4. Relation to Head
+Name=C4_RELHD
 Start=48
 Len=1
 
 [Item]
-Label=Birth Date
-Name=BIRTHD
+Label=5. Birth Date
+Name=C5_BIRTHD
 Start=49
 Len=8
 DataType=Alpha
 
 [Item]
 Label=Birth Date Year
-Name=BYR
+Name=C5_BYR
 Start=49
 Len=4
 ItemType=SubItem
 
 [Item]
 Label=Birth Date Month
-Name=BMO
+Name=C5_BMO
 Start=53
 Len=2
 ItemType=SubItem
 
 [Item]
 Label=Birth Date Day
-Name=BDY
+Name=C5_BDY
 Start=55
 Len=2
 ItemType=SubItem
 
 [Item]
-Label=Age
-Name=AGE
+Label=6. Age
+Name=C6_AGE
 Start=57
 Len=3
 
 [Item]
-Label=Nationality
-Name=CNTRY_CD
+Label=7. Nationality
+Name=C7_CNTRY_CD
 Start=60
 Len=3
 
 [Item]
-Label=Marital Status
-Name=MARSTAT
+Label=8. Marital Status
+Name=C8_MARSTAT
 Start=63
 Len=1
 
 [Item]
-Label=Education Level
-Name=EDUCLEV
+Label=9. Education Level
+Name=C9_EDUCLEV
 Start=64
 Len=1
 
 [Item]
-Label=Highest qualification
-Name=QUALLEV
+Label=10. Highest qualification
+Name=C10_QUALLEV
 Start=65
 Len=2
 
 [Item]
-Label=Currently Training
-Name=CTRAINING
+Label=11. Currently Training
+Name=C11_CTRAINING
 Start=67
 Len=1
 
 [Item]
-Label=Place trained
-Name=PLACETR
+Label=12. Training for Occupation
+Name=C12_OCCTRAINING
 Start=68
+Len=4
+
+[Item]
+Label=13. Place currently training
+Name=C13_PLACETR
+Start=72
 Len=2
 
 [Item]
-Label=Worked Last Week
-Name=WORKED
-Start=70
-Len=1
-
-[Item]
-Label=Regular Job
-Name=REGJOB
-Start=71
-Len=1
-
-[Item]
-Label=Reason for Absence
-Name=REASABS
-Start=72
-Len=1
-
-[Item]
-Label=Paid Absence
-Name=PAIDABS
-Start=73
-Len=1
-
-[Item]
-Label=Length of Absence
-Name=TIMEABS
+Label=14. Trained for occupation
+Name=C14_TRAINEDFOROCC
 Start=74
 Len=1
 
 [Item]
-Label=Major Activity
-Name=MAJACTV
+Label=15. Occupation trained
+Name=C15_OCCTRAINED
 Start=75
-Len=1
+Len=4
 
 [Item]
-Label=Seeking Work 
-Name=SEEKING
-Start=76
-Len=1
-
-[Item]
-Label=Method of seeking work
-Name=METHOD
-Start=77
-Len=1
-
-[Item]
-Label=Reason for not seeking work
-Name=REASNSK
-Start=78
-Len=1
-
-[Item]
-Label=Last looked for work
-Name=LSTLOOK
+Label=16. Place trained
+Name=C16_PLACETRAINED
 Start=79
-Len=1
+Len=2
 
 [Item]
-Label=Willing to work
-Name=WILLING
-Start=80
-Len=1
-
-[Item]
-Label=Able to work
-Name=ABLE
+Label=17. Worked Last Week
+Name=C17_WORKED
 Start=81
 Len=1
 
 [Item]
-Label=Type of work Wanted
-Name=WRKWNTD
+Label=18. Regular Job
+Name=C18_REGJOB
 Start=82
 Len=1
 
 [Item]
-Label=Hours of work wanted
-Name=HRSWNTD
+Label=19a. Reason for Absence
+Name=C19A_REASABS
 Start=83
-Len=2
+Len=1
 
 [Item]
-Label=Ever worked before
-Name=EVERWRKD
+Label=19b. Paid Absence
+Name=C19B_PAIDABS
+Start=84
+Len=1
+
+[Item]
+Label=19c. Length of Absence
+Name=U19C_TIMEABS
 Start=85
 Len=1
 
 [Item]
-Label=Last worked
-Name=LSTWRKD
+Label=20. Major Activity
+Name=U20_MAJACTV
 Start=86
 Len=1
 
 [Item]
-Label=First looked for work
-Name=FRSTLOOK
+Label=21. Seeking Work
+Name=U21_SEEKING
 Start=87
 Len=1
 
 [Item]
-Label=Last Occupation
-Name=LSTOCCUP
+Label=22. Method of seeking work
+Name=U22_METHOD
 Start=88
-Len=4
+Len=1
 
 [Item]
-Label=Last industry
-Name=LSTINDUS
+Label=23. Reason for not seeking work
+Name=U23_REASNSK
+Start=89
+Len=1
+
+[Item]
+Label=24. Last looked for work
+Name=U24_LSTLOOK
+Start=90
+Len=1
+
+[Item]
+Label=25a. Willing to work
+Name=U25A_WILLING
+Start=91
+Len=1
+
+[Item]
+Label=25b. Able to work
+Name=U25B_ABLE
 Start=92
-Len=4
+Len=1
 
 [Item]
-Label=32b. Last unemployment status
-Name=UNEMPLSA
+Label=26. Type of work Wanted
+Name=U26_WRKWNTD
+Start=93
+Len=1
+
+[Item]
+Label=27. Hours of work wanted
+Name=U27_HRSWNTD
+Start=94
+Len=2
+
+[Item]
+Label=28. Ever worked before
+Name=U28_EVERWRKD
 Start=96
 Len=1
 
 [Item]
-Label=32c. Main source of livelihood
-Name=USINCOME
+Label=29. Last worked
+Name=U29_LSTWRKD
 Start=97
 Len=1
 
 [Item]
-Label=32c. Second source of income
-Name=U2SINCOM
+Label=30. First looked for work
+Name=U30_FRSTLOOK
 Start=98
 Len=1
 
 [Item]
-Label=32d. Main livelihood earning
-Name=UEARNGS
+Label=31. Last Occupation
+Name=U31_LSTOCCUP
 Start=99
+Len=4
+
+[Item]
+Label=32a. Last industry
+Name=U32A_LSTINDUS
+Start=103
+Len=4
+
+[Item]
+Label=32b. Last unemployment status
+Name=U32B_UNEMPLSA
+Start=107
+Len=1
+
+[Item]
+Label=32c. Main source of livelihood
+Name=U32C_USINCOME
+Start=108
+Len=1
+
+[Item]
+Label=32c. Second source of income
+Name=U32C_U2SINCOM
+Start=109
+Len=1
+
+[Item]
+Label=32d. Main livelihood earning
+Name=U32D_UEARNGS
+Start=110
 Len=2
 
 [Item]
 Label=32d. Second livelihood earnings
-Name=U2EARNGS
-Start=101
+Name=U32D_U2EARNGS
+Start=112
 Len=2
 
 [Item]
 Label=33. Full-time or part-time worker
-Name=FULLPART
-Start=103
+Name=E33_FULLPART
+Start=114
 Len=1
 
 [Item]
 Label=34. Reason for working part-time
-Name=RSNPART
-Start=104
+Name=E34_RSNPART
+Start=115
 Len=1
 
 [Item]
 Label=35a. Do you have more than 1 job?
-Name=TWOJOBS
-Start=105
+Name=E35A_TWOJOBS
+Start=116
 Len=1
 
 [Item]
 Label=35b. Reason for other jobs?
-Name=RSN2JOBS
-Start=106
+Name=E35B_RSN2JOBS
+Start=117
 Len=1
 
 [Item]
 Label=36a. Main employment status
-Name=EMPLSTAT
-Start=107
+Name=E36A_EMPLSTAT
+Start=118
 Len=1
+
+[Item]
+Label=36b. Secondary Employment Status
+Name=E36B_EMPL2STAT
+Start=119
+Len=1
+
+[Item]
+Label=37. Main occupation
+Name=E37_MAINOCC
+Start=120
+Len=4
+
+[Item]
+Label=37. Second occupation
+Name=E37_SECOCC
+Start=124
+Len=4
+
+[Item]
+Label=38. Main industry
+Name=E38_MAININDUS
+Start=128
+Len=4
+
+[Item]
+Label=38. Second industry
+Name=E38_SECINDUSTRY
+Start=132
+Len=4
+
+[Item]
+Label=39. Work Experience
+Name=E39_MAINEXP
+Start=136
+Len=1
+
+[Item]
+Label=39. Secondary Work Experience
+Name=E39_SECEXP
+Start=137
+Len=1
+
+[Item]
+Label=40a. Earnings last week
+Name=E40A_MAINEARN
+Start=138
+Len=2
+
+[Item]
+Label=40a. Secondary earnings last week
+Name=E40A_SECEARN
+Start=140
+Len=2
+
+[Item]
+Label=40b. Main average earnings
+Name=E40B_MAINAVGEARN
+Start=142
+Len=2
+
+[Item]
+Label=40b. Secondary average earnings
+Name=E40B_SECAVGEARN
+Start=144
+Len=2
+
+[Item]
+Label=41a. Hours actually worked
+Name=E41A_HOURSAWORKED
+Start=146
+Len=2
+
+[Item]
+Label=41b. Hours normally worked
+Name=E41B_HOURSNWORKED
+Start=148
+Len=2
+
+[Item]
+Label=42. Reason for working less than 40 hours
+Name=E42_REASNOTWRK
+Start=150
+Len=2
+
+[Item]
+Label=43a. Willing to do additional work
+Name=E43A_WILLWRK
+Start=152
+Len=1
+
+[Item]
+Label=43b. Last looked for work
+Name=E43B_LASTLOOKED
+Start=153
+Len=1
+
+[Item]
+Label=44. Kind of additional work
+Name=E44_KINDADDWRK
+Start=154
+Len=1
+
+[Item]
+Label=45. Hoping for job
+Name=I45_HOPEJOB
+Start=155
+Len=1
+
+[Item]
+Label=46. When to take job
+Name=I46_WHENTKJOB
+Start=156
+Len=1
+
+[Item]
+Label=47. Occupation wanted
+Name=I47_OCCWANTED
+Start=157
+Len=4
+
+[Item]
+Label=48. Industry wanted
+Name=I48_INDWANTED
+Start=161
+Len=4
+
+[Item]
+Label=49. Ever worked before
+Name=I49_EVERWORKED
+Start=165
+Len=1
+
+[Item]
+Label=50. Last occupation
+Name=I50_LASTOCC
+Start=166
+Len=4
+
+[Item]
+Label=51a. Main sources of livelihood
+Name=I51A_MAINSRCLIVE
+Start=170
+Len=1
+
+[Item]
+Label=51a. Secondary scources of livelihood
+Name=I51A_SECSRCLIVE
+Start=171
+Len=1
+
+[Item]
+Label=51b. Main source amount
+Name=I51B_MAINSRCAMT
+Start=172
+Len=2
+
+[Item]
+Label=51b. Secondary source amount
+Name=I51B_SECSRCAMT
+Start=174
+Len=2
