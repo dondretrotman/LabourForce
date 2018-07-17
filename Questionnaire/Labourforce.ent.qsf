@@ -1,0 +1,123 @@
+﻿[CAPI QUESTIONS]
+Version=CSPro 7.1
+
+[LANGUAGES]
+EN=English
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LAGE
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 What is \b %LFIRST_NAME%\b0 's age?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LCOMPLETED
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Idividual number of the person completing form 2\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LDOB
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 What is \b %LFIRST_NAME%\b0 's date of birth? (YYYY/MM/DD)\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LEARNER
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Is \b %LFIRST_NAME%\b0  an earner?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LELIGIBLE
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Eligibility for answering individual schedule\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LFIRST_NAME
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 First name of resident\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LLAST_NAME
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Last name of resident\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LNEWMEM
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 New Member\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LPREVVISIT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Member from previous visit\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LREASON
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Reason for leaving or joining household\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LRTH
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 What is \b %LFIRST_NAME%\b0 's relationship to the head of the household?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LSEX
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Is \b %LFIRST_NAME%\b0  male or female?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LUR
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Does \b %LFIRST_NAME%\b0  usually live here?\par
+EN=}
+

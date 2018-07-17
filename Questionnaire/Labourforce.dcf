@@ -485,7 +485,7 @@ Label=Household Listing
 Name=HOUSEHOLD_LISTING
 RecordTypeValue='1'
 MaxRecords=10
-RecordLen=136
+RecordLen=137
 
 [Item]
 Label=Individual Number
@@ -823,10 +823,17 @@ Name=LCOMPLETED
 Start=135
 Len=2
 
+[Item]
+Label=Add another person?
+Name=ADDPER
+Start=137
+Len=1
+
 [Record]
 Label=Labourforce record
 Name=LABOURFORCE_REC
 RecordTypeValue='2'
+MaxRecords=10
 RecordLen=178
 
 [Item]
@@ -1055,55 +1062,54 @@ Value=1:10;Valid
 
 [Item]
 Label=1. Individual No
-Name=C1_INDNO
+Name=INDIVNO
 Start=48
 Len=2
 
 [ValueSet]
 Label=1. Individual No
-Name=C1_INDNO_VS1
+Name=INDIVNO_VS1
 Value=1:10;Valid
 
 [Item]
 Label=3. Sex
-Name=C3_SEX
+Name=SEX
 Start=50
 Len=1
 
 [ValueSet]
 Label=3. Sex
-Name=C3_SEX_VS1
+Name=SEX_VS1
 Value=1;Male
 Value=2;Female
 
 [Item]
 Label=4. Relation to Head
-Name=C4_RELHD
+Name=RELHD
 Start=51
 Len=1
 
 [ValueSet]
 Label=4. Relation to Head
-Name=C4_RELHD_VS1
+Name=RELHD_VS1
 Link=49183520
 
 [Item]
 Label=5. Birth Date
-Name=C5_BIRTHD
+Name=BIRTHD
 Start=52
 Len=8
-DataType=Alpha
 
 [Item]
 Label=Birth Date Year
-Name=C5_BYR
+Name=BYR
 Start=52
 Len=4
 ItemType=SubItem
 
 [ValueSet]
 Label=Birth Date Year
-Name=C5_BYR_VS1
+Name=BYR_VS1
 Value=1900;1,900
 Value=1901;1,901
 Value=1902;1,902
@@ -1226,54 +1232,54 @@ Value=2018;2,018
 
 [Item]
 Label=Birth Date Month
-Name=C5_BMO
+Name=BMO
 Start=56
 Len=2
 ItemType=SubItem
 
 [ValueSet]
 Label=Birth Date Month
-Name=C5_BMO_VS1
+Name=BMO_VS1
 Link=49194168
 
 [Item]
 Label=Birth Date Day
-Name=C5_BDY
+Name=BDY
 Start=58
 Len=2
 ItemType=SubItem
 
 [ValueSet]
 Label=Birth Date Day
-Name=C5_BDY_VS1
+Name=BDY_VS1
 Link=49198656
 
 [Item]
 Label=6. Age
-Name=C6_AGE
+Name=AGE
 Start=60
 Len=3
 
 [ValueSet]
 Label=6. Age
-Name=C6_AGE_VS1
+Name=AGE_VS1
 Value=0:120;Valid
 
 [Item]
 Label=7. Nationality
-Name=C7_CNTRY_CD
+Name=CNTRY_CD
 Start=63
 Len=3
 
 [Item]
 Label=8. Marital Status
-Name=C8_MARSTAT
+Name=MARSTAT
 Start=66
 Len=1
 
 [ValueSet]
 Label=8. Marital Status
-Name=C8_MARSTAT_VS1
+Name=MARSTAT_VS1
 Value=0;Never married
 Value=1;Married
 Value=2;Widowed
@@ -1283,13 +1289,13 @@ Value=9;Not stated
 
 [Item]
 Label=9. Education Level
-Name=C9_EDUCLEV
+Name=EDUCLEV
 Start=67
 Len=1
 
 [ValueSet]
 Label=9. Education Level
-Name=C9_EDUCLEV_VS1
+Name=EDUCLEV_VS1
 Value=0;None
 Value=1;Primary/Elemenary
 Value=2;Secondary
@@ -1300,13 +1306,13 @@ Value=9;Not Stated
 
 [Item]
 Label=10. Highest qualification
-Name=C10_QUALLEV
+Name=QUALLEV
 Start=68
 Len=2
 
 [ValueSet]
 Label=10. Highest qualification
-Name=C10_QUALLEV_VS1
+Name=QUALLEV_VS1
 Value=0;None
 Value=1;BSSC
 Value=2;CXC (Basic)
@@ -1320,88 +1326,88 @@ Value=9;Other
 
 [Item]
 Label=11. Currently Training
-Name=C11_CTRAINING
+Name=CTRAINING
 Start=70
 Len=1
 
 [ValueSet]
 Label=11. Currently Training
-Name=C11_CTRAINING_VS1
+Name=CTRAINING_VS1
 Value=1;Yes
 Value=2;No
 
 [Item]
 Label=12. Training for Occupation
-Name=C12_OCCTRAINING
+Name=OCCUPTR
 Start=71
 Len=4
 
 [Item]
 Label=13. Place currently training
-Name=C13_PLACETR
+Name=PLACETR
 Start=75
 Len=2
 
 [Item]
 Label=14. Trained for occupation
-Name=C14_TRAINEDFOROCC
+Name=TRAINEDFOROCC
 Start=77
 Len=1
 
 [ValueSet]
 Label=14. Trained for occupation
-Name=C14_TRAINEDFOROCC_VS1
+Name=TRAINEDFOROCC_VS1
 Value=1;Yes
 Value=2;No
 Value=9;Not Stated
 
 [Item]
 Label=15. Occupation trained
-Name=C15_OCCTRAINED
+Name=OCCTRAINED
 Start=78
 Len=4
 
 [Item]
 Label=16. Place trained
-Name=C16_PLACETRAINED
+Name=PLACETRAINED
 Start=82
 Len=2
 
 [Item]
 Label=17. Worked Last Week
-Name=C17_WORKED
+Name=WORKED
 Start=84
 Len=1
 
 [ValueSet]
 Label=17. Worked Last Week
-Name=C17_WORKED_VS1
+Name=WORKED_VS1
 Value=1;Yes
 Value=2;No
 Value=9;Not stated
 
 [Item]
 Label=18. Regular Job
-Name=C18_REGJOB
+Name=REGJOB
 Start=85
 Len=1
 
 [ValueSet]
 Label=18. Regular Job
-Name=C18_REGJOB_VS1
+Name=REGJOB_VS1
 Value=1;Yes
 Value=2;No
 Value=9;Not stated
 
 [Item]
 Label=19a. Reason for Absence
-Name=C19A_REASABS
+Name=REASABS
 Start=86
 Len=1
 
 [ValueSet]
 Label=19a. Reason for Absence
-Name=C19A_REASABS_VS1
+Name=REASABS_VS1
 Value=1;Illness, Maternity, Injury
 Value=2;Vacation Leave
 Value=3;Study, Training
@@ -1413,26 +1419,26 @@ Value=9;Not stated
 
 [Item]
 Label=19b. Paid Absence
-Name=C19B_PAIDABS
+Name=PAIDABS
 Start=87
 Len=1
 
 [ValueSet]
 Label=19b. Paid Absence
-Name=C19B_PAIDABS_VS1
+Name=PAIDABS_VS1
 Value=1;Yes
-Value=2;No 
+Value=2;No
 Value=9;Not stated
 
 [Item]
 Label=19c. Length of Absence
-Name=U19C_TIMEABS
+Name=TIMEABS
 Start=88
 Len=1
 
 [ValueSet]
 Label=19c. Length of Absence
-Name=U19C_TIMEABS_VS1
+Name=TIMEABS_VS1
 Value=1;Less than 1 month
 Value=2;1-3 months
 Value=3;Over 3 months
@@ -1440,13 +1446,13 @@ Value=9;Not stated
 
 [Item]
 Label=20. Major Activity
-Name=U20_MAJACTV
+Name=MAJACTV
 Start=89
 Len=1
 
 [ValueSet]
 Label=20. Major Activity
-Name=U20_MAJACTV_VS1
+Name=MAJACTV_VS1
 Value=1;Kept house
 Value=2;At School
 Value=3;Retired
@@ -1457,26 +1463,26 @@ Value=9;Not Stated
 
 [Item]
 Label=21. Seeking Work
-Name=U21_SEEKING
+Name=SEEKING
 Start=90
 Len=1
 
 [ValueSet]
 Label=21. Seeking Work
-Name=U21_SEEKING_VS1
+Name=SEEKING_VS1
 Value=1;Yes
 Value=2;No
 Value=9;Not stated
 
 [Item]
 Label=22. Method of seeking work
-Name=U22_METHOD
+Name=METHOD
 Start=91
 Len=1
 
 [ValueSet]
 Label=22. Method of seeking work
-Name=U22_METHOD_VS1
+Name=METHOD_VS1
 Value=1;Registered at Employment Bureau
 Value=2;Visited/contacted business/work sites
 Value=3;Asked friends/relatives/parliamentary reps
@@ -1487,13 +1493,13 @@ Value=9;Not stated
 
 [Item]
 Label=23. Reason for not seeking work
-Name=U23_REASNSK
+Name=REASNSK
 Start=92
 Len=1
 
 [ValueSet]
 Label=23. Reason for not seeking work
-Name=U23_REASNSK_VS1
+Name=REASNSK_VS1
 Value=1;Did not want work
 Value=2;Felt no work was available
 Value=3;Don't know where to find work
@@ -1506,13 +1512,13 @@ Value=9;Not stated
 
 [Item]
 Label=24. Last looked for work
-Name=U24_LSTLOOK
+Name=LSTLOOK
 Start=93
 Len=1
 
 [ValueSet]
 Label=24. Last looked for work
-Name=U24_LSTLOOK_VS1
+Name=LSTLOOK_VS1
 Value=1;Never looked
 Value=2;1 month or less
 Value=3;2-3 months
@@ -1521,39 +1527,39 @@ Value=9;Not stated
 
 [Item]
 Label=25a. Willing to work
-Name=U25A_WILLING
+Name=WILLING
 Start=94
 Len=1
 
 [ValueSet]
 Label=25a. Willing to work
-Name=U25A_WILLING_VS1
+Name=WILLING_VS1
 Value=1;Yes
 Value=2;No
 Value=9;Not stated
 
 [Item]
 Label=25b. Able to work
-Name=U25B_ABLE
+Name=ABLE
 Start=95
 Len=1
 
 [ValueSet]
 Label=25b. Able to work
-Name=U25B_ABLE_VS1
+Name=ABLE_VS1
 Value=1;Yes
 Value=2;No
 Value=9;Not stated
 
 [Item]
 Label=26. Type of work Wanted
-Name=U26_WRKWNTD
+Name=WRKWNTD
 Start=96
 Len=1
 
 [ValueSet]
 Label=26. Type of work Wanted
-Name=U26_WRKWNTD_VS1
+Name=WRKWNTD_VS1
 Value=1;Employee
 Value=2;Self-employed
 Value=3;Either
@@ -1561,13 +1567,13 @@ Value=9;Not Stated
 
 [Item]
 Label=27. Hours of work wanted
-Name=U27_HRSWNTD
+Name=HRSWNTD
 Start=97
 Len=2
 
 [ValueSet]
 Label=27. Hours of work wanted
-Name=U27_HRSWNTD_VS1
+Name=HRSWNTD_VS1
 Value=1;Under 5
 Value=2;5 - 9
 Value=3;10 - 14
@@ -1582,26 +1588,26 @@ Value=99;Not stated
 
 [Item]
 Label=28. Ever worked before
-Name=U28_EVERWRKD
+Name=EVERWKD
 Start=99
 Len=1
 
 [ValueSet]
 Label=28. Ever worked before
-Name=U28_EVERWRKD_VS1
+Name=EVERWKD_VS1
 Value=1;Yes
 Value=2;No
 Value=9;Not stated
 
 [Item]
 Label=29. Last worked
-Name=U29_LSTWRKD
+Name=LSTWRKD
 Start=100
 Len=1
 
 [ValueSet]
 Label=29. Last worked
-Name=U29_LSTWRKD_VS1
+Name=LSTWRKD_VS1
 Value=1;Within past month
 Value=2;Within Past 3 months
 Value=3;Within past 6 months
@@ -1612,13 +1618,13 @@ Value=9;Not stated
 
 [Item]
 Label=30. First looked for work
-Name=U30_FRSTLOOK
+Name=FRSTLOOK
 Start=101
 Len=1
 
 [ValueSet]
 Label=30. First looked for work
-Name=U30_FRSTLOOK_VS1
+Name=FRSTLOOK_VS1
 Value=1;Within past month
 Value=2;Within Past 3 months
 Value=3;Within past 6 months
@@ -1629,25 +1635,25 @@ Value=9;Not stated
 
 [Item]
 Label=31. Last Occupation
-Name=U31_LSTOCCUP
+Name=LSTOCCUP
 Start=102
 Len=4
 
 [Item]
 Label=32a. Last industry
-Name=U32A_LSTINDUS
+Name=LSTINDUS
 Start=106
 Len=4
 
 [Item]
 Label=32b. Last unemployment status
-Name=U32B_UNEMPLSA
+Name=UNEMPLSA
 Start=110
 Len=1
 
 [ValueSet]
 Label=32b. Last unemployment status
-Name=U32B_UNEMPLSA_VS1
+Name=UNEMPLSA_VS1
 Value=1;An Employer
 Value=2;An employee in the government sector
 Value=3;An employee in the private sector
@@ -1658,13 +1664,13 @@ Value=9;Not stated
 
 [Item]
 Label=32c. Main source of livelihood
-Name=U32C_USINCOME
+Name=USINCOME
 Start=111
 Len=1
 
 [ValueSet]
 Label=32c. Main source of livelihood
-Name=U32C_USINCOME_VS1
+Name=USINCOME_VS1
 Link=49272840
 Value=1;Pension
 Value=2;Investment
@@ -1677,24 +1683,25 @@ Value=9;Not Stated
 
 [Item]
 Label=32c. Second source of income
-Name=U32C_U2SINCOM
+Name=U2SINCOM
 Start=112
 Len=1
 
 [ValueSet]
 Label=32c. Second source of income
-Name=U32C_U2SINCOM_VS1
+Name=U2SINCOM_VS1
 Link=49272840
 
 [Item]
 Label=32d. Main livelihood earning
-Name=U32D_UEARNGS
+Name=UEARNGS
 Start=113
 Len=2
 
 [ValueSet]
 Label=32d. Main livelihood earning
-Name=U32D_UEARNGS_VS1
+Name=UEARNGS_VS1
+Link=126993760
 Value=1;Under $200
 Value=2;$200 - $299
 Value=3;$300 - $399
@@ -1710,198 +1717,430 @@ Value=99;Not stated
 
 [Item]
 Label=32d. Second livelihood earnings
-Name=U32D_U2EARNGS
+Name=U2EARNGS
 Start=115
 Len=2
 
+[ValueSet]
+Label=32d. Second livelihood earnings
+Name=U2EARNGS_VS1
+Link=126993760
+
 [Item]
 Label=33. Full-time or part-time worker
-Name=E33_FULLPART
+Name=FULLPART
 Start=117
 Len=1
 
+[ValueSet]
+Label=33. Full-time or part-time worker
+Name=FULLPART_VS1
+Value=1;Full-Time
+Value=2;Part-Time
+
 [Item]
 Label=34. Reason for working part-time
-Name=E34_RSNPART
+Name=RSNPART
 Start=118
 Len=1
 
+[ValueSet]
+Label=34. Reason for working part-time
+Name=RSNPART_VS1
+Value=1;Own Illness
+Value=2;Not available for full time because of school, training, family responsibilities, etc
+Value=3;Could not find full time work
+Value=4;Temporary reduction of work
+Value=5;Doing other work elsewhere
+Value=6;Other
+Value=9;Not Stated
+
 [Item]
 Label=35a. Do you have more than 1 job?
-Name=E35A_TWOJOBS
+Name=TWOJOBS
 Start=119
 Len=1
 
+[ValueSet]
+Label=35a. Do you have more than 1 job?
+Name=TWOJOBS_VS1
+Value=1;Yes
+Value=2;No
+Value=9;Not Stated
+
 [Item]
 Label=35b. Reason for other jobs?
-Name=E35B_RSN2JOBS
+Name=RSN2JOBS
 Start=120
 Len=1
 
+[ValueSet]
+Label=35b. Reason for other jobs?
+Name=RSN2JOBS_VS1
+Value=1;Need additional income
+Value=2;Starting own business
+Value=3;Hobby
+Value=4;Other
+Value=9;Not Stated
+
 [Item]
 Label=36a. Main employment status
-Name=E36A_EMPLSTAT
+Name=EMPLSTAT
 Start=121
 Len=1
 
+[ValueSet]
+Label=36a. Main employment status
+Name=EMPLSTAT_VS1
+Link=126995960
+Value=1;An Employer
+Value=2;An employee in the government service
+Value=3;An employee in the private sector
+Value=4;Self-employed (Own-account worker)
+Value=5;An unpaid family worker
+Value=6;An apprentice
+Value=7;Other
+
 [Item]
 Label=36b. Secondary Employment Status
-Name=E36B_EMPL2STAT
+Name=EMPL2STAT
 Start=122
 Len=1
 
+[ValueSet]
+Label=36b. Secondary Employment Status
+Name=EMPL2STAT_VS1
+Link=126995960
+
 [Item]
 Label=37. Main occupation
-Name=E37_MAINOCC
+Name=OCCUP
 Start=123
 Len=4
 
 [Item]
 Label=37. Second occupation
-Name=E37_SECOCC
+Name=SOCCUP
 Start=127
 Len=4
 
 [Item]
 Label=38. Main industry
-Name=E38_MAININDUS
+Name=INDUS
 Start=131
 Len=4
 
 [Item]
 Label=38. Second industry
-Name=E38_SECINDUSTRY
+Name=SINDUS
 Start=135
 Len=4
 
 [Item]
 Label=39. Work Experience
-Name=E39_MAINEXP
+Name=EXPRNCE
 Start=139
 Len=1
 
+[ValueSet]
+Label=39. Work Experience
+Name=EXPRNCE_VS1
+Link=126998424
+Value=1;Under 1 year
+Value=2;1 - 5
+Value=3;6 - 10
+Value=4;11 - 15
+Value=5;16 - 20
+Value=6;20+
+Value=9;Not Stated
+
 [Item]
 Label=39. Secondary Work Experience
-Name=E39_SECEXP
+Name=EXPRNCE2
 Start=140
 Len=1
 
+[ValueSet]
+Label=39. Secondary Work Experience
+Name=EXPRNCE2_VS1
+Link=126998424
+
 [Item]
 Label=40a. Earnings last week
-Name=E40A_MAINEARN
+Name=EARNGS
 Start=141
 Len=2
 
+[ValueSet]
+Label=40a. Earnings last week
+Name=EARNGS_VS1
+Link=126998864
+Value=1;Under $200
+Value=2;$200 - $299
+Value=3;$300 - $399
+Value=4;$400 - $499
+Value=5;$500 - $599
+Value=6;$600 - $699
+Value=7;$700 - $799
+Value=8;$800 - $899
+Value=9;$900 - $999
+Value=10;$1000 - $1300
+Value=11;Over $1300
+Value=99;Not stated
+
 [Item]
 Label=40a. Secondary earnings last week
-Name=E40A_SECEARN
+Name=EARNGS2
 Start=143
 Len=2
 
+[ValueSet]
+Label=40a. Secondary earnings last week
+Name=EARNGS2_VS1
+Link=126998864
+
 [Item]
 Label=40b. Main average earnings
-Name=E40B_MAINAVGEARN
+Name=AVGEARNS
 Start=145
 Len=2
 
+[ValueSet]
+Label=40b. Main average earnings
+Name=AVGEARNS_VS1
+Link=126998864
+
 [Item]
 Label=40b. Secondary average earnings
-Name=E40B_SECAVGEARN
+Name=AVGEARNS2
 Start=147
 Len=2
 
+[ValueSet]
+Label=40b. Secondary average earnings
+Name=AVGEARNS2_VS1
+Link=126998864
+
 [Item]
 Label=41a. Hours actually worked
-Name=E41A_HOURSAWORKED
+Name=HRSWRKD
 Start=149
 Len=2
 
+[ValueSet]
+Label=41a. Hours actually worked
+Name=HRSWRKD_VS1
+Link=127005640
+Value=1;Under 5
+Value=2;5 - 9
+Value=3;10 - 14
+Value=4;15 - 19
+Value=5;20 - 24
+Value=6;25 - 29
+Value=7;30 - 34
+Value=8;35 - 39
+Value=9;40 - 44
+Value=10;45+
+Value=99;Not stated
+
 [Item]
 Label=41b. Hours normally worked
-Name=E41B_HOURSNWORKED
+Name=NHRSWRKD
 Start=151
 Len=2
 
+[ValueSet]
+Label=41b. Hours normally worked
+Name=NHRSWRKD_VS1
+Link=127005640
+
 [Item]
 Label=42. Reason for working less than 40 hours
-Name=E42_REASNOTWRK
+Name=RSNLESS
 Start=153
 Len=2
 
+[ValueSet]
+Label=42. Reason for working less than 40 hours
+Name=RSNLESS_VS1
+Value=1;Own illness, injury
+Value=2;Personal family responsibilities
+Value=3;Holiday, vacation
+Value=4;In school, training
+Value=5;Did not want more hours
+Value=6;Full-time work is less than 40 hours per week
+Value=7;Strike, lock-out
+Value=8;Job started/ended within the last week
+Value=9;Reduction in economic activity
+Value=10;Temporary disorganisation, suspension of work, bad weather, etc
+Value=11;could not find more work
+Value=12;Other
+Value=99;Not Stated
+
 [Item]
 Label=43a. Willing to do additional work
-Name=E43A_WILLWRK
+Name=ADDWRK
 Start=155
 Len=1
 
+[ValueSet]
+Label=43a. Willing to do additional work
+Name=ADDWRK_VS1
+Value=1;Yes
+Value=2;No
+Value=9;Not stated
+
 [Item]
 Label=43b. Last looked for work
-Name=E43B_LASTLOOKED
+Name=LASTLOOK
 Start=156
 Len=1
 
+[ValueSet]
+Label=43b. Last looked for work
+Name=LASTLOOK_VS1
+Value=1;In the last week
+Value=2;More than a week ago but less than a month
+Value=3;A month to less than 3 months
+Value=4;3 months to less than 6 months
+Value=5;6 months or more ago
+Value=6;Never looked for work
+
 [Item]
 Label=44. Kind of additional work
-Name=E44_KINDADDWRK
+Name=KINDWRK
 Start=157
 Len=1
 
+[ValueSet]
+Label=44. Kind of additional work
+Name=KINDWRK_VS1
+Value=1;More hours at present work
+Value=2;Other job(s) in addition to present one(s)
+Value=3;Other job(s) with more hours to replace present one(s)
+Value=9;Not stated
+
 [Item]
 Label=45. Hoping for job
-Name=I45_HOPEJOB
+Name=HPWORK
 Start=158
 Len=1
 
+[ValueSet]
+Label=45. Hoping for job
+Name=HPWORK_VS1
+Value=1;Yes
+Value=2;No
+Value=9;Not Stated
+
 [Item]
 Label=46. When to take job
-Name=I46_WHENTKJOB
+Name=INACTWHN
 Start=159
 Len=1
 
+[ValueSet]
+Label=46. When to take job
+Name=INACTWHN_VS1
+Value=1;Don't know
+Value=2;Next Month
+Value=3;Next 3 months
+Value=4;Next 6 months
+Value=5;Next 1 year
+Value=6;Next 2 years
+Value=7;Over 2 years
+Value=9;Not stated
+
 [Item]
 Label=47. Occupation wanted
-Name=I47_OCCWANTED
+Name=FOCCUP
 Start=160
 Len=4
 
 [Item]
 Label=48. Industry wanted
-Name=I48_INDWANTED
+Name=INCINDUS
 Start=164
 Len=4
 
 [Item]
 Label=49. Ever worked before
-Name=I49_EVERWORKED
+Name=WORKBEFO
 Start=168
 Len=1
 
+[ValueSet]
+Label=49. Ever worked before
+Name=WORKBEFO_VS1
+Value=1;Yes
+Value=2;No
+Value=9;Not Stated
+
 [Item]
 Label=50. Last occupation
-Name=I50_LASTOCC
+Name=INCOCCUP
 Start=169
 Len=4
 
 [Item]
 Label=51a. Main sources of livelihood
-Name=I51A_MAINSRCLIVE
+Name=SCINCOME
 Start=173
 Len=1
 
+[ValueSet]
+Label=51a. Main sources of livelihood
+Name=SCINCOME_VS1
+Link=127011448
+Value=1;Pension
+Value=2;Investment
+Value=3;Remittance
+Value=4;Disability/unemployment benefits
+Value=5;Multiple sources
+Value=6;Local contribution from relatives/friends
+Value=7;Other public assistance
+Value=9;Not Stated
+
 [Item]
 Label=51a. Secondary scources of livelihood
-Name=I51A_SECSRCLIVE
+Name=IN2INCOM
 Start=174
 Len=1
 
+[ValueSet]
+Label=51a. Secondary scources of livelihood
+Name=IN2INCOM_VS1
+Link=127011448
+
 [Item]
 Label=51b. Main source amount
-Name=I51B_MAINSRCAMT
+Name=INEARNGS
 Start=175
 Len=2
 
+[ValueSet]
+Label=51b. Main source amount
+Name=INEARNGS_VS1
+Value=1;Under $200
+Value=2;$200 - $299
+Value=3;$300 - $399
+Value=4;$400 - $499
+Value=5;$500 - $599
+Value=6;$600 - $699
+Value=7;$700 - $799
+Value=8;$800 - $899
+Value=9;$900 - $999
+Value=10;$1000 - $1300
+Value=11;Over $1300
+Value=99;Not stated
+
 [Item]
 Label=51b. Secondary source amount
-Name=I51B_SECSRCAMT
+Name=IN2EARNG
 Start=177
 Len=2
+
+[ValueSet]
+Label=51b. Secondary source amount
+Name=IN2EARNG_VS1
+Link=126998864
