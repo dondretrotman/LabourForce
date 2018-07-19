@@ -52,16 +52,24 @@ PROC HD_HH
 	endif;
 
 //---------------------------------------------------------------------------
+PROC LNDTNURE
+
+	//if house is rented, then land is probably rented
+	if OCCPNCY in 2,3 then
+		$ = 3;
+	endif;
+
+//-----------------------------------------------------------
 PROC INDIVNO
 
 	//TODO: prefill information based on household listing ID number
 	i = seek(LIDNO = $);
 	
-	if i = 1 then
-		SEX = LSEX(INDIVNO);
-		RELHD = LRTH(INDIVNO);
-		BIRTHD = LDOB(INDIVNO);
-		AGE = LAGE(INDIVNO);
+	if i = $ then
+		SEX = LSEX(i);
+		RELHD = LRTH(i);
+		BIRTHD = LDOB(i);
+		AGE = LAGE(i);
 	else
 		errmsg("No person with ID #%d was found, please try again",$);
 		reenter;

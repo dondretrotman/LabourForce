@@ -308,7 +308,6 @@ Position=38,0,67,20
 Item=LIDNO,LABOURFORCE_DICT
 Protected=Yes
 HideInCaseTree=Yes
-AutoIncrement=Yes
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
   

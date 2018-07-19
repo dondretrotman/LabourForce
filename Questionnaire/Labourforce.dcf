@@ -738,6 +738,7 @@ Value=9;September
 Value=10;October
 Value=11;November
 Value=12;December
+Value=99;Don't know
 
 [Item]
 Label=DOB_Day
@@ -781,6 +782,7 @@ Value=28;28
 Value=29;29
 Value=30;30
 Value=31;31
+Value=99;Don't know
 
 [Item]
 Label=Age
@@ -987,6 +989,7 @@ Value=2;Lease
 Value=3;Rent
 Value=4;Squat
 Value=5;Other
+Value=9;Don't Know
 
 [Item]
 Label=HHsize
@@ -1024,7 +1027,7 @@ Len=2
 [ValueSet]
 Label=Earners
 Name=EARNERS_VS1
-Value=1:10;valid
+Value=0:10;valid
 
 [Item]
 Label=Head Earner
@@ -1047,7 +1050,7 @@ Len=2
 [ValueSet]
 Label=No of Male Children
 Name=MCHILDRN_VS1
-Value=1:10;Valid
+Value=0:10;Valid
 
 [Item]
 Label=No of Female Children
@@ -1058,7 +1061,7 @@ Len=2
 [ValueSet]
 Label=No of Female Children
 Name=FCHILDRN_VS1
-Value=1:10;Valid
+Value=0:10;Valid
 
 [Item]
 Label=1. Individual No
@@ -1229,6 +1232,7 @@ Value=2015;2,015
 Value=2016;2,016
 Value=2017;2,017
 Value=2018;2,018
+Value=9999;Don't know
 
 [Item]
 Label=Birth Date Month
@@ -1323,6 +1327,7 @@ Value=6;Diploma
 Value=7;Degree
 Value=8;Professional
 Value=9;Other
+Value=99;Not stated
 
 [Item]
 Label=11. Currently Training
