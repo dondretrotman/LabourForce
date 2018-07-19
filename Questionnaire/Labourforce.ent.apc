@@ -10,7 +10,8 @@ Notes:
 Todo:
 	Codes for the following must be added
 		Occupation, industry, no of males/females, Years (date of birth and interview), sample no, visit no, interviewer, supervisor, enumerator, coder, number of earners, household size, country codes age range institution codes
-	Skip patterns must be added
+	DONE Skip patterns must be added
+	Add occupation codes
 
 }
 PROC GLOBAL
@@ -29,12 +30,22 @@ preproc
 //--------------------------------------------------------
 PROC LAGE
 
+preproc
+	//auto fill the age based on the DOB
+	if LDOB_YEAR <> 9999 and LDOB_MONTH <> 99 and LDOB_DAY <> 99 then
+		tempage = datediff(LDOB, sysdate("YYYYMMDD"), "Y");
+		$ = tempage;
+	endif;
+	
+postproc
 	//check that age corresponds to date of birth
-	tempage = datediff(LDOB, sysdate("YYYYMMDD"), "Y");
+	if LDOB_YEAR <> 9999 and LDOB_MONTH <> 99 and LDOB_DAY <> 99 then		//don't check if we don't know the DOB
+		tempage = datediff(LDOB, sysdate("YYYYMMDD"), "Y");
 		
-	if $ <> tempage then
-		errmsg("age (%d) does not agree with DOB (%s), please verify",$,edit("9999/99/99",LDOB))
-		select("Correct the age", $, "Correct the Date of birth", LDOB);
+		if $ <> tempage then
+			errmsg("age (%d) does not agree with DOB (%s), please verify",$,edit("9999/99/99",LDOB))
+			select("Correct the age", $, "Correct the Date of birth", LDOB);
+		endif;
 	endif;
 
 //---------------------------------------------------------------------------
