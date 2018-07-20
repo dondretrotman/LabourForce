@@ -478,7 +478,7 @@ Position=0,0,113,20
 Item=LDOB,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=Date
-CaptureDateFormat=DDMMYYYY
+CaptureDateFormat=YYYYMMDD
   
 [Text]
 Position=0,0,30,16
@@ -572,8 +572,10 @@ Name=ADDPER
 Position=67,0,82,20
 Item=ADDPER,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
   
 [Text]
+Position=0,0,134,16
 Text=Add another person?
  
 [EndColumn]
@@ -598,6 +600,7 @@ Required=Yes
 Type=Record
 TypeName=LABOURFORCE_REC
 Max=10
+MaxField=NUMBER_OF_PERSONS
 DisplaySize=82,142,7293,538
 Orientation=Vertical
 ColumnWidth=0

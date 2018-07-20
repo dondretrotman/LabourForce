@@ -28,6 +28,12 @@ preproc
 	noinput;
 	
 //--------------------------------------------------------
+PROC LNEWMEM
+
+	//if not a new member, don't ask why they joined
+	if $ = 2 then
+		skip to LRTH;
+	endif;
 PROC LAGE
 
 preproc
@@ -50,11 +56,21 @@ postproc
 
 //---------------------------------------------------------------------------
 PROC ADDPER
+
 	if $ = 2 then
+		NUMBER_OF_PERSONS = count(LSEX);
 		endgroup;
 	endif;
 
 //----------------------------------------------------------------------
+PROC INTRVW
+preproc
+	//check that person is eligible to be interviewed
+	if LELIGIBLE <> 1 then		//if not eligible
+		skip to next;
+	endif;
+	
+//---------------------------------------------------------------------
 PROC HD_HH
 	
 	//if not head of household, skip to individual details 

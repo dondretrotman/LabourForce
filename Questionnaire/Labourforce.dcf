@@ -495,7 +495,7 @@ Len=3
 Label=Household Listing
 Name=HOUSEHOLD_LISTING
 RecordTypeValue='1'
-RecordLen=29
+RecordLen=31
 
 [Item]
 Label=Visit Number
@@ -708,6 +708,12 @@ Name=SUPERV_VS1
 Value=95;Chase
 Value=93;Small
 Value=94;Davis
+
+[Item]
+Label=Number of persons
+Name=NUMBER_OF_PERSONS
+Start=30
+Len=2
 
 [Record]
 Label=Labourforce record
@@ -1082,6 +1088,12 @@ Label=Add another person?
 Name=ADDPER
 Start=137
 Len=1
+
+[ValueSet]
+Label=Add another person?
+Name=ADDPER_VS1
+Value=1;Yes
+Value=2;No
 
 [Item]
 Label=DataEntryID
@@ -1711,7 +1723,7 @@ Value=96;Costa Rica
 Value=175;Cote D'Ivoire
 Value=241;Croatia
 Value=86;Cuba
-Value=148;Curacao 
+Value=148;Curacao
 Value=64;Cyprus
 Value=94;Czeckia Republic
 Value=94;Czechoslovakia
@@ -1947,6 +1959,253 @@ Name=OCCUPTR
 Start=187
 Len=4
 
+[ValueSet]
+Label=12. Training for Occupation
+Name=OCCUPTR_VS1
+Value=0:1000;Armed Forces
+Value=1111:1499;Managers
+Value=2111:2799;Professionals
+Value=3111:3699;Technicians etc
+Value=4100:4999;Clerical Support Workers
+Value=5111:5499;Service & Sales Workers
+Value=6111:6999;Skilled Agricultural Workers etc
+Value=7000:7549;Craft & Related Workers
+Value=8111:8359;Plant & Machine Operators
+Value=9111:9699;Elementary Occupations
+Value=9999;Not Stated
+
+[ValueSet]
+Label=Two digit level occupation code
+Name=OCCUPTR_VS2
+Value=100:399;Armed forces
+Value=1100:1199;Chief executives, senior officials and legislators
+Value=1200:1299;Administrative and commercial managers
+Value=1300:1399;Production and specialised services managers
+Value=1400:1499;Hospitality, retail and other services managers
+Value=2100:2199;Science and enginerring professionals
+Value=2200:2299;Health professionals
+Value=2300:2399;Teaching professionals
+Value=2400:2499;Business and administration professionalls
+Value=2500:2599;Information and communications technology professionals
+Value=2600:2699;Legal, social and cultural professionals
+Value=3100:3199;Science and engineering associate professionals
+Value=3200:3299;Health associate professionals
+Value=3300:3399;Business and administration associate professionals
+Value=3400:3499;Legal, social, cultural and related associate professionals
+Value=3500:3599;Information and communications technicians
+Value=4100:4199;General and keyboard clerks
+Value=4200:4299;Customer services clerks
+Value=4300:4399;Numerical and material recording clerks
+Value=4400:4499;Other clerical support workers
+Value=5100:5199;Personal service workers
+Value=5200:5299;Sales workers
+Value=5300:5399;Personal care workers
+Value=5400:5499;Protective services workers
+Value=6100:6199;Market-oriented skilled agricultural workers
+Value=6200:6299;Market-oriented skilled forestry, fishery and hunting workers
+Value=6300:6399;Subsistence farmers, fishers, hunters and gatherers
+Value=7100:7199;Building and related trades workers, excluding electricians
+Value=7200:7299;Metal, machinery and related trades workers
+Value=7300:7399;Handicraft and printing workers
+Value=7400:7499;Electrical and electronic trades workers
+Value=7500:7599;Food processing, wood working, garment and other craft and related trades workers
+Value=8100:8299;Stationary plant and machine operators and assemblers
+Value=8300:8399;Drivers and mobile plant operators
+Value=9100:9199;Cleaners and helpers
+Value=9200:9299;Agricultural, forestry and fishery labourers
+Value=9300:9399;Labourers in mining, construction, manufacturing and transport
+Value=9400:9499;Food preparation assistants
+Value=9500:9599;Street and related sales and service workers
+Value=9600:9699;Refuse workers and other elementary workers
+Value=9999;Not Stated
+
+[ValueSet]
+Label=Occupation codes
+Name=OCCUPTR_VS3
+Link=65551688
+Value=2411;Accountant
+Value=3334;Actor
+Value=2112;Actuary
+Value=3312;Adjuster - Claims
+Value=7239;Adjuster - Non-Office Machinery
+Value=7246;Adjuster - Officer Machinery
+Value=2413;Administrator - Business/Network
+Value=2413;Administrator - Court
+Value=1222;Administrator - Financial (Enterprise, 25+ employees)
+Value=3317;Advertising Representative
+Value=2419;Advisor - Business
+Value=3151;Advisor - Industrial Safety
+Value=1224;Advisor - Marketing (enterprise, 25+ employees)
+Value=3151;Advisor - Safety
+Value=1224;Advisor - Sales (enterprise, 25+ employees)
+Value=1315;Agent - Car Rental
+Value=4221;Agent - Customer Service
+Value=3319;Agent - Manufacturer's
+Value=3119;Agent - Passenger and Cargo
+Value=3315;Agent - Purchasing
+Value=3313;Agent - Real Estate
+Value=4221;Agent - Travel
+Value=2212;Agronomist
+Value=4121;Aide - Accounting
+Value=2441;Aide - Community Development
+Value=5131;Aide - Departmental
+Value=1121;Ambassador
+Value=2221;Anaesthetist
+Value=3113;Analyst
+Value=3111;Analyst - Assistant
+Value=2121;Analyst - Assistant (Computing)
+Value=2411;Analyst - Budget
+Value=2419;Analyst - Business
+Value=1228;Analyst - Cheif Project
+Value=2411;Analyst - Cost and Operations
+Value=2419;Analyst - Job
+Value=2419;Analyst - Management
+Value=2211;Analyst - Marine
+Value=2419;Analyst - Occupational
+Value=2419;Analyst - Organisation and Management
+Value=3199;Analyst - Physical
+Value=2419;Analyst - Project
+Value=2411;Analyst - Senior Budget
+Value=2419;Analyst - Senior Management
+Value=2419;Analyst - Senior Project
+Value=2121;Analyst - Systems
+Value=2139;Analyst - Technical
+Value=2419;Analyst - Time Study
+Value=3332;Announcer
+Value=3316;Appraiser
+Value=2449;Anthropologist
+Value=2450;Archdeacon
+Value=2449;Archaeologist
+Value=2131;Architect
+Value=2430;Archivist
+Value=3337;Arranger - Floral
+Value=7129;Artisan
+Value=3333;Artist
+Value=8229;Assembler (nothing otherwise specified)
+Value=8229;Assembler - Cushion
+Value=8221;Assembler - Electronic
+Value=8229;Assembler - Film
+Value=7421;Assembler - Furniture
+Value=7434;Assembler - Mattress
+Value=7122;Assembler - Roof
+Value=8229;Assembler - Spring
+Value=8221;Assembler/Operator (electrical, electronic goods)
+Value=3316;Assessor
+Value=2413;Assistant - Administrative
+Value=3211;Assistant - Agricultural
+Value=3225;Assistant - Animal Health
+Value=2430;Assistant - Archives
+Value=7412;Assistant - Baker
+Value=8215;Assistant - Binder
+Value=5211;Assistant - Canteen
+Value=1122;Assistant - Chief Planning
+Value=8129;Assistant - Chlorination
+Value=4310;Assistant - Clerical
+Value=3120;Assistant - Computer Programming
+Value=4133;Assistant - Customs and Shipping
+Value=3223;Assistant - Dental
+Value=5211;Assistant - Depot
+Value=2229;Assistant - Dietetic
+Value=5211;Assistant - Distribution
+Value=3115;Assistant - Draughtman
+Value=3331;Assistant - Editorial
+Value=3119;Assistant - Engineering
+Value=8129;Assistant - Engineering (Barbados Water Authority)
+Value=9210;Assistant - Farm
+Value=3211;Assistant - Field
+Value=3212;Assistant - Fisheries
+Value=9210;Assistant - Geological
+Value=9149;Assistant - Kitchen
+Value=3111;Assistant - Laboratory
+Value=4151;Assistant - Legal
+Value=4141;Assistant - Library
+Value=3314;Assistant - Marketing
+Value=2111;Assistant - Meterological
+Value=9144;Assistant - Meter
+Value=5131;Assistant - Nursery
+Value=3223;Assistant - Nursing
+Value=3229;Assistant - Occupational Therapy
+Value=4310;Assistant - Office
+Value=4151;Assistant - Para-legal
+Value=4111;Assistant - Personal
+Value=3224;Assistant - Pharmaceutical
+Value=3115;Assistant - Planning
+Value=3120;Assistant - Programmer
+Value=3152;Assistant - Public Health
+Value=4131;Assistant - Receiving Stores
+Value=2419;Assistant - Research
+Value=4222;Assistant - Reservations
+Value=9133;Assistant - Rodent Control
+Value=5211;Assistant - Sales
+Value=3115;Assistant - Senior Engineering
+Value=3319;Assistant - Senior Legal
+Value=2430;Assistant - Senior Technical (archives)
+Value=5211;Assistant - Shop
+Value=4122;Assistant - Statistical
+Value=4131;Assistant - Stock Room
+Value=5211;Assistant - Store
+Value=7213;Assistant - Structural
+Value=4131;Assistant - Supplies
+Value=3119;Assistant - Technical
+Value=3113;Assistant - Technical (audio visual aids)
+Value=3113;Assistant - Telecommunications
+Value=9330;Assistant - Truck and Van
+Value=3225;Assistant - Veterinary
+Value=8214;Assistant - Woodcraft
+Value=9320;Assorter
+Value=3229;Attendant - Ambulance
+Value=2910;Attendant - Animal
+Value=5149;Attendant - Beach
+Value=5123;Attendant - Beach Bar
+Value=9143;Attendant - Car Park
+Value=5112;Attendant - Cruise
+Value=8111;Attendant - Crusher
+Value=5123;Attendant - Dining Room
+Value=3224;Attendant - Drug Service
+Value=9210;Attendant - Farm
+Value=4141;Attendant - File
+Value=5212;Attendant - Gas Station
+Value=9143;Attendant - Gate
+Value=9112;Attendant - Ice Cream
+Value=8130;Attendant - Incinerator
+Value=3111;Attendant - Laboratory
+Value=4141;Attendant - Library
+Value=5121;Attendant - Linen Room
+Value=9210;Attendant - Livestock
+Value=8217;Attendant - Machine (food and related products)
+Value=8111;Attendant - Machine (quarry)
+Value=5249;Attendant - Morgue
+Value=9143;Attendant - Night
+Value=5131;Attendant - Nursery
+Value=5149;Attendant - Park
+Value=9210;Attendant - Pet Shop
+Value=6112;Attendant - Plant
+Value=8130;Attendant - Plant (power plant)
+Value=5249;Attendant - Pool
+Value=5249;Attendant - Pool and Tennis Court
+Value=9210;Attendant - Poultry
+Value=8219;Attendant - Refridgerator Plant
+Value=5211;Attendant - Sales
+Value=5221;Attendant - Service Station
+Value=9150;Attendant - Sewerage
+Value=4131;Attendant - Store, Stock Room, Store Room
+Value=5149;Attendant - Swimming Pool
+Value=9143;Attendant - Tennis Court
+Value=5149;Attendant - Theatre
+Value=4141;Attendant - Vault
+Value=3131;Attendant - Video
+Value=5149;Attendant - Water Sports
+Value=2422;Attorney-at-law
+Value=3316;Auctioneer
+Value=2411;Auditor
+Value=2411;Auditor - Internal, Principal, Quality Control, Senior
+Value=4131;Auditor - Stock
+Value=2411;Auditor General
+Value=2411;Auditor General Deputy
+Value=3331;Author
+Value=3223;Auxiliary - Dental
+Value=5132;Babysitter
+
 [Item]
 Label=13. Place currently training
 Name=PLACETR
@@ -1993,6 +2252,11 @@ Label=15. Occupation trained
 Name=OCCTRAINED
 Start=194
 Len=4
+
+[ValueSet]
+Label=15. Occupation trained
+Name=OCCTRAINED_VS1
+Link=65551688
 
 [Item]
 Label=16. Place trained
@@ -2265,6 +2529,11 @@ Label=31. Last Occupation
 Name=LSTOCCUP
 Start=218
 Len=4
+
+[ValueSet]
+Label=31. Last Occupation
+Name=LSTOCCUP_VS1
+Link=65551688
 
 [Item]
 Label=32a. Last industry
@@ -3195,11 +3464,21 @@ Name=OCCUP
 Start=239
 Len=4
 
+[ValueSet]
+Label=37. Main occupation
+Name=OCCUP_VS1
+Link=65551688
+
 [Item]
 Label=37. Second occupation
 Name=SOCCUP
 Start=243
 Len=4
+
+[ValueSet]
+Label=37. Second occupation
+Name=SOCCUP_VS1
+Link=65551688
 
 [Item]
 Label=38. Main industry
@@ -3444,6 +3723,11 @@ Name=FOCCUP
 Start=276
 Len=4
 
+[ValueSet]
+Label=47. Occupation wanted
+Name=FOCCUP_VS1
+Link=65551688
+
 [Item]
 Label=48. Industry wanted
 Name=INCINDUS
@@ -3473,6 +3757,11 @@ Label=50. Last occupation
 Name=INCOCCUP
 Start=285
 Len=4
+
+[ValueSet]
+Label=50. Last occupation
+Name=INCOCCUP_VS1
+Link=65551688
 
 [Item]
 Label=51a. Main sources of livelihood
