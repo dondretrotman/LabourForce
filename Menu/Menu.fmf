@@ -1,0 +1,47 @@
+﻿[FormFile]
+Version=CSPro 7.1
+Name=MENU_FF
+Label=Menu
+DefaultTextFont=-013 0000 0000 0000 0700 0000 0000 0000 0000 0000 0000 0000 0000 Arial
+FieldEntryFont=0018 0000 0000 0000 0600 0000 0000 0000 0000 0000 0000 0000 0000 Courier New
+Type=SystemControlled
+  
+[Dictionaries]
+File=.\Menu.dcf
+  
+[Form]
+Name=FORM000
+Label=Menu questionnaire
+Level=1
+Size=307,129
+  
+Item=INTERVIEWER_MENU
+  
+[EndForm]
+  
+[Level]
+Name=MENU_QUEST
+Label=Menu questionnaire
+  
+[Group]
+Required=Yes
+Name=MENU_QUEST_FORM
+Label=Menu questionnaire
+Form=1
+LogicControl=No
+Max=1
+  
+[Field]
+Name=INTERVIEWER_MENU
+Position=267,84,282,104
+Item=INTERVIEWER_MENU,MENU_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
+Form=1
+  
+[Text]
+Position=134,87,245,103
+Text=Interviewer Menu
+ 
+[EndGroup]
+  

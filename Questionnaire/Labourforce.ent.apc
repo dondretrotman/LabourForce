@@ -50,7 +50,8 @@ postproc
 		
 		if $ <> tempage then
 			errmsg("age (%d) does not agree with DOB (%s), please verify",$,edit("9999/99/99",LDOB))
-			select("Correct the age", $, "Correct the Date of birth", LDOB);
+			select("Correct the age", $, "Correct the Date of birth", LDOB,"Keep Age (Don't know Date of Birth)",continue);
+			LDOB = notappl;
 		endif;
 	endif;
 
@@ -121,7 +122,8 @@ PROC AGE
 		
 	if $ <> tempage then
 		errmsg("age (%d) does not agree with DOB (%s), please verify",$,edit("9999/99/99",BIRTHD))
-		select("Correct the age", $, "Correct the Date of birth", BIRTHD);
+		select("Correct the age", $, "Correct the Date of birth", BIRTHD,"Keep Age (Don't know Date of Birth",continue);
+		BIRTHD = notappl;
 	endif;
 
 //---------------------------------------------------------------------------

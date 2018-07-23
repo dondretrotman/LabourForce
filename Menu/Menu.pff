@@ -1,0 +1,18 @@
+﻿[Run Information]
+Version=CSPro 7.1
+AppType=Entry
+Description=Continuous Labour Force Sample Survey 
+
+[DataEntryInit]
+StartMode=Add
+
+[Files]
+Application=.\Menu.ent
+InputData=|NONE
+Paradata=.\Menu.cslog
+
+[ExternalFiles]
+LABOURFORCE_DICT=..\Data\data.csdb|CSPRODB
+
+[UserFiles]
+PFFFILE=

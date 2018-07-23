@@ -3,7 +3,6 @@ Version=CSPro 7.1
 AppType=Entry
 
 [DataEntryInit]
-ShowInApplicationListing=Hidden
 Interactive=Ask
 
 [Files]

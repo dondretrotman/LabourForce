@@ -1,0 +1,35 @@
+{
+  "fileType": "Application Deployment Specification",
+  "version": "7.1",
+  "name": "Menu",
+  "description": "Continuous Labour Force Sample Survey ",
+  "files": [
+    {
+      "path": "..\\Menu\\Menu.pff"
+    },
+    {
+      "path": "..\\Menu\\Menu.ent"
+    },
+    {
+      "path": "..\\Questionnaire\\Labourforce.ent"
+    },
+    {
+      "path": "..\\Questionnaire\\Labourforce.pff"
+    }
+  ],
+  "dictionaries": [
+    {
+      "path": "..\\Menu\\Menu.dcf",
+      "uploadForSync": true
+    },
+    {
+      "path": "..\\Questionnaire\\Labourforce.dcf",
+      "uploadForSync": true
+    }
+  ],
+  "deployment": {
+    "type": "FTP",
+    "cswebUrl": "http:\/\/csweb.teleyah.com\/api",
+    "ftpUrl": "ftp:\/\/172.28.10.215"
+  }
+}

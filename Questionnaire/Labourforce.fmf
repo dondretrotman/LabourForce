@@ -693,8 +693,10 @@ Name=SUPERV
 Position=672,0,701,20
 Item=SUPERV,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
   
 [Text]
+Position=0,0,71,16
 Text=Supervisor
  
 [EndColumn]
@@ -711,8 +713,11 @@ Name=INTD
 Position=588,0,701,20
 Item=INTD,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
+DataCaptureType=Date
+CaptureDateFormat=YYYYMMDD
   
 [Text]
+Position=0,0,93,16
 Text=Interview Date
  
 [EndColumn]
@@ -933,8 +938,11 @@ Name=BIRTHD
 Position=588,0,701,20
 Item=BIRTHD,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
+DataCaptureType=Date
+CaptureDateFormat=YYYYMMDD
   
 [Text]
+Position=0,0,81,16
 Text=5. Birth Date
  
 [EndColumn]
@@ -969,7 +977,7 @@ Name=CNTRY_CD
 Position=658,0,701,20
 Item=CNTRY_CD,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
-DataCaptureType=ComboBox
+DataCaptureType=DropDown
   
 [Text]
 Position=0,0,86,16
@@ -1120,8 +1128,10 @@ Name=OCCTRAINED
 Position=644,0,701,20
 Item=OCCTRAINED,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
   
 [Text]
+Position=0,0,145,16
 Text=15. Occupation trained
  
 [EndColumn]
@@ -1140,6 +1150,7 @@ Item=PLACETRAINED,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
   
 [Text]
+Position=0,0,109,16
 Text=16. Place trained
  
 [EndColumn]
@@ -1724,8 +1735,10 @@ Name=OCCUP
 Position=644,0,701,20
 Item=OCCUP,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
   
 [Text]
+Position=0,0,130,16
 Text=37. Main occupation
  
 [EndColumn]
@@ -1760,8 +1773,10 @@ Name=INDUS
 Position=644,0,701,20
 Item=INDUS,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
+DataCaptureType=ComboBox
   
 [Text]
+Position=0,0,113,16
 Text=38. Main industry
  
 [EndColumn]
@@ -1778,8 +1793,10 @@ Name=SINDUS
 Position=644,0,701,20
 Item=SINDUS,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
   
 [Text]
+Position=0,0,129,16
 Text=38. Second industry
  
 [EndColumn]
@@ -2062,8 +2079,10 @@ Name=FOCCUP
 Position=644,0,701,20
 Item=FOCCUP,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
   
 [Text]
+Position=0,0,146,16
 Text=47. Occupation wanted
  
 [EndColumn]

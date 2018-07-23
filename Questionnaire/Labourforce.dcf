@@ -974,6 +974,7 @@ Value=2015;2,015
 Value=2016;2,016
 Value=2017;2,017
 Value=2018;2,018
+Value=9999;Don't Know
 
 [Item]
 Label=DOB_Month
@@ -1958,66 +1959,6 @@ Label=12. Training for Occupation
 Name=OCCUPTR
 Start=187
 Len=4
-
-[ValueSet]
-Label=12. Training for Occupation
-Name=OCCUPTR_VS1
-Value=0:1000;Armed Forces
-Value=1111:1499;Managers
-Value=2111:2799;Professionals
-Value=3111:3699;Technicians etc
-Value=4100:4999;Clerical Support Workers
-Value=5111:5499;Service & Sales Workers
-Value=6111:6999;Skilled Agricultural Workers etc
-Value=7000:7549;Craft & Related Workers
-Value=8111:8359;Plant & Machine Operators
-Value=9111:9699;Elementary Occupations
-Value=9999;Not Stated
-
-[ValueSet]
-Label=Two digit level occupation code
-Name=OCCUPTR_VS2
-Value=100:399;Armed forces
-Value=1100:1199;Chief executives, senior officials and legislators
-Value=1200:1299;Administrative and commercial managers
-Value=1300:1399;Production and specialised services managers
-Value=1400:1499;Hospitality, retail and other services managers
-Value=2100:2199;Science and enginerring professionals
-Value=2200:2299;Health professionals
-Value=2300:2399;Teaching professionals
-Value=2400:2499;Business and administration professionalls
-Value=2500:2599;Information and communications technology professionals
-Value=2600:2699;Legal, social and cultural professionals
-Value=3100:3199;Science and engineering associate professionals
-Value=3200:3299;Health associate professionals
-Value=3300:3399;Business and administration associate professionals
-Value=3400:3499;Legal, social, cultural and related associate professionals
-Value=3500:3599;Information and communications technicians
-Value=4100:4199;General and keyboard clerks
-Value=4200:4299;Customer services clerks
-Value=4300:4399;Numerical and material recording clerks
-Value=4400:4499;Other clerical support workers
-Value=5100:5199;Personal service workers
-Value=5200:5299;Sales workers
-Value=5300:5399;Personal care workers
-Value=5400:5499;Protective services workers
-Value=6100:6199;Market-oriented skilled agricultural workers
-Value=6200:6299;Market-oriented skilled forestry, fishery and hunting workers
-Value=6300:6399;Subsistence farmers, fishers, hunters and gatherers
-Value=7100:7199;Building and related trades workers, excluding electricians
-Value=7200:7299;Metal, machinery and related trades workers
-Value=7300:7399;Handicraft and printing workers
-Value=7400:7499;Electrical and electronic trades workers
-Value=7500:7599;Food processing, wood working, garment and other craft and related trades workers
-Value=8100:8299;Stationary plant and machine operators and assemblers
-Value=8300:8399;Drivers and mobile plant operators
-Value=9100:9199;Cleaners and helpers
-Value=9200:9299;Agricultural, forestry and fishery labourers
-Value=9300:9399;Labourers in mining, construction, manufacturing and transport
-Value=9400:9499;Food preparation assistants
-Value=9500:9599;Street and related sales and service workers
-Value=9600:9699;Refuse workers and other elementary workers
-Value=9999;Not Stated
 
 [ValueSet]
 Label=Occupation codes
@@ -3290,6 +3231,7 @@ Value=9820;Undifferentiated service-producing activities of private households f
 Value=99;Activities of extraterritorial organizations and bodies
 Value=990;Activities of extraterritorial organizations and bodies
 Value=9900;Activities of extraterritorial organizations and bodies
+Value=9998:9999;Not stated
 
 [Item]
 Label=32b. Last unemployment status
