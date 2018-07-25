@@ -3,13 +3,9 @@ Version=CSPro 7.1
 AppType=Entry
 
 [DataEntryInit]
-Interactive=Ask
+ShowInApplicationListing=Hidden
 
 [Files]
 Application=.\Listing.ent
 InputData=..\Data\Listing.csdb|CSPRODB
 Paradata=.\Listing.cslog
-
-
-[Parameters]
-

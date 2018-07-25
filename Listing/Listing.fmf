@@ -58,6 +58,7 @@ Max=1
 Name=LSTED
 Position=200,27,243,47
 Item=LSTED,LISTING_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 Form=1
   
@@ -70,6 +71,7 @@ Text=Enumeration District
 Name=LSTPARISH
 Position=200,57,243,77
 Item=LSTPARISH,LISTING_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
 Form=1
@@ -83,6 +85,7 @@ Text=Parish
 Name=LSTSTRATUM
 Position=200,87,215,107
 Item=LSTSTRATUM,LISTING_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
 Form=1
@@ -96,6 +99,7 @@ Text=Stratum
 Name=LSTROUND
 Position=200,117,229,137
 Item=LSTROUND,LISTING_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
 Form=1
@@ -118,6 +122,7 @@ Max=1
 Name=LSTCOMPLETE
 Position=174,27,287,47
 Item=LSTCOMPLETE,LISTING_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=Date
 CaptureDateFormat=YYYYMMDD
@@ -917,6 +922,7 @@ Name=LSTNO
 Position=0,0,43,20
 Item=LSTNO,LISTING_DICT
 Protected=Yes
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -936,6 +942,7 @@ Text=Name
 Name=LSTNAME
 Position=0,0,1401,20
 Item=LSTNAME,LISTING_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -955,6 +962,7 @@ Text=Address
 Name=LSTADDRESS
 Position=0,0,1401,20
 Item=LSTADDRESS,LISTING_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -974,6 +982,7 @@ Text=Building No.
 Name=LSTBUILDING
 Position=35,0,78,20
 Item=LSTBUILDING,LISTING_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -992,6 +1001,7 @@ Text=Sample number
 Name=LSTSAMPLE
 Position=10,0,53,20
 Item=LSTSAMPLE,LISTING_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -1010,6 +1020,7 @@ Text=Start Date
 Name=LSTSTDATE
 Position=0,0,113,20
 Item=LSTSTDATE,LISTING_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=Date
 CaptureDateFormat=YYYYMMDD
@@ -1031,6 +1042,7 @@ Text=Finish Date
 Name=LSTFNDATE
 Position=0,0,113,20
 Item=LSTFNDATE,LISTING_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=Date
 CaptureDateFormat=YYYYMMDD
@@ -1052,6 +1064,7 @@ Text=Telephone number
 Name=LSTTELEPHONE
 Position=0,0,99,20
 Item=LSTTELEPHONE,LISTING_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -1070,6 +1083,7 @@ Text=Remarks
 Name=LSTREMARKS
 Position=0,0,1401,20
 Item=LSTREMARKS,LISTING_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -1089,6 +1103,7 @@ Text=Add household
 Name=LSTADDHSE
 Position=80,0,95,20
 Item=LSTADDHSE,LISTING_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   

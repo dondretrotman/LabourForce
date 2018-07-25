@@ -1297,6 +1297,7 @@ Name=PLACETRAINED
 Position=672,0,701,20
 Item=PLACETRAINED,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
   
 [Text]
 Position=0,0,109,16

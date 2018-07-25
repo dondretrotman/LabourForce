@@ -9130,6 +9130,28 @@ Name=PLACETRAINED
 Start=348
 Len=2
 
+[ValueSet]
+Label=16. Place trained
+Name=PLACETRAINED_VS1
+Value=11;On the job in Barbados
+Value=12;Barbados Community Collage
+Value=13;Erdiston Training College
+Value=14;National Skills Training Programme
+Value=15;Samuel J Prescod Polytechnic
+Value=16;U.W.I.
+Value=19;Other Institutes in Barbados
+Value=21;On the job in USA
+Value=22;In institution in USA
+Value=31;On the job in Canada
+Value=32;In institution in Canada
+Value=41;On the job in UK
+Value=42;In institution in UK
+Value=51;On the job in CARICOM
+Value=52;In institution in CARICOM
+Value=81;On the job in Other country
+Value=82;In institution in other country
+Value=99;Not Stated
+
 [Item]
 Label=17. Worked Last Week
 Name=WORKED
