@@ -15,13 +15,17 @@ function uploadData()
 		syncdata (PUT,LABOURFORCE_DICT);		//Upload Lacourforce data
 		syncfile(PUT,"../Questionnaire/Labourforce.cslog","LabourforceLogs/Labourforce.cslog");		//Upload paradata logs
 		syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen");		//update questionnaire
+		syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pff","../Questionnaire/Labourforce.pff");		//update questionnaire
 		syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen");		//update Menu
+		syncfile(GET,"/CSPro/Update/Menu/Menu.pff","../Menu/Menu.pff");		//update Menu
 		syncdisconnect();		//disconnect
 	elseif syncconnect(FTP,"10.129.20.110","Census","Census2020ADM!N") then		//connect to FTP when within the Government WAN
 		syncdata (PUT,LABOURFORCE_DICT);		//Upload Lacourforce data
 		syncfile(PUT,"../Questionnaire/Labourforce.cslog","LabourforceLogs/Labourforce.cslog");		//Upload paradata logs
 		syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen");		//update questionnaire
+		syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pff","../Questionnaire/Labourforce.pff");		//update questionnaire
 		syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen");		//update Menu
+		syncfile(GET,"/CSPro/Update/Menu/Menu.pff","../Menu/Menu.pff");		//update Menu
 		syncdisconnect();		//disconnect
 	endif;
 end;

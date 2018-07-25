@@ -4,3 +4,11 @@ Version=CSPro 7.1
 [LANGUAGES]
 EN=English
 
+[QUESTION]
+Field=MENU_DICT.INTERVIEWER_MENU
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please choose what you would like to do\par
+EN=}
+

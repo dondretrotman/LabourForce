@@ -27,13 +27,17 @@ Item=HHNO
 Name=FORM001
 Label=Household Listing
 Level=1
-Size=325,247
+Size=527,424
   
 Item=VISITNO
 Item=HH_TYP
 Item=ENMRTR
 Item=ROTATION
 Item=DATE
+Item=LATITUDE
+Item=LONGITUDE
+Item=VACANT
+Item=VOCCUP
   
 [EndForm]
   
@@ -87,8 +91,6 @@ Text=Round
 Name=EDNO
 Position=175,57,218,77
 Item=EDNO,LABOURFORCE_DICT
-HideInCaseTree=Yes
-AutoIncrement=Yes
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
 Form=1
@@ -116,8 +118,6 @@ Text=Parish
 Name=STRATUM
 Position=175,117,190,137
 Item=STRATUM,LABOURFORCE_DICT
-HideInCaseTree=Yes
-AutoIncrement=Yes
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
 Form=1
@@ -131,7 +131,6 @@ Text=Stratum
 Name=HHNO
 Position=175,147,218,167
 Item=HHNO,LABOURFORCE_DICT
-HideInCaseTree=Yes
 AutoIncrement=Yes
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
@@ -153,56 +152,43 @@ Max=1
   
 [Field]
 Name=VISITNO
-Position=187,82,202,102
+Position=205,88,220,108
 Item=VISITNO,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 Form=2
   
 [Text]
-Position=72,85,153,101
+Position=72,91,153,107
 Text=Visit Number
  
   
 [Field]
-Name=HH_TYP
-Position=187,112,202,132
-Item=HH_TYP,LABOURFORCE_DICT
-FieldLabelType=DictionaryLabel
-DataCaptureType=DropDown
-Form=2
-  
-[Text]
-Position=72,115,114,131
-Text=HTYPE
- 
-  
-[Field]
 Name=ENMRTR
-Position=187,142,216,162
+Position=205,120,234,140
 Item=ENMRTR,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 Form=2
   
 [Text]
-Position=72,145,146,161
+Position=72,123,146,139
 Text=Enumerator
  
   
 [Field]
 Name=ROTATION
-Position=187,172,216,192
+Position=205,151,234,171
 Item=ROTATION,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 Form=2
   
 [Text]
-Position=72,175,165,191
+Position=72,154,165,170
 Text=Rotation Order
  
   
 [Field]
 Name=DATE
-Position=187,202,300,222
+Position=205,183,318,203
 Item=DATE,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=Date
@@ -210,8 +196,71 @@ CaptureDateFormat=DDMMYYYY
 Form=2
   
 [Text]
-Position=72,205,101,221
+Position=72,186,101,202
 Text=Date
+ 
+  
+[Field]
+Name=LATITUDE
+Position=205,223,388,243
+Item=LATITUDE,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+Form=2
+  
+[Text]
+Position=72,226,124,242
+Text=Latitude
+ 
+  
+[Field]
+Name=LONGITUDE
+Position=205,254,402,274
+Item=LONGITUDE,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+Form=2
+  
+[Text]
+Position=72,257,136,273
+Text=Longitude
+ 
+  
+[Field]
+Name=VACANT
+Position=205,301,220,321
+Item=VACANT,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
+Form=2
+  
+[Text]
+Position=72,304,186,320
+Text=Vacant household
+ 
+  
+[Field]
+Name=VOCCUP
+Position=205,333,234,353
+Item=VOCCUP,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
+Form=2
+  
+[Text]
+Position=72,336,188,352
+Text=Vacant occupancy
+ 
+  
+[Field]
+Name=HH_TYP
+Position=205,364,220,384
+Item=HH_TYP,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
+Form=2
+  
+[Text]
+Position=72,367,174,383
+Text=Household Type
  
 [EndGroup]
   
@@ -227,7 +276,7 @@ Max=1
 Name=LABOURFORCE_REC001
 Label=Labourforce record
 Form=3
-Required=Yes
+Required=No
 Type=Record
 TypeName=LABOURFORCE_REC
 Max=10
@@ -427,6 +476,25 @@ Text=Reason for leaving or joining the household
 [EndColumn]
   
 [Column]
+Width=429
+  
+[HeaderText]
+Position=386,48,429,72
+Text=Other
+ 
+[Field]
+Name=LREASON_OTHER
+Position=0,0,421,20
+Item=LREASON_OTHER,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=Other
+ 
+[EndColumn]
+  
+[Column]
 Width=103
   
 [HeaderText]
@@ -596,7 +664,7 @@ Max=1
 Name=LABOURFORCE_REC000
 Label=Labourforce record
 Form=4
-Required=Yes
+Required=No
 Type=Record
 TypeName=LABOURFORCE_REC
 Max=10
@@ -783,6 +851,25 @@ Text=Land Tenure
 Width=28
   
 [HeaderText]
+Position=61,0,104,28
+Text=Other
+ 
+[Field]
+Name=LNDTNURE_OTHER
+Position=280,0,701,20
+Item=LNDTNURE_OTHER,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=Other
+ 
+[EndColumn]
+  
+[Column]
+Width=28
+  
+[HeaderText]
 Position=53,4,104,28
 Text=HHsize
  
@@ -930,6 +1017,25 @@ Text=4. Relation to Head
 Width=28
   
 [HeaderText]
+Position=46,4,104,28
+Text=4. Other
+ 
+[Field]
+Name=RELHD_OTHER
+Position=280,0,701,20
+Item=RELHD_OTHER,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=4. Other
+ 
+[EndColumn]
+  
+[Column]
+Width=28
+  
+[HeaderText]
 Position=18,4,104,28
 Text=5. Birth Date
  
@@ -1024,6 +1130,25 @@ Text=9. Education Level
 [EndColumn]
   
 [Column]
+Width=28
+  
+[HeaderText]
+Position=46,4,104,28
+Text=9. Other
+ 
+[Field]
+Name=EDUCLEV_OTHER
+Position=280,0,701,20
+Item=EDUCLEV_OTHER,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=9. Other
+ 
+[EndColumn]
+  
+[Column]
 Width=40
   
 [HeaderText]
@@ -1039,6 +1164,25 @@ DataCaptureType=DropDown
   
 [Text]
 Text=10. Highest qualification
+ 
+[EndColumn]
+  
+[Column]
+Width=28
+  
+[HeaderText]
+Position=39,4,104,28
+Text=10. Other
+ 
+[Field]
+Name=QUALLEV_OTHER
+Position=280,0,701,20
+Item=QUALLEV_OTHER,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=10. Other
  
 [EndColumn]
   
@@ -1073,8 +1217,10 @@ Name=OCCUPTR
 Position=644,0,701,20
 Item=OCCUPTR,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
   
 [Text]
+Position=0,0,174,16
 Text=12. Training for Occupation
  
 [EndColumn]
@@ -1091,8 +1237,10 @@ Name=PLACETR
 Position=672,0,701,20
 Item=PLACETR,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
   
 [Text]
+Position=0,0,174,16
 Text=13. Place currently training
  
 [EndColumn]
@@ -1213,6 +1361,25 @@ Text=19a. Reason for Absence
 [EndColumn]
   
 [Column]
+Width=28
+  
+[HeaderText]
+Position=31,4,104,28
+Text=19a. Other
+ 
+[Field]
+Name=REASABS_OTHER
+Position=280,0,701,20
+Item=REASABS_OTHER,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=19a. Other
+ 
+[EndColumn]
+  
+[Column]
 Width=40
   
 [HeaderText]
@@ -1270,6 +1437,25 @@ Text=20. Major Activity
 [EndColumn]
   
 [Column]
+Width=28
+  
+[HeaderText]
+Position=39,4,104,28
+Text=20. Other
+ 
+[Field]
+Name=MAJACTV_OTHER
+Position=280,0,701,20
+Item=MAJACTV_OTHER,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=20. Other
+ 
+[EndColumn]
+  
+[Column]
 Width=40
   
 [HeaderText]
@@ -1308,6 +1494,25 @@ Text=22. Method of seeking work
 [EndColumn]
   
 [Column]
+Width=28
+  
+[HeaderText]
+Position=39,4,104,28
+Text=22. Other
+ 
+[Field]
+Name=METHOD_OTHER
+Position=280,0,701,20
+Item=METHOD_OTHER,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=22. Other
+ 
+[EndColumn]
+  
+[Column]
 Width=56
   
 [HeaderText]
@@ -1323,6 +1528,25 @@ DataCaptureType=DropDown
   
 [Text]
 Text=23. Reason for not seeking work
+ 
+[EndColumn]
+  
+[Column]
+Width=28
+  
+[HeaderText]
+Position=39,4,104,28
+Text=23. Other
+ 
+[Field]
+Name=REASNSK_OTHER
+Position=280,0,701,20
+Item=REASNSK_OTHER,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=23. Other
  
 [EndColumn]
   
@@ -1648,6 +1872,25 @@ Text=34. Reason for working part-time
 [EndColumn]
   
 [Column]
+Width=28
+  
+[HeaderText]
+Position=39,4,104,28
+Text=34. Other
+ 
+[Field]
+Name=RSNPART_OTHER
+Position=280,0,701,20
+Item=RSNPART_OTHER,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=34. Other
+ 
+[EndColumn]
+  
+[Column]
 Width=56
   
 [HeaderText]
@@ -1682,6 +1925,25 @@ DataCaptureType=DropDown
   
 [Text]
 Text=35b. Reason for other jobs?
+ 
+[EndColumn]
+  
+[Column]
+Width=28
+  
+[HeaderText]
+Position=31,4,104,28
+Text=35b. Other
+ 
+[Field]
+Name=RSN2JOBS_OTHER
+Position=280,0,701,20
+Item=RSN2JOBS_OTHER,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=35b. Other
  
 [EndColumn]
   
@@ -1969,6 +2231,25 @@ DataCaptureType=DropDown
   
 [Text]
 Text=42. Reason for working less than 40 hours
+ 
+[EndColumn]
+  
+[Column]
+Width=28
+  
+[HeaderText]
+Position=39,4,104,28
+Text=42. Other
+ 
+[Field]
+Name=RSNLESS_OTHER
+Position=280,0,701,20
+Item=RSNLESS_OTHER,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=42. Other
  
 [EndColumn]
   

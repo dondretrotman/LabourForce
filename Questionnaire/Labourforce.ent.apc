@@ -19,9 +19,80 @@ PROC GLOBAL
 numeric i,				//general variable
 		tempage,		//for calcuating age
 		;
+		
+string 	caselabel		//stores the label for the current case
+		;
+		
+//-----------------------------Function Declarations--------------------------------------------
+//Function uses device's GPS feature to get Location
+function getgps()
+	gps(open);
+	if gps(read,60,10,"Reading GPS, Please wait...") = 1 then	//read up to 60 seconds. if successful...
+		//execsystem(maketext("gps:%f,%f", gps(latitude),gps(longitude)));
+		if accept(maketext("Save this location? %f, %f",gps(latitude),gps(longitude)),"Yes","No") = 1 then	//if yes
+			LATITUDE = gps(latitude);
+			LONGITUDE = gps(longitude);
+		endif;
+	else
+		errmsg("Gps location failed, Please try again");
+		LATITUDE = notappl;
+		LONGITUDE = notappl;
+	endif;
+	gps(close);
+end;
 
+PROC LSTWRKD_OTHER
+preproc
+	//only ask if other is selected
+	ask if LSTWRKD = 5;
+	
+//-----------------------------------------------------
 PROC LABOURFORCE_FF
+preproc
+	userbar(clear);
+	userbar(add button, "Get Location", getgps());		//adds a "Get location" button to get coordinates
+	userbar(show);
 
+PROC LABOURFORCE_QUEST
+onfocus
+	//Set occurence labels
+	do i = 1 while i <= maxocc(LABOURFORCE_REC001) and LFIRST_NAME(i) <> ""
+        setocclabel(LABOURFORCE_REC001(i), strip(LFIRST_NAME(i)));   //first roster
+        setocclabel(LABOURFORCE_REC000(i), strip(LFIRST_NAME(i)));   //second roster
+    enddo;
+    
+    //DEBUG: DO THIS IN THE CENSUS APP
+PROC LATITUDE
+
+	//defaults to 0
+	if $ = notappl then
+		$ = 0;
+	endif;
+	
+//---------------------------------------------------------------------
+PROC LONGITUDE
+
+	//defaults to 0
+	if $ = notappl then
+		$ = 0;
+	endif;
+	
+//---------------------------------------------------------------------
+PROC VOCCUP
+
+preproc
+	//only ask if vacant household
+	ask if VACANT = 1;
+	
+//---------------------------------------------------------------------
+PROC HH_TYP
+
+	//if vacant household, end questionnaire
+	if VACANT = 1 then
+		endlevel;
+	endif;
+	
+//---------------------------------------------------------------------
 PROC LIDNO
 preproc
 	$ = curocc();		//automatically enter the ID
@@ -34,6 +105,18 @@ PROC LNEWMEM
 	if $ = 2 then
 		skip to LRTH;
 	endif;
+	
+//---------------------------------------------------------------------
+PROC LRTH
+
+	
+	//Set case labels in case listings to an easier to read format to include name of head
+	if $ = 0 then
+		caselabel = maketext("%s-%v-%v-%v-%v-%v",strip(LLAST_NAME),RNDNO,EDNO,PARNO,STRATUM,HHNO);
+		setcaselabel(LABOURFORCE_DICT,caselabel);
+	endif;
+	
+//---------------------------------------------------------------------
 PROC LAGE
 
 preproc
@@ -59,13 +142,23 @@ postproc
 PROC ADDPER
 
 	if $ = 2 then
-		NUMBER_OF_PERSONS = count(LSEX);
+		NUMBER_OF_PERSONS = count(LSEX);		//Helps sets Second roster size
+		HH_SZ = count(LSEX);		//prefills Household size variable
 		endgroup;
 	endif;
 
 //----------------------------------------------------------------------
+PROC LREASON_OTHER
+preproc
+	//only ask if other is selected
+	ask if LREASON = 5;
+	
+//-----------------------------------------------------
 PROC INTRVW
 preproc
+	//Set occurence label to person's name
+	setocclabel(LABOURFORCE_REC000(curocc()), strip(LFIRST_NAME));
+
 	//check that person is eligible to be interviewed
 	if LELIGIBLE <> 1 then		//if not eligible
 		skip to next;
@@ -88,6 +181,12 @@ PROC LNDTNURE
 	endif;
 
 //-----------------------------------------------------------
+PROC LNDTNURE_OTHER
+preproc
+	//only ask if other is selected
+	ask if LNDTNURE = 5;
+	
+//-----------------------------------------------------
 PROC INDIVNO
 
 	//TODO: prefill information based on household listing ID number
@@ -115,6 +214,12 @@ PROC RELHD
 	endif;  
 
 //---------------------------------------------------------------------------
+PROC RELHD_OTHER
+preproc
+	//only ask if other is selected
+	ask if RELHD = 8;
+	
+//-----------------------------------------------------
 PROC AGE
 
 	//check that age corresponds to date of birth
@@ -127,6 +232,18 @@ PROC AGE
 	endif;
 
 //---------------------------------------------------------------------------
+PROC EDUCLEV_OTHER
+preproc
+	//only ask if other is selected
+	ask if EDUCLEV = 5;
+	
+//-----------------------------------------------------
+PROC QUALLEV_OTHER
+preproc
+	//only ask if other is selected
+	ask if QUALLEV = 9;
+	
+//-----------------------------------------------------
 PROC CTRAINING
 	
 	//if not currently being trained, skip to if ever trained
@@ -159,6 +276,12 @@ PROC REGJOB
 	endif;
 	
 //---------------------------------------------------------------------------
+PROC REASABS_OTHER
+preproc
+	//only ask if other is selected
+	ask if REASNABS = 7;
+	
+//-----------------------------------------------------
 PROC TIMEABS
 
 	//if has a job, skip to Full time or part time
@@ -167,6 +290,12 @@ PROC TIMEABS
 	endif;
 
 //---------------------------------------------------------------------------
+PROC MAJACTV_OTHER
+preproc
+	//only ask if other is selected
+	ask if MAJACTV = 6;
+	
+//-----------------------------------------------------
 PROC SEEKING
 
 	//if not seeking work, skip to reason for not seeking work
@@ -179,6 +308,18 @@ PROC METHOD
 
 	//skip to last looked for work
 	skip to LSTLOOK;
+PROC METHOD_OTHER
+preproc
+	//only ask if other is selected
+	ask if METHOD = 6;
+	
+//-----------------------------------------------------
+PROC REASNSK_OTHER
+preproc
+	//only ask if other is selected
+	ask if REASNSK = 8;
+	
+//-----------------------------------------------------
 PROC LSTLOOK
 
 	//if never looked of looked for 4 months or more, skip to Hoping for job
@@ -225,6 +366,12 @@ PROC FULLPART
 	endif;
 	
 //-----------------------------------------------------------------
+PROC RSNPART_OTHER
+preproc
+	//only ask if other is selected
+	ask if RSNPART = 8;
+	
+//-----------------------------------------------------
 PROC TWOJOBS
 
 	//if not more than one job, skip to employer status
@@ -233,6 +380,12 @@ PROC TWOJOBS
 	endif;
 	
 //---------------------------------------------------------------
+PROC RSN2JOBS_OTHER
+preproc
+	//only ask if other is selected
+	ask if RSN2JOBS = 4;
+	
+//-----------------------------------------------------
 PROC EMPL2STAT
 
 preproc
@@ -278,11 +431,17 @@ PROC NHRSWRKD
 
 //-----------------------------------------------------------------------
 		
+PROC RSNLESS_OTHER
+preproc
+	//only ask if other is selected
+	ask if RSNLESS = 12;
+	
+//-----------------------------------------------------
 PROC ADDWRK
 
 	//if not willling to do additional work, end interview
 	if $ = 2 then
-		endlevel;
+		endgroup;
 	endif;
 
 //-----------------------------------------------------------------------
