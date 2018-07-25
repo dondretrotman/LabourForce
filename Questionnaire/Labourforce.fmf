@@ -155,6 +155,7 @@ Name=VISITNO
 Position=205,88,220,108
 Item=VISITNO,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
 Form=2
   
 [Text]

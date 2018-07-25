@@ -1,34 +1,27 @@
 ﻿[CSPro Application]
 Version=CSPro 7.1
-Label=MENU
-Name=MENU
+Label=LISTING
+Name=LISTING
 AppType=DataEntry
 OperatorID=No
+PartialSave=Yes
 CAPI=Yes
 CAPIFont1=-016 0000 0000 0000 0400 0000 0000 0000 0000 0000 0000 0000 0000 Arial
 CAPIFont2=-016 0000 0000 0000 0400 0000 0000 0000 0000 0000 0000 0000 0000 Arial
 CAPIFont1Color=0
 CAPIFont2Color=16711680
-CaseTree=Never
-CenterForms=Yes
 CreateListing=No
 CreateLog=No
-AutoAdvanceOnSelection=Yes
 ShowErrorMessageNumbers=No
 ParadataCollection=AllEvents
 ParadataDeviceStateMinutes=5
-[External Dictionaries]
-File=..\Questionnaire\Labourforce.dcf
-File=..\Listing\Listing.dcf
 [AppCode]
-File=.\Menu.ent.apc
+File=.\Listing.ent.apc
 [Message]
-File=.\Menu.ent.mgf
+File=.\Listing.ent.mgf
 [Help]
-File=.\Menu.ent.qsf
+File=.\Listing.ent.qsf
 [Forms]
-File=.\Menu.fmf
+File=.\Listing.fmf
 [Dictionary Types]
-Dict-Type=.\Menu.dcf,Input,.\Menu.fmf
-Dict-Type=..\Questionnaire\Labourforce.dcf,External
-Dict-Type=..\Listing\Listing.dcf,External
+Dict-Type=.\Listing.dcf,Input,.\Listing.fmf

@@ -519,6 +519,14 @@ Name=VISITNO
 Start=41
 Len=1
 
+[ValueSet]
+Label=Visit Number
+Name=VISITNO_VS1
+Value=1;First
+Value=2;Second
+Value=3;Third
+Value=4;Fourth
+
 [Item]
 Label=Household Type
 Name=HH_TYP
@@ -546,6 +554,7 @@ Label=Rotation Order
 Name=ROTATION
 Start=45
 Len=2
+DataType=Alpha
 
 [Item]
 Label=Date
@@ -823,6 +832,7 @@ Label=Member from previous visit
 Name=LPREVVISIT_VS1
 Value=1;Yes
 Value=2;No
+Value=3;No longer living in household
 
 [Item]
 Label=New Member
@@ -2042,7 +2052,7 @@ Len=4
 [ValueSet]
 Label=12. Training for Occupation
 Name=OCCUPTR_VS1
-Link=129637664
+Link=1469159144
 Value=2636;Abbess
 Value=2636;Abbot
 Value=1345;Academic, university: head of department or facluty
@@ -9112,7 +9122,7 @@ Len=4
 [ValueSet]
 Label=--
 Name=OCCTRAINED_VS1
-Link=129637664
+Link=1469159144
 
 [Item]
 Label=16. Place trained
@@ -9424,7 +9434,7 @@ Len=4
 [ValueSet]
 Label=31. Last Occupation
 Name=LSTOCCUP_VS1
-Link=129637664
+Link=1469159144
 
 [Item]
 Label=32a. Last industry
@@ -10373,7 +10383,7 @@ Len=4
 [ValueSet]
 Label=37. Main occupation
 Name=OCCUP_VS1
-Link=129637664
+Link=1469159144
 
 [Item]
 Label=37. Second occupation
@@ -10384,7 +10394,7 @@ Len=4
 [ValueSet]
 Label=37. Second occupation
 Name=SOCCUP_VS1
-Link=129637664
+Link=1469159144
 
 [Item]
 Label=38. Main industry
@@ -10639,7 +10649,7 @@ Len=4
 [ValueSet]
 Label=47. Occupation wanted
 Name=FOCCUP_VS1
-Link=129637664
+Link=1469159144
 
 [Item]
 Label=48. Industry wanted
@@ -10674,7 +10684,7 @@ Len=4
 [ValueSet]
 Label=50. Last occupation
 Name=INCOCCUP_VS1
-Link=129637664
+Link=1469159144
 
 [Item]
 Label=51a. Main sources of livelihood

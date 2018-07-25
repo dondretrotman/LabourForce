@@ -15,6 +15,12 @@
     },
     {
       "path": "..\\Questionnaire\\Labourforce.pff"
+    },
+    {
+      "path": "..\\Listing\\Listing.ent"
+    },
+    {
+      "path": "..\\Listing\\Listing.pff"
     }
   ],
   "dictionaries": [
@@ -24,6 +30,10 @@
     },
     {
       "path": "..\\Questionnaire\\Labourforce.dcf",
+      "uploadForSync": true
+    },
+    {
+      "path": "..\\Listing\\Listing.dcf",
       "uploadForSync": true
     }
   ],

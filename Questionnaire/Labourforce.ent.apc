@@ -389,37 +389,43 @@ preproc
 PROC EMPL2STAT
 
 preproc
-	//skip if only one job
-	if TWOJOBS = 2 then
-		skip to OCCUP;
-	endif;
+	//only ask if more than one job
+	ask if TWOJOBS = 1
 	
 //--------------------------------------------------------
 PROC SOCCUP
 
 preproc
-	//skip if only one job
-	if TWOJOBS = 2 then
-		skip to INDUS;
-	endif;
+	//only ask if more than one job
+	ask if TWOJOBS = 1
 	
 //--------------------------------------------------------
 PROC SINDUS
 
 preproc
-	//skip if only one job
-	if TWOJOBS = 2 then
-		skip to EXPRNCE;
-	endif;
+	//only ask if more than one job
+	ask if TWOJOBS = 1
 	
 //--------------------------------------------------------
 PROC EXPRNCE2
 
 preproc
-	//skip if only one job
-	if TWOJOBS = 2 then
-		skip to EARNGS;
-	endif;
+	//only ask if more than one job
+	ask if TWOJOBS = 1
+	
+//--------------------------------------------------------
+PROC EARNGS2
+
+preproc
+	//only ask if more than one job
+	ask if TWOJOBS = 1
+	
+//--------------------------------------------------------
+PROC AVGEARNS2
+
+preproc
+	//only ask if more than one job
+	ask if TWOJOBS = 1
 	
 //--------------------------------------------------------
 PROC NHRSWRKD
