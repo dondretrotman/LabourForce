@@ -20,6 +20,7 @@ function uploadData()
 		syncdata(PUT,LABOURFORCE_DICT);		//Upload Lacourforce data
 		syncdata(PUT,LISTING_DICT);		//Upload listing
 		syncfile(PUT,"../Questionnaire/Labourforce.cslog",maketext("LabourforceLogs/Labourforce%s.cslog",getdeviceid()));		//Upload paradata logs
+		syncfile(PUT,"../Photos/*.jpg", "/CSPro/Photos/");
 		syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen");		//update questionnaire
 		syncfile(GET,"/CSPro/Update/Listing/Listing.pen","../Listing/Listing.pen");		//update Listing
 		syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen");		//update Menu
@@ -28,6 +29,7 @@ function uploadData()
 		syncdata(PUT,LABOURFORCE_DICT);		//Upload Lacourforce data
 		syncdata(PUT,LISTING_DICT);		//Upload listing
 		syncfile(PUT,"../Questionnaire/Labourforce.cslog",maketext("LabourforceLogs/Labourforce%s.cslog",getdeviceid()));		//Upload paradata logs
+		syncfile(PUT,"../Photos/*.jpg", "/CSPro/Photos/");
 		syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen");		//update questionnaire
 		syncfile(GET,"/CSPro/Update/Listing/Listing.pen","../Listing/Listing.pen");		//update Lising
 		syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen");		//update Menu

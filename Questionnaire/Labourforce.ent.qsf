@@ -333,7 +333,7 @@ Field=LABOURFORCE_DICT.LATITUDE
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
-EN=\pard\cf1\fs24 If this field says 0, please go outside and press 'Get Location' in the userbar\par
+EN=\pard\cf1\fs24 If this field is blank, please go outside and press 'Get Location' in the userbar\par
 EN=}
 
 [QUESTION]
@@ -413,7 +413,7 @@ Field=LABOURFORCE_DICT.LONGITUDE
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
-EN=\pard\cf1\fs24 If this field says 0, please go outside and press 'Get Location' in the userbar\par
+EN=\pard\cf1\fs24 If this field is blank, please go outside and press 'Get Location' in the userbar\par
 EN=}
 
 [QUESTION]
@@ -495,6 +495,15 @@ EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fchars
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 29. When did you last work?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LSTWRKD_OTHER
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please Specify...\par
 EN=}
 
 [QUESTION]

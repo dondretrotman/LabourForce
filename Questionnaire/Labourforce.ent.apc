@@ -20,7 +20,9 @@ numeric i,				//general variable
 		tempage,		//for calcuating age
 		;
 		
-string 	caselabel		//stores the label for the current case
+string 	caselabel,		//stores the label for the current case
+		photoDir,		//Stores the location of the photos folder
+		photoFileName 	//filename of photo
 		;
 		
 //-----------------------------Function Declarations--------------------------------------------
@@ -41,6 +43,26 @@ function getgps()
 	gps(close);
 end;
 
+//Function to take a photo using the device's camera. It saves to a filename matching the ID items
+function takePhoto()
+	if direxist(photoDir) then
+		execsystem(maketext("camera:%s",photoFileName));
+	else
+		dircreate(photoDir);
+		execsystem(maketext("camera:%s",photoFileName));
+	endif;
+end;
+
+//Function to view photo of current case
+function viewPhoto()
+	if direxist(photoDir) then
+		execsystem(maketext("view:%s", photoFileName));
+	else
+		dircreate(photoDir);
+		execsystem(maketext("view:%s", photoFileName));
+	endif;
+end;
+
 PROC LSTWRKD_OTHER
 preproc
 	//only ask if other is selected
@@ -49,8 +71,15 @@ preproc
 //-----------------------------------------------------
 PROC LABOURFORCE_FF
 preproc
+//---------------------------Declare Variables-----------------------------------
+	photoFileName = pathname(CSEntry) + maketext("Menu/Photos/%03d-%03d-%03d-%d-%03d.jpg", visualvalue(RNDNO),visualvalue(EDNO),visualvalue(PARNO),visualvalue(STRATUM),visualvalue(HHNO));  //DEBUG: Not saving file with Rndno, edno, parno and stratum
+	photoDir = pathname(CSEntry) + "Menu/Photos";
+	
+//---------------------------Userbar definition------------------------------------
 	userbar(clear);
 	userbar(add button, "Get Location", getgps());		//adds a "Get location" button to get coordinates
+	userbar(add button, "Take a photo for the current case", takePhoto());		//adds a button to take a photo of current case. 
+	userbar(add button, "View photo of current case", viewPhoto());		//adds a button to view photo of current case
 	userbar(show);
 
 PROC LABOURFORCE_QUEST
@@ -63,20 +92,20 @@ onfocus
     
     //DEBUG: DO THIS IN THE CENSUS APP
 PROC LATITUDE
-
+{
 	//defaults to 0
 	if $ = notappl then
 		$ = 0;
 	endif;
-	
+}	
 //---------------------------------------------------------------------
 PROC LONGITUDE
-
+{
 	//defaults to 0
 	if $ = notappl then
 		$ = 0;
 	endif;
-	
+}	
 //---------------------------------------------------------------------
 PROC VOCCUP
 
@@ -107,12 +136,18 @@ PROC LNEWMEM
 	endif;
 	
 //---------------------------------------------------------------------
+PROC LREASON_OTHER
+preproc
+	//only ask if other is selected
+	ask if LREASON = 5;
+	
+//-----------------------------------------------------
 PROC LRTH
 
 	
 	//Set case labels in case listings to an easier to read format to include name of head
 	if $ = 0 then
-		caselabel = maketext("%s-%v-%v-%v-%v-%v",strip(LLAST_NAME),RNDNO,EDNO,PARNO,STRATUM,HHNO);
+		caselabel = maketext("%s-%03d-%03d-%03d-%d-%03d",strip(LLAST_NAME),RNDNO,EDNO,PARNO,STRATUM,HHNO);
 		setcaselabel(LABOURFORCE_DICT,caselabel);
 	endif;
 	
@@ -148,12 +183,6 @@ PROC ADDPER
 	endif;
 
 //----------------------------------------------------------------------
-PROC LREASON_OTHER
-preproc
-	//only ask if other is selected
-	ask if LREASON = 5;
-	
-//-----------------------------------------------------
 PROC INTRVW
 preproc
 	//Set occurence label to person's name
@@ -279,7 +308,7 @@ PROC REGJOB
 PROC REASABS_OTHER
 preproc
 	//only ask if other is selected
-	ask if REASNABS = 7;
+	ask if REASABS = 7;
 	
 //-----------------------------------------------------
 PROC TIMEABS

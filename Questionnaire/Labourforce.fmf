@@ -1686,6 +1686,25 @@ Text=29. Last worked
 [EndColumn]
   
 [Column]
+Width=28
+  
+[HeaderText]
+Position=39,4,104,28
+Text=29. Other
+ 
+[Field]
+Name=LSTWRKD_OTHER
+Position=280,0,701,20
+Item=LSTWRKD_OTHER,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=29. Other
+ 
+[EndColumn]
+  
+[Column]
 Width=40
   
 [HeaderText]
