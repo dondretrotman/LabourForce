@@ -546,8 +546,6 @@ Name=LDOB
 Position=0,0,113,20
 Item=LDOB,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
-DataCaptureType=Date
-CaptureDateFormat=YYYYMMDD
   
 [Text]
 Position=0,0,30,16

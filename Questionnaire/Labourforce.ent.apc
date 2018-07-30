@@ -22,10 +22,58 @@ numeric i,				//general variable
 		
 string 	caselabel,		//stores the label for the current case
 		photoDir,		//Stores the location of the photos folder
-		photoFileName 	//filename of photo
+		photoFileName, 	//filename of photo
 		;
 		
 //-----------------------------Function Declarations--------------------------------------------
+//Checks that date is valid. Returns 1 if valid. Returns 0 if invalid
+function checkDate(CDYEAR, CDMONTH, CDDAY)
+	if not CDYEAR in 1900:sysdate("YYYY"),9999 then
+		errmsg("Invalid Year. (=%d)",CDYEAR);
+		checkDate = 0;
+		exit;
+	endif;
+	
+	if not CDMONTH in 1:12,99 then
+		errmsg("Invalid Month. (=%d)",CDMONTH);
+		checkDate = 0;
+		exit;
+	endif;
+	
+	if CDMONTH in 9,4,6,11 then		//30 days have September, April, June and November
+		if not CDDAY in 1:30,99 then
+			errmsg("%s does not have %d days. Please confirm.",getlabel(LDOB_MONTH_VS1,CDMONTH),CDDAY);
+			checkDate = 0;
+		endif;
+	elseif CDMONTH in 1,3,5,7,8,10,12 then		//All the rest have 31
+		if not CDDAY in 1:31,99 then
+			errmsg("%s does not have %d days. Please confirm.",getlabel(LDOB_MONTH_VS1,CDMONTH),CDDAY);
+			checkDate = 0;
+		endif;
+	elseif CDMONTH = 2 and CDYEAR in 1900:2020 then					//Except February alone
+		if CDYEAR % 4 = 0 and CDYEAR <> 1900 then		
+			if not CDDAY in 1:29,99 then		//Which has 29 days each leap year
+				errmsg("%s does not have %d days. Please confirm.",getlabel(LDOB_MONTH_VS1,CDMONTH),CDDAY);
+				checkDate = 0;
+			endif;	
+		else
+			if not CDDAY in 1:28,99 then		//And 28 on all other years
+				errmsg("%s does not have %d days. Please confirm.",getlabel(LDOB_MONTH_VS1,CDMONTH),CDDAY);
+				checkDate = 0;
+			endif;		
+		endif;		//I had to change the rhyme a bit so that it would fit my code
+	elseif CDYEAR = 9999 then		//cleanup for unknown year
+		if CDMONTH = 2 then
+			if not CDDAY in 1:29,99 then
+				errmsg("%s does not have %d days. Please confirm.",getlabel(LDOB_MONTH_VS1,CDMONTH),DAY);
+				checkDate = 0
+			endif;
+		endif;
+	else
+		checkDate = 1;
+	endif;
+end;
+
 //Function uses device's GPS feature to get Location
 function getgps()
 	gps(open);
@@ -63,12 +111,6 @@ function viewPhoto()
 	endif;
 end;
 
-PROC LSTWRKD_OTHER
-preproc
-	//only ask if other is selected
-	ask if LSTWRKD = 5;
-	
-//-----------------------------------------------------
 PROC LABOURFORCE_FF
 preproc
 //---------------------------Declare Variables-----------------------------------
@@ -152,6 +194,14 @@ PROC LRTH
 	endif;
 	
 //---------------------------------------------------------------------
+PROC LDOB
+Postproc
+	if checkdate(LDOB_YEAR,LDOB_MONTH,LDOB_DAY) = 0 then
+		reenter;
+	endif;
+
+//-----------------------------------------------------------------------------------------
+
 PROC LAGE
 
 preproc
@@ -387,6 +437,12 @@ PROC LSTWRKD
 	skip to LSTOCCUP;
 
 //-----------------------------------------------------------
+PROC LSTWRKD_OTHER
+preproc
+	//only ask if other is selected
+	ask if LSTWRKD = 5;
+	
+//-----------------------------------------------------
 PROC FULLPART
 
 	//if full time, skip to more than one job
