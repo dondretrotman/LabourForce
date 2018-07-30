@@ -5,11 +5,64 @@ Version=CSPro 7.1
 EN=English
 
 [QUESTION]
+Field=MENU_DICT.CHOOSE_ED
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Which Enumeration District data would you like to download?\par
+EN=}
+
+[QUESTION]
+Field=MENU_DICT.CHOOSE_ROUND
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Choose Round to download\par
+EN=}
+
+[QUESTION]
 Field=MENU_DICT.INTERVIEWER_MENU
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 Please choose what you would like to do\par
-EN=Version: 20180730-1210\par
+EN=}
+
+[QUESTION]
+Field=MENU_DICT.LOGIN
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Welcome to the Labour Force Continuous Sample Survey app\par
+EN=Version: 20180730-1702\par
+EN=}
+
+[QUESTION]
+Field=MENU_DICT.SUPERVISOR_MENU
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Download data - Download questionnaires and listings from the server for a particular ED\par
+EN=\par
+EN=}
+
+[HELP]
+Field=MENU_DICT.INTERVIEWER_MENU
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Fill Questionnaire - Fill out a new questionnaire or review previous questionnaires\par
+EN=Fill Listing Record - Fill out a new listing or review previous listings\par
+EN=Upload Data - Upload all questionnaires and listings. Also updates the app\par
+EN=Update App only - Updates the app. Exit the app and open again to see changes in the menu\par
+EN=}
+
+[HELP]
+Field=MENU_DICT.LOGIN
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Interviewer - Login as an interviewer\par
+EN=Supervisor - Login as a supervisor\par
 EN=}
 

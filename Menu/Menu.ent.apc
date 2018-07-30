@@ -2,6 +2,7 @@
 PROC GLOBAL
 //--------------------------------Variable Declaration------------------------------------
 //file pffFile;
+string rnd_ed;
 
 //--------------------------------Function declaration------------------------------------
 //Launches the questionnaire
@@ -45,7 +46,28 @@ function updateApp()
 		syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen");		//update Menu
 		syncdisconnect();		//disconnect
 	elseif syncconnect(FTP,"10.129.20.110","Census","Census2020ADM!N") then		//connect to FTP when within the Government WAN
-	syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen");		//update questionnaire
+		syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen");		//update questionnaire
+		syncfile(GET,"/CSPro/Update/Listing/Listing.pen","../Listing/Listing.pen");		//update Lising
+		syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen");		//update Menu
+		syncdisconnect();		//disconnect
+	endif;
+end;
+
+//downloads Data based on ED
+function downloadData(string rnd_edno)
+	if syncconnect(FTP,"64.119.198.70","Census","Census2020ADM!N") then		//connect to FTP when outside of the government WAN
+		syncdata(GET,LABOURFORCE_DICT,rnd_edno);		//get labourforce data for round and ED
+		syncdata(GET,LISTING_DICT,rnd_edno);			//get listing data for round and ED
+		syncfile(GET,"CSPro/Photos/*.jpg","../Photos/");
+		syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen");		//update questionnaire
+		syncfile(GET,"/CSPro/Update/Listing/Listing.pen","../Listing/Listing.pen");		//update Lising
+		syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen");		//update Menu
+		syncdisconnect();		//disconnect
+	elseif syncconnect(FTP,"10.129.20.110","Census","Census2020ADM!N") then		//connect to FTP when outside of the government WAN
+		syncdata(GET,LABOURFORCE_DICT,rnd_edno);		//get labourforce data for round and ED
+		syncdata(GET,LISTING_DICT,rnd_edno);			//get listing data for round and ED
+		syncfile(GET,"CSPro/Photos/*.jpg","../Photos/");
+		syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen");		//update questionnaire
 		syncfile(GET,"/CSPro/Update/Listing/Listing.pen","../Listing/Listing.pen");		//update Lising
 		syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen");		//update Menu
 		syncdisconnect();		//disconnect
@@ -54,6 +76,15 @@ end;
 
 PROC MENU_FF
 
+PROC LOGIN
+
+	if $ = 1 then	//interviewer
+		skip to INTERVIEWER_MENU;
+	elseif $ = 2 then 	//supervisor
+		skip to SUPERVISOR_MENU;
+	elseif $ = 9 then
+		stop(1);
+	endif;
 PROC INTERVIEWER_MENU
 onfocus
 	$ = notappl;
@@ -71,3 +102,25 @@ postproc
 		stop(1);
 	endif;
 reenter;		//don't leave the menu
+PROC SUPERVISOR_MENU
+onfocus
+	$ = notappl;		//don't show the last selection
+	
+postproc
+	if $ = 1 then		//download data
+		skip to CHOOSE_ED;
+	elseif $ = 2 then		//open listing
+		launchListing();
+	elseif $ = 3 then		//open questionnaire
+		launchQuestionnaire();
+	elseif $ = 9 then		//logout
+		stop(1);
+	endif;
+reenter;		//don't leave the menu
+PROC CHOOSE_ED
+
+Postproc
+	rnd_ed = maketext("%d%02d", CHOOSE_ROUND,CHOOSE_ED);
+{	downloadData(rnd_ed);}
+	
+	move to LOGIN;

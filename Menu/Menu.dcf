@@ -24,12 +24,25 @@ Len=1
 Label=Menu record
 Name=MENU_REC
 RecordTypeValue='1'
-RecordLen=3
+RecordLen=9
+
+[Item]
+Label=Login
+Name=LOGIN
+Start=3
+Len=1
+
+[ValueSet]
+Label=Login
+Name=LOGIN_VS1
+Value=1;Interviewer
+Value=2;Supervisor
+Value=9;Exit
 
 [Item]
 Label=Interviewer Menu
 Name=INTERVIEWER_MENU
-Start=3
+Start=4
 Len=1
 
 [ValueSet]
@@ -40,3 +53,29 @@ Value=2;Fill Listing Record
 Value=7;Upload Data
 Value=8;Update App Only
 Value=9;Logout
+
+[Item]
+Label=Supervisor Menu
+Name=SUPERVISOR_MENU
+Start=5
+Len=1
+
+[ValueSet]
+Label=Supervisor Menu
+Name=SUPERVISOR_MENU_VS1
+Value=1;Download Data
+Value=2;Open Listing
+Value=3;Open Questionnaire
+Value=9;Logout
+
+[Item]
+Label=Choose Round
+Name=CHOOSE_ROUND
+Start=6
+Len=1
+
+[Item]
+Label=Choose ED
+Name=CHOOSE_ED
+Start=7
+Len=3
