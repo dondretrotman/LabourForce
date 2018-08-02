@@ -12,6 +12,7 @@ Todo:
 		Occupation, industry, no of males/females, Years (date of birth and interview), sample no, visit no, interviewer, supervisor, enumerator, coder, number of earners, household size, country codes age range institution codes
 	DONE Skip patterns must be added
 	Add occupation codes
+	Supervisor (SUPERV) keeps getting dropped for some reason
 
 }
 PROC GLOBAL
@@ -331,6 +332,13 @@ PROC CTRAINING
 	endif;
 	
 //---------------------------------------------------------------------------
+PROC OCCUPTR
+
+preproc
+	$ = 0;
+	noinput;
+	
+//-------------------------------------------------------
 PROC TRAINEDFOROCC
 
 	//if never trained, skip to Worked last week
@@ -339,6 +347,13 @@ PROC TRAINEDFOROCC
 	endif;
 	
 //---------------------------------------------------------------------------
+PROC OCCTRAINED
+
+preproc
+	$ = 0;
+	noinput;
+	
+//----------------------------------------------------------
 PROC WORKED
 
 	//if worked, skip to full time or part time
@@ -443,6 +458,20 @@ preproc
 	ask if LSTWRKD = 5;
 	
 //-----------------------------------------------------
+PROC LSTOCCUP
+
+preproc
+	$ = 0;
+	noinput;
+	
+//----------------------------------------------------------
+PROC LSTINDUS
+
+preproc
+	$ = 0;
+	noinput;
+	
+//----------------------------------------------------------
 PROC FULLPART
 
 	//if full time, skip to more than one job
@@ -478,7 +507,35 @@ preproc
 	ask if TWOJOBS = 1
 	
 //--------------------------------------------------------
+PROC OCCUP
+
+preproc
+	$ = 0;
+	noinput;
+
+//-----------------------------------------
+PROC SOCCUP_TEXT
+
+preproc
+	//only ask if more than one job
+	ask if TWOJOBS = 1
+	
+//--------------------------------------------------------
 PROC SOCCUP
+
+preproc
+	$ = 0;
+	noinput;
+
+//----------------------------------------------------------
+PROC INDUS
+
+preproc
+	$ = 0;
+	noinput;
+	
+//----------------------------------------------------------
+PROC SINDUS_TEXT
 
 preproc
 	//only ask if more than one job
@@ -488,10 +545,10 @@ preproc
 PROC SINDUS
 
 preproc
-	//only ask if more than one job
-	ask if TWOJOBS = 1
-	
-//--------------------------------------------------------
+	$ = 0;
+	noinput;
+
+//-----------------------------------------
 PROC EXPRNCE2
 
 preproc
@@ -517,7 +574,7 @@ PROC NHRSWRKD
 
 	//end if worked 40 or more hours
 	if HRSWRKD in 10,11 then
-		endlevel;
+		endgroup;
 	endif;
 
 //-----------------------------------------------------------------------
@@ -544,6 +601,20 @@ PROC HPWORK
 	endif;
 	
 //-----------------------------------------------------------
+PROC FOCCUP
+
+preproc
+	$ = 0;
+	noinput;
+
+//-----------------------------------------
+PROC INCINDUS
+
+preproc
+	$ = 0;
+	noinput;
+
+//-----------------------------------------
 PROC WORKBEFO
 
 	//if never worked before, skip to main sources of livelihood
@@ -552,3 +623,10 @@ PROC WORKBEFO
 	endif;
 	
 //---------------------------------------------------------------------
+PROC INCOCCUP
+
+preproc
+	$ = 0;
+	noinput;
+
+//-----------------------------------------

@@ -159,6 +159,15 @@ EN=\pard\cf1\fs24 47. In what occupation do you hope to work?\par
 EN=}
 
 [QUESTION]
+Field=LABOURFORCE_DICT.FOCCUP_TEXT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 47. In what occupation do you hope to work?\par
+EN=}
+
+[QUESTION]
 Field=LABOURFORCE_DICT.FRSTLOOK
 Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
@@ -275,6 +284,15 @@ EN=\pard\cf1\fs24 48. In what type of business (industry) do you hope to work?\p
 EN=}
 
 [QUESTION]
+Field=LABOURFORCE_DICT.INCINDUS_TEXT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 48. In what type of business (industry) do you hope to work?\par
+EN=}
+
+[QUESTION]
 Field=LABOURFORCE_DICT.INCOCCUP
 Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
@@ -284,7 +302,25 @@ EN=\pard\cf1\fs24 50. What was your last occupation?\par
 EN=}
 
 [QUESTION]
+Field=LABOURFORCE_DICT.INCOCCUP_TEXT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 50. What was your last occupation?\par
+EN=}
+
+[QUESTION]
 Field=LABOURFORCE_DICT.INDUS
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 38. In what kind of industry or service is your \b main\b0  occupation?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.INDUS_TEXT
 Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
@@ -471,6 +507,15 @@ EN=\pard\cf1\fs24 32a. In what type of business (industry) were you working or a
 EN=}
 
 [QUESTION]
+Field=LABOURFORCE_DICT.LSTINDUS_TEXT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 32a. In what type of business (industry) were you working or are you seeking employment?\par
+EN=}
+
+[QUESTION]
 Field=LABOURFORCE_DICT.LSTLOOK
 Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
@@ -481,6 +526,15 @@ EN=}
 
 [QUESTION]
 Field=LABOURFORCE_DICT.LSTOCCUP
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 31. What is/was the occupation you are/were looking for/in your last job?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LSTOCCUP_TEXT
 Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
@@ -597,6 +651,15 @@ EN=\pard\cf1\fs24 15. For what occupation were you trained?\par
 EN=}
 
 [QUESTION]
+Field=LABOURFORCE_DICT.OCCTRAINED_TEXT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 15. For what occupation were you trained?\par
+EN=}
+
+[QUESTION]
 Field=LABOURFORCE_DICT.OCCUP
 Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
@@ -606,7 +669,25 @@ EN=\pard\cf1\fs24 37. What is your \b main \b0 occupation?\par
 EN=}
 
 [QUESTION]
+Field=LABOURFORCE_DICT.OCCUP_TEXT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 37. What is your \b main \b0 occupation?\par
+EN=}
+
+[QUESTION]
 Field=LABOURFORCE_DICT.OCCUPTR
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 12. For what occupation are you being trained?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.OCCUPTR_TEXT
 Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
@@ -795,7 +876,25 @@ EN=\pard\cf1\fs24 38. In what kind of industry or service is your \b second\b0  
 EN=}
 
 [QUESTION]
+Field=LABOURFORCE_DICT.SINDUS_TEXT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 38. In what kind of industry or service is your \b second\b0  occupation?\par
+EN=}
+
+[QUESTION]
 Field=LABOURFORCE_DICT.SOCCUP
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 37. What is your \b second \b0 occupation?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.SOCCUP_TEXT
 Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}

@@ -27,7 +27,7 @@ Item=HHNO
 Name=FORM001
 Label=Household Listing
 Level=1
-Size=527,424
+Size=427,458
   
 Item=VISITNO
 Item=HH_TYP
@@ -38,6 +38,7 @@ Item=LATITUDE
 Item=LONGITUDE
 Item=VACANT
 Item=VOCCUP
+Item=SUPERV
   
 [EndForm]
   
@@ -165,31 +166,44 @@ Text=Visit Number
   
 [Field]
 Name=ENMRTR
-Position=205,120,234,140
+Position=205,124,234,144
 Item=ENMRTR,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 Form=2
   
 [Text]
-Position=72,123,146,139
+Position=72,127,146,143
 Text=Enumerator
  
   
 [Field]
+Name=SUPERV
+Position=205,160,234,180
+Item=SUPERV,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
+Form=2
+  
+[Text]
+Position=72,163,140,179
+Text=Supervisor
+ 
+  
+[Field]
 Name=ROTATION
-Position=205,151,234,171
+Position=205,196,234,216
 Item=ROTATION,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 Form=2
   
 [Text]
-Position=72,154,165,170
+Position=72,199,165,215
 Text=Rotation Order
  
   
 [Field]
 Name=DATE
-Position=205,183,318,203
+Position=205,232,318,252
 Item=DATE,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=Date
@@ -197,70 +211,70 @@ CaptureDateFormat=DDMMYYYY
 Form=2
   
 [Text]
-Position=72,186,101,202
+Position=72,235,101,251
 Text=Date
  
   
 [Field]
 Name=LATITUDE
-Position=205,223,388,243
+Position=205,268,388,288
 Item=LATITUDE,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 Form=2
   
 [Text]
-Position=72,226,124,242
+Position=72,271,124,287
 Text=Latitude
  
   
 [Field]
 Name=LONGITUDE
-Position=205,254,402,274
+Position=205,304,402,324
 Item=LONGITUDE,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 Form=2
   
 [Text]
-Position=72,257,136,273
+Position=72,307,136,323
 Text=Longitude
  
   
 [Field]
 Name=VACANT
-Position=205,301,220,321
+Position=205,340,220,360
 Item=VACANT,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
 Form=2
   
 [Text]
-Position=72,304,186,320
+Position=72,343,186,359
 Text=Vacant household
  
   
 [Field]
 Name=VOCCUP
-Position=205,333,234,353
+Position=205,376,234,396
 Item=VOCCUP,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
 Form=2
   
 [Text]
-Position=72,336,188,352
+Position=72,379,188,395
 Text=Vacant occupancy
  
   
 [Field]
 Name=HH_TYP
-Position=205,364,220,384
+Position=205,413,220,433
 Item=HH_TYP,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
 Form=2
   
 [Text]
-Position=72,367,174,383
+Position=72,416,174,432
 Text=Household Type
  
 [EndGroup]
@@ -752,26 +766,6 @@ Text=Interview Results
 Width=28
   
 [HeaderText]
-Position=28,4,104,28
-Text=Supervisor
- 
-[Field]
-Name=SUPERV
-Position=672,0,701,20
-Item=SUPERV,LABOURFORCE_DICT
-FieldLabelType=DictionaryLabel
-DataCaptureType=DropDown
-  
-[Text]
-Position=0,0,71,16
-Text=Supervisor
- 
-[EndColumn]
-  
-[Column]
-Width=28
-  
-[HeaderText]
 Position=4,4,104,28
 Text=Interview Date
  
@@ -1212,11 +1206,30 @@ Position=1,0,104,40
 Text=12. Training for Occupation
  
 [Field]
+Name=OCCUPTR_TEXT
+Position=280,0,701,20
+Item=OCCUPTR_TEXT,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=12. Training for Occupation
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=1,0,104,40
+Text=12. Training for Occupation
+ 
+[Field]
 Name=OCCUPTR
 Position=644,0,701,20
 Item=OCCUPTR,LABOURFORCE_DICT
+HideInCaseTree=Yes
 FieldLabelType=DictionaryLabel
-DataCaptureType=DropDown
   
 [Text]
 Position=0,0,174,16
@@ -1267,6 +1280,25 @@ Text=14. Trained for occupation
 Width=40
   
 [HeaderText]
+Position=1,0,104,40
+Text=15. Occupation trained
+ 
+[Field]
+Name=OCCTRAINED_TEXT
+Position=280,0,701,20
+Item=OCCTRAINED_TEXT,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=15. Occupation trained
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
 Position=2,0,104,40
 Text=15. Occupation trained
  
@@ -1274,8 +1306,8 @@ Text=15. Occupation trained
 Name=OCCTRAINED
 Position=644,0,701,20
 Item=OCCTRAINED,LABOURFORCE_DICT
+HideInCaseTree=Yes
 FieldLabelType=DictionaryLabel
-DataCaptureType=DropDown
   
 [Text]
 Position=0,0,145,16
@@ -1729,13 +1761,53 @@ Position=24,0,104,40
 Text=31. Last Occupation
  
 [Field]
-Name=LSTOCCUP
-Position=644,0,701,20
-Item=LSTOCCUP,LABOURFORCE_DICT
+Name=LSTOCCUP_TEXT
+Position=280,0,701,20
+Item=LSTOCCUP_TEXT,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
   
 [Text]
 Text=31. Last Occupation
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=24,0,104,40
+Text=31. Last Occupation
+ 
+[Field]
+Name=LSTOCCUP
+Position=644,0,701,20
+Item=LSTOCCUP,LABOURFORCE_DICT
+HideInCaseTree=Yes
+FieldLabelType=DictionaryLabel
+  
+[Text]
+Position=0,0,128,16
+Text=31. Last Occupation
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=36,0,104,40
+Text=32a. Last Industry
+ 
+[Field]
+Name=LSTINDUS_TEXT
+Position=280,0,701,20
+Item=LSTINDUS_TEXT,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=32a. Last Industry
  
 [EndColumn]
   
@@ -1750,9 +1822,11 @@ Text=32a. Last industry
 Name=LSTINDUS
 Position=644,0,701,20
 Item=LSTINDUS,LABOURFORCE_DICT
+HideInCaseTree=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
+Position=0,0,117,16
 Text=32a. Last industry
  
 [EndColumn]
@@ -2012,11 +2086,30 @@ Position=26,0,104,40
 Text=37. Main occupation
  
 [Field]
+Name=OCCUP_TEXT
+Position=280,0,701,20
+Item=OCCUP_TEXT,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=37. Main occupation
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=26,0,104,40
+Text=37. Main occupation
+ 
+[Field]
 Name=OCCUP
 Position=644,0,701,20
 Item=OCCUP,LABOURFORCE_DICT
+HideInCaseTree=Yes
 FieldLabelType=DictionaryLabel
-DataCaptureType=DropDown
   
 [Text]
 Position=0,0,130,16
@@ -2032,13 +2125,53 @@ Position=22,0,104,40
 Text=37. Second occupation
  
 [Field]
-Name=SOCCUP
-Position=644,0,701,20
-Item=SOCCUP,LABOURFORCE_DICT
+Name=SOCCUP_TEXT
+Position=280,0,701,20
+Item=SOCCUP_TEXT,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
   
 [Text]
 Text=37. Second occupation
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=22,0,104,40
+Text=37. Second occupation
+ 
+[Field]
+Name=SOCCUP
+Position=644,0,701,20
+Item=SOCCUP,LABOURFORCE_DICT
+HideInCaseTree=Yes
+FieldLabelType=DictionaryLabel
+  
+[Text]
+Position=0,0,146,16
+Text=37. Second occupation
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=39,0,104,40
+Text=38. Main industry
+ 
+[Field]
+Name=INDUS_TEXT
+Position=280,0,701,20
+Item=INDUS_TEXT,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=38. Main industry
  
 [EndColumn]
   
@@ -2053,8 +2186,8 @@ Text=38. Main industry
 Name=INDUS
 Position=644,0,701,20
 Item=INDUS,LABOURFORCE_DICT
+HideInCaseTree=Yes
 FieldLabelType=DictionaryLabel
-DataCaptureType=ComboBox
   
 [Text]
 Position=0,0,113,16
@@ -2070,11 +2203,30 @@ Position=22,0,104,40
 Text=38. Second industry
  
 [Field]
+Name=SINDUS_TEXT
+Position=280,0,701,20
+Item=SINDUS_TEXT,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=38. Second industry
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=22,0,104,40
+Text=38. Second industry
+ 
+[Field]
 Name=SINDUS
 Position=644,0,701,20
 Item=SINDUS,LABOURFORCE_DICT
+HideInCaseTree=Yes
 FieldLabelType=DictionaryLabel
-DataCaptureType=DropDown
   
 [Text]
 Position=0,0,129,16
@@ -2375,11 +2527,30 @@ Position=2,0,104,40
 Text=47. Occupation wanted
  
 [Field]
+Name=FOCCUP_TEXT
+Position=280,0,701,20
+Item=FOCCUP_TEXT,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=47. Occupation wanted
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=2,0,104,40
+Text=47. Occupation wanted
+ 
+[Field]
 Name=FOCCUP
 Position=644,0,701,20
 Item=FOCCUP,LABOURFORCE_DICT
+HideInCaseTree=Yes
 FieldLabelType=DictionaryLabel
-DataCaptureType=DropDown
   
 [Text]
 Position=0,0,146,16
@@ -2395,12 +2566,33 @@ Position=20,0,104,40
 Text=48. Industry wanted
  
 [Field]
+Name=INCINDUS_TEXT
+Position=280,0,701,20
+Item=INCINDUS_TEXT,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=48. Industry wanted
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=20,0,104,40
+Text=48. Industry wanted
+ 
+[Field]
 Name=INCINDUS
 Position=644,0,701,20
 Item=INCINDUS,LABOURFORCE_DICT
+HideInCaseTree=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
+Position=0,0,127,16
 Text=48. Industry wanted
  
 [EndColumn]
@@ -2432,12 +2624,33 @@ Position=26,0,104,40
 Text=50. Last occupation
  
 [Field]
+Name=INCOCCUP_TEXT
+Position=280,0,701,20
+Item=INCOCCUP_TEXT,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=50. Last occupation
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=26,0,104,40
+Text=50. Last occupation
+ 
+[Field]
 Name=INCOCCUP
 Position=644,0,701,20
 Item=INCOCCUP,LABOURFORCE_DICT
+HideInCaseTree=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
+Position=0,0,126,16
 Text=50. Last occupation
  
 [EndColumn]
