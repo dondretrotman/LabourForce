@@ -82,6 +82,9 @@ PROC LOGIN
 		skip to INTERVIEWER_MENU;
 	elseif $ = 2 then 	//supervisor
 		skip to SUPERVISOR_MENU;
+	elseif $ = 3 then		//update only
+		updateApp();
+		reenter;		
 	elseif $ = 9 then
 		stop(1);
 	endif;
@@ -96,8 +99,6 @@ postproc
 		LaunchListing();
 	elseif $ = 7 then		//upload data
 		uploadData();
-	elseif $ = 8 then		//update only
-		updateApp();
 	elseif $ = 9 then		//logout
 		stop(1);
 	endif;

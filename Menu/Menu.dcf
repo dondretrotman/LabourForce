@@ -37,6 +37,7 @@ Label=Login
 Name=LOGIN_VS1
 Value=1;Interviewer
 Value=2;Supervisor
+Value=3;Update App
 Value=9;Exit
 
 [Item]
@@ -51,7 +52,6 @@ Name=INTERVIEWER_MENU_VS1
 Value=1;Fill Questionnaire
 Value=2;Fill Listing Record
 Value=7;Upload Data
-Value=8;Update App Only
 Value=9;Logout
 
 [Item]

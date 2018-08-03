@@ -155,6 +155,7 @@ Max=1
 Name=VISITNO
 Position=205,88,220,108
 Item=VISITNO,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
 Form=2
@@ -168,6 +169,7 @@ Text=Visit Number
 Name=ENMRTR
 Position=205,124,234,144
 Item=ENMRTR,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 Form=2
   
@@ -180,6 +182,7 @@ Text=Enumerator
 Name=SUPERV
 Position=205,160,234,180
 Item=SUPERV,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
 Form=2
@@ -193,6 +196,7 @@ Text=Supervisor
 Name=ROTATION
 Position=205,196,234,216
 Item=ROTATION,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 Form=2
   
@@ -205,6 +209,7 @@ Text=Rotation Order
 Name=DATE
 Position=205,232,318,252
 Item=DATE,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=Date
 CaptureDateFormat=DDMMYYYY
@@ -219,6 +224,7 @@ Text=Date
 Name=LATITUDE
 Position=205,268,388,288
 Item=LATITUDE,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 Form=2
   
@@ -231,6 +237,7 @@ Text=Latitude
 Name=LONGITUDE
 Position=205,304,402,324
 Item=LONGITUDE,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 Form=2
   
@@ -243,6 +250,7 @@ Text=Longitude
 Name=VACANT
 Position=205,340,220,360
 Item=VACANT,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
 Form=2
@@ -256,6 +264,7 @@ Text=Vacant household
 Name=VOCCUP
 Position=205,376,234,396
 Item=VOCCUP,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
 Form=2
@@ -269,6 +278,7 @@ Text=Vacant occupancy
 Name=HH_TYP
 Position=205,413,220,433
 Item=HH_TYP,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
 Form=2
@@ -367,6 +377,7 @@ Name=LIDNO
 Position=38,0,67,20
 Item=LIDNO,LABOURFORCE_DICT
 Protected=Yes
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -386,6 +397,7 @@ Text=Last Name
 Name=LLAST_NAME
 Position=0,0,701,20
 Item=LLAST_NAME,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -405,6 +417,7 @@ Text=First Name
 Name=LFIRST_NAME
 Position=0,0,701,20
 Item=LFIRST_NAME,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -424,6 +437,7 @@ Text=Sex
 Name=LSEX
 Position=10,0,25,20
 Item=LSEX,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -443,6 +457,7 @@ Text=Member from previous visit
 Name=LPREVVISIT
 Position=74,0,89,20
 Item=LPREVVISIT,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -462,6 +477,7 @@ Text=New Member
 Name=LNEWMEM
 Position=69,0,84,20
 Item=LNEWMEM,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -481,6 +497,7 @@ Text=Reason for leaving or joining the household
 Name=LREASON
 Position=57,0,72,20
 Item=LREASON,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -501,6 +518,7 @@ Text=Other
 Name=LREASON_OTHER
 Position=0,0,421,20
 Item=LREASON_OTHER,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -520,6 +538,7 @@ Text=Relationship to head
 Name=LRTH
 Position=80,0,95,20
 Item=LRTH,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -539,6 +558,7 @@ Text=Usual Residence
 Name=LUR
 Position=51,0,66,20
 Item=LUR,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -559,6 +579,7 @@ Text=DOB
 Name=LDOB
 Position=0,0,113,20
 Item=LDOB,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -578,6 +599,7 @@ Text=Age
 Name=LAGE
 Position=0,0,43,20
 Item=LAGE,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -596,6 +618,7 @@ Text=Eligible
 Name=LELIGIBLE
 Position=33,0,48,20
 Item=LELIGIBLE,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -615,6 +638,7 @@ Text=Earner
 Name=LEARNER
 Position=27,0,42,20
 Item=LEARNER,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -634,6 +658,7 @@ Text=Form 2 completed by
 Name=LCOMPLETED
 Position=57,0,86,20
 Item=LCOMPLETED,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -652,6 +677,7 @@ Text=Add another person?
 Name=ADDPER
 Position=67,0,82,20
 Item=ADDPER,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -754,6 +780,7 @@ Text=Interview Results
 Name=INTRVW
 Position=686,0,701,20
 Item=INTRVW,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -773,6 +800,7 @@ Text=Interview Date
 Name=INTD
 Position=588,0,701,20
 Item=INTD,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=Date
 CaptureDateFormat=YYYYMMDD
@@ -794,6 +822,7 @@ Text=HHead
 Name=HD_HH
 Position=686,0,701,20
 Item=HD_HH,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -813,6 +842,7 @@ Text=Occupancy
 Name=OCCPNCY
 Position=672,0,701,20
 Item=OCCPNCY,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -832,6 +862,7 @@ Text=Land Tenure
 Name=LNDTNURE
 Position=686,0,701,20
 Item=LNDTNURE,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -851,6 +882,7 @@ Text=Other
 Name=LNDTNURE_OTHER
 Position=280,0,701,20
 Item=LNDTNURE_OTHER,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -870,6 +902,7 @@ Text=HHsize
 Name=HH_SZ
 Position=672,0,701,20
 Item=HH_SZ,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -888,6 +921,7 @@ Text=Earners
 Name=EARNERS
 Position=672,0,701,20
 Item=EARNERS,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -906,6 +940,7 @@ Text=Head Earner
 Name=HD_ERNR
 Position=686,0,701,20
 Item=HD_ERNR,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -925,6 +960,7 @@ Text=No of Male Children
 Name=MCHILDRN
 Position=672,0,701,20
 Item=MCHILDRN,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -943,6 +979,7 @@ Text=No of Female Children
 Name=FCHILDRN
 Position=672,0,701,20
 Item=FCHILDRN,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -961,6 +998,7 @@ Text=1. Individual No
 Name=INDIVNO
 Position=672,0,701,20
 Item=INDIVNO,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -979,10 +1017,13 @@ Text=3. Sex
 Name=SEX
 Position=686,0,701,20
 Item=SEX,LABOURFORCE_DICT
+HideInCaseTree=Yes
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
 [Text]
+Position=0,0,41,16
 Text=3. Sex
  
 [EndColumn]
@@ -998,10 +1039,13 @@ Text=4. Relation to Head
 Name=RELHD
 Position=686,0,701,20
 Item=RELHD,LABOURFORCE_DICT
+HideInCaseTree=Yes
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
 [Text]
+Position=0,0,124,16
 Text=4. Relation to Head
  
 [EndColumn]
@@ -1017,10 +1061,13 @@ Text=4. Other
 Name=RELHD_OTHER
 Position=280,0,701,20
 Item=RELHD_OTHER,LABOURFORCE_DICT
+HideInCaseTree=Yes
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
 [Text]
+Position=0,0,51,16
 Text=4. Other
  
 [EndColumn]
@@ -1036,6 +1083,8 @@ Text=5. Birth Date
 Name=BIRTHD
 Position=588,0,701,20
 Item=BIRTHD,LABOURFORCE_DICT
+HideInCaseTree=Yes
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=Date
 CaptureDateFormat=YYYYMMDD
@@ -1057,9 +1106,12 @@ Text=6. Age
 Name=AGE
 Position=658,0,701,20
 Item=AGE,LABOURFORCE_DICT
+HideInCaseTree=Yes
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
+Position=0,0,40,16
 Text=6. Age
  
 [EndColumn]
@@ -1075,6 +1127,7 @@ Text=7. Nationality
 Name=CNTRY_CD
 Position=658,0,701,20
 Item=CNTRY_CD,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1095,6 +1148,7 @@ Text=8. Marital Status
 Name=MARSTAT
 Position=686,0,701,20
 Item=MARSTAT,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1114,6 +1168,7 @@ Text=9. Education Level
 Name=EDUCLEV
 Position=686,0,701,20
 Item=EDUCLEV,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1133,6 +1188,7 @@ Text=9. Other
 Name=EDUCLEV_OTHER
 Position=280,0,701,20
 Item=EDUCLEV_OTHER,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -1152,6 +1208,7 @@ Text=10. Highest qualification
 Name=QUALLEV
 Position=672,0,701,20
 Item=QUALLEV,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1171,6 +1228,7 @@ Text=10. Other
 Name=QUALLEV_OTHER
 Position=280,0,701,20
 Item=QUALLEV_OTHER,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -1190,6 +1248,7 @@ Text=11. Currently Training
 Name=CTRAINING
 Position=686,0,701,20
 Item=CTRAINING,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1209,6 +1268,7 @@ Text=12. Training for Occupation
 Name=OCCUPTR_TEXT
 Position=280,0,701,20
 Item=OCCUPTR_TEXT,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -1229,6 +1289,7 @@ Name=OCCUPTR
 Position=644,0,701,20
 Item=OCCUPTR,LABOURFORCE_DICT
 HideInCaseTree=Yes
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -1248,6 +1309,7 @@ Text=13. Place currently training
 Name=PLACETR
 Position=672,0,701,20
 Item=PLACETR,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1268,6 +1330,7 @@ Text=14. Trained for occupation
 Name=TRAINEDFOROCC
 Position=686,0,701,20
 Item=TRAINEDFOROCC,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1287,6 +1350,7 @@ Text=15. Occupation trained
 Name=OCCTRAINED_TEXT
 Position=280,0,701,20
 Item=OCCTRAINED_TEXT,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -1307,6 +1371,7 @@ Name=OCCTRAINED
 Position=644,0,701,20
 Item=OCCTRAINED,LABOURFORCE_DICT
 HideInCaseTree=Yes
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -1326,6 +1391,7 @@ Text=16. Place trained
 Name=PLACETRAINED
 Position=672,0,701,20
 Item=PLACETRAINED,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1346,6 +1412,7 @@ Text=17. Worked Last Week
 Name=WORKED
 Position=686,0,701,20
 Item=WORKED,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1365,6 +1432,7 @@ Text=18. Regular Job
 Name=REGJOB
 Position=686,0,701,20
 Item=REGJOB,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1384,6 +1452,7 @@ Text=19a. Reason for Absence
 Name=REASABS
 Position=686,0,701,20
 Item=REASABS,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1403,6 +1472,7 @@ Text=19a. Other
 Name=REASABS_OTHER
 Position=280,0,701,20
 Item=REASABS_OTHER,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -1422,6 +1492,7 @@ Text=19b. Paid Absence
 Name=PAIDABS
 Position=686,0,701,20
 Item=PAIDABS,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1441,6 +1512,7 @@ Text=19c. Length of Absence
 Name=TIMEABS
 Position=686,0,701,20
 Item=TIMEABS,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1460,6 +1532,7 @@ Text=20. Major Activity
 Name=MAJACTV
 Position=686,0,701,20
 Item=MAJACTV,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1479,6 +1552,7 @@ Text=20. Other
 Name=MAJACTV_OTHER
 Position=280,0,701,20
 Item=MAJACTV_OTHER,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -1498,6 +1572,7 @@ Text=21. Seeking Work
 Name=SEEKING
 Position=686,0,701,20
 Item=SEEKING,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1517,6 +1592,7 @@ Text=22. Method of seeking work
 Name=METHOD
 Position=686,0,701,20
 Item=METHOD,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1536,6 +1612,7 @@ Text=22. Other
 Name=METHOD_OTHER
 Position=280,0,701,20
 Item=METHOD_OTHER,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -1555,6 +1632,7 @@ Text=23. Reason for not seeking work
 Name=REASNSK
 Position=686,0,701,20
 Item=REASNSK,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1574,6 +1652,7 @@ Text=23. Other
 Name=REASNSK_OTHER
 Position=280,0,701,20
 Item=REASNSK_OTHER,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -1593,6 +1672,7 @@ Text=24. Last looked for work
 Name=LSTLOOK
 Position=686,0,701,20
 Item=LSTLOOK,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1612,6 +1692,7 @@ Text=25a. Willing to work
 Name=WILLING
 Position=686,0,701,20
 Item=WILLING,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1631,6 +1712,7 @@ Text=25b. Able to work
 Name=ABLE
 Position=686,0,701,20
 Item=ABLE,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1650,6 +1732,7 @@ Text=26. Type of work Wanted
 Name=WRKWNTD
 Position=686,0,701,20
 Item=WRKWNTD,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1669,6 +1752,7 @@ Text=27. Hours of work wanted
 Name=HRSWNTD
 Position=672,0,701,20
 Item=HRSWNTD,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1688,6 +1772,7 @@ Text=28. Ever worked before
 Name=EVERWKD
 Position=686,0,701,20
 Item=EVERWKD,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1707,6 +1792,7 @@ Text=29. Last worked
 Name=LSTWRKD
 Position=686,0,701,20
 Item=LSTWRKD,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1726,6 +1812,7 @@ Text=29. Other
 Name=LSTWRKD_OTHER
 Position=280,0,701,20
 Item=LSTWRKD_OTHER,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -1745,6 +1832,7 @@ Text=30. First looked for work
 Name=FRSTLOOK
 Position=686,0,701,20
 Item=FRSTLOOK,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1764,6 +1852,7 @@ Text=31. Last Occupation
 Name=LSTOCCUP_TEXT
 Position=280,0,701,20
 Item=LSTOCCUP_TEXT,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -1784,6 +1873,7 @@ Name=LSTOCCUP
 Position=644,0,701,20
 Item=LSTOCCUP,LABOURFORCE_DICT
 HideInCaseTree=Yes
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -1803,6 +1893,7 @@ Text=32a. Last Industry
 Name=LSTINDUS_TEXT
 Position=280,0,701,20
 Item=LSTINDUS_TEXT,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -1823,6 +1914,7 @@ Name=LSTINDUS
 Position=644,0,701,20
 Item=LSTINDUS,LABOURFORCE_DICT
 HideInCaseTree=Yes
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -1842,6 +1934,7 @@ Text=32b. Last unemployment status
 Name=UNEMPLSA
 Position=686,0,701,20
 Item=UNEMPLSA,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1861,6 +1954,7 @@ Text=32c. Main source of livelihood
 Name=USINCOME
 Position=686,0,701,20
 Item=USINCOME,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1880,6 +1974,7 @@ Text=32c. Second source of income
 Name=U2SINCOM
 Position=686,0,701,20
 Item=U2SINCOM,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1899,6 +1994,7 @@ Text=32d. Main livelihood earning
 Name=UEARNGS
 Position=672,0,701,20
 Item=UEARNGS,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1918,6 +2014,7 @@ Text=32d. Second livelihood earnings
 Name=U2EARNGS
 Position=672,0,701,20
 Item=U2EARNGS,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1937,6 +2034,7 @@ Text=33. Full-time or part-time worker
 Name=FULLPART
 Position=686,0,701,20
 Item=FULLPART,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1956,6 +2054,7 @@ Text=34. Reason for working part-time
 Name=RSNPART
 Position=686,0,701,20
 Item=RSNPART,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -1975,6 +2074,7 @@ Text=34. Other
 Name=RSNPART_OTHER
 Position=280,0,701,20
 Item=RSNPART_OTHER,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -1994,6 +2094,7 @@ Text=35a. Do you have more than 1 job?
 Name=TWOJOBS
 Position=686,0,701,20
 Item=TWOJOBS,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -2013,6 +2114,7 @@ Text=35b. Reason for other jobs?
 Name=RSN2JOBS
 Position=686,0,701,20
 Item=RSN2JOBS,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -2032,6 +2134,7 @@ Text=35b. Other
 Name=RSN2JOBS_OTHER
 Position=280,0,701,20
 Item=RSN2JOBS_OTHER,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -2051,6 +2154,7 @@ Text=36a. Main employment status
 Name=EMPLSTAT
 Position=686,0,701,20
 Item=EMPLSTAT,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -2070,6 +2174,7 @@ Text=36b. Secondary Employment Status
 Name=EMPL2STAT
 Position=686,0,701,20
 Item=EMPL2STAT,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -2089,6 +2194,7 @@ Text=37. Main occupation
 Name=OCCUP_TEXT
 Position=280,0,701,20
 Item=OCCUP_TEXT,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -2109,6 +2215,7 @@ Name=OCCUP
 Position=644,0,701,20
 Item=OCCUP,LABOURFORCE_DICT
 HideInCaseTree=Yes
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -2128,6 +2235,7 @@ Text=37. Second occupation
 Name=SOCCUP_TEXT
 Position=280,0,701,20
 Item=SOCCUP_TEXT,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -2148,6 +2256,7 @@ Name=SOCCUP
 Position=644,0,701,20
 Item=SOCCUP,LABOURFORCE_DICT
 HideInCaseTree=Yes
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -2167,6 +2276,7 @@ Text=38. Main industry
 Name=INDUS_TEXT
 Position=280,0,701,20
 Item=INDUS_TEXT,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -2187,6 +2297,7 @@ Name=INDUS
 Position=644,0,701,20
 Item=INDUS,LABOURFORCE_DICT
 HideInCaseTree=Yes
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -2206,6 +2317,7 @@ Text=38. Second industry
 Name=SINDUS_TEXT
 Position=280,0,701,20
 Item=SINDUS_TEXT,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -2226,6 +2338,7 @@ Name=SINDUS
 Position=644,0,701,20
 Item=SINDUS,LABOURFORCE_DICT
 HideInCaseTree=Yes
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -2245,6 +2358,7 @@ Text=39. Work Experience
 Name=EXPRNCE
 Position=686,0,701,20
 Item=EXPRNCE,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -2264,6 +2378,7 @@ Text=39. Secondary Work Experience
 Name=EXPRNCE2
 Position=686,0,701,20
 Item=EXPRNCE2,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -2283,6 +2398,7 @@ Text=40a. Earnings last week
 Name=EARNGS
 Position=672,0,701,20
 Item=EARNGS,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -2302,6 +2418,7 @@ Text=40a. Secondary earnings last week
 Name=EARNGS2
 Position=672,0,701,20
 Item=EARNGS2,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -2321,6 +2438,7 @@ Text=40b. Main average earnings
 Name=AVGEARNS
 Position=672,0,701,20
 Item=AVGEARNS,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -2340,6 +2458,7 @@ Text=40b. Secondary average earnings
 Name=AVGEARNS2
 Position=672,0,701,20
 Item=AVGEARNS2,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -2359,6 +2478,7 @@ Text=41a. Hours actually worked
 Name=HRSWRKD
 Position=672,0,701,20
 Item=HRSWRKD,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -2378,6 +2498,7 @@ Text=41b. Hours normally worked
 Name=NHRSWRKD
 Position=672,0,701,20
 Item=NHRSWRKD,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -2397,6 +2518,7 @@ Text=42. Reason for working less than 40 hours
 Name=RSNLESS
 Position=672,0,701,20
 Item=RSNLESS,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -2416,6 +2538,7 @@ Text=42. Other
 Name=RSNLESS_OTHER
 Position=280,0,701,20
 Item=RSNLESS_OTHER,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -2435,6 +2558,7 @@ Text=43a. Willing to do additional work
 Name=ADDWRK
 Position=686,0,701,20
 Item=ADDWRK,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -2454,6 +2578,7 @@ Text=43b. Last looked for work
 Name=LASTLOOK
 Position=686,0,701,20
 Item=LASTLOOK,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -2473,6 +2598,7 @@ Text=44. Kind of additional work
 Name=KINDWRK
 Position=686,0,701,20
 Item=KINDWRK,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -2492,6 +2618,7 @@ Text=45. Hoping for job
 Name=HPWORK
 Position=686,0,701,20
 Item=HPWORK,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -2511,6 +2638,7 @@ Text=46. When to take job
 Name=INACTWHN
 Position=686,0,701,20
 Item=INACTWHN,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -2530,6 +2658,7 @@ Text=47. Occupation wanted
 Name=FOCCUP_TEXT
 Position=280,0,701,20
 Item=FOCCUP_TEXT,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -2550,6 +2679,7 @@ Name=FOCCUP
 Position=644,0,701,20
 Item=FOCCUP,LABOURFORCE_DICT
 HideInCaseTree=Yes
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -2569,6 +2699,7 @@ Text=48. Industry wanted
 Name=INCINDUS_TEXT
 Position=280,0,701,20
 Item=INCINDUS_TEXT,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -2589,6 +2720,7 @@ Name=INCINDUS
 Position=644,0,701,20
 Item=INCINDUS,LABOURFORCE_DICT
 HideInCaseTree=Yes
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -2608,6 +2740,7 @@ Text=49. Ever worked before
 Name=WORKBEFO
 Position=686,0,701,20
 Item=WORKBEFO,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -2627,6 +2760,7 @@ Text=50. Last occupation
 Name=INCOCCUP_TEXT
 Position=280,0,701,20
 Item=INCOCCUP_TEXT,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -2647,6 +2781,7 @@ Name=INCOCCUP
 Position=644,0,701,20
 Item=INCOCCUP,LABOURFORCE_DICT
 HideInCaseTree=Yes
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
@@ -2666,6 +2801,7 @@ Text=51a. Main sources of livelihood
 Name=SCINCOME
 Position=686,0,701,20
 Item=SCINCOME,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -2685,6 +2821,7 @@ Text=51a. Secondary scources of livelihood
 Name=IN2INCOM
 Position=686,0,701,20
 Item=IN2INCOM,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -2704,6 +2841,7 @@ Text=51b. Main source amount
 Name=INEARNGS
 Position=672,0,701,20
 Item=INEARNGS,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   
@@ -2723,6 +2861,7 @@ Text=51b. Secondary source amount
 Name=IN2EARNG
 Position=672,0,701,20
 Item=IN2EARNG,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
   

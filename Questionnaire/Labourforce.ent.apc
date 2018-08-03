@@ -19,6 +19,8 @@ PROC GLOBAL
 //----------------------------VARIABLE DECLARATION---------------------------------------------
 numeric i,				//general variable
 		tempage,		//for calcuating age
+		numheads,		//number of heads of household
+		numspouses,		//number of spouses
 		;
 		
 string 	caselabel,		//stores the label for the current case
@@ -94,7 +96,10 @@ end;
 
 //Function to take a photo using the device's camera. It saves to a filename matching the ID items
 function takePhoto()
-	if direxist(photoDir) then
+	photoFileName = pathname(CSEntry) + maketext("Menu/Photos/%03d-%03d-%03d-%d-%03d.jpg", visualvalue(RNDNO),visualvalue(EDNO),visualvalue(PARNO),visualvalue(STRATUM),visualvalue(HHNO)); 
+	if visualvalue(RNDNO) = notappl or visualvalue(EDNO) = notappl or visualvalue(PARNO) = notappl or visualvalue(STRATUM) = notappl or visualvalue(HHNO) = notappl then
+		errmsg("Please complete the household ID information before taking a photo.");
+	elseif direxist(photoDir) then
 		execsystem(maketext("camera:%s",photoFileName));
 	else
 		dircreate(photoDir);
@@ -104,6 +109,7 @@ end;
 
 //Function to view photo of current case
 function viewPhoto()
+	photoFileName = pathname(CSEntry) + maketext("Menu/Photos/%03d-%03d-%03d-%d-%03d.jpg", visualvalue(RNDNO),visualvalue(EDNO),visualvalue(PARNO),visualvalue(STRATUM),visualvalue(HHNO));  
 	if direxist(photoDir) then
 		execsystem(maketext("view:%s", photoFileName));
 	else
@@ -115,7 +121,7 @@ end;
 PROC LABOURFORCE_FF
 preproc
 //---------------------------Declare Variables-----------------------------------
-	photoFileName = pathname(CSEntry) + maketext("Menu/Photos/%03d-%03d-%03d-%d-%03d.jpg", visualvalue(RNDNO),visualvalue(EDNO),visualvalue(PARNO),visualvalue(STRATUM),visualvalue(HHNO));  //DEBUG: Not saving file with Rndno, edno, parno and stratum
+	photoFileName = pathname(CSEntry) + maketext("Menu/Photos/%03d-%03d-%03d-%d-%03d.jpg", visualvalue(RNDNO),visualvalue(EDNO),visualvalue(PARNO),visualvalue(STRATUM),visualvalue(HHNO)); 
 	photoDir = pathname(CSEntry) + "Menu/Photos";
 	
 //---------------------------Userbar definition------------------------------------
@@ -171,14 +177,27 @@ preproc
 	noinput;
 	
 //--------------------------------------------------------
+PROC LPREVVISIT
+preproc
+	ask if VISITNO > 1;
+	
+//------------------------------------------------
 PROC LNEWMEM
-
+preproc
+	ask if VISITNO > 1;
+	
+postproc
 	//if not a new member, don't ask why they joined
 	if $ = 2 then
 		skip to LRTH;
 	endif;
 	
 //---------------------------------------------------------------------
+PROC LREASON
+preproc
+	ask if VISITNO > 1;
+	
+//------------------------------------------------
 PROC LREASON_OTHER
 preproc
 	//only ask if other is selected
@@ -193,6 +212,24 @@ PROC LRTH
 		caselabel = maketext("%s-%03d-%03d-%03d-%d-%03d",strip(LLAST_NAME),RNDNO,EDNO,PARNO,STRATUM,HHNO);
 		setcaselabel(LABOURFORCE_DICT,caselabel);
 	endif;
+	
+	//check that theres is only one head of household
+	numheads = count(LRTH where LRTH = 0);		//count the number of heads of household
+	if numheads > 1 then
+		i = seek(LRTH = 0, @1);			//look for the other head
+		errmsg("Too many heads of household.")
+		select("Change previous head",LRTH(i), "Change current head",$);
+	endif;
+	
+	//check that theres only 1 spouse or less
+	numspouses = count(LRTH where LRTH = 1);		//count the number of spouses
+	if numspouses > 1 then
+		i = seek(LRTH = 1, @1);			//look for the other spouse
+		errmsg("Too many spouses.")
+		select("Change previous spouse",LRTH(i), "Change current spouse",$);
+	endif;
+	
+	
 	
 //---------------------------------------------------------------------
 PROC LDOB
@@ -246,12 +283,21 @@ preproc
 	
 //---------------------------------------------------------------------
 PROC HD_HH
+onfocus
+	//if head of household, make this person head of household and skip to individual details
+	if LRTH = 0 then		//if head of household
+		$ = 1;				//yes person is head
+	else
+		$ = 2;				//else no person is not head
+		skip to INDIVNO;
+	endif;
 	
+{postproc	
 	//if not head of household, skip to individual details 
 	if $ = 2 then
 		skip to INDIVNO;
 	endif;
-
+}
 //---------------------------------------------------------------------------
 PROC LNDTNURE
 
@@ -267,32 +313,65 @@ preproc
 	ask if LNDTNURE = 5;
 	
 //-----------------------------------------------------
-PROC INDIVNO
+PROC HH_SZ
+onfocus
+	$ = totocc(LABOURFORCE_REC001);
 
-	//TODO: prefill information based on household listing ID number
-	i = seek(LIDNO = $);
-	
-	if i = $ then
-		SEX = LSEX(i);
-		RELHD = LRTH(i);
-		BIRTHD = LDOB(i);
-		AGE = LAGE(i);
-	else
-		errmsg("No person with ID #%d was found, please try again",$);
-		reenter;
+postproc
+	if $ > totocc(LABOURFORCE_REC001) then
+		errmsg("Are there more persons to be added? Persons listed = %d, Household size = %d",totocc(LABOURFORCE_REC001),$)
+		select("Yes",ADDPER,"No",$);
+	elseif $ < totocc(LABOURFORCE_REC001) then
+		$ = totocc(LABOURFORCE_REC001);
 	endif;
+	
+//------------------------------------------------------------------
+PROC EARNERS
+onfocus
+	$ = count(LEARNER where LEARNER = 1);
+	
+//----------------------------------------------------
+PROC HD_ERNR
+onfocus
+	if LRTH = 0 then
+		$ = LEARNER;
+		advance to MCHILDRN;
+	endif;
+	
+//--------------------------------------------
+PROC MCHILDRN
+onfocus
+	$ = count(LSEX where LSEX = 1 and LAGE < 15);
+	
+//-----------------------------------------------------------
+PROC FCHILDRN
+onfocus
+	$ = count(LSEX where LSEX = 2 and LAGE < 15);
+	
+//-----------------------------------------------------------
+PROC INDIVNO
+onfocus
+	//TODO: prefill information based on household listing ID number
+	INDIVNO = LIDNO;
+	
+	SEX = LSEX;
+	RELHD = LRTH;
+	BIRTHD = LDOB;
+	AGE = LAGE;
+	advance to CNTRY_CD;
+	
 	
 //---------------------------------------------------------------------------
 PROC RELHD
 
 	//compare to HD_HH to verify head of household
-	if not ($ = 0 and HD_HH = 1) then	
+{	if not ($ = 0 and HD_HH = 1) then	
 		if not ($ in 1:8 and HD_HH = 2) then
 			errmsg("Relation to head (%d) does not match with Head of shousehold status (%d)",$,HD_HH)
 			select("Change relation to head",$,"Change head of household status",HD_HH);
 		endif;
 	endif;  
-
+}
 //---------------------------------------------------------------------------
 PROC RELHD_OTHER
 preproc
@@ -472,6 +551,12 @@ preproc
 	noinput;
 	
 //----------------------------------------------------------
+PROC U2EARNGS
+postproc
+	//end of Unemployed section
+	skip to next;
+
+//--------------------------------------------------------
 PROC FULLPART
 
 	//if full time, skip to more than one job
@@ -574,7 +659,7 @@ PROC NHRSWRKD
 
 	//end if worked 40 or more hours
 	if HRSWRKD in 10,11 then
-		endgroup;
+		skip to next;
 	endif;
 
 //-----------------------------------------------------------------------
@@ -589,10 +674,16 @@ PROC ADDWRK
 
 	//if not willling to do additional work, end interview
 	if $ = 2 then
-		endgroup;
+		skip to next;
 	endif;
 
 //-----------------------------------------------------------------------
+PROC KINDWRK
+postproc
+	//end of employed section
+	skip to next;
+	
+//--------------------------------------------------------
 PROC HPWORK
 
 	//if not hoping for job, skip to ever worked
