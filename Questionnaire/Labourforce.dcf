@@ -549,6 +549,28 @@ Name=ENMRTR
 Start=43
 Len=2
 
+[ValueSet]
+Label=Enumerator
+Name=ENMRTR_VS1
+Value=1;Best M
+Value=3;Russell K
+Value=4;Sealy C
+Value=5;Mayers R
+Value=6;Griffith S
+Value=7;Husbands G
+Value=8;Walcott A
+Value=9;Cumberbatch J
+Value=10;Agard F
+Value=11;Taylor V
+Value=14;Williams J
+Value=15;Williams L
+Value=17;Quintyne C
+Value=20;Bonas K
+Value=22;Blackett S
+Value=25;Husbands J
+Value=26;Hurdle S
+Value=30;Shepherd G
+
 [Item]
 Label=Rotation Order
 Name=ROTATION

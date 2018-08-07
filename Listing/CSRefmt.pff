@@ -1,0 +1,15 @@
+﻿[Run Information]
+Version=CSPro 7.1
+AppType=Reformat
+
+[Files]
+InputData=..\Data\Listing.csdb
+OutputData=..\Data\Listing.csdb
+InputDict=.\Listing.dcf
+OutputDict=.\Listing.dcf
+Listing=..\Data\CSRefmt.lst
+
+[Parameters]
+ViewListing=Always
+ViewResults=No
+

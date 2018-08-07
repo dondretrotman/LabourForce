@@ -15,9 +15,23 @@ Name=LISTING_QUEST
 [IdItems]
 
 [Item]
+Label=Round
+Name=LSTROUND
+Start=2
+Len=2
+
+[ValueSet]
+Label=Round
+Name=LSTROUND_VS1
+Value=1;1
+Value=2;2
+Value=3;3
+Value=4;4
+
+[Item]
 Label=Enumeration District
 Name=LSTED
-Start=2
+Start=4
 Len=3
 
 [ValueSet]
@@ -428,7 +442,7 @@ Value=400;400
 [Item]
 Label=Parish
 Name=LSTPARISH
-Start=5
+Start=7
 Len=3
 
 [ValueSet]
@@ -460,7 +474,7 @@ Value=208:211;4
 [Item]
 Label=Stratum
 Name=LSTSTRATUM
-Start=8
+Start=10
 Len=1
 
 [ValueSet]
@@ -471,36 +485,28 @@ Value=2;Stratum 2
 Value=3;Stratum 3
 Value=4;Stratum 4
 
-[Item]
-Label=Round
-Name=LSTROUND
-Start=9
-Len=2
-
-[ValueSet]
-Label=Round
-Name=LSTROUND_VS1
-Value=1;1
-Value=2;2
-Value=3;3
-Value=4;4
-
 [Record]
 Label=List cover
 Name=LIST_COVER
 RecordTypeValue='1'
-RecordLen=18
+RecordLen=20
+
+[Item]
+Label=Enumerator
+Name=LSTENUMCODE
+Start=11
+Len=2
 
 [Item]
 Label=Date Completed
 Name=LSTCOMPLETE
-Start=11
+Start=13
 Len=8
 
 [Item]
 Label=Year
 Name=LSTCOMPLETEY
-Start=11
+Start=13
 Len=4
 ItemType=SubItem
 
@@ -594,7 +600,7 @@ Value=2100;2,100
 [Item]
 Label=Month
 Name=LSTCOMPLETEM
-Start=15
+Start=17
 Len=2
 ItemType=SubItem
 
@@ -617,7 +623,7 @@ Value=12;December
 [Item]
 Label=Day
 Name=LSTCOMPLETED
-Start=17
+Start=19
 Len=2
 ItemType=SubItem
 
@@ -670,10 +676,17 @@ Start=11
 Len=3
 
 [Item]
-Label=Name
-Name=LSTNAME
+Label=Last name
+Name=LSTLNAME
 Start=14
-Len=100
+Len=50
+DataType=Alpha
+
+[Item]
+Label=First Name
+Name=LSTFNAME
+Start=64
+Len=50
 DataType=Alpha
 
 [Item]

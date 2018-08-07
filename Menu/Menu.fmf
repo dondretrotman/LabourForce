@@ -13,13 +13,14 @@ File=.\Menu.dcf
 Name=FORM000
 Label=Menu questionnaire
 Level=1
-Size=410,272
+Size=513,298
   
 Item=INTERVIEWER_MENU
 Item=SUPERVISOR_MENU
 Item=LOGIN
 Item=CHOOSE_ED
 Item=CHOOSE_ROUND
+Item=CHOOSE_QUESTIONNAIRE
   
 [EndForm]
   
@@ -50,52 +51,65 @@ Text=Login
   
 [Field]
 Name=INTERVIEWER_MENU
-Position=319,94,334,114
+Position=319,96,334,116
 Item=INTERVIEWER_MENU,MENU_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=134,97,245,113
+Position=134,99,245,115
 Text=Interviewer Menu
  
   
 [Field]
 Name=SUPERVISOR_MENU
-Position=319,131,334,151
+Position=319,135,334,155
 Item=SUPERVISOR_MENU,MENU_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=134,134,241,150
+Position=134,138,241,154
 Text=Supervisor Menu
  
   
 [Field]
 Name=CHOOSE_ROUND
-Position=319,169,334,189
+Position=319,174,334,194
 Item=CHOOSE_ROUND,MENU_DICT
 FieldLabelType=DictionaryLabel
 Form=1
   
 [Text]
-Position=134,172,226,188
+Position=134,177,226,193
 Text=Choose Round
  
   
 [Field]
 Name=CHOOSE_ED
-Position=319,207,362,227
+Position=319,213,362,233
 Item=CHOOSE_ED,MENU_DICT
 FieldLabelType=DictionaryLabel
 Form=1
   
 [Text]
-Position=134,210,202,226
+Position=134,216,202,232
 Text=Choose ED
+ 
+  
+[Field]
+Name=CHOOSE_QUESTIONNAIRE
+Position=319,253,502,273
+Item=CHOOSE_QUESTIONNAIRE,MENU_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
+Form=1
+  
+[Text]
+Position=134,256,274,272
+Text=Choose Questionnaire
  
 [EndGroup]
   

@@ -171,6 +171,7 @@ Position=205,124,234,144
 Item=ENMRTR,LABOURFORCE_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
 Form=2
   
 [Text]

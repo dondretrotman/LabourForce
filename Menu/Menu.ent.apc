@@ -2,7 +2,12 @@
 PROC GLOBAL
 //--------------------------------Variable Declaration------------------------------------
 //file pffFile;
-string rnd_ed;
+
+string 	rnd_ed;		//round and ED number to be downloaded
+
+//----------------------------------Array Declaration-------------------------------------
+array 	vsCode(99);		//valueset codes
+array string 	vsLabel(99);	//valueset labels
 
 //--------------------------------Function declaration------------------------------------
 //Launches the questionnaire
@@ -74,6 +79,27 @@ function downloadData(string rnd_edno)
 	endif;
 end;
 
+//deletes a questionnaire
+function deleteQuestionnaire()
+{	errmsg("Are you sure you want to delete questionnaire with ID = %d?", CHOOSE_QUESTIONNAIRE)
+	select("Yes, THIS ACTION CANNOT BE UNDONE!!!!",continue,"No",SUPERVISOR_MENU);
+	
+	numeric delRndno;
+	numeric delEDno;
+	numeric delParno;
+	numeric delStratum;
+	numeric delHhno;
+
+	delRndno 	= CHOOSE_QUESTIONNAIRE[1:2];
+	delEDno 	= CHOOSE_QUESTIONNAIRE[3:3];
+	delParno 	= CHOOSE_QUESTIONNAIRE[6:3];
+	delStratum 	= CHOOSE_QUESTIONNAIRE[9:1];
+	delHhno 	= CHOOSE_QUESTIONNAIRE[10:3];
+	
+	delcase(LABOURFORCE_DICT,delRndno,delEDno,delParno,delStratum,delHhno);
+}//	delcase(LABOURFORCE_DICT,CHOOSE_QUESTIONNAIRE[1:2],CHOOSE_QUESTIONNAIRE[3:3],CHOOSE_QUESTIONNAIRE[6:3],CHOOSE_QUESTIONNAIRE[9:1],CHOOSE_QUESTIONNAIRE[10:3]);
+end;
+
 PROC MENU_FF
 
 PROC LOGIN
@@ -109,11 +135,13 @@ onfocus
 	
 postproc
 	if $ = 1 then		//download data
-		skip to CHOOSE_ED;
+		skip to CHOOSE_ROUND;
 	elseif $ = 2 then		//open listing
 		launchListing();
 	elseif $ = 3 then		//open questionnaire
 		launchQuestionnaire();
+	elseif $ = 4 then		//delete questionnaire
+		skip to CHOOSE_QUESTIONNAIRE;
 	elseif $ = 9 then		//logout
 		stop(1);
 	endif;
@@ -122,6 +150,21 @@ PROC CHOOSE_ED
 
 Postproc
 	rnd_ed = maketext("%d%02d", CHOOSE_ROUND,CHOOSE_ED);
-{	downloadData(rnd_ed);}
+	downloadData(rnd_ed);
 	
 	move to LOGIN;
+PROC CHOOSE_QUESTIONNAIRE
+onfocus
+	numeric nextEntry = 1;
+	forcase LABOURFORCE_DICT do
+		vscode(nextEntry) = tonumber(maketext("%V%V%V%V%V",RNDNO,EDNO,PARNO,STRATUM,HHNO));
+		vslabel(nextEntry) = maketext("Round:%V-ED:%V-Pairsh:%V-Stratum:%V-Sample:%V",RNDNO,EDNO,PARNO,STRATUM,HHNO);
+		inc(nextEntry);
+	endfor;
+	
+	vscode(nextEntry) = notappl;
+	setvalueset($,vsCode,vsLabel);
+
+postproc
+	deleteQuestionnaire();
+	move to SUPERVISOR_MENU;

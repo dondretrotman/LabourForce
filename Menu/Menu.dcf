@@ -24,7 +24,7 @@ Len=1
 Label=Menu record
 Name=MENU_REC
 RecordTypeValue='1'
-RecordLen=9
+RecordLen=21
 
 [Item]
 Label=Login
@@ -66,6 +66,7 @@ Name=SUPERVISOR_MENU_VS1
 Value=1;Download Data
 Value=2;Open Listing
 Value=3;Open Questionnaire
+Value=4;Delete Questionnaire 
 Value=9;Logout
 
 [Item]
@@ -79,3 +80,9 @@ Label=Choose ED
 Name=CHOOSE_ED
 Start=7
 Len=3
+
+[Item]
+Label=Choose Questionnaire
+Name=CHOOSE_QUESTIONNAIRE
+Start=10
+Len=12
