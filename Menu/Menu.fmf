@@ -77,9 +77,10 @@ Text=Supervisor Menu
   
 [Field]
 Name=CHOOSE_ROUND
-Position=319,174,334,194
+Position=319,174,348,194
 Item=CHOOSE_ROUND,MENU_DICT
 FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
 Form=1
   
 [Text]
@@ -101,7 +102,7 @@ Text=Choose ED
   
 [Field]
 Name=CHOOSE_QUESTIONNAIRE
-Position=319,253,502,273
+Position=319,253,488,273
 Item=CHOOSE_QUESTIONNAIRE,MENU_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown

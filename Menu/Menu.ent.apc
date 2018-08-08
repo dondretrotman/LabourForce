@@ -6,7 +6,7 @@ PROC GLOBAL
 string 	rnd_ed;		//round and ED number to be downloaded
 
 //----------------------------------Array Declaration-------------------------------------
-array 	vsCode(99);		//valueset codes
+array string	vsCode(99);		//valueset codes
 array string 	vsLabel(99);	//valueset labels
 
 //--------------------------------Function declaration------------------------------------
@@ -31,6 +31,7 @@ function uploadData()
 		syncfile(GET,"/CSPro/Update/Listing/Listing.pen","../Listing/Listing.pen");		//update Listing
 		syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen");		//update Menu
 		syncdisconnect();		//disconnect
+		errmsg("Data upload was successful");
 	elseif syncconnect(FTP,"10.129.20.110","Census","Census2020ADM!N") then		//connect to FTP when within the Government WAN
 		syncdata(PUT,LABOURFORCE_DICT);		//Upload Lacourforce data
 		syncdata(PUT,LISTING_DICT);		//Upload listing
@@ -40,6 +41,9 @@ function uploadData()
 		syncfile(GET,"/CSPro/Update/Listing/Listing.pen","../Listing/Listing.pen");		//update Lising
 		syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen");		//update Menu
 		syncdisconnect();		//disconnect
+		errmsg("Data upload was successful");
+	else
+		errmsg("Data upload failed, Please try again");
 	endif;
 end;
 
@@ -50,41 +54,51 @@ function updateApp()
 		syncfile(GET,"/CSPro/Update/Listing/Listing.pen","../Listing/Listing.pen");		//update Listing
 		syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen");		//update Menu
 		syncdisconnect();		//disconnect
+		errmsg("App update successful");
 	elseif syncconnect(FTP,"10.129.20.110","Census","Census2020ADM!N") then		//connect to FTP when within the Government WAN
 		syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen");		//update questionnaire
 		syncfile(GET,"/CSPro/Update/Listing/Listing.pen","../Listing/Listing.pen");		//update Lising
 		syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen");		//update Menu
 		syncdisconnect();		//disconnect
+		errmsg("App update successful");
+	else
+		errmsg("App update failed, Please try again");
 	endif;
 end;
 
 //downloads Data based on ED
 function downloadData(string rnd_edno)
+	errmsg("Attempting to download all data from Round :%s, ED :%s",rnd_edno[1:2],rnd_edno[3:3]);
+	errmsg("Data dictionary value Round :%V, ED :%V", RNDNO,EDNO);
 	if syncconnect(FTP,"64.119.198.70","Census","Census2020ADM!N") then		//connect to FTP when outside of the government WAN
 		syncdata(GET,LABOURFORCE_DICT,rnd_edno);		//get labourforce data for round and ED
 		syncdata(GET,LISTING_DICT,rnd_edno);			//get listing data for round and ED
-		syncfile(GET,"CSPro/Photos/*.jpg","../Photos/");
+		//syncfile(GET,"CSPro/Photos/*.jpg","../Photos/");
 		syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen");		//update questionnaire
 		syncfile(GET,"/CSPro/Update/Listing/Listing.pen","../Listing/Listing.pen");		//update Lising
 		syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen");		//update Menu
 		syncdisconnect();		//disconnect
+		errmsg("Download of round %s, ED %s was successful",rnd_edno[1:2],rnd_edno[3:3]);
 	elseif syncconnect(FTP,"10.129.20.110","Census","Census2020ADM!N") then		//connect to FTP when outside of the government WAN
 		syncdata(GET,LABOURFORCE_DICT,rnd_edno);		//get labourforce data for round and ED
 		syncdata(GET,LISTING_DICT,rnd_edno);			//get listing data for round and ED
-		syncfile(GET,"CSPro/Photos/*.jpg","../Photos/");
+		//syncfile(GET,"CSPro/Photos/*.jpg","../Photos/");
 		syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen");		//update questionnaire
 		syncfile(GET,"/CSPro/Update/Listing/Listing.pen","../Listing/Listing.pen");		//update Lising
 		syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen");		//update Menu
 		syncdisconnect();		//disconnect
+		errmsg("Download of round %s, ED %s was successful",rnd_edno[1:2],rnd_edno[3:3]);
+	else
+		errmsg("Download of round %s, ED %s failed, Please try again",rnd_edno[1:2],rnd_edno[3:3]);
 	endif;
 end;
 
 //deletes a questionnaire
 function deleteQuestionnaire()
-{	errmsg("Are you sure you want to delete questionnaire with ID = %d?", CHOOSE_QUESTIONNAIRE)
+	errmsg("Are you sure you want to delete questionnaire with ID = %V?", CHOOSE_QUESTIONNAIRE)
 	select("Yes, THIS ACTION CANNOT BE UNDONE!!!!",continue,"No",SUPERVISOR_MENU);
 	
-	numeric delRndno;
+{	numeric delRndno;
 	numeric delEDno;
 	numeric delParno;
 	numeric delStratum;
@@ -95,9 +109,11 @@ function deleteQuestionnaire()
 	delParno 	= CHOOSE_QUESTIONNAIRE[6:3];
 	delStratum 	= CHOOSE_QUESTIONNAIRE[9:1];
 	delHhno 	= CHOOSE_QUESTIONNAIRE[10:3];
-	
-	delcase(LABOURFORCE_DICT,delRndno,delEDno,delParno,delStratum,delHhno);
-}//	delcase(LABOURFORCE_DICT,CHOOSE_QUESTIONNAIRE[1:2],CHOOSE_QUESTIONNAIRE[3:3],CHOOSE_QUESTIONNAIRE[6:3],CHOOSE_QUESTIONNAIRE[9:1],CHOOSE_QUESTIONNAIRE[10:3]);
+}	
+
+	delcase(LABOURFORCE_DICT,CHOOSE_QUESTIONNAIRE);		//works
+//	delcase(LABOURFORCE_DICT,delRndno,delEDno,delParno,delStratum,delHhno);
+//	delcase(LABOURFORCE_DICT,CHOOSE_QUESTIONNAIRE[1:2],CHOOSE_QUESTIONNAIRE[3:3],CHOOSE_QUESTIONNAIRE[6:3],CHOOSE_QUESTIONNAIRE[9:1],CHOOSE_QUESTIONNAIRE[10:3]);
 end;
 
 PROC MENU_FF
@@ -147,9 +163,9 @@ postproc
 	endif;
 reenter;		//don't leave the menu
 PROC CHOOSE_ED
-
+//DEBUG: Doesn't work, text formatting doesn't match data dictionary somehow
 Postproc
-	rnd_ed = maketext("%d%02d", CHOOSE_ROUND,CHOOSE_ED);
+	rnd_ed = maketext("%2d%3d", CHOOSE_ROUND,CHOOSE_ED);
 	downloadData(rnd_ed);
 	
 	move to LOGIN;
@@ -157,12 +173,12 @@ PROC CHOOSE_QUESTIONNAIRE
 onfocus
 	numeric nextEntry = 1;
 	forcase LABOURFORCE_DICT do
-		vscode(nextEntry) = tonumber(maketext("%V%V%V%V%V",RNDNO,EDNO,PARNO,STRATUM,HHNO));
+		vscode(nextEntry) = maketext("%V%V%V%V%V",RNDNO,EDNO,PARNO,STRATUM,HHNO);
 		vslabel(nextEntry) = maketext("Round:%V-ED:%V-Pairsh:%V-Stratum:%V-Sample:%V",RNDNO,EDNO,PARNO,STRATUM,HHNO);
 		inc(nextEntry);
 	endfor;
 	
-	vscode(nextEntry) = notappl;
+	vscode(nextEntry) = "";
 	setvalueset($,vsCode,vsLabel);
 
 postproc

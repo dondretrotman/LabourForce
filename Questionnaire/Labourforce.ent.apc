@@ -156,6 +156,13 @@ PROC LONGITUDE
 	endif;
 }	
 //---------------------------------------------------------------------
+PROC VACANT
+
+	//set case labels for vacant houses
+	if $ = 1 then		//if vacant
+		caselabel = maketext("VACANT-%02d-%03d-%03d-%d-%03d",RNDNO,EDNO,PARNO,STRATUM,HHNO);
+		setcaselabel(LABOURFORCE_DICT,caselabel);
+	endif;
 PROC VOCCUP
 
 preproc
@@ -209,7 +216,7 @@ PROC LRTH
 	
 	//Set case labels in case listings to an easier to read format to include name of head
 	if $ = 0 then
-		caselabel = maketext("%s-%03d-%03d-%03d-%d-%03d",strip(LLAST_NAME),RNDNO,EDNO,PARNO,STRATUM,HHNO);
+		caselabel = maketext("%s-%02d-%03d-%03d-%d-%03d",strip(LLAST_NAME),RNDNO,EDNO,PARNO,STRATUM,HHNO);
 		setcaselabel(LABOURFORCE_DICT,caselabel);
 	endif;
 	
