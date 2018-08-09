@@ -27,7 +27,7 @@ Item=HHNO
 Name=FORM001
 Label=Household Listing
 Level=1
-Size=427,458
+Size=427,510
   
 Item=VISITNO
 Item=HH_TYP
@@ -39,6 +39,7 @@ Item=LONGITUDE
 Item=VACANT
 Item=VOCCUP
 Item=SUPERV
+Item=DELETE_FLAG
   
 [EndForm]
   
@@ -263,7 +264,7 @@ Text=Vacant household
   
 [Field]
 Name=VOCCUP
-Position=205,376,234,396
+Position=205,377,234,397
 Item=VOCCUP,LABOURFORCE_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
@@ -271,13 +272,13 @@ DataCaptureType=DropDown
 Form=2
   
 [Text]
-Position=72,379,188,395
+Position=72,380,188,396
 Text=Vacant occupancy
  
   
 [Field]
 Name=HH_TYP
-Position=205,413,220,433
+Position=205,414,220,434
 Item=HH_TYP,LABOURFORCE_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
@@ -285,8 +286,21 @@ DataCaptureType=DropDown
 Form=2
   
 [Text]
-Position=72,416,174,432
+Position=72,417,174,433
 Text=Household Type
+ 
+  
+[Field]
+Name=DELETE_FLAG
+Position=205,451,220,471
+Item=DELETE_FLAG,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
+Form=2
+  
+[Text]
+Position=72,454,141,470
+Text=Delete flag
  
 [EndGroup]
   

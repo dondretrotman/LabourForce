@@ -495,7 +495,7 @@ Len=3
 Label=Household Listing
 Name=HOUSEHOLD_LISTING
 RecordTypeValue='1'
-RecordLen=61
+RecordLen=62
 
 [Item]
 Label=Latitude
@@ -788,6 +788,18 @@ Value=44;Refusal
 Value=46;Non-Contact
 Value=46;Other
 Value=9;Not Stated
+
+[Item]
+Label=Delete flag
+Name=DELETE_FLAG
+Start=62
+Len=1
+
+[ValueSet]
+Label=Delete flag
+Name=DELETE_FLAG_VS1
+Value=1;Delete case
+Value=0;Keep case
 
 [Record]
 Label=Labourforce record

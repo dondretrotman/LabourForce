@@ -5,6 +5,8 @@ PROC GLOBAL
 
 string 	rnd_ed;		//round and ED number to be downloaded
 
+numeric deleteflag;
+
 //----------------------------------Array Declaration-------------------------------------
 array string	vsCode(99);		//valueset codes
 array string 	vsLabel(99);	//valueset labels
@@ -60,7 +62,7 @@ function updateApp()
 		syncfile(GET,"/CSPro/Update/Listing/Listing.pen","../Listing/Listing.pen");		//update Lising
 		syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen");		//update Menu
 		syncdisconnect();		//disconnect
-		errmsg("App update successful");
+		errmsg("App update successful, Exit app to complete");
 	else
 		errmsg("App update failed, Please try again");
 	endif;
@@ -95,25 +97,17 @@ end;
 
 //deletes a questionnaire
 function deleteQuestionnaire()
-	errmsg("Are you sure you want to delete questionnaire with ID = %V?", CHOOSE_QUESTIONNAIRE)
-	select("Yes, THIS ACTION CANNOT BE UNDONE!!!!",continue,"No",SUPERVISOR_MENU);
+	deleteflag = 0;
+	errmsg("Are you sure you want to flag the questionnaire with ID = %V? for deletion", CHOOSE_QUESTIONNAIRE)
+	select("Yes, flag for deletion",continue,"No, flag to remain",SUPERVISOR_MENU);
 	
-{	numeric delRndno;
-	numeric delEDno;
-	numeric delParno;
-	numeric delStratum;
-	numeric delHhno;
-
-	delRndno 	= CHOOSE_QUESTIONNAIRE[1:2];
-	delEDno 	= CHOOSE_QUESTIONNAIRE[3:3];
-	delParno 	= CHOOSE_QUESTIONNAIRE[6:3];
-	delStratum 	= CHOOSE_QUESTIONNAIRE[9:1];
-	delHhno 	= CHOOSE_QUESTIONNAIRE[10:3];
-}	
-
-	delcase(LABOURFORCE_DICT,CHOOSE_QUESTIONNAIRE);		//works
-//	delcase(LABOURFORCE_DICT,delRndno,delEDno,delParno,delStratum,delHhno);
-//	delcase(LABOURFORCE_DICT,CHOOSE_QUESTIONNAIRE[1:2],CHOOSE_QUESTIONNAIRE[3:3],CHOOSE_QUESTIONNAIRE[6:3],CHOOSE_QUESTIONNAIRE[9:1],CHOOSE_QUESTIONNAIRE[10:3]);
+	//delcase(LABOURFORCE_DICT,CHOOSE_QUESTIONNAIRE);		//works
+	
+	loadcase(LABOURFORCE_DICT,CHOOSE_QUESTIONNAIRE);
+	DELETE_FLAG = 1;		//mark case for deletion
+	writecase(LABOURFORCE_DICT);
+	deleteflag = 1;
+	errmsg("Case set for deletion");
 end;
 
 PROC MENU_FF
@@ -130,6 +124,8 @@ PROC LOGIN
 	elseif $ = 9 then
 		stop(1);
 	endif;
+	
+//---------------------------------------------------------
 PROC INTERVIEWER_MENU
 onfocus
 	$ = notappl;
@@ -142,12 +138,19 @@ postproc
 	elseif $ = 7 then		//upload data
 		uploadData();
 	elseif $ = 9 then		//logout
-		stop(1);
+		move to LOGIN;
 	endif;
 reenter;		//don't leave the menu
+
+//---------------------------------------------------------
 PROC SUPERVISOR_MENU
 onfocus
 	$ = notappl;		//don't show the last selection
+	if deleteflag = 0 then
+		loadcase(LABOURFORCE_DICT,CHOOSE_QUESTIONNAIRE);
+		DELETE_FLAG = 0;		//keep case
+		writecase(LABOURFORCE_DICT);
+	endif;
 	
 postproc
 	if $ = 1 then		//download data
@@ -159,9 +162,11 @@ postproc
 	elseif $ = 4 then		//delete questionnaire
 		skip to CHOOSE_QUESTIONNAIRE;
 	elseif $ = 9 then		//logout
-		stop(1);
+		move to LOGIN;
 	endif;
 reenter;		//don't leave the menu
+
+//---------------------------------------------------------
 PROC CHOOSE_ED
 //DEBUG: Doesn't work, text formatting doesn't match data dictionary somehow
 Postproc
@@ -169,13 +174,24 @@ Postproc
 	downloadData(rnd_ed);
 	
 	move to LOGIN;
+
+//---------------------------------------------------------
 PROC CHOOSE_QUESTIONNAIRE
 onfocus
 	numeric nextEntry = 1;
+	numeric headindex;
 	forcase LABOURFORCE_DICT do
-		vscode(nextEntry) = maketext("%V%V%V%V%V",RNDNO,EDNO,PARNO,STRATUM,HHNO);
-		vslabel(nextEntry) = maketext("Round:%V-ED:%V-Pairsh:%V-Stratum:%V-Sample:%V",RNDNO,EDNO,PARNO,STRATUM,HHNO);
-		inc(nextEntry);
+		loadcase(LABOURFORCE_DICT,RNDNO,EDNO,PARNO,STRATUM,HHNO);
+		if VACANT = 2 then		//if not a vacant household, include name
+			headindex = seek(LRTH = 0);
+			vscode(nextEntry) = maketext("%V%V%V%V%V",RNDNO,EDNO,PARNO,STRATUM,HHNO);
+			vslabel(nextEntry) = maketext("%S-%02d-%03d-%03d-%d-%03d (%V)",strip(LLAST_NAME(headindex)),RNDNO,EDNO,PARNO,STRATUM,HHNO, getlabel(DELETE_FLAG_VS1, DELETE_FLAG) );
+			inc(nextEntry);
+		else		//if a vacant household, use vacant label
+			vscode(nextEntry) = maketext("%V%V%V%V%V",RNDNO,EDNO,PARNO,STRATUM,HHNO);
+			vslabel(nextEntry) = maketext("Vacant-%02d-%03d-%03d-%d-%03d (%V)",RNDNO,EDNO,PARNO,STRATUM,HHNO,getlabel(DELETE_FLAG_VS1, DELETE_FLAG));
+			inc(nextEntry);
+		endif;
 	endfor;
 	
 	vscode(nextEntry) = "";
@@ -183,4 +199,7 @@ onfocus
 
 postproc
 	deleteQuestionnaire();
+
 	move to SUPERVISOR_MENU;
+
+//---------------------------------------------------------

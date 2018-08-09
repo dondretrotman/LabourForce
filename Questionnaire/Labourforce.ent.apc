@@ -178,6 +178,13 @@ PROC HH_TYP
 	endif;
 	
 //---------------------------------------------------------------------
+PROC DELETE_FLAG
+
+onfocus
+	//if not set, then set to keep
+	if $ = notappl then
+		$ = 0;
+	endif;
 PROC LIDNO
 preproc
 	$ = curocc();		//automatically enter the ID
