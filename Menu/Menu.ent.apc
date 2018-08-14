@@ -21,13 +21,13 @@ array string 	vsLabel(99);	//valueset labels
 //--------------------------------Function declaration------------------------------------
 //Launches the questionnaire
 function LaunchControlSheet()
-	execpff("..\ControlSheets\Listing.pff", stop);
+	execpff("../ControlSheets/Listing.pff", stop);
 end;
 
 //Launches the control sheet
 function LaunchQuestionnaire()
 
-	string pffFilename = Pathname(application) + "..\Questionnaire\Labourforce.pff";
+	string pffFilename = Pathname(application) + "../Questionnaire/Labourforce.pff";
 	setfile(pffFile,pffFilename,create);
 
 	filewrite(pffFile,"[Run Information]");
