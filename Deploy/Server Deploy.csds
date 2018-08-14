@@ -17,10 +17,10 @@
       "path": "..\\Questionnaire\\Labourforce.pff"
     },
     {
-      "path": "..\\Listing\\Listing.ent"
+      "path": "..\\ControlSheets\\Listing.pff"
     },
     {
-      "path": "..\\Listing\\Listing.pff"
+      "path": "..\\ControlSheets\\Listing.ent"
     }
   ],
   "dictionaries": [
@@ -33,7 +33,7 @@
       "uploadForSync": true
     },
     {
-      "path": "..\\Listing\\Listing.dcf",
+      "path": "..\\ControlSheets\\Listing.dcf",
       "uploadForSync": true
     }
   ],

@@ -1,51 +1,40 @@
 ﻿[FormFile]
 Version=CSPro 7.1
-Name=LISTING_FF
-Label=Listing
+Name=ENUMERATIONREPORT_FF
+Label=EnumerationReport
 DefaultTextFont=-013 0000 0000 0000 0700 0000 0000 0000 0000 0000 0000 0000 0000 Arial
 FieldEntryFont=0018 0000 0000 0000 0600 0000 0000 0000 0000 0000 0000 0000 0000 Courier New
 Type=SystemControlled
   
 [Dictionaries]
-File=.\Listing.dcf
+File=.\EnumerationReport.dcf
   
 [Form]
 Name=FORM000
 Label=(Id Items)
 Level=1
-Size=1597,300
+Size=1117,300
   
-Item=LSTED
-Item=LSTPARISH
-Item=LSTSTRATUM
-Item=LSTROUND
+Item=ERFIELD_OFFICER
+Item=ERED_NO
+Item=ERPARISH
+Item=WEEK_ENDING
   
 [EndForm]
   
 [Form]
 Name=FORM001
-Label=List cover
+Label=EnumerationReport record
 Level=1
-Size=362,196
+Size=300,300
   
-Item=LSTCOMPLETE
-Item=LSTENUMCODE
-  
-[EndForm]
-  
-[Form]
-Name=FORM002
-Label=Listing record
-Level=1
-Size=4988,375
-  
-Item=LISTING_REC000
+Item=ENUMERATIONREPORT_REC000
   
 [EndForm]
   
 [Level]
-Name=LISTING_QUEST
-Label=Listing questionnaire
+Name=ENUMERATIONREPORT_QUEST
+Label=EnumerationReport questionnaire
   
 [Group]
 Required=Yes
@@ -56,114 +45,74 @@ LogicControl=No
 Max=1
   
 [Field]
-Name=LSTED
-Position=200,27,243,47
-Item=LSTED,LISTING_DICT
-UpperCase=Yes
+Name=ERFIELD_OFFICER
+Position=156,27,185,47
+Item=ERFIELD_OFFICER,ENUMERATIONREPORT_DICT
 FieldLabelType=DictionaryLabel
 Form=1
   
 [Text]
-Position=50,30,178,46
-Text=Enumeration District
+Position=50,30,128,46
+Text=Field Officer
  
   
 [Field]
-Name=LSTPARISH
-Position=200,57,243,77
-Item=LSTPARISH,LISTING_DICT
-UpperCase=Yes
+Name=ERED_NO
+Position=156,57,199,77
+Item=ERED_NO,ENUMERATIONREPORT_DICT
+FieldLabelType=DictionaryLabel
+Form=1
+  
+[Text]
+Position=50,60,88,76
+Text=ED No
+ 
+  
+[Field]
+Name=ERPARISH
+Position=156,87,199,107
+Item=ERPARISH,ENUMERATIONREPORT_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
 Form=1
   
 [Text]
-Position=50,60,90,76
+Position=50,90,90,106
 Text=Parish
  
   
 [Field]
-Name=LSTSTRATUM
-Position=200,87,215,107
-Item=LSTSTRATUM,LISTING_DICT
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-DataCaptureType=DropDown
-Form=1
-  
-[Text]
-Position=50,90,100,106
-Text=Stratum
- 
-  
-[Field]
-Name=LSTROUND
-Position=200,117,229,137
-Item=LSTROUND,LISTING_DICT
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-DataCaptureType=DropDown
-Form=1
-  
-[Text]
-Position=50,120,91,136
-Text=Round
- 
-[EndGroup]
-  
-[Group]
-Required=Yes
-Name=LIST_COVER_FORM
-Label=List cover
-Form=2
-LogicControl=No
-Max=1
-  
-[Field]
-Name=LSTENUMCODE
-Position=174,38,203,58
-Item=LSTENUMCODE,LISTING_DICT
-FieldLabelType=DictionaryLabel
-Form=2
-  
-[Text]
-Position=50,41,124,57
-Text=Enumerator
- 
-  
-[Field]
-Name=LSTCOMPLETE
-Position=174,71,287,91
-Item=LSTCOMPLETE,LISTING_DICT
-UpperCase=Yes
+Name=WEEK_ENDING
+Position=156,117,269,137
+Item=WEEK_ENDING,ENUMERATIONREPORT_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=Date
 CaptureDateFormat=YYYYMMDD
-Form=2
+Form=1
   
 [Text]
-Position=50,74,152,90
-Text=Date Completed
+Position=50,120,134,136
+Text=Week Ending
  
 [EndGroup]
   
 [Group]
 Required=Yes
-Name=LISTING_REC_FORM
-Label=Listing record
-Form=3
+Name=ENUMERATIONREPORT_REC_FORM
+Label=EnumerationReport record
+Form=2
 LogicControl=No
 Max=1
   
 [Grid]
-Name=LISTING_REC000
-Label=Listing record
-Form=3
+Name=ENUMERATIONREPORT_REC000
+Label=EnumerationReport record
+Form=2
 Required=Yes
 Type=Record
-TypeName=LISTING_REC
-Max=150
-DisplaySize=40,30,4963,350
+TypeName=ENUMERATIONREPORT_REC
+Max=200
+DisplaySize=40,30,2788,366
 Orientation=Horizontal
 FieldRowHeight=0
 HeadingRowHeight=0
@@ -919,208 +868,277 @@ Position=0,4,29,28
 Text=150
  
   
+[Text]
+Position=0,4,29,28
+Text=151
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=152
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=153
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=154
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=155
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=156
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=157
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=158
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=159
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=160
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=161
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=162
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=163
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=164
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=165
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=166
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=167
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=168
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=169
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=170
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=171
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=172
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=173
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=174
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=175
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=176
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=177
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=178
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=179
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=180
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=181
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=182
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=183
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=184
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=185
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=186
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=187
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=188
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=189
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=190
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=191
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=192
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=193
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=194
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=195
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=196
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=197
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=198
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=199
+ 
+  
+[Text]
+Position=0,4,29,28
+Text=200
+ 
+  
 [Column]
 Width=10
 [EndColumn]
   
 [Column]
-Width=51
+Width=90
   
 [HeaderText]
-Position=22,16,51,40
-Text=No.
+Position=0,16,90,56
+Text=Sample Unit No.
  
 [Field]
-Name=LSTNO
-Position=0,0,43,20
-Item=LSTNO,LISTING_DICT
+Name=ERUNIT_NO
+Position=39,0,82,20
+Item=ERUNIT_NO,ENUMERATIONREPORT_DICT
 Protected=Yes
-UpperCase=Yes
 FieldLabelType=DictionaryLabel
   
 [Text]
-Position=0,0,22,16
-Text=No.
- 
-[EndColumn]
-  
-[Column]
-Width=86
-  
-[HeaderText]
-Position=0,16,86,40
-Text=Building No.
- 
-[Field]
-Name=LSTBUILDING
-Position=35,0,78,20
-Item=LSTBUILDING,LISTING_DICT
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-  
-[Text]
-Text=Building No.
- 
-[EndColumn]
-  
-[Column]
-Width=61
-  
-[HeaderText]
-Position=0,0,61,40
-Text=Sample number
- 
-[Field]
-Name=LSTSAMPLE
-Position=10,0,53,20
-Item=LSTSAMPLE,LISTING_DICT
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-  
-[Text]
-Text=Sample number
- 
-[EndColumn]
-  
-[Column]
-Width=709
-  
-[HeaderText]
-Position=635,16,709,40
-Text=Last name
- 
-[Field]
-Name=LSTLNAME
-Position=0,0,701,20
-Item=LSTLNAME,LISTING_DICT
-FieldLabelType=DictionaryLabel
-UseUnicodeTextBox=Yes
-  
-[Text]
-Text=Last name
- 
-[EndColumn]
-  
-[Column]
-Width=1409
-  
-[HeaderText]
-Position=1364,0,1409,40
-Text=First Name
- 
-[Field]
-Name=LSTFNAME
-Position=0,0,1401,20
-Item=LSTFNAME,LISTING_DICT
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-UseUnicodeTextBox=Yes
-  
-[Text]
-Text=First Name
- 
-[EndColumn]
-  
-[Column]
-Width=1409
-  
-[HeaderText]
-Position=1351,16,1409,40
-Text=Address
- 
-[Field]
-Name=LSTADDRESS
-Position=0,0,1401,20
-Item=LSTADDRESS,LISTING_DICT
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-UseUnicodeTextBox=Yes
-  
-[Text]
-Text=Address
- 
-[EndColumn]
-  
-[Column]
-Width=121
-  
-[HeaderText]
-Position=50,16,121,40
-Text=Start Date
- 
-[Field]
-Name=LSTSTDATE
-Position=0,0,113,20
-Item=LSTSTDATE,LISTING_DICT
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-DataCaptureType=Date
-CaptureDateFormat=YYYYMMDD
-  
-[Text]
-Position=0,0,64,16
-Text=Start Date
- 
-[EndColumn]
-  
-[Column]
-Width=121
-  
-[HeaderText]
-Position=42,16,121,40
-Text=Finish Date
- 
-[Field]
-Name=LSTFNDATE
-Position=0,0,113,20
-Item=LSTFNDATE,LISTING_DICT
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-DataCaptureType=Date
-CaptureDateFormat=YYYYMMDD
-  
-[Text]
-Position=0,0,74,16
-Text=Finish Date
- 
-[EndColumn]
-  
-[Column]
-Width=107
-  
-[HeaderText]
-Position=28,0,107,40
-Text=Telephone number
- 
-[Field]
-Name=LSTTELEPHONE
-Position=0,0,99,20
-Item=LSTTELEPHONE,LISTING_DICT
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-  
-[Text]
-Text=Telephone number
- 
-[EndColumn]
-  
-[Column]
-Width=1409
-  
-[HeaderText]
-Position=1346,16,1409,40
-Text=Remarks
- 
-[Field]
-Name=LSTREMARKS
-Position=0,0,1401,20
-Item=LSTREMARKS,LISTING_DICT
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-UseUnicodeTextBox=Yes
-  
-[Text]
-Text=Remarks
+Position=0,0,105,16
+Text=Sample Unit No.
  
 [EndColumn]
   
@@ -1128,19 +1146,116 @@ Text=Remarks
 Width=103
   
 [HeaderText]
-Position=0,16,103,40
-Text=Add household
+Position=0,16,103,56
+Text=Sample Serial No.
  
 [Field]
-Name=LSTADDHSE
-Position=80,0,95,20
-Item=LSTADDHSE,LISTING_DICT
-UpperCase=Yes
+Name=ERSERIAL_NO
+Position=52,0,95,20
+Item=ERSERIAL_NO,ENUMERATIONREPORT_DICT
 FieldLabelType=DictionaryLabel
-DataCaptureType=DropDown
   
 [Text]
-Text=Add household
+Text=Sample Serial No.
+ 
+[EndColumn]
+  
+[Column]
+Width=429
+  
+[HeaderText]
+Position=350,0,429,56
+Text=Household Head Last Name
+ 
+[Field]
+Name=ERLAST_NAME
+Position=0,0,421,20
+Item=ERLAST_NAME,ENUMERATIONREPORT_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=Household Head Last Name
+ 
+[EndColumn]
+  
+[Column]
+Width=429
+  
+[HeaderText]
+Position=350,0,429,56
+Text=Household Head First Name
+ 
+[Field]
+Name=ERFIRST_NAME
+Position=0,0,421,20
+Item=ERFIRST_NAME,ENUMERATIONREPORT_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=Household Head First Name
+ 
+[EndColumn]
+  
+[Column]
+Width=1409
+  
+[HeaderText]
+Position=1351,32,1409,56
+Text=Address
+ 
+[Field]
+Name=ERADDRESS
+Position=0,0,1401,20
+Item=ERADDRESS,ENUMERATIONREPORT_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=Address
+ 
+[EndColumn]
+  
+[Column]
+Width=121
+  
+[HeaderText]
+Position=34,32,121,56
+Text=Date Started
+ 
+[Field]
+Name=ERSTART
+Position=0,0,113,20
+Item=ERSTART,ENUMERATIONREPORT_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=Date
+CaptureDateFormat=YYYYMMDD
+  
+[Text]
+Position=0,0,80,16
+Text=Date Started
+ 
+[EndColumn]
+  
+[Column]
+Width=121
+  
+[HeaderText]
+Position=44,16,121,56
+Text=Date Completed
+ 
+[Field]
+Name=EREND
+Position=0,0,113,20
+Item=EREND,ENUMERATIONREPORT_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=Date
+CaptureDateFormat=YYYYMMDD
+  
+[Text]
+Position=0,0,103,16
+Text=Date Completed
  
 [EndColumn]
   

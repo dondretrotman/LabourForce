@@ -127,8 +127,8 @@ preproc
 //---------------------------Userbar definition------------------------------------
 	userbar(clear);
 	userbar(add button, "Get Location", getgps());		//adds a "Get location" button to get coordinates
-	userbar(add button, "Take a photo for the current case", takePhoto());		//adds a button to take a photo of current case. 
-	userbar(add button, "View photo of current case", viewPhoto());		//adds a button to view photo of current case
+	{userbar(add button, "Take a photo for the current case", takePhoto());		//adds a button to take a photo of current case. 
+	userbar(add button, "View photo of current case", viewPhoto());}		//adds a button to view photo of current case
 	userbar(show);
 
 PROC LABOURFORCE_QUEST
@@ -140,6 +140,30 @@ onfocus
     enddo;
     
     //DEBUG: DO THIS IN THE CENSUS APP
+PROC RNDNO
+preproc
+	if visualvalue(RNDNO) = notappl then		//if round is blank
+		RNDNO = tonumber(sysparm("RNDNO"));		//Go to the pff file and get the system parameter named rndno. Change it to number and assign to variable
+		setproperty(RNDNO,"PROTECTED","Yes");	//and set the field to proctected
+	endif;
+	if visualvalue(EDNO) = notappl then
+		EDNO = tonumber(sysparm("EDNO"));	
+		setproperty(EDNO,"PROTECTED","Yes");
+	endif;
+	if visualvalue(PARNO) = notappl then
+		PARNO = tonumber(sysparm("PARNO"));	
+		setproperty(PARNO,"PROTECTED","Yes");
+	endif;
+	if visualvalue(STRATUM) = notappl then
+		STRATUM = tonumber(sysparm("STRATUM"));	
+		setproperty(STRATUM,"PROTECTED","Yes");
+	endif;
+	if visualvalue(HHNO) = notappl then
+		HHNO = tonumber(sysparm("HHNO"));	
+		setproperty(HHNO,"PROTECTED","Yes");
+	endif;
+
+//--------------------------------------------------------------------------------
 PROC LATITUDE
 {
 	//defaults to 0
@@ -271,11 +295,17 @@ postproc
 		if $ <> tempage then
 			errmsg("age (%d) does not agree with DOB (%s), please verify",$,edit("9999/99/99",LDOB))
 			select("Correct the age", $, "Correct the Date of birth", LDOB,"Keep Age (Don't know Date of Birth)",continue);
-			LDOB = notappl;
+			LDOB = 99999999;
 		endif;
 	endif;
 
 //---------------------------------------------------------------------------
+PROC LELIGIBLE
+onfocus
+	//person is eligible if over 15 years
+	if AGE >= 15 then
+		$ = 1;
+	endif;
 PROC ADDPER
 
 	if $ = 2 then
@@ -294,6 +324,13 @@ preproc
 	if LELIGIBLE <> 1 then		//if not eligible
 		skip to next;
 	endif;
+	
+postproc
+	//if no response then skip this person
+	if $ = 4 then
+		skip to next;
+	endif;
+	
 	
 //---------------------------------------------------------------------
 PROC HD_HH
@@ -405,6 +442,11 @@ PROC AGE
 	endif;
 
 //---------------------------------------------------------------------------
+PROC CNTRY_CD_OTHER
+preproc
+	ask if CNTRY_CD = 999;
+	
+//---------------------------------------
 PROC EDUCLEV_OTHER
 preproc
 	//only ask if other is selected

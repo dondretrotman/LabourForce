@@ -24,7 +24,7 @@ Len=1
 Label=Menu record
 Name=MENU_REC
 RecordTypeValue='1'
-RecordLen=22
+RecordLen=37
 
 [Item]
 Label=Login
@@ -50,7 +50,9 @@ Len=1
 Label=Interviewer Menu
 Name=INTERVIEWER_MENU_VS1
 Value=1;Fill Questionnaire
-Value=2;Fill Listing Record
+Value=2;Fill Control Sheet
+Value=3;Fill Enumeration Report
+Value=4;Fill Summary report
 Value=7;Upload Data
 Value=9;Logout
 
@@ -64,7 +66,7 @@ Len=1
 Label=Supervisor Menu
 Name=SUPERVISOR_MENU_VS1
 Value=1;Download Data
-Value=2;Open Listing
+Value=2;Open Control Sheet
 Value=3;Open Questionnaire
 Value=4;Delete Questionnaire
 Value=9;Logout
@@ -94,4 +96,11 @@ Label=Choose Questionnaire
 Name=CHOOSE_QUESTIONNAIRE
 Start=11
 Len=12
+DataType=Alpha
+
+[Item]
+Label=Choose Household
+Name=CHOOSE_HOUSEHOLD
+Start=23
+Len=15
 DataType=Alpha

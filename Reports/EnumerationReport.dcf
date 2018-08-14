@@ -1,7 +1,7 @@
 ﻿[Dictionary]
 Version=CSPro 7.1
-Label=Listing
-Name=LISTING_DICT
+Label=EnumerationReport
+Name=ENUMERATIONREPORT_DICT
 RecordTypeStart=1
 RecordTypeLen=1
 Positions=Relative
@@ -9,34 +9,26 @@ ZeroFill=No
 DecimalChar=Yes
 
 [Level]
-Label=Listing questionnaire
-Name=LISTING_QUEST
+Label=EnumerationReport questionnaire
+Name=ENUMERATIONREPORT_QUEST
 
 [IdItems]
 
 [Item]
-Label=Round
-Name=LSTROUND
+Label=Field Officer
+Name=ERFIELD_OFFICER
 Start=2
 Len=2
 
-[ValueSet]
-Label=Round
-Name=LSTROUND_VS1
-Value=1;1
-Value=2;2
-Value=3;3
-Value=4;4
-
 [Item]
-Label=Enumeration District
-Name=LSTED
+Label=ED No
+Name=ERED_NO
 Start=4
 Len=3
 
 [ValueSet]
-Label=Enumeration District
-Name=LSTED_VS1
+Label=ED No
+Name=ERED_NO_VS1
 Value=0;0
 Value=1;1
 Value=2;2
@@ -441,13 +433,13 @@ Value=400;400
 
 [Item]
 Label=Parish
-Name=LSTPARISH
+Name=ERPARISH
 Start=7
 Len=3
 
 [ValueSet]
 Label=Parish
-Name=LSTPARISH_VS1
+Name=ERPARISH_VS1
 Value=201;St Michael
 Value=202;Christ Church
 Value=203;St George
@@ -460,271 +452,68 @@ Value=209;St Andrew
 Value=210;St Peter
 Value=211;St Lucy
 
-[ValueSet]
-Label=Stratum
-Name=LSTPARISH_VS2
-Value=201;1
-Value=202;2
-Value=204;2
-Value=203;3
-Value=206:207;3
-Value=205;4
-Value=208:211;4
-
 [Item]
-Label=Stratum
-Name=LSTSTRATUM
+Label=Week Ending
+Name=WEEK_ENDING
 Start=10
-Len=1
-
-[ValueSet]
-Label=Stratum
-Name=LSTSTRATUM_VS1
-Value=1;Stratum 1
-Value=2;Stratum 2
-Value=3;Stratum 3
-Value=4;Stratum 4
-
-[Record]
-Label=List cover
-Name=LIST_COVER
-RecordTypeValue='1'
-RecordLen=20
-
-[Item]
-Label=Enumerator
-Name=LSTENUMCODE
-Start=11
-Len=2
-
-[Item]
-Label=Date Completed
-Name=LSTCOMPLETE
-Start=13
 Len=8
 
-[Item]
-Label=Year
-Name=LSTCOMPLETEY
-Start=13
-Len=4
-ItemType=SubItem
-
-[ValueSet]
-Label=Year
-Name=LSTCOMPLETEY_VS1
-Value=2018;2,018
-Value=2019;2,019
-Value=2020;2,020
-Value=2021;2,021
-Value=2022;2,022
-Value=2023;2,023
-Value=2024;2,024
-Value=2025;2,025
-Value=2026;2,026
-Value=2027;2,027
-Value=2028;2,028
-Value=2029;2,029
-Value=2030;2,030
-Value=2031;2,031
-Value=2032;2,032
-Value=2033;2,033
-Value=2034;2,034
-Value=2035;2,035
-Value=2036;2,036
-Value=2037;2,037
-Value=2038;2,038
-Value=2039;2,039
-Value=2040;2,040
-Value=2041;2,041
-Value=2042;2,042
-Value=2043;2,043
-Value=2044;2,044
-Value=2045;2,045
-Value=2046;2,046
-Value=2047;2,047
-Value=2048;2,048
-Value=2049;2,049
-Value=2050;2,050
-Value=2051;2,051
-Value=2052;2,052
-Value=2053;2,053
-Value=2054;2,054
-Value=2055;2,055
-Value=2056;2,056
-Value=2057;2,057
-Value=2058;2,058
-Value=2059;2,059
-Value=2060;2,060
-Value=2061;2,061
-Value=2062;2,062
-Value=2063;2,063
-Value=2064;2,064
-Value=2065;2,065
-Value=2066;2,066
-Value=2067;2,067
-Value=2068;2,068
-Value=2069;2,069
-Value=2070;2,070
-Value=2071;2,071
-Value=2072;2,072
-Value=2073;2,073
-Value=2074;2,074
-Value=2075;2,075
-Value=2076;2,076
-Value=2077;2,077
-Value=2078;2,078
-Value=2079;2,079
-Value=2080;2,080
-Value=2081;2,081
-Value=2082;2,082
-Value=2083;2,083
-Value=2084;2,084
-Value=2085;2,085
-Value=2086;2,086
-Value=2087;2,087
-Value=2088;2,088
-Value=2089;2,089
-Value=2090;2,090
-Value=2091;2,091
-Value=2092;2,092
-Value=2093;2,093
-Value=2094;2,094
-Value=2095;2,095
-Value=2096;2,096
-Value=2097;2,097
-Value=2098;2,098
-Value=2099;2,099
-Value=2100;2,100
-
-[Item]
-Label=Month
-Name=LSTCOMPLETEM
-Start=17
-Len=2
-ItemType=SubItem
-
-[ValueSet]
-Label=Month
-Name=LSTCOMPLETEM_VS1
-Value=1;January
-Value=2;February
-Value=3;March
-Value=4;April
-Value=5;May
-Value=6;June
-Value=7;July
-Value=8;August
-Value=9;September
-Value=10;October
-Value=11;November
-Value=12;December
-
-[Item]
-Label=Day
-Name=LSTCOMPLETED
-Start=19
-Len=2
-ItemType=SubItem
-
-[ValueSet]
-Label=Day
-Name=LSTCOMPLETED_VS1
-Value=1;1
-Value=2;2
-Value=3;3
-Value=4;4
-Value=5;5
-Value=6;6
-Value=7;7
-Value=8;8
-Value=9;9
-Value=10;10
-Value=11;11
-Value=12;12
-Value=13;13
-Value=14;14
-Value=15;15
-Value=16;16
-Value=17;17
-Value=18;18
-Value=19;19
-Value=20;20
-Value=21;21
-Value=22;22
-Value=23;23
-Value=24;24
-Value=25;25
-Value=26;26
-Value=27;27
-Value=28;28
-Value=29;29
-Value=30;30
-Value=31;31
-
 [Record]
-Label=Listing record
-Name=LISTING_REC
-RecordTypeValue='2'
-MaxRecords=150
-RecordLen=343
+Label=EnumerationReport record
+Name=ENUMERATIONREPORT_REC
+RecordTypeValue='1'
+MaxRecords=200
+RecordLen=199
 
 [Item]
-Label=No.
-Name=LSTNO
-Start=11
+Label=Sample Unit No.
+Name=ERUNIT_NO
+Start=18
 Len=3
 
 [Item]
-Label=Last name
-Name=LSTLNAME
-Start=14
-Len=50
+Label=Sample Serial No.
+Name=ERSERIAL_NO
+Start=21
+Len=3
+
+[Item]
+Label=Household Head Last Name
+Name=ERLAST_NAME
+Start=24
+Len=30
 DataType=Alpha
 
 [Item]
-Label=First Name
-Name=LSTFNAME
-Start=64
-Len=50
+Label=Household Head First Name
+Name=ERFIRST_NAME
+Start=54
+Len=30
 DataType=Alpha
 
 [Item]
 Label=Address
-Name=LSTADDRESS
-Start=114
+Name=ERADDRESS
+Start=84
 Len=100
 DataType=Alpha
 
 [Item]
-Label=Building No.
-Name=LSTBUILDING
-Start=214
-Len=3
-
-[Item]
-Label=Sample number
-Name=LSTSAMPLE
-Start=217
-Len=3
-
-[Item]
-Label=Start Date
-Name=LSTSTDATE
-Start=220
+Label=Date Started
+Name=ERSTART
+Start=184
 Len=8
 
 [Item]
-Label=Start Year
-Name=LSTSTY
-Start=220
+Label=Year
+Name=ERSTARTY
+Start=184
 Len=4
 ItemType=SubItem
 
 [ValueSet]
-Label=Start Year
-Name=LSTSTY_VS1
-Link=1282352848
+Label=Year
+Name=ERSTARTY_VS1
 Value=2018;2,018
 Value=2019;2,019
 Value=2020;2,020
@@ -810,16 +599,15 @@ Value=2099;2,099
 Value=2100;2,100
 
 [Item]
-Label=Start Month
-Name=LSTSTM
-Start=224
+Label=Month
+Name=ERSTARTM
+Start=188
 Len=2
 ItemType=SubItem
 
 [ValueSet]
-Label=Start Month
-Name=LSTSTM_VS1
-Link=1282357600
+Label=Month
+Name=ERSTARTM_VS1
 Value=1;January
 Value=2;February
 Value=3;March
@@ -834,16 +622,15 @@ Value=11;November
 Value=12;December
 
 [Item]
-Label=Start Day
-Name=LSTSTD
-Start=226
+Label=Day
+Name=ERSTARTD
+Start=190
 Len=2
 ItemType=SubItem
 
 [ValueSet]
-Label=Start Day
-Name=LSTSTD_VS1
-Link=1282360416
+Label=Day
+Name=ERSTARTD_VS1
 Value=1;1
 Value=2;2
 Value=3;3
@@ -877,68 +664,166 @@ Value=30;30
 Value=31;31
 
 [Item]
-Label=Finish Date
-Name=LSTFNDATE
-Start=228
+Label=Date Completed
+Name=EREND
+Start=192
 Len=8
 
 [Item]
-Label=Finish year
-Name=LSTFNY
-Start=228
+Label=Year
+Name=ERENDY
+Start=192
 Len=4
 ItemType=SubItem
 
 [ValueSet]
-Label=Finish year
-Name=LSTFNY_VS1
-Link=1282352848
+Label=Year
+Name=ERENDY_VS1
+Value=2018;2,018
+Value=2019;2,019
+Value=2020;2,020
+Value=2021;2,021
+Value=2022;2,022
+Value=2023;2,023
+Value=2024;2,024
+Value=2025;2,025
+Value=2026;2,026
+Value=2027;2,027
+Value=2028;2,028
+Value=2029;2,029
+Value=2030;2,030
+Value=2031;2,031
+Value=2032;2,032
+Value=2033;2,033
+Value=2034;2,034
+Value=2035;2,035
+Value=2036;2,036
+Value=2037;2,037
+Value=2038;2,038
+Value=2039;2,039
+Value=2040;2,040
+Value=2041;2,041
+Value=2042;2,042
+Value=2043;2,043
+Value=2044;2,044
+Value=2045;2,045
+Value=2046;2,046
+Value=2047;2,047
+Value=2048;2,048
+Value=2049;2,049
+Value=2050;2,050
+Value=2051;2,051
+Value=2052;2,052
+Value=2053;2,053
+Value=2054;2,054
+Value=2055;2,055
+Value=2056;2,056
+Value=2057;2,057
+Value=2058;2,058
+Value=2059;2,059
+Value=2060;2,060
+Value=2061;2,061
+Value=2062;2,062
+Value=2063;2,063
+Value=2064;2,064
+Value=2065;2,065
+Value=2066;2,066
+Value=2067;2,067
+Value=2068;2,068
+Value=2069;2,069
+Value=2070;2,070
+Value=2071;2,071
+Value=2072;2,072
+Value=2073;2,073
+Value=2074;2,074
+Value=2075;2,075
+Value=2076;2,076
+Value=2077;2,077
+Value=2078;2,078
+Value=2079;2,079
+Value=2080;2,080
+Value=2081;2,081
+Value=2082;2,082
+Value=2083;2,083
+Value=2084;2,084
+Value=2085;2,085
+Value=2086;2,086
+Value=2087;2,087
+Value=2088;2,088
+Value=2089;2,089
+Value=2090;2,090
+Value=2091;2,091
+Value=2092;2,092
+Value=2093;2,093
+Value=2094;2,094
+Value=2095;2,095
+Value=2096;2,096
+Value=2097;2,097
+Value=2098;2,098
+Value=2099;2,099
+Value=2100;2,100
 
 [Item]
-Label=Finish Month
-Name=LSTFNM
-Start=232
+Label=Month
+Name=ERENDM
+Start=196
 Len=2
 ItemType=SubItem
 
 [ValueSet]
-Label=Finish Month
-Name=LSTFNM_VS1
-Link=1282357600
+Label=Month
+Name=ERENDM_VS1
+Value=1;January
+Value=2;February
+Value=3;March
+Value=4;April
+Value=5;May
+Value=6;June
+Value=7;July
+Value=8;August
+Value=9;September
+Value=10;October
+Value=11;November
+Value=12;December
 
 [Item]
-Label=Finish Day
-Name=LSTFND
-Start=234
+Label=Day
+Name=ERENDD
+Start=198
 Len=2
 ItemType=SubItem
 
 [ValueSet]
-Label=Finish Day
-Name=LSTFND_VS1
-Link=1282360416
-
-[Item]
-Label=Telephone number
-Name=LSTTELEPHONE
-Start=236
-Len=7
-
-[Item]
-Label=Remarks
-Name=LSTREMARKS
-Start=243
-Len=100
-DataType=Alpha
-
-[Item]
-Label=Add household
-Name=LSTADDHSE
-Start=343
-Len=1
-
-[ValueSet]
-Label=Add household
-Name=LSTADDHSE_VS1
-Value=1;Yes
-Value=2;No
+Label=Day
+Name=ERENDD_VS1
+Value=1;1
+Value=2;2
+Value=3;3
+Value=4;4
+Value=5;5
+Value=6;6
+Value=7;7
+Value=8;8
+Value=9;9
+Value=10;10
+Value=11;11
+Value=12;12
+Value=13;13
+Value=14;14
+Value=15;15
+Value=16;16
+Value=17;17
+Value=18;18
+Value=19;19
+Value=20;20
+Value=21;21
+Value=22;22
+Value=23;23
+Value=24;24
+Value=25;25
+Value=26;26
+Value=27;27
+Value=28;28
+Value=29;29
+Value=30;30
+Value=31;31

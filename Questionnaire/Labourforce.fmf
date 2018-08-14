@@ -867,10 +867,10 @@ Text=Occupancy
 [EndColumn]
   
 [Column]
-Width=28
+Width=35
   
 [HeaderText]
-Position=16,4,104,28
+Position=16,0,104,35
 Text=Land Tenure
  
 [Field]
@@ -1156,6 +1156,27 @@ Text=7. Nationality
 Width=40
   
 [HeaderText]
+Position=61,0,104,40
+Text=7. Other
+ 
+[Field]
+Name=CNTRY_CD_OTHER
+Position=280,0,701,20
+Item=CNTRY_CD_OTHER,LABOURFORCE_DICT
+UpperCase=Yes
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Position=0,0,51,16
+Text=7. Other
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
 Position=33,0,104,40
 Text=8. Marital Status
  
@@ -1208,6 +1229,7 @@ FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
 [Text]
+Position=0,0,51,16
 Text=9. Other
  
 [EndColumn]

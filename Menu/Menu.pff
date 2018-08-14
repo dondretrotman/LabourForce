@@ -14,7 +14,7 @@ Paradata=.\Menu.cslog
 
 [ExternalFiles]
 LABOURFORCE_DICT=..\Data\data.csdb|CSPRODB
-LISTING_DICT=..\Data\Listing.csdb|CSPRODB
+LISTING_DICT=..\Data\Controlsheet.csdb|CSPRODB
 
 [UserFiles]
 PFFFILE=

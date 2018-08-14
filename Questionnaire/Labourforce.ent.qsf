@@ -51,6 +51,15 @@ EN=\pard\cf1\fs24 What is \b %LFIRST_NAME%'s\b0  nationality?\par
 EN=}
 
 [QUESTION]
+Field=LABOURFORCE_DICT.CNTRY_CD_OTHER
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please specify...\par
+EN=}
+
+[QUESTION]
 Field=LABOURFORCE_DICT.CTRAINING
 Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
@@ -448,9 +457,10 @@ EN=}
 Field=LABOURFORCE_DICT.LLAST_NAME
 Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
-EN={\colortbl ;\red0\green0\blue0;}
+EN={\colortbl ;\red0\green0\blue0;\red0\green0\blue255;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 Last name of resident\par
+EN=\cf2 Interviewer: Please list persons in the following order: Head, Spouse, any other adults, any children\cf1\par
 EN=}
 
 [QUESTION]
