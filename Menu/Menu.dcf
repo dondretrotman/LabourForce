@@ -24,7 +24,7 @@ Len=1
 Label=Menu record
 Name=MENU_REC
 RecordTypeValue='1'
-RecordLen=62
+RecordLen=77
 
 [Item]
 Label=User Name
@@ -582,5 +582,12 @@ DataType=Alpha
 Label=Choose Household
 Name=CHOOSE_HOUSEHOLD
 Start=48
+Len=15
+DataType=Alpha
+
+[Item]
+Label=Choose Control Sheet
+Name=CHOOSE_CONTROL_SHEET
+Start=63
 Len=15
 DataType=Alpha

@@ -1,16 +1,16 @@
 ﻿[Run Information]
 Version=CSPro 7.1
 AppType=Entry
-
+Description=CLFSS Control Sheet
 [DataEntryInit]
+StartMode=Add
 ShowInApplicationListing=Hidden
-Interactive=Ask
-
 [Files]
-Application=.\Listing.ent
-InputData=..\Data\Controlsheet.csdb|CSPRODB
-Paradata=.\Controlsheet.cslog
-
-
+Application=./Listing.ent
+InputData=../Data/Controlsheet.csdb|CSPRODB
+Paradata=./Controlsheet.cslog
+[UserFiles]
+PFFFILE=
 [Parameters]
-
+Parameter=onexit = ..\Menu\Menu.pff
+MODE=DEFAULT

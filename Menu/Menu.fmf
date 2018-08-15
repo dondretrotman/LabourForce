@@ -13,7 +13,7 @@ File=.\Menu.dcf
 Name=FORM000
 Label=Menu questionnaire
 Level=1
-Size=754,383
+Size=754,443
   
 Item=INTERVIEWER_MENU
 Item=SUPERVISOR_MENU
@@ -25,6 +25,7 @@ Item=CHOOSE_HOUSEHOLD
 Item=UNAME
 Item=USERID
 Item=ME_ED
+Item=CHOOSE_CONTROL_SHEET
   
 [EndForm]
   
@@ -44,6 +45,7 @@ Max=1
 Name=UNAME
 Position=319,3,729,23
 Item=UNAME,MENU_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
 Form=1
@@ -55,116 +57,129 @@ Text=User Name
   
 [Field]
 Name=USERID
-Position=319,40,348,60
+Position=319,42,348,62
 Item=USERID,MENU_DICT
 FieldLabelType=DictionaryLabel
 Form=1
   
 [Text]
-Position=127,43,172,59
+Position=127,45,172,61
 Text=User ID
  
   
 [Field]
 Name=ME_ED
-Position=319,77,334,97
+Position=319,81,362,101
 Item=ME_ED,MENU_DICT
 FieldLabelType=DictionaryLabel
 Form=1
   
 [Text]
-Position=127,80,144,96
+Position=127,84,144,100
 Text=ED
  
   
 [Field]
 Name=LOGIN
-Position=319,114,334,134
+Position=319,120,334,140
 Item=LOGIN,MENU_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=127,117,163,133
+Position=127,123,163,139
 Text=Login
  
   
 [Field]
 Name=INTERVIEWER_MENU
-Position=319,151,334,171
+Position=319,159,334,179
 Item=INTERVIEWER_MENU,MENU_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=127,154,238,170
+Position=127,162,238,178
 Text=Interviewer Menu
  
   
 [Field]
 Name=SUPERVISOR_MENU
-Position=319,188,334,208
+Position=319,198,334,218
 Item=SUPERVISOR_MENU,MENU_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=127,191,234,207
+Position=127,201,234,217
 Text=Supervisor Menu
  
   
 [Field]
 Name=CHOOSE_ROUND
-Position=319,225,348,245
+Position=319,238,348,258
 Item=CHOOSE_ROUND,MENU_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=127,228,219,244
+Position=127,241,219,257
 Text=Choose Round
  
   
 [Field]
 Name=CHOOSE_ED
-Position=319,262,362,282
+Position=319,278,362,298
 Item=CHOOSE_ED,MENU_DICT
 FieldLabelType=DictionaryLabel
 Form=1
   
 [Text]
-Position=127,265,195,281
+Position=127,281,195,297
 Text=Choose ED
  
   
 [Field]
 Name=CHOOSE_QUESTIONNAIRE
-Position=319,300,488,320
+Position=319,318,488,338
 Item=CHOOSE_QUESTIONNAIRE,MENU_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
 Form=1
   
 [Text]
-Position=127,303,267,319
+Position=127,321,267,337
 Text=Choose Questionnaire
  
   
 [Field]
 Name=CHOOSE_HOUSEHOLD
-Position=319,338,530,358
+Position=319,358,530,378
 Item=CHOOSE_HOUSEHOLD,MENU_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=127,341,245,357
+Position=127,361,245,377
 Text=Choose Household
+ 
+  
+[Field]
+Name=CHOOSE_CONTROL_SHEET
+Position=319,398,530,418
+Item=CHOOSE_CONTROL_SHEET,MENU_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
+Form=1
+  
+[Text]
+Position=127,401,265,417
+Text=Choose Control Sheet
  
 [EndGroup]
   

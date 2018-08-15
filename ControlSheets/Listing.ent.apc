@@ -5,8 +5,41 @@ PROC LISTING_FF
 
 
 PROC LSTROUND
+preproc
+	if sysparm("MODE") = "EDIT" then
+		if visualvalue(LSTROUND) = notappl then		//if round is blank
+			LSTROUND = tonumber(sysparm("LSTROUND"));		//Go to the pff file and get the system parameter named rndno. Change it to number and assign to variable
+			setproperty(LSTROUND,"PROTECTED","Yes");	//and set the field to proctected
+		endif;
+		if visualvalue(LSTED) = notappl then
+			LSTED = tonumber(sysparm("LSTED"));	
+			setproperty(LSTED,"PROTECTED","Yes");
+		endif;
+		if visualvalue(LSTPARISH) = notappl then
+			LSTPARISH = tonumber(sysparm("LSTPARISH"));	
+			setproperty(LSTPARISH,"PROTECTED","Yes");
+		endif;
+		if visualvalue(LSTSTRATUM) = notappl then
+			LSTSTRATUM = tonumber(sysparm("LSTSTRATUM"));	
+			setproperty(LSTSTRATUM,"PROTECTED","Yes");
+		endif;
+		if visualvalue(LSTBUILDING) = notappl then
+			LSTBUILDING = tonumber(sysparm("LSTBUILDING"));	
+			setproperty(LSTBUILDING,"PROTECTED","Yes");
+		endif;
+		if visualvalue(LSTSAMPLE) = notappl then
+			LSTSAMPLE = tonumber(sysparm("LSTSAMPLE"));	
+			setproperty(LSTSAMPLE,"PROTECTED","Yes");
+		endif;
+	elseif sysparm("MODE") = "DEFAULT" then
+	
+	endif;
 
+
+postproc
 	setcaselabel(LISTING_DICT, maketext("%v-%v-%v-%v",LSTED,LSTROUND,LSTBUILDING,LSTSAMPLE));
+
+//--------------------------------------------------------------------------------
 PROC LSTNO
 preproc
 	$ = curocc();		//automatically enter the ID

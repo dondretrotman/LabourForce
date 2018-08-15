@@ -23,7 +23,76 @@ array string 	vsLabel(99);	//valueset labels
 //--------------------------------Function declaration------------------------------------
 //Launches the questionnaire
 function LaunchControlSheet()
-	execpff("../ControlSheets/Listing.pff", stop);
+	//execpff("../ControlSheets/Listing.pff", stop);
+	string pffFilename = Pathname(application) + "../ControlSheets/Listing.pff";
+	setfile(pffFile,pffFilename,create);
+
+	filewrite(pffFile,"[Run Information]");
+	filewrite(pffFile,"Version=CSPro 7.1");
+	filewrite(pffFile,"AppType=Entry");
+	filewrite(pffFile,"Description=CLFSS Control Sheet");
+
+	filewrite(pffFile,"[DataEntryInit]");
+	
+	filewrite(pffFile,"StartMode=Add");
+	filewrite(pffFile,"ShowInApplicationListing=Hidden");
+
+	filewrite(pffFile,"[Files]");
+	filewrite(pffFile,"Application=%s","./Listing.ent");
+	filewrite(pffFile,"InputData=%s","../Data/Controlsheet.csdb|CSPRODB");
+	filewrite(pffFile,"Paradata=%s","./Controlsheet.cslog");
+	
+	filewrite(pffFile,"[UserFiles]");
+	filewrite(pffFile,"PFFFILE=%s","");
+
+	filewrite(pffFile,"[Parameters]");
+	filewrite(pffFile,"Parameter=%s","onexit = ..\Menu\Menu.pff");
+	filewrite(pffFile,"MODE=DEFAULT");
+	
+	
+	close(pffFile);
+	
+	execpff(filename(pffFile), stop);
+end;
+
+//launches control sheet for supervisers
+function launchSupervisorControlSheet()
+
+	string pffFilename = Pathname(application) + "../ControlSheets/Listing.pff";
+	setfile(pffFile,pffFilename,create);
+
+	filewrite(pffFile,"[Run Information]");
+	filewrite(pffFile,"Version=CSPro 7.1");
+	filewrite(pffFile,"AppType=Entry");
+	filewrite(pffFile,"Description=CLFSS Control Sheet");
+
+	filewrite(pffFile,"[DataEntryInit]");
+	
+	filewrite(pffFile,"StartMode=Add;%s",CHOOSE_CONTROL_SHEET);
+	filewrite(pffFile,"ShowInApplicationListing=Hidden");
+
+	filewrite(pffFile,"[Files]");
+	filewrite(pffFile,"Application=%s","./Listing.ent");
+	filewrite(pffFile,"InputData=%s","../Data/Controlsheet.csdb|CSPRODB");
+	filewrite(pffFile,"Paradata=%s","./Controlsheet.cslog");
+	
+	filewrite(pffFile,"[UserFiles]");
+	filewrite(pffFile,"PFFFILE=%s","");
+
+	filewrite(pffFile,"[Parameters]");
+	filewrite(pffFile,"Parameter=%s","onexit = ..\Menu\Menu.pff");
+	
+	filewrite(pffFile,"MODE=EDIT");
+	filewrite(pffFile,"LSTROUND=%s",CHOOSE_CONTROL_SHEET[1:2]);
+	filewrite(pffFile,"LSTED=%s",CHOOSE_CONTROL_SHEET[3:3]);
+	filewrite(pffFile,"LSTPARISH=%s",CHOOSE_CONTROL_SHEET[6:3]);
+	filewrite(pffFile,"LSTSTRATUM=%s",CHOOSE_CONTROL_SHEET[9:1]);
+	filewrite(pffFile,"LSTBUILDING=%s",CHOOSE_CONTROL_SHEET[10:3]);
+	filewrite(pffFile,"LSTSAMPLE=%s",CHOOSE_CONTROL_SHEET[13:3]);
+	
+	close(pffFile);
+
+	execpff(filename(pffFile), stop);
 end;
 
 //Launches the control sheet
@@ -259,7 +328,7 @@ postproc
 	if $ = 1 then		//download data
 		skip to CHOOSE_ROUND;
 	elseif $ = 2 then		//open control sheet
-		launchControlSheet();
+		skip to CHOOSE_CONTROL_SHEET;
 	elseif $ = 3 then		//open questionnaire
 		skip to CHOOSE_HOUSEHOLD;
 	elseif $ = 4 then		//delete questionnaire
@@ -276,7 +345,7 @@ reenter;		//don't leave the menu
 //---------------------------------------------------------
 PROC CHOOSE_ROUND
 Postproc
-	rnd_ed = maketext("%2d%3d", CHOOSE_ROUND,ME_ED);
+	rnd_ed = maketext("%v%v", CHOOSE_ROUND,ME_ED);
 	downloadData(rnd_ed);
 	
 	move to LOGIN;
@@ -321,10 +390,9 @@ postproc
 
 //---------------------------------------------------------
 PROC CHOOSE_HOUSEHOLD
-//DEBUG: Doesn't show list!
 onfocus
 	numeric nextEntry = 1;
-	forcase LISTING_DICT do
+	forcase LISTING_DICT where LSTED = ME_ED do
 		vscode(nextEntry) = maketext("%v%v%v%v%v%v",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTBUILDING,LSTSAMPLE);
 		vsLabel(nextEntry) = maketext("%03d-%03d-%03d: %V (%v)",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS));
 		inc(nextEntry);
@@ -336,6 +404,24 @@ onfocus
 
 postproc
 	launchQuestionnaire();
+	move to INTERVIEWER_MENU;
+
+//--------------------------------------------------------------------------
+PROC CHOOSE_CONTROL_SHEET
+onfocus
+	numeric nextEntry = 1;
+	forcase LISTING_DICT where LSTED = ME_ED do
+		vscode(nextEntry) = maketext("%v%v%v%v%v%v",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTBUILDING,LSTSAMPLE);
+		vsLabel(nextEntry) = maketext("%03d-%03d-%03d: %V (%v)",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS));
+		inc(nextEntry);
+	endfor;
+	
+	vsCode(nextEntry) = "";
+	
+	setvalueset($, vsCode, vsLabel);
+
+postproc
+	launchSupervisorControlSheet();
 	move to INTERVIEWER_MENU;
 
 //--------------------------------------------------------------------------
