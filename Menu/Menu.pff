@@ -17,6 +17,7 @@ LABOURFORCE_DICT=..\Data\data.csdb|CSPRODB
 LISTING_DICT=..\Data\Controlsheet.csdb|CSPRODB
 
 [UserFiles]
+LOGINFILE=
 PFFFILE=
 
 [Parameters]

@@ -8,11 +8,13 @@ TODO: 	add enumerator reports
 
 PROC GLOBAL
 //--------------------------------Variable Declaration------------------------------------
-file pffFile;
+file 	pffFile,		//Creates a .pff file
+		loginfile;		//saves login status in a file
 
-string 	rnd_ed;		//round and ED number to be downloaded
+string 	rnd_ed,		//round and ED number to be downloaded
+		status;		//stores current login status
 
-numeric deleteflag;
+numeric deleteflag;		//stores flag for case deletion
 
 //----------------------------------Array Declaration-------------------------------------
 array string	vsCode(99);		//valueset codes
@@ -154,10 +156,60 @@ function deleteQuestionnaire()
 	errmsg("Case set for deletion");
 end;
 
+//Writes the login status to a file
+function writeloginstatus(x);
+	string loginFilename = pathname(application)+"loginflag.dat";
+	setfile(loginfile,loginFilename,create);
+
+	filewrite(loginfile,"%d%03d%04d%s",x,visualvalue(ME_ED),USERID,strip(UNAME));	//write value of "x" to file. 1=logged in, 0=logged out
+	
+	close(loginfile);
+end;
+
+//reads login status and returns 1 (logged in) or 0 (not logged in)
+function readloginstatus();
+	string loginfilename = pathname(application)+"loginflag.dat";	//set file path
+	setfile(loginfile, loginfilename);		//set file handle
+	fileread(loginfile, status);			//read file
+	close(loginfile);						//close file
+	
+	readloginstatus = tonumber(status[1:1]);		//set function to file contents
+	ME_ED = tonumber(status[2:3]);
+	USERID = tonumber(status[5:4]);
+	UNAME = status[9];
+end;
+
 PROC MENU_FF
 
-PROC LOGIN
+PROC UNAME
+preproc
+	//if already logged in then just login, if not, continue logging in
+	if readloginstatus() = 1 then
+		skip to ME_ED;
+	endif;
 
+//--------------------------------------------------------------------
+PROC USERID
+//code to make sure that the valueset label matches Username
+postproc
+	if getlabel(USERID_VS1,$) = strip(UNAME) then
+		writeLoginStatus(1);//success
+	else
+		errmsg("Username and ID don't match! Please try again");
+		move to UNAME;
+	endif;
+
+
+//---------------------------------------------------------------
+PROC LOGIN
+onfocus
+	if visualvalue(USERID) >= 90 then		//Supervisor
+		setvalueset(LOGIN,LOGIN_VS1);
+	elseif visualvalue(USERID) < 90 then	//enumerator
+		setvalueset(LOGIN,LOGIN_VS2);
+	endif;
+	
+postproc
 	if $ = 1 then	//interviewer
 		skip to INTERVIEWER_MENU;
 	elseif $ = 2 then 	//supervisor
@@ -166,6 +218,9 @@ PROC LOGIN
 		updateApp();
 		reenter;		
 	elseif $ = 9 then
+		writeloginstatus(0);
+		UNAME = "";
+		USERID = notappl;
 		stop(1);
 	endif;
 	
@@ -206,24 +261,38 @@ postproc
 	elseif $ = 2 then		//open control sheet
 		launchControlSheet();
 	elseif $ = 3 then		//open questionnaire
-		launchQuestionnaire();
+		skip to CHOOSE_HOUSEHOLD;
 	elseif $ = 4 then		//delete questionnaire
 		skip to CHOOSE_QUESTIONNAIRE;
+	elseif $ = 5 then		//view Enumerator report
+		//TODO
+	elseif $ = 6 then		//view summary report
+		//TODO
 	elseif $ = 9 then		//logout
 		move to LOGIN;
 	endif;
 reenter;		//don't leave the menu
 
 //---------------------------------------------------------
-PROC CHOOSE_ED
-//DEBUG: Doesn't work, text formatting doesn't match data dictionary somehow
+PROC CHOOSE_ROUND
 Postproc
-	rnd_ed = maketext("%2d%3d", CHOOSE_ROUND,CHOOSE_ED);
+	rnd_ed = maketext("%2d%3d", CHOOSE_ROUND,ME_ED);
 	downloadData(rnd_ed);
 	
 	move to LOGIN;
 
 //---------------------------------------------------------
+PROC CHOOSE_ED
+{TODO: DELETE THIS VARIABLE
+//DEBUG: Doesn't work, text formatting doesn't match data dictionary somehow
+Postproc
+	rnd_ed = maketext("%2d%3d", CHOOSE_ROUND,ME_ED);
+	downloadData(rnd_ed);
+	
+	move to LOGIN;
+
+//---------------------------------------------------------
+}
 PROC CHOOSE_QUESTIONNAIRE
 onfocus
 	numeric nextEntry = 1;
@@ -268,3 +337,5 @@ onfocus
 postproc
 	launchQuestionnaire();
 	move to INTERVIEWER_MENU;
+
+//--------------------------------------------------------------------------
