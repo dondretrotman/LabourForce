@@ -20,6 +20,7 @@ ParadataDeviceStateMinutes=5
 [External Dictionaries]
 File=..\Questionnaire\Labourforce.dcf
 File=..\ControlSheets\Listing.dcf
+File=..\Reports\EnumerationReport.dcf
 [AppCode]
 File=.\Menu.ent.apc
 [Message]
@@ -32,3 +33,4 @@ File=.\Menu.fmf
 Dict-Type=.\Menu.dcf,Input,.\Menu.fmf
 Dict-Type=..\Questionnaire\Labourforce.dcf,External
 Dict-Type=..\ControlSheets\Listing.dcf,External
+Dict-Type=..\Reports\EnumerationReport.dcf,External

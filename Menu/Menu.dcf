@@ -510,15 +510,17 @@ Label=Login
 Name=LOGIN_VS1
 Value=1;Interviewer
 Value=2;Supervisor
+Value=4;Change ED
 Value=3;Update App
-Value=9;Exit
+Value=9;Logout
 
 [ValueSet]
 Label=Login
 Name=LOGIN_VS2
 Value=1;Enumerator Menu
+Value=4;Change ED
 Value=3;Update App
-Value=9;Exit
+Value=9;Logout
 
 [Item]
 Label=Interviewer Menu
@@ -534,7 +536,7 @@ Value=2;Fill Control Sheet
 Value=3;Fill Enumeration Report
 Value=4;Fill Summary report
 Value=7;Upload Data
-Value=9;Logout
+Value=9;Back
 
 [Item]
 Label=Supervisor Menu
@@ -549,7 +551,7 @@ Value=1;Download Data
 Value=2;Open Control Sheet
 Value=3;Open Questionnaire
 Value=4;Delete Questionnaire
-Value=9;Logout
+Value=9;Back
 
 [Item]
 Label=Choose Round

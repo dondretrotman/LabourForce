@@ -15,15 +15,9 @@ Name=ENUMERATIONREPORT_QUEST
 [IdItems]
 
 [Item]
-Label=Field Officer
-Name=ERFIELD_OFFICER
-Start=2
-Len=2
-
-[Item]
 Label=ED No
 Name=ERED_NO
-Start=4
+Start=2
 Len=3
 
 [ValueSet]
@@ -434,7 +428,7 @@ Value=400;400
 [Item]
 Label=Parish
 Name=ERPARISH
-Start=7
+Start=5
 Len=3
 
 [ValueSet]
@@ -453,29 +447,34 @@ Value=210;St Peter
 Value=211;St Lucy
 
 [Item]
-Label=Week Ending
-Name=WEEK_ENDING
-Start=10
-Len=8
-
-[Record]
-Label=EnumerationReport record
-Name=ENUMERATIONREPORT_REC
-RecordTypeValue='1'
-MaxRecords=200
-RecordLen=199
+Label=Field Officer
+Name=ERFIELD_OFFICER
+Start=8
+Len=2
 
 [Item]
 Label=Sample Unit No.
 Name=ERUNIT_NO
-Start=18
+Start=10
 Len=3
 
 [Item]
 Label=Sample Serial No.
 Name=ERSERIAL_NO
-Start=21
+Start=13
 Len=3
+
+[Record]
+Label=EnumerationReport record
+Name=ENUMERATIONREPORT_REC
+RecordTypeValue='1'
+RecordLen=199
+
+[Item]
+Label=Week Ending
+Name=WEEK_ENDING
+Start=16
+Len=8
 
 [Item]
 Label=Household Head Last Name

@@ -2,8 +2,8 @@
 
 {
 TODO: 	add enumerator reports
-		Link questionnaire to control sheet
-		add login
+		*Done* Link questionnaire to control sheet
+		*Done* add login
 }
 
 PROC GLOBAL
@@ -12,13 +12,22 @@ file 	pffFile,		//Creates a .pff file
 		loginfile;		//saves login status in a file
 
 string 	rnd_ed,		//round and ED number to be downloaded
-		status;		//stores current login status
+		status,		//stores current login status
+		username;		//stores user name
 
 numeric deleteflag;		//stores flag for case deletion
 
 //----------------------------------Array Declaration-------------------------------------
 array string	vsCode(99);		//valueset codes
 array string 	vsLabel(99);	//valueset labels
+//these arrays are for filling out the enumeration report
+array 			unitno(200);		
+array 			serialno(200);
+array 			datestarted(200);
+array 			datecomplete(200);
+array string 	Headname(200);
+array string	Headaddress(200);
+array string	remarks(200);
 
 //--------------------------------Function declaration------------------------------------
 //Launches the questionnaire
@@ -142,6 +151,7 @@ function uploadData()
 	if syncconnect(FTP,"64.119.198.70","Census","Census2020ADM!N") then		//connect to FTP when outside of the Government WAN
 		syncdata(PUT,LABOURFORCE_DICT);		//Upload Lacourforce data
 		syncdata(PUT,LISTING_DICT);		//Upload Control Sheet
+		syncdata(PUT,ENUMERATIONREPORT_DICT);	//upload enumeration report
 		syncfile(PUT,"../Questionnaire/Labourforce.cslog",maketext("LabourforceLogs/Labourforce%s.cslog",getdeviceid()));		//Upload paradata logs
 		//syncfile(PUT,"../Photos/*.jpg", "/CSPro/Photos/");
 		syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen");		//update questionnaire
@@ -152,6 +162,7 @@ function uploadData()
 	elseif syncconnect(FTP,"10.129.20.110","Census","Census2020ADM!N") then		//connect to FTP when within the Government WAN
 		syncdata(PUT,LABOURFORCE_DICT);		//Upload Lacourforce data
 		syncdata(PUT,LISTING_DICT);		//Upload control sheet
+		syncdata(PUT,ENUMERATIONREPORT_DICT);	//upload enumeration report
 		syncfile(PUT,"../Questionnaire/Labourforce.cslog",maketext("LabourforceLogs/Labourforce%s.cslog",getdeviceid()));		//Upload paradata logs
 		//syncfile(PUT,"../Photos/*.jpg", "/CSPro/Photos/");
 		syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen");		//update questionnaire
@@ -186,10 +197,11 @@ end;
 //downloads Data based on ED
 function downloadData(string rnd_edno)
 	errmsg("Attempting to download all data from Round :%s, ED :%s",rnd_edno[1:2],rnd_edno[3:3]);
-	errmsg("Data dictionary value Round :%V, ED :%V", RNDNO,EDNO);
+	//errmsg("Data dictionary value Round :%V, ED :%V", RNDNO,EDNO);
 	if syncconnect(FTP,"64.119.198.70","Census","Census2020ADM!N") then		//connect to FTP when outside of the government WAN
 		syncdata(GET,LABOURFORCE_DICT,rnd_edno);		//get labourforce data for round and ED
-	syncdata(GET,LISTING_DICT,rnd_edno);			//get control sheet data for round and ED
+		syncdata(GET,LISTING_DICT,rnd_edno);			//get control sheet data for round and ED
+		syncdata(get,ENUMERATIONREPORT_DICT,maketext("%v",ME_ED));	//get enumeration report for ED
 		//syncfile(GET,"CSPro/Photos/*.jpg","../Photos/");
 		syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen");		//update questionnaire
 		syncfile(GET,"/CSPro/Update/ControlSheets/Listing.pen","../ControlSheets/Listing.pen");		//update control sheet
@@ -199,6 +211,7 @@ function downloadData(string rnd_edno)
 	elseif syncconnect(FTP,"10.129.20.110","Census","Census2020ADM!N") then		//connect to FTP when outside of the government WAN
 		syncdata(GET,LABOURFORCE_DICT,rnd_edno);		//get labourforce data for round and ED
 		syncdata(GET,LISTING_DICT,rnd_edno);			//get control sheet data for round and ED
+		syncdata(get,ENUMERATIONREPORT_DICT,maketext("%v",ME_ED));	//get enumeration report for ED
 		//syncfile(GET,"CSPro/Photos/*.jpg","../Photos/");
 		syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen");		//update questionnaire
 		syncfile(GET,"/CSPro/Update/ControlSheets/Listing.pen","../ControlSheets/Listing.pen");		//update control sheet
@@ -230,13 +243,13 @@ function writeloginstatus(x);
 	string loginFilename = pathname(application)+"loginflag.dat";
 	setfile(loginfile,loginFilename,create);
 
-	filewrite(loginfile,"%d%03d%04d%s",x,visualvalue(ME_ED),USERID,strip(UNAME));	//write value of "x" to file. 1=logged in, 0=logged out
+	filewrite(loginfile,"%d%03d%02d%s",x,visualvalue(ME_ED),USERID,strip(UNAME));	//write value of "x" to file. 1=logged in, 0=logged out
 	
 	close(loginfile);
 end;
 
 //reads login status and returns 1 (logged in) or 0 (not logged in)
-function readloginstatus();
+function readloginstatus()
 	string loginfilename = pathname(application)+"loginflag.dat";	//set file path
 	setfile(loginfile, loginfilename);		//set file handle
 	fileread(loginfile, status);			//read file
@@ -244,8 +257,33 @@ function readloginstatus();
 	
 	readloginstatus = tonumber(status[1:1]);		//set function to file contents
 	ME_ED = tonumber(status[2:3]);
-	USERID = tonumber(status[5:4]);
-	UNAME = status[9];
+	if tonumber(status[1:1]) = 1 then		//if logged in set login details
+		USERID = tonumber(status[5:2]);
+		UNAME = status[7];
+	elseif tonumber(status[1:1]) = 0 then		//if logged out clear login details from form
+		USERID = notappl;
+		UNAME = "";
+	endif;
+end;
+
+//fills enumeration report and opens for editing
+function enumerationRpt()
+	//numeric hhptr = 1;
+	numeric unitptr = 1;
+	set first(ENUMERATIONREPORT_DICT);		//go to first case
+	do while loadcase(ENUMERATIONREPORT_DICT)		//load each case
+		forcase LABOURFORCE_DICT where VACANT = 2 and EDNO = ME_ED do		//maybe change to loadcase
+			ERED_NO = ME_ED;
+			ERPARISH = notappl;
+			ERFIELD_OFFICER = USERID;
+			ERUNIT_NO = unitptr;
+			ERSERIAL_NO = HHNO;
+			WEEK_ENDING = sysdate("YYYYMMDD");		//TODO: ask for the date
+			writecase(ENUMERATIONREPORT_DICT);
+			inc(unitptr);
+		endfor;
+	enddo;
+	
 end;
 
 PROC MENU_FF
@@ -272,6 +310,9 @@ postproc
 //---------------------------------------------------------------
 PROC LOGIN
 onfocus
+	$ = notappl;
+	username = getlabel(UNAME_VS1,UNAME);
+	
 	if visualvalue(USERID) >= 90 then		//Supervisor
 		setvalueset(LOGIN,LOGIN_VS1);
 	elseif visualvalue(USERID) < 90 then	//enumerator
@@ -285,11 +326,13 @@ postproc
 		skip to SUPERVISOR_MENU;
 	elseif $ = 3 then		//update only
 		updateApp();
-		reenter;		
+		reenter;
+	elseif $ = 4 then		//change ED
+		move to ME_ED;		
 	elseif $ = 9 then
-		writeloginstatus(0);
 		UNAME = "";
 		USERID = notappl;
+		writeloginstatus(0);
 		stop(1);
 	endif;
 	
@@ -303,8 +346,8 @@ postproc
 		skip to CHOOSE_HOUSEHOLD;
 	elseif $ = 2 then
 		LaunchControlSheet();
-	elseif $ = 3 then
-		//TODO: enumeration report Auto fill with all data
+	elseif $ = 3 then		//enumeration report
+		enumerationRpt();
 	elseif $ = 4 then
 		//TODO: summary report
 	elseif $ = 7 then		//upload data

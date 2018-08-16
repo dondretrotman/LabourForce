@@ -34,7 +34,7 @@ Condition=USERID < 90
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
-EN=\pard\cf1\fs24 Logged in as \b %UNAME%\b0  (Enumerator) \par
+EN=\pard\cf1\fs24 Logged in as \b %username%\b0  (Enumerator) \par
 EN=Your Enumeration District is \b %ME_ED%\par
 EN=\par
 EN=\b0 Please choose an action\par
@@ -57,7 +57,7 @@ Field=MENU_DICT.ME_ED
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
-EN=\pard\cf1\fs24 Enter the Enumeration Distric that you will be working on\par
+EN=\pard\cf1\fs24 Enter the Enumeration District that you will be working on\par
 EN=}
 
 [QUESTION]
@@ -74,7 +74,7 @@ Field=MENU_DICT.UNAME
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;\red0\green0\blue255;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
-EN=\pard\cf1\fs24 Welcome to the Continuous Labour Force Sample Survey. Please enter your username in the format FirstInitialLastName (e.g. John Doe types "jdoe")\par
+EN=\pard\cf1\fs24 Welcome to the Continuous Labour Force Sample Survey. Please enter your username in the format FirstInitialLastName (e.g. John Doe types "JDOE")\par
 EN=\par
 EN=\cf2 Version 20130815-1033\cf1\par
 EN=}
@@ -84,7 +84,7 @@ Field=MENU_DICT.USERID
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
-EN=\pard\cf1\fs24 Please enter the ID number for \b %UNAME%\b0\par
+EN=\pard\cf1\fs24 Please enter the ID number for \b %username%\b0\par
 EN=}
 
 [HELP]
