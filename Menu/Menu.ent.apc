@@ -15,22 +15,23 @@ string 	rnd_ed,		//round and ED number to be downloaded
 		status,		//stores current login status
 		username;		//stores user name
 
-numeric deleteflag;		//stores flag for case deletion
+numeric deleteflag,		//stores flag for case deletion
+		errflag;		//sets error flag
 
 //----------------------------------Array Declaration-------------------------------------
 array string	vsCode(99);		//valueset codes
 array string 	vsLabel(99);	//valueset labels
 //these arrays are for filling out the enumeration report
-array 			unitno(200);		
+{array 			unitno(200);		
 array 			serialno(200);
 array 			datestarted(200);
 array 			datecomplete(200);
 array string 	Headname(200);
 array string	Headaddress(200);
-array string	remarks(200);
+array string	remarks(200);}
 
 //--------------------------------Function declaration------------------------------------
-//Launches the questionnaire
+//Launches the Control sheet
 function LaunchControlSheet()
 	//execpff("../ControlSheets/Listing.pff", stop);
 	string pffFilename = Pathname(application) + "../ControlSheets/Listing.pff";
@@ -57,8 +58,9 @@ function LaunchControlSheet()
 	filewrite(pffFile,"[Parameters]");
 	filewrite(pffFile,"Parameter=%s","onexit = ..\Menu\Menu.pff");
 	filewrite(pffFile,"MODE=DEFAULT");
-	
-	
+	filewrite(pffFile,"LSTENUMCODE=%s",maketext("%v",USERID));
+	filewrite(pffFile,"LSTED=%s",maketext("%v",ME_ED));
+		
 	close(pffFile);
 	
 	execpff(filename(pffFile), stop);
@@ -104,7 +106,7 @@ function launchSupervisorControlSheet()
 	execpff(filename(pffFile), stop);
 end;
 
-//Launches the control sheet
+//Launches the Questionnaire
 function LaunchQuestionnaire()
 
 	string pffFilename = Pathname(application) + "../Questionnaire/Labourforce.pff";
@@ -148,77 +150,161 @@ end;
 
 //Uploads all data
 function uploadData()
+	errflag = 0;		//clears  flag
 	if syncconnect(FTP,"64.119.198.70","Census","Census2020ADM!N") then		//connect to FTP when outside of the Government WAN
-		syncdata(PUT,LABOURFORCE_DICT);		//Upload Lacourforce data
-		syncdata(PUT,LISTING_DICT);		//Upload Control Sheet
-		syncdata(PUT,ENUMERATIONREPORT_DICT);	//upload enumeration report
-		syncfile(PUT,"../Questionnaire/Labourforce.cslog",maketext("LabourforceLogs/Labourforce%s.cslog",getdeviceid()));		//Upload paradata logs
+		if not syncdata(PUT,LABOURFORCE_DICT) then		//Upload Lacourforce data
+			inc(errflag);
+		endif;
+		if not syncdata(PUT,LISTING_DICT) then		//Upload Control Sheet
+			inc(errflag);
+		endif;
+		if not syncdata(PUT,ENUMERATIONREPORT_DICT) then	//upload enumeration report
+			inc(errflag);
+		endif;
+		if not syncfile(PUT,"../Questionnaire/Labourforce.cslog",maketext("LabourforceLogs/Labourforce%s.cslog",getdeviceid())) then		//Upload paradata logs
+			inc(errflag);
+		endif;
 		//syncfile(PUT,"../Photos/*.jpg", "/CSPro/Photos/");
-		syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen");		//update questionnaire
-		syncfile(GET,"/CSPro/Update/ControlSheets/Listing.pen","../ControlSheets/Listing.pen");		//update control sheet
-		syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen");		//update Menu
+		if not syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen") then		//update questionnaire
+			inc(errflag);
+		endif;
+		if not syncfile(GET,"/CSPro/Update/ControlSheets/Listing.pen","../ControlSheets/Listing.pen") then		//update control sheet
+			inc(errflag);
+		endif;
+		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
+			inc(errflag);
+		endif;
 		syncdisconnect();		//disconnect
-		errmsg("Data upload was successful");
+
 	elseif syncconnect(FTP,"10.129.20.110","Census","Census2020ADM!N") then		//connect to FTP when within the Government WAN
-		syncdata(PUT,LABOURFORCE_DICT);		//Upload Lacourforce data
-		syncdata(PUT,LISTING_DICT);		//Upload control sheet
-		syncdata(PUT,ENUMERATIONREPORT_DICT);	//upload enumeration report
-		syncfile(PUT,"../Questionnaire/Labourforce.cslog",maketext("LabourforceLogs/Labourforce%s.cslog",getdeviceid()));		//Upload paradata logs
+		if not syncdata(PUT,LABOURFORCE_DICT) then		//Upload Lacourforce data
+			inc(errflag);
+		endif;
+		if not syncdata(PUT,LISTING_DICT) then		//Upload Control Sheet
+			inc(errflag);
+		endif;
+		if not syncdata(PUT,ENUMERATIONREPORT_DICT) then	//upload enumeration report
+			inc(errflag);
+		endif;
+		if not syncfile(PUT,"../Questionnaire/Labourforce.cslog",maketext("LabourforceLogs/Labourforce%s.cslog",getdeviceid())) then		//Upload paradata logs
+			inc(errflag);
+		endif;
 		//syncfile(PUT,"../Photos/*.jpg", "/CSPro/Photos/");
-		syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen");		//update questionnaire
-		syncfile(GET,"/CSPro/Update/ControlSheets/Listing.pen","../ControlSheets/Listing.pen");		//update Lising
-		syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen");		//update Menu
+		if not syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen") then		//update questionnaire
+			inc(errflag);
+		endif;
+		if not syncfile(GET,"/CSPro/Update/ControlSheets/Listing.pen","../ControlSheets/Listing.pen") then		//update control sheet
+			inc(errflag);
+		endif;
+		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
+			inc(errflag);
+		endif;
 		syncdisconnect();		//disconnect
-		errmsg("Data upload was successful");
 	else
-		errmsg("Data upload failed, Please try again");
+		inc(errflag,2);
+	endif;
+	if errflag > 1 then
+		errmsg("App update failed, please try again");
+	elseif errflag = 0 then
+		errmsg("App update was successful");
+	elseif errflag = 1 then
+		errmsg("App update was probably successful but there was an error, please restart the app and try again to make sure. If you keep getting this error please contact the IT dept"); 
 	endif;
 end;
 
 //update app only
 function updateApp()
+	errflag = 0;
 	if syncconnect(FTP,"64.119.198.70","Census","Census2020ADM!N") then		//connect to FTP when outside of the Government WAN
-		syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen");		//update questionnaire
-		syncfile(GET,"/CSPro/Update/ControlSheets/Listing.pen","../ControlSheets/Listing.pen");		//update Control Sheets
-		syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen");		//update Menu
+		if not syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen") then		//update questionnaire
+			inc(errflag);
+		endif;
+		if not syncfile(GET,"/CSPro/Update/ControlSheets/Listing.pen","../ControlSheets/Listing.pen") then		//update Control Sheets
+			inc(errflag);
+		endif;
+		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
+			inc(errflag);
+		endif;
 		syncdisconnect();		//disconnect
-		errmsg("App update successful");
 	elseif syncconnect(FTP,"10.129.20.110","Census","Census2020ADM!N") then		//connect to FTP when within the Government WAN
-		syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen");		//update questionnaire
-		syncfile(GET,"/CSPro/Update/ControlSheets/Listing.pen","../ControlSheets/Listing.pen");		//update Control Sheet
-		syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen");		//update Menu
+		if not syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen") then		//update questionnaire
+			inc(errflag);
+		endif;
+		if not syncfile(GET,"/CSPro/Update/ControlSheets/Listing.pen","../ControlSheets/Listing.pen") then		//update Control Sheet
+			inc(errflag);
+		endif;
+		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
+			inc(errflag);
+		endif;
 		syncdisconnect();		//disconnect
-		errmsg("App update successful, Exit app to complete");
 	else
-		errmsg("App update failed, Please try again");
+		inc(errflag,2);
+	endif;
+	if errflag > 1 then
+		errmsg("App update failed, please try again");
+	elseif errflag = 0 then
+		errmsg("App update was successful");
+	elseif errflag = 1 then
+		errmsg("App update was probably successful but there was an error, please restart the app and try again to make sure. If you keep getting this error please contact the IT dept"); 
 	endif;
 end;
 
 //downloads Data based on ED
 function downloadData(string rnd_edno)
+	errflag = 0;
 	errmsg("Attempting to download all data from Round :%s, ED :%s",rnd_edno[1:2],rnd_edno[3:3]);
 	//errmsg("Data dictionary value Round :%V, ED :%V", RNDNO,EDNO);
 	if syncconnect(FTP,"64.119.198.70","Census","Census2020ADM!N") then		//connect to FTP when outside of the government WAN
-		syncdata(GET,LABOURFORCE_DICT,rnd_edno);		//get labourforce data for round and ED
-		syncdata(GET,LISTING_DICT,rnd_edno);			//get control sheet data for round and ED
-		syncdata(get,ENUMERATIONREPORT_DICT,maketext("%v",ME_ED));	//get enumeration report for ED
+		if not syncdata(GET,LABOURFORCE_DICT,rnd_edno) then		//get labourforce data for round and ED
+			inc(errflag);
+		endif;
+		if not syncdata(GET,LISTING_DICT,rnd_edno) then			//get control sheet data for round and ED
+			inc(errflag);
+		endif;
+		if not syncdata(get,ENUMERATIONREPORT_DICT,maketext("%v",ME_ED)) then	//get enumeration report for ED
+			inc(errflag);
+		endif;
 		//syncfile(GET,"CSPro/Photos/*.jpg","../Photos/");
-		syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen");		//update questionnaire
-		syncfile(GET,"/CSPro/Update/ControlSheets/Listing.pen","../ControlSheets/Listing.pen");		//update control sheet
-		syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen");		//update Menu
+		if not syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen") then		//update questionnaire
+			inc(errflag);
+		endif;
+		if not syncfile(GET,"/CSPro/Update/ControlSheets/Listing.pen","../ControlSheets/Listing.pen") then		//update control sheet
+			inc(errflag);
+		endif;
+		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
+			inc(errflag);
+		endif;
 		syncdisconnect();		//disconnect
 		errmsg("Download of round %s, ED %s was successful",rnd_edno[1:2],rnd_edno[3:3]);
 	elseif syncconnect(FTP,"10.129.20.110","Census","Census2020ADM!N") then		//connect to FTP when outside of the government WAN
-		syncdata(GET,LABOURFORCE_DICT,rnd_edno);		//get labourforce data for round and ED
-		syncdata(GET,LISTING_DICT,rnd_edno);			//get control sheet data for round and ED
-		syncdata(get,ENUMERATIONREPORT_DICT,maketext("%v",ME_ED));	//get enumeration report for ED
+		if not syncdata(GET,LABOURFORCE_DICT,rnd_edno) then		//get labourforce data for round and ED
+			inc(errflag);
+		endif;
+		if not syncdata(GET,LISTING_DICT,rnd_edno) then			//get control sheet data for round and ED
+			inc(errflag);
+		endif;
+		if not syncdata(get,ENUMERATIONREPORT_DICT,maketext("%v",ME_ED)) then	//get enumeration report for ED
+			inc(errflag);
+		endif;
 		//syncfile(GET,"CSPro/Photos/*.jpg","../Photos/");
-		syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen");		//update questionnaire
-		syncfile(GET,"/CSPro/Update/ControlSheets/Listing.pen","../ControlSheets/Listing.pen");		//update control sheet
-		syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen");		//update Menu
+		if not syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen") then		//update questionnaire
+			inc(errflag);
+		endif;
+		if not syncfile(GET,"/CSPro/Update/ControlSheets/Listing.pen","../ControlSheets/Listing.pen") then		//update control sheet
+			inc(errflag);
+		endif;
+		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
+			inc(errflag);
+		endif;
 		syncdisconnect();		//disconnect
-		errmsg("Download of round %s, ED %s was successful",rnd_edno[1:2],rnd_edno[3:3]);
 	else
+		inc(errflag,2);
+	endif;
+	if errflag > 1 then
+		errmsg("Download of round %s, ED %s failed, Please try again",rnd_edno[1:2],rnd_edno[3:3]);
+	elseif errflag = 0 then
+		errmsg("Download of round %s, ED %s was successful",rnd_edno[1:2],rnd_edno[3:3]);
+	elseif errflag = 1 then
 		errmsg("Download of round %s, ED %s failed, Please try again",rnd_edno[1:2],rnd_edno[3:3]);
 	endif;
 end;

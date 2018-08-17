@@ -21,6 +21,9 @@
     },
     {
       "path": "..\\ControlSheets\\Listing.ent"
+    },
+    {
+      "path": "..\\Reports\\EnumerationReport.ent"
     }
   ],
   "dictionaries": [
@@ -34,6 +37,10 @@
     },
     {
       "path": "..\\ControlSheets\\Listing.dcf",
+      "uploadForSync": true
+    },
+    {
+      "path": "..\\Reports\\EnumerationReport.dcf",
       "uploadForSync": true
     }
   ],

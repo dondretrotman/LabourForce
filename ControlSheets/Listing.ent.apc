@@ -6,7 +6,7 @@ PROC LISTING_FF
 
 PROC LSTROUND
 preproc
-	if sysparm("MODE") = "EDIT" then
+	if sysparm("MODE") = "EDIT" then				//If 
 		if visualvalue(LSTROUND) = notappl then		//if round is blank
 			LSTROUND = tonumber(sysparm("LSTROUND"));		//Go to the pff file and get the system parameter named rndno. Change it to number and assign to variable
 			setproperty(LSTROUND,"PROTECTED","Yes");	//and set the field to proctected
@@ -31,13 +31,24 @@ preproc
 			LSTSAMPLE = tonumber(sysparm("LSTSAMPLE"));	
 			setproperty(LSTSAMPLE,"PROTECTED","Yes");
 		endif;
-	elseif sysparm("MODE") = "DEFAULT" then
-	
+		if visualvalue(LSTENUMCODE) = notappl then
+			LSTENUMCODE = tonumber(sysparm("LSTENUMCODE"));
+			setproperty(LSTENUMCODE,"PROTECTED","Yes");
+		endif;
+	elseif sysparm("MODE") = "DEFAULT" then			//if launching as an enumerator then just fill out enuerator code and ED
+		if visualvalue(LSTED) = notappl then
+			LSTED = tonumber(sysparm("LSTED"));
+			setproperty(LSTED,"PROTECTED","Yes");
+		endif;
+		if visualvalue(LSTENUMCODE) = notappl then
+			LSTENUMCODE = tonumber(sysparm("LSTENUMCODE"));
+			setproperty(LSTENUMCODE,"PROTECTED","Yes");
+		endif;
 	endif;
 
 
 postproc
-	setcaselabel(LISTING_DICT, maketext("%v-%v-%v-%v",LSTED,LSTROUND,LSTBUILDING,LSTSAMPLE));
+	setcaselabel(LISTING_DICT, maketext("%03d-%03d-%03d: %V (%v)",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS)));
 
 //--------------------------------------------------------------------------------
 PROC LSTNO
