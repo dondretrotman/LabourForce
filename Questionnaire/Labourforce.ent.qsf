@@ -368,9 +368,11 @@ EN=}
 Field=LABOURFORCE_DICT.INTRVW
 Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
-EN={\colortbl ;\red0\green0\blue0;}
+EN={\colortbl ;\red0\green0\blue0;\red0\green0\blue255;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\b\fs24 %LFIRST_NAME%'s\b0  interview results\par
+EN=\cf2\par
+EN=Enter Part Responding if this person has not yet completed the questionnaire.\cf1\par
 EN=}
 
 [QUESTION]
@@ -937,6 +939,15 @@ EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fchars
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 37. What is \b %LFIRST_NAME%'s\b0  \b second \b0 occupation?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.SURVEYEND
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 That was the final question.\par
+EN=Thank you for participating in this survey\par
 EN=}
 
 [QUESTION]

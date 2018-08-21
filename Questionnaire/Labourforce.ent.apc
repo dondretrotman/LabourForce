@@ -13,7 +13,8 @@ Todo:
 	DONE Skip patterns must be added
 	Add occupation codes
 	Supervisor (SUPERV) keeps getting dropped for some reason
-
+	Automatically fill in enumerator report after the questionnaire has been completed
+	send address from control sheet to questionnaire
 }
 PROC GLOBAL
 //----------------------------VARIABLE DECLARATION---------------------------------------------
@@ -26,6 +27,8 @@ numeric i,				//general variable
 string 	caselabel,		//stores the label for the current case
 		photoDir,		//Stores the location of the photos folder
 		photoFileName, 	//filename of photo
+		intenddate,		//end date of interview
+		address,		//address of interview
 		;
 		
 //-----------------------------Function Declarations--------------------------------------------
@@ -118,6 +121,15 @@ function viewPhoto()
 	endif;
 end;
 
+PROC DELETE_FLAG
+
+onfocus
+	//if not set, then set to keep
+	if $ = notappl then
+		$ = 0;
+	endif;
+PROC SURVEYEND
+	
 PROC LABOURFORCE_FF
 preproc
 //---------------------------Declare Variables-----------------------------------
@@ -140,6 +152,15 @@ onfocus
     enddo;
     
     //DEBUG: DO THIS IN THE CENSUS APP
+
+postproc
+	//store the interview end date
+	if LENDDATE = notappl then
+		LENDDATE = sysdate("YYYYMMDD");
+	endif;
+	
+	//TODO: load case with current ID info and write info to it if no case found, make a new one+663..
+	
 PROC RNDNO
 preproc
 	if visualvalue(RNDNO) = notappl then		//if round is blank
@@ -162,8 +183,19 @@ preproc
 		HHNO = tonumber(sysparm("HHNO"));	
 		setproperty(HHNO,"PROTECTED","Yes");
 	endif;
+	if visualvalue(ENMRTR) = notappl then
+		ENMRTR = tonumber(sysparm("ENMRTR"));	
+		setproperty(ENMRTR,"PROTECTED","Yes");
+	endif;
 
 //--------------------------------------------------------------------------------
+PROC SUPERV
+onfocus
+	if ENMRTR > 90 then
+		$ = ENMRTR;
+	endif;
+	
+//-------------------------------------------------------------------
 PROC LATITUDE
 {
 	//defaults to 0
@@ -202,13 +234,6 @@ PROC HH_TYP
 	endif;
 	
 //---------------------------------------------------------------------
-PROC DELETE_FLAG
-
-onfocus
-	//if not set, then set to keep
-	if $ = notappl then
-		$ = 0;
-	endif;
 PROC LIDNO
 preproc
 	$ = curocc();		//automatically enter the ID
@@ -315,6 +340,14 @@ PROC ADDPER
 	endif;
 
 //----------------------------------------------------------------------
+PROC LABOURFORCE_REC000
+postproc
+	//if partially responding and person has completed the questionnaire then change to fully responding
+	if INTRVW = 3 then
+		INTERVW = 1;
+	endif;
+	
+//-----------------------------------------------------
 PROC INTRVW
 preproc
 	//Set occurence label to person's name
@@ -329,6 +362,11 @@ postproc
 	//if no response then skip this person
 	if $ = 4 then
 		skip to next;
+	endif;
+	
+	//If listing error skip household
+	if $ = 2 then
+		endgroup;
 	endif;
 	
 	

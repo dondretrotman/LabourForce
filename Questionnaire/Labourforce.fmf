@@ -39,7 +39,6 @@ Item=LONGITUDE
 Item=VACANT
 Item=VOCCUP
 Item=SUPERV
-Item=DELETE_FLAG
   
 [EndForm]
   
@@ -288,19 +287,6 @@ Form=2
 [Text]
 Position=72,417,174,433
 Text=Household Type
- 
-  
-[Field]
-Name=DELETE_FLAG
-Position=205,451,220,471
-Item=DELETE_FLAG,LABOURFORCE_DICT
-FieldLabelType=DictionaryLabel
-DataCaptureType=DropDown
-Form=2
-  
-[Text]
-Position=72,454,141,470
-Text=Delete flag
  
 [EndGroup]
   

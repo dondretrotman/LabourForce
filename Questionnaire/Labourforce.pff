@@ -2,21 +2,29 @@
 Version=CSPro 7.1
 AppType=Entry
 Description=Continuous Labourforce Sample Survey
+
 [DataEntryInit]
-StartMode=Add; 1  12011  1  1
+StartMode=Add; 1 172011 20 15
 ShowInApplicationListing=Hidden
+Interactive=Ask
+
 [Files]
-Application=./Labourforce.ent
-InputData=../Data/data.csdb|CSPRODB
+Application=.\Labourforce.ent
+InputData=..\Data\data.csdb|CSPRODB
 Paradata=./Labourforce.cslog
+
 [ExternalFiles]
-LISTING_DICT=../Controlsheet.csdb|CSPRODB
+LISTING_DICT=..\Controlsheet.csdb|CSPRODB
+
 [UserFiles]
 PFFFILE=
+
 [Parameters]
 Parameter=onexit = ..\Menu\Menu.pff
-RNDNO= 1
-EDNO=  1
+EDNO=17
+ENMRTR=94
+HHNO=15
 PARNO=201
+RNDNO=1
 STRATUM=1
-HHNO=  1
+

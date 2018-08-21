@@ -58,7 +58,7 @@ function LaunchControlSheet()
 	filewrite(pffFile,"[Parameters]");
 	filewrite(pffFile,"Parameter=%s","onexit = ..\Menu\Menu.pff");
 	filewrite(pffFile,"MODE=DEFAULT");
-	filewrite(pffFile,"LSTENUMCODE=%s",maketext("%v",USERID));
+	filewrite(pffFile,"LSTENUMCODE=%s",maketext("%v",visualvalue(USERID)));
 	filewrite(pffFile,"LSTED=%s",maketext("%v",ME_ED));
 		
 	close(pffFile);
@@ -141,6 +141,7 @@ function LaunchQuestionnaire()
 	filewrite(pffFile,"PARNO=%s",CHOOSE_HOUSEHOLD[6:3]);
 	filewrite(pffFile,"STRATUM=%s",CHOOSE_HOUSEHOLD[9:1]);
 	filewrite(pffFile,"HHNO=%s",CHOOSE_HOUSEHOLD[13:3]);
+	filewrite(pffFile,"ENMRTR=%s",maketext("%v",visualvalue(USERID)));
 	
 	close(pffFile);
 
@@ -325,7 +326,7 @@ function deleteQuestionnaire()
 end;
 
 //Writes the login status to a file
-function writeloginstatus(x);
+function writeloginstatus(x)
 	string loginFilename = pathname(application)+"loginflag.dat";
 	setfile(loginfile,loginFilename,create);
 
@@ -394,6 +395,18 @@ postproc
 
 
 //---------------------------------------------------------------
+PROC ME_ED
+onfocus
+	//displays saved ED  number
+	string EDSETTING = "ED";
+	$ = tonumber(loadsetting(EDSETTING)); 
+	
+postproc
+	//saves the ED number as a setting
+	savesetting(EDSETTING,maketext("%d",$));
+	
+	
+	
 PROC LOGIN
 onfocus
 	$ = notappl;

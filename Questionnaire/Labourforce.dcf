@@ -494,7 +494,7 @@ Len=3
 Label=Household Listing
 Name=HOUSEHOLD_LISTING
 RecordTypeValue='1'
-RecordLen=62
+RecordLen=70
 
 [Item]
 Label=Latitude
@@ -569,6 +569,9 @@ Value=22;Blackett S
 Value=25;Husbands J
 Value=26;Hurdle S
 Value=30;Shepherd G
+Value=95;Chase H
+Value=93;Small M
+Value=94;Davis W
 
 [Item]
 Label=Rotation Order
@@ -751,9 +754,9 @@ Len=2
 [ValueSet]
 Label=Supervisor
 Name=SUPERV_VS1
-Value=95;Chase
-Value=93;Small
-Value=94;Davis
+Value=95;Harold Chase
+Value=93;Mervin Small
+Value=94;Wayne Davis
 
 [Item]
 Label=Number of persons
@@ -799,6 +802,33 @@ Label=Delete flag
 Name=DELETE_FLAG_VS1
 Value=1;Delete case
 Value=0;Keep case
+
+[Item]
+Label=Interview end date
+Name=LENDDATE
+Start=63
+Len=8
+
+[Item]
+Label=Year
+Name=LENDY
+Start=63
+Len=4
+ItemType=SubItem
+
+[Item]
+Label=Month
+Name=LENDM
+Start=67
+Len=2
+ItemType=SubItem
+
+[Item]
+Label=Day
+Name=LENDD
+Start=69
+Len=2
+ItemType=SubItem
 
 [Record]
 Label=Labourforce record
