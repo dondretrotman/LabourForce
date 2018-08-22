@@ -132,7 +132,6 @@ Text=Stratum
 Name=HHNO
 Position=175,147,218,167
 Item=HHNO,LABOURFORCE_DICT
-AutoIncrement=Yes
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
 Form=1

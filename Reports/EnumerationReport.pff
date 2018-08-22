@@ -1,0 +1,15 @@
+﻿[Run Information]
+Version=CSPro 7.1
+AppType=Entry
+
+[DataEntryInit]
+Interactive=Ask
+
+[Files]
+Application=.\EnumerationReport.ent
+InputData=..\Data\enumrpt.csdb|CSPRODB
+Paradata=.\EnumerationReport.cslog
+
+
+[Parameters]
+

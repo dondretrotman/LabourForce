@@ -494,7 +494,7 @@ Len=3
 Label=Household Listing
 Name=HOUSEHOLD_LISTING
 RecordTypeValue='1'
-RecordLen=70
+RecordLen=170
 
 [Item]
 Label=Latitude
@@ -829,6 +829,13 @@ Name=LENDD
 Start=69
 Len=2
 ItemType=SubItem
+
+[Item]
+Label=Address
+Name=ADDRES
+Start=71
+Len=100
+DataType=Alpha
 
 [Record]
 Label=Labourforce record

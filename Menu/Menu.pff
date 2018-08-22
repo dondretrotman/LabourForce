@@ -13,7 +13,7 @@ InputData=|NONE
 Paradata=.\Menu.cslog
 
 [ExternalFiles]
-ENUMERATIONREPORT_DICT=..\Data\enum.csdb|CSPRODB
+ENUMERATIONREPORT_DICT=..\Data\enumrpt.csdb|CSPRODB
 LABOURFORCE_DICT=..\Data\data.csdb|CSPRODB
 LISTING_DICT=..\Data\Controlsheet.csdb|CSPRODB
 

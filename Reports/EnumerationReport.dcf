@@ -453,14 +453,14 @@ Start=8
 Len=2
 
 [Item]
-Label=Sample Unit No.
-Name=ERUNIT_NO
+Label=Sample Serial No.
+Name=ERSERIAL_NO
 Start=10
 Len=3
 
 [Item]
-Label=Sample Serial No.
-Name=ERSERIAL_NO
+Label=Sample Unit No.
+Name=ERUNIT_NO
 Start=13
 Len=3
 

@@ -8,13 +8,7 @@ Version: 0.1
 Notes:
 
 Todo:
-	Codes for the following must be added
-		Occupation, industry, no of males/females, Years (date of birth and interview), sample no, visit no, interviewer, supervisor, enumerator, coder, number of earners, household size, country codes age range institution codes
-	DONE Skip patterns must be added
-	Add occupation codes
-	Supervisor (SUPERV) keeps getting dropped for some reason
-	Automatically fill in enumerator report after the questionnaire has been completed
-	send address from control sheet to questionnaire
+	CNeed to allow enumerators/supervisors to review edit questionnaires
 }
 PROC GLOBAL
 //----------------------------VARIABLE DECLARATION---------------------------------------------
@@ -22,13 +16,14 @@ numeric i,				//general variable
 		tempage,		//for calcuating age
 		numheads,		//number of heads of household
 		numspouses,		//number of spouses
+		headindex,		//index of head
+		cases,			//number of cases in ENUMERATIONREPORT
 		;
 		
 string 	caselabel,		//stores the label for the current case
 		photoDir,		//Stores the location of the photos folder
 		photoFileName, 	//filename of photo
 		intenddate,		//end date of interview
-		address,		//address of interview
 		;
 		
 //-----------------------------Function Declarations--------------------------------------------
@@ -128,7 +123,7 @@ onfocus
 	if $ = notappl then
 		$ = 0;
 	endif;
-PROC SURVEYEND
+
 	
 PROC LABOURFORCE_FF
 preproc
@@ -159,8 +154,65 @@ postproc
 		LENDDATE = sysdate("YYYYMMDD");
 	endif;
 	
-	//TODO: load case with current ID info and write info to it if no case found, make a new one+663..
-	
+	//load case with current ID info and write info to it if no case found, make a new one+663..
+	cases = countcases(ENUMERATIONREPORT_DICT where ERED_NO = EDNO and ERPARISH = PARNO and ERFIELD_OFFICER = ENMRTR and ERSERIAL_NO = HHNO);
+	if locate(ENUMERATIONREPORT_DICT,<=,maketext("%v%V%V%V",EDNO,PARNO,ENMRTR,HHNO)) and retrieve(ENUMERATIONREPORT_DICT) then
+		if ERUNIT_NO = notappl then
+			ERUNIT_NO = cases + 1;
+		endif;
+		if WEEK_ENDING = notappl then
+			WEEK_ENDING = sysdate("YYYYMMDD");
+		endif;
+		headindex = seek(LRTH = 0);		//find head of household
+		if headindex <> 0 then
+			if ERLAST_NAME = "" then
+				ERLAST_NAME = LLAST_NAME(headindex);
+			endif;
+			if ERFIRST_NAME = "" then
+				ERFIRST_NAME = LFIRST_NAME(headindex);
+			endif;	
+		elseif headindex = 0 or VACANT = 2 then
+			if ERLAST_NAME = "" then
+				ERLAST_NAME = LLAST_NAME(headindex);
+			endif;
+			if ERFIRST_NAME = "" then
+				ERFIRST_NAME = LFIRST_NAME(headindex);
+			endif;
+		endif;	
+		if ERADDRESS = "" then
+			ERADDRESS = ADDRES;
+		endif;
+		if ERSTART = notappl then
+			ERSTART = DATE;
+		endif;
+		if EREND = notappl then
+			EREND = LENDDATE;
+		endif;
+		writecase(ENUMERATIONREPORT_DICT);		//write case
+		clear(ENUMERATIONREPORT_DICT);			//clear external case from memory
+	else		//write a new case
+		loadcase(ENUMERATIONREPORT_DICT);
+		ERED_NO = RNDNO;
+		ERPARISH = PARNO;
+		ERFIELD_OFFICER = ENMRTR;
+		ERSERIAL_NO = HHNO;
+		ERUNIT_NO = cases + 1;
+		WEEK_ENDING = sysdate("YYYYMMDD");
+		
+		headindex = seek(LRTH = 0);		//find head of household
+		if headindex <> 0 then
+			ERLAST_NAME = LLAST_NAME(headindex);
+			ERFIRST_NAME = LFIRST_NAME(headindex);
+		elseif headindex = 0 or VACANT = 2 then
+			ERLAST_NAME = LLAST_NAME(headindex);
+			ERFIRST_NAME = LFIRST_NAME(headindex);
+		endif;	
+		ERADDRESS = ADDRES;
+		ERSTART = DATE;
+		EREND = LENDDATE;
+		writecase(ENUMERATIONREPORT_DICT);		//write case
+		clear(ENUMERATIONREPORT_DICT);			//clear external case from memory
+	endif;	
 PROC RNDNO
 preproc
 	if visualvalue(RNDNO) = notappl then		//if round is blank
@@ -186,6 +238,9 @@ preproc
 	if visualvalue(ENMRTR) = notappl then
 		ENMRTR = tonumber(sysparm("ENMRTR"));	
 		setproperty(ENMRTR,"PROTECTED","Yes");
+	endif;
+	if strip(ADDRES) = "" then
+		ADDRES = sysparm("ADDRESS");	
 	endif;
 
 //--------------------------------------------------------------------------------
@@ -328,9 +383,14 @@ postproc
 PROC LELIGIBLE
 onfocus
 	//person is eligible if over 15 years
-	if AGE >= 15 then
+	if LAGE >= 15 then
 		$ = 1;
+	elseif LAGE < 15 then
+		$ = 2;
 	endif;
+	setproperty($,"PROTECTED","Yes");
+	
+//----------------------------------------------------
 PROC ADDPER
 
 	if $ = 2 then
@@ -344,7 +404,7 @@ PROC LABOURFORCE_REC000
 postproc
 	//if partially responding and person has completed the questionnaire then change to fully responding
 	if INTRVW = 3 then
-		INTERVW = 1;
+		INTRVW = 1;
 	endif;
 	
 //-----------------------------------------------------
@@ -371,6 +431,8 @@ postproc
 	
 	
 //---------------------------------------------------------------------
+PROC INTD
+//TODO: Input current date automatically
 PROC HD_HH
 onfocus
 	//if head of household, make this person head of household and skip to individual details
