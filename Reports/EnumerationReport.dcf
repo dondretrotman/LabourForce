@@ -468,7 +468,7 @@ Len=3
 Label=EnumerationReport record
 Name=ENUMERATIONREPORT_REC
 RecordTypeValue='1'
-RecordLen=199
+RecordLen=299
 
 [Item]
 Label=Week Ending
@@ -826,3 +826,10 @@ Value=28;28
 Value=29;29
 Value=30;30
 Value=31;31
+
+[Item]
+Label=Remarks
+Name=ERREMARKS
+Start=200
+Len=100
+DataType=Alpha

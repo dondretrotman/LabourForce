@@ -533,7 +533,6 @@ Label=Interviewer Menu
 Name=INTERVIEWER_MENU_VS1
 Value=1;Fill Questionnaire
 Value=2;Fill Control Sheet
-Value=3;Fill Enumeration Report
 Value=4;Fill Summary report
 Value=7;Upload Data
 Value=9;Back
@@ -551,6 +550,7 @@ Value=1;Download Data
 Value=2;Open Control Sheet
 Value=3;Open Questionnaire
 Value=4;Delete Questionnaire
+Value=5;View Enumerator Report
 Value=9;Back
 
 [Item]

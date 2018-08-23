@@ -24,6 +24,9 @@
     },
     {
       "path": "..\\Reports\\EnumerationReport.ent"
+    },
+    {
+      "path": "..\\Reports\\enumeratorrpt.html"
     }
   ],
   "dictionaries": [

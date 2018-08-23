@@ -146,6 +146,8 @@ onfocus
         setocclabel(LABOURFORCE_REC000(i), strip(LFIRST_NAME(i)));   //second roster
     enddo;
     
+    setoperatorid(loadsetting("UNAME"));
+    
     //DEBUG: DO THIS IN THE CENSUS APP
 
 postproc
@@ -154,7 +156,7 @@ postproc
 		LENDDATE = sysdate("YYYYMMDD");
 	endif;
 	
-	//load case with current ID info and write info to it if no case found, make a new one+663..
+	//load case with current ID info and write info to it if no case found, make a new one
 	cases = countcases(ENUMERATIONREPORT_DICT where ERED_NO = EDNO and ERPARISH = PARNO and ERFIELD_OFFICER = ENMRTR and ERSERIAL_NO = HHNO);
 	if locate(ENUMERATIONREPORT_DICT,<=,maketext("%v%V%V%V",EDNO,PARNO,ENMRTR,HHNO)) and retrieve(ENUMERATIONREPORT_DICT) then
 		if ERUNIT_NO = notappl then
@@ -166,27 +168,30 @@ postproc
 		headindex = seek(LRTH = 0);		//find head of household
 		if headindex <> 0 then
 			if ERLAST_NAME = "" then
-				ERLAST_NAME = LLAST_NAME(headindex);
+				ERLAST_NAME = strip(LLAST_NAME(headindex));
 			endif;
 			if ERFIRST_NAME = "" then
-				ERFIRST_NAME = LFIRST_NAME(headindex);
+				ERFIRST_NAME = strip(LFIRST_NAME(headindex));
 			endif;	
-		elseif headindex = 0 or VACANT = 2 then
+		elseif headindex = 0 or VACANT = 1 then
 			if ERLAST_NAME = "" then
-				ERLAST_NAME = LLAST_NAME(headindex);
+				ERLAST_NAME = "VACANT";
 			endif;
 			if ERFIRST_NAME = "" then
-				ERFIRST_NAME = LFIRST_NAME(headindex);
+				ERFIRST_NAME = "VACANT";
 			endif;
 		endif;	
 		if ERADDRESS = "" then
-			ERADDRESS = ADDRES;
+			ERADDRESS = strip(ADDRES);
 		endif;
 		if ERSTART = notappl then
 			ERSTART = DATE;
 		endif;
 		if EREND = notappl then
 			EREND = LENDDATE;
+		endif;
+		if ERREMARKS = "" then
+			ERREMARKS = prompt("Do you have any remarks to be included in the report?");
 		endif;
 		writecase(ENUMERATIONREPORT_DICT);		//write case
 		clear(ENUMERATIONREPORT_DICT);			//clear external case from memory
@@ -201,13 +206,13 @@ postproc
 		
 		headindex = seek(LRTH = 0);		//find head of household
 		if headindex <> 0 then
-			ERLAST_NAME = LLAST_NAME(headindex);
-			ERFIRST_NAME = LFIRST_NAME(headindex);
-		elseif headindex = 0 or VACANT = 2 then
-			ERLAST_NAME = LLAST_NAME(headindex);
-			ERFIRST_NAME = LFIRST_NAME(headindex);
+			ERLAST_NAME = strip(LLAST_NAME(headindex));
+			ERFIRST_NAME = strip(LFIRST_NAME(headindex));
+		elseif headindex = 0 or VACANT = 1 then
+			ERLAST_NAME = "VACANT";
+			ERFIRST_NAME = "VACANT";
 		endif;	
-		ERADDRESS = ADDRES;
+		ERADDRESS = strip(ADDRES);
 		ERSTART = DATE;
 		EREND = LENDDATE;
 		writecase(ENUMERATIONREPORT_DICT);		//write case
