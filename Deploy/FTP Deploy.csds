@@ -27,6 +27,9 @@
     },
     {
       "path": "..\\Reports\\enumeratorrpt.html"
+    },
+    {
+      "path": "..\\Reports\\EnumerationReport.pff"
     }
   ],
   "dictionaries": [

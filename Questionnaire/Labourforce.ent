@@ -31,6 +31,7 @@ ParadataCollectEvent=operator_selection_event
 ParadataCollectEvent=property_event
 [External Dictionaries]
 File=..\Reports\EnumerationReport.dcf
+File=..\ControlSheets\Listing.dcf
 [AppCode]
 File=.\Labourforce.ent.apc
 [Message]
@@ -42,3 +43,4 @@ File=.\Labourforce.fmf
 [Dictionary Types]
 Dict-Type=.\Labourforce.dcf,Input,.\Labourforce.fmf
 Dict-Type=..\Reports\EnumerationReport.dcf,External
+Dict-Type=..\ControlSheets\Listing.dcf,External

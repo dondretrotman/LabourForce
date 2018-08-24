@@ -4,6 +4,7 @@
 TODO: 	*Done* add enumerator reports
 		*Done* Link questionnaire to control sheet
 		*Done* add login
+		Need to add ENUMERATIONREPORT_DICT pen files to update functions
 }
 
 PROC GLOBAL
@@ -129,8 +130,8 @@ function LaunchQuestionnaire()
 
 	filewrite(pffFile,"[DataEntryInit]");
 	
-//	filewrite(pffFile,"StartMode=Add;%s",CHOOSE_HOUSEHOLD);
-	filewrite(pffFile,"StartMode=Default");
+	filewrite(pffFile,"StartMode=Add;%s",CHOOSE_HOUSEHOLD);
+//	filewrite(pffFile,"StartMode=Default");
 	filewrite(pffFile,"ShowInApplicationListing=Hidden");
 
 	filewrite(pffFile,"[Files]");
@@ -187,6 +188,9 @@ function uploadData()
 		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
 			inc(errflag);
 		endif;
+		if not syncfile(GET,"/CSPro/Update/Reports/enumeratorrpt.html","../Reports/enumeratorrpt.html") then		//report template
+			inc(errflag);
+		endif;
 		syncdisconnect();		//disconnect
 
 	elseif syncconnect(FTP,"10.129.20.110","Census","Census2020ADM!N") then		//connect to FTP when within the Government WAN
@@ -212,16 +216,19 @@ function uploadData()
 		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
 			inc(errflag);
 		endif;
+		if not syncfile(GET,"/CSPro/Update/Reports/enumeratorrpt.html","../Reports/enumeratorrpt.html") then		//report template
+			inc(errflag);
+		endif;
 		syncdisconnect();		//disconnect
 	else
 		inc(errflag,2);
 	endif;
 	if errflag > 1 then
-		errmsg("App update failed, please try again");
+		errmsg("App upload failed, please try again");
 	elseif errflag = 0 then
-		errmsg("App update was successful");
+		errmsg("App upload was successful");
 	elseif errflag = 1 then
-		errmsg("App update was probably successful but there was an error, please restart the app and try again to make sure. If you keep getting this error please contact the IT dept"); 
+		errmsg("App upload was probably successful but there was an error, please restart the app and try again to make sure. If you keep getting this error please contact the IT dept"); 
 	endif;
 end;
 
@@ -236,6 +243,9 @@ function updateApp()
 			inc(errflag);
 		endif;
 		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
+			inc(errflag);
+		endif;
+		if not syncfile(GET,"/CSPro/Update/Reports/enumeratorrpt.html","../Reports/enumeratorrpt.html") then		//report template
 			inc(errflag);
 		endif;
 		syncdisconnect();		//disconnect
@@ -290,6 +300,9 @@ function downloadData(string rnd_edno)
 		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
 			inc(errflag);
 		endif;
+		if not syncfile(GET,"/CSPro/Update/Reports/enumeratorrpt.html","../Reports/enumeratorrpt.html") then		//report template
+			inc(errflag);
+		endif;
 		syncdisconnect();		//disconnect
 		errmsg("Download of round %s, ED %s was successful",rnd_edno[1:2],rnd_edno[3:3]);
 	elseif syncconnect(FTP,"10.129.20.110","Census","Census2020ADM!N") then		//connect to FTP when outside of the government WAN
@@ -310,6 +323,9 @@ function downloadData(string rnd_edno)
 			inc(errflag);
 		endif;
 		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
+			inc(errflag);
+		endif;
+		if not syncfile(GET,"/CSPro/Update/Reports/enumeratorrpt.html","../Reports/enumeratorrpt.html") then		//report template
 			inc(errflag);
 		endif;
 		syncdisconnect();		//disconnect

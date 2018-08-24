@@ -9,7 +9,9 @@ Notes:
 
 Todo:
 	CNeed to allow enumerators/supervisors to review edit questionnaires
+	Need to make a check for head of household after entering all persons
 }
+
 PROC GLOBAL
 //----------------------------VARIABLE DECLARATION---------------------------------------------
 numeric i,				//general variable
@@ -18,6 +20,7 @@ numeric i,				//general variable
 		numspouses,		//number of spouses
 		headindex,		//index of head
 		cases,			//number of cases in ENUMERATIONREPORT
+		bldgno,			//Building number
 		;
 		
 string 	caselabel,		//stores the label for the current case
@@ -92,7 +95,7 @@ function getgps()
 	gps(close);
 end;
 
-//Function to take a photo using the device's camera. It saves to a filename matching the ID items
+{//Function to take a photo using the device's camera. It saves to a filename matching the ID items
 function takePhoto()
 	photoFileName = pathname(CSEntry) + maketext("Menu/Photos/%03d-%03d-%03d-%d-%03d.jpg", visualvalue(RNDNO),visualvalue(EDNO),visualvalue(PARNO),visualvalue(STRATUM),visualvalue(HHNO)); 
 	if visualvalue(RNDNO) = notappl or visualvalue(EDNO) = notappl or visualvalue(PARNO) = notappl or visualvalue(STRATUM) = notappl or visualvalue(HHNO) = notappl then
@@ -115,6 +118,7 @@ function viewPhoto()
 		execsystem(maketext("view:%s", photoFileName));
 	endif;
 end;
+}
 
 PROC DELETE_FLAG
 
@@ -156,7 +160,7 @@ postproc
 		LENDDATE = sysdate("YYYYMMDD");
 	endif;
 	
-	//load case with current ID info and write info to it if no case found, make a new one
+	//load case from enumeration report with current ID info and write info to it if no case found, make a new one
 	cases = countcases(ENUMERATIONREPORT_DICT where ERED_NO = EDNO and ERPARISH = PARNO and ERFIELD_OFFICER = ENMRTR and ERSERIAL_NO = HHNO);
 	if locate(ENUMERATIONREPORT_DICT,<=,maketext("%v%V%V%V",EDNO,PARNO,ENMRTR,HHNO)) and retrieve(ENUMERATIONREPORT_DICT) then
 		if ERUNIT_NO = notappl then
@@ -215,9 +219,26 @@ postproc
 		ERADDRESS = strip(ADDRES);
 		ERSTART = DATE;
 		EREND = LENDDATE;
+		ERREMARKS = prompt("Do you have any remarks to be included in the report?");
 		writecase(ENUMERATIONREPORT_DICT);		//write case
 		clear(ENUMERATIONREPORT_DICT);			//clear external case from memory
 	endif;	
+
+	//complete control sheet
+	locate(LISTING_DICT,=,maketext("%V%V%V%V%3d%V",RNDNO,EDNO,PARNO,STRATUM,bldgno,HHNO)) and retrieve(LISTING_DICT);
+	if LSTFNDATE = notappl then
+		LSTFNDATE = sysdate("YYYYMMDD");
+	endif;
+	if LSTREMARKS = "" then
+		if VACANT = 2 then
+			LSTREMARKS = getlabel(INTRVW_VS1,INTRVW(1));		//set remark to value of first interview result DEBUG: need to fix so that it's more accurate
+		elseif VACANT = 1 then
+			LSTREMARKS = "VACANT";
+		endif;
+	endif;
+	writecase(LISTING_DICT);
+	
+//----------------------------------------------------------------------------
 PROC RNDNO
 preproc
 	if visualvalue(RNDNO) = notappl then		//if round is blank
@@ -247,8 +268,27 @@ preproc
 	if strip(ADDRES) = "" then
 		ADDRES = sysparm("ADDRESS");	
 	endif;
+	bldgno = tonumber(sysparm("BLDGNO"));
 
 //--------------------------------------------------------------------------------
+PROC PARNO
+onfocus
+	recode EDNO	=>	$;
+			1-181	=>	201;	//St. Michael
+			182-295	=>	202;	//Christ Church
+			196-335	=>	203;	//St. George
+			336-397	=>	204;	//St. Philip
+			398-418	=>	205;	//St. John
+			419-479	=>	206;	//St. James
+			480-508	=>	207;	//St. Thomas
+			509-521 =>	208;	//St. Joseph
+			522-532	=>	209;	//St. Andrew
+			533-559	=>	210;	//St. Peter
+			560-583	=>	211;	//St. Lucy
+	endrecode;
+	noinput;
+	
+//--------------------------------------------------------
 PROC SUPERV
 onfocus
 	if ENMRTR > 90 then
@@ -256,6 +296,15 @@ onfocus
 	endif;
 	
 //-------------------------------------------------------------------
+PROC DATE
+postproc
+	locate(LISTING_DICT,=,maketext("%V%V%V%V%3d%V",RNDNO,EDNO,PARNO,STRATUM,bldgno,HHNO)) and retrieve(LISTING_DICT);
+	if LSTSTDATE = notappl then
+		LSTSTDATE = $;
+	endif;
+	writecase(LISTING_DICT);
+		
+//------------------------------------------------------------------------------
 PROC LATITUDE
 {
 	//defaults to 0
