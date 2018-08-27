@@ -5,6 +5,386 @@ Version=CSPro 7.1
 EN=English
 
 [QUESTION]
+Field=LABOURFORCE_DICT.ABLE
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 25b. Would \b %LFIRST_NAME%\b0  have been able to work last week?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.ADDWRK
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 43a. Was \b %LFIRST_NAME%\b0  willing and available to do additional work?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.AVGEARNS
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 40b. What are \b %LFIRST_NAME%'s\b0  average weekly wages or earnings? Include income from all jobs/enterprises\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.AVGEARNS2
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 40b. What are \b %LFIRST_NAME%'s\b0  average weekly wages or earnings?  Income in kind only, from all jobs/enterprises\par
+EN=\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.CNTRY_CD
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 What is \b %LFIRST_NAME%'s\b0  nationality?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.CNTRY_CD_OTHER
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please specify...\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.CTRAINING
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 11. Is \b %LFIRST_NAME%\b0  currently being trained for any occupation?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.EARNERS
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Number of earners\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.EARNGS
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 40a. What was \b %LFIRST_NAME%'s\b0  wages or earnings last week? Include income from all jobs/enterprises\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.EARNGS2
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 40a. What was \b %LFIRST_NAME%'s\b0  wages or earnings last week? Income in kind only, from all jobs/enterprises\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.EDUCLEV
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 9. What is \b %LFIRST_NAME%'s\b0   highest level of education?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.EDUCLEV_OTHER
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please Specify...\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.EMPL2STAT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 36. Is \b %LFIRST_NAME%\b0  (Second occupation):\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.EMPLSTAT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 36. Is \b %LFIRST_NAME%\b0   (Main occupation):\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.EVERWKD
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 28. Has \b %LFIRST_NAME%\b0  ever worked before?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.EXPRNCE
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 39. How many years of work experience does \b %LFIRST_NAME%\b0   have in his/her \b main\b0  occupation?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.EXPRNCE2
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 39. How many years of work experience does \b %LFIRST_NAME%\b0  have in his/her \b second\b0  occupation?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.FCHILDRN
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Number of females less than 15 years old\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.FOCCUP
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 47. In what occupation does \b %LFIRST_NAME%\b0  hope to work?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.FOCCUP_TEXT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 47. In what occupation does \b %LFIRST_NAME%\b0  hope to work?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.FRSTLOOK
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 30. When did \b %LFIRST_NAME%\b0  start looking for work?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.FULLPART
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 33. Is \b %LFIRST_NAME%\b0  a full time or part time worker?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.HD_ERNR
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Is the head of household an earner?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.HD_HH
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Is \b %LFIRST_NAME%\b0  the head of the household?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.HH_SZ
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Household Size\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.HH_TYP
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Household Type\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.HPWORK
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 45. Does \b %LFIRST_NAME%\b0  hope to take up or look for a job at some time?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.HRSWNTD
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 27. How many hours of work per week was \b %LFIRST_NAME%\b0  looking for?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.HRSWRKD
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 41a. How many hours did \b %LFIRST_NAME%\b0  actually work last week?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.IN2EARNG
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 51b. How much does \b %LFIRST_NAME%\b0  obtain a week from his/her \b second\b0  source of livelihood?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.IN2INCOM
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 51a. If \b %LFIRST_NAME%\b0  is inactive, what is his/her \b second\b0  source of livelihood?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.INACTWHN
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 46. When does \b %LFIRST_NAME%\b0  hope to take up job or look for one?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.INCINDUS
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 48. In what type of business (industry) does \b %LFIRST_NAME%\b0  hope to work?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.INCINDUS_TEXT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 48. In what type of business (industry) does \b %LFIRST_NAME%\b0  hope to work?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.INCOCCUP
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 50. What was \b %LFIRST_NAME%'s\b0  last occupation?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.INCOCCUP_TEXT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 50. What was \b %LFIRST_NAME%'s\b0  last occupation?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.INDIVNO
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Now answering questions for \b %LFIRST_NAME% %LLAST_NAME%\b0\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.INDUS
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 38. In what kind of industry or service is \b %LFIRST_NAME%'s\b0  \b main\b0  occupation?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.INDUS_TEXT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 38. In what kind of industry or service is \b %LFIRST_NAME%'s\b0  \b main\b0  occupation?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.INEARNGS
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 51b. How much does \b %LFIRST_NAME%\b0  obtain a week from his/her \b main\b0  source of livelihood?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.INTRVW
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;\red0\green0\blue255;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\b\fs24 %LFIRST_NAME%'s\b0  interview results\par
+EN=\cf2\par
+EN=Enter Part Responding if this person has not yet completed the questionnaire.\cf1\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.KINDWRK
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 44. What kind of additional work was \b %LFIRST_NAME%\b0  willing and available to do?\par
+EN=}
+
+[QUESTION]
 Field=LABOURFORCE_DICT.LAGE
 Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
@@ -14,12 +394,29 @@ EN=\pard\cf1\fs24 What is \b %LFIRST_NAME%\b0 's age?\par
 EN=}
 
 [QUESTION]
+Field=LABOURFORCE_DICT.LASTLOOK
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 43b. When was the last time that \b %LFIRST_NAME%\b0  looked for more work?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LATITUDE
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 If this field is blank, please go outside and press 'Get Location' in the userbar\par
+EN=}
+
+[QUESTION]
 Field=LABOURFORCE_DICT.LCOMPLETED
 Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
-EN=\pard\cf1\fs24 Idividual number of the person completing form 2\par
+EN=\pard\cf1\fs24 Individual number of the person completing form 2\par
 EN=}
 
 [QUESTION]
@@ -46,7 +443,7 @@ Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
-EN=\pard\cf1\fs24 Eligibility for answering individual schedule\par
+EN=\pard\cf1\b\fs24 %LFIRST_NAME%'s\b0  eligibility for answering individual schedule\par
 EN=}
 
 [QUESTION]
@@ -62,9 +459,19 @@ EN=}
 Field=LABOURFORCE_DICT.LLAST_NAME
 Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
-EN={\colortbl ;\red0\green0\blue0;}
+EN={\colortbl ;\red0\green0\blue0;\red0\green0\blue255;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 Last name of resident\par
+EN=\cf2 Interviewer: Please list persons in the following order: Head, Spouse, any other adults, any children\cf1\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LNDTNURE_OTHER
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please Specify...\par
 EN=}
 
 [QUESTION]
@@ -74,6 +481,14 @@ EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fchars
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 New Member\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LONGITUDE
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 If this field is blank, please go outside and press 'Get Location' in the userbar\par
 EN=}
 
 [QUESTION]
@@ -95,6 +510,15 @@ EN=\pard\cf1\fs24 Reason for leaving or joining household\par
 EN=}
 
 [QUESTION]
+Field=LABOURFORCE_DICT.LREASON_OTHER
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please specify...\par
+EN=}
+
+[QUESTION]
 Field=LABOURFORCE_DICT.LRTH
 Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
@@ -113,6 +537,69 @@ EN=\pard\cf1\fs24 Is \b %LFIRST_NAME%\b0  male or female?\par
 EN=}
 
 [QUESTION]
+Field=LABOURFORCE_DICT.LSTINDUS
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 32a. In what type of business (industry) was \b %LFIRST_NAME%\b0  working or was he/she seeking employment?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LSTINDUS_TEXT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 32a. In what type of business (industry) was \b %LFIRST_NAME%\b0  working or was he/she seeking employment?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LSTLOOK
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 24. When last did \b %LFIRST_NAME%\b0  look for work?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LSTOCCUP
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 31. What is/was the occupation \b %LFIRST_NAME%\b0  is/was looking for in his/her last job?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LSTOCCUP_TEXT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 31. What is/was the occupation \b %LFIRST_NAME%\b0  is/was looking for in his/her last job?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LSTWRKD
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 29. When did \b %LFIRST_NAME%\b0  last work?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LSTWRKD_OTHER
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please Specify...\par
+EN=}
+
+[QUESTION]
 Field=LABOURFORCE_DICT.LUR
 Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
@@ -120,4 +607,588 @@ EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 Does \b %LFIRST_NAME%\b0  usually live here?\par
 EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.MAJACTV
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 20. What was \b %LFIRST_NAME%'s\b0  major activity last week?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.MAJACTV_OTHER
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please Specify...\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.MARSTAT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 8. \b %LFIRST_NAME%'s\b0  present Marital Status?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.MCHILDRN
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Number of males less than 15 years old\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.METHOD
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 22. If yes, how?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.METHOD_OTHER
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please Specify...\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.NHRSWRKD
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 How many hours does \b %LFIRST_NAME%\b0  normally work?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.OCCPNCY
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 House occupancy/tenancy?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.OCCTRAINED
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 15. For what occupation was \b %LFIRST_NAME%\b0  trained?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.OCCTRAINED_TEXT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 15. For what occupation was \b %LFIRST_NAME%\b0  trained?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.OCCUP
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 37. What is \b %LFIRST_NAME%'s\b0  \b main \b0 occupation?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.OCCUP_TEXT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 37. What is \b %LFIRST_NAME%'s\b0  \b main \b0 occupation?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.OCCUPTR
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 12. For what occupation is \b %LFIRST_NAME%\b0  being trained?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.OCCUPTR_TEXT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 12. For what occupation is \b %LFIRST_NAME%\b0  being trained?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.PAIDABS
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 19b. Was \b %LFIRST_NAME%\b0  paid during his/her absence?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.PLACETR
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 13. Where is \b %LFIRST_NAME%\b0  being trained?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.PLACETRAINED
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 16. Where was \b %LFIRST_NAME%\b0  trained?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.QUALLEV
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 10. What is \b %LFIRST_NAME%'s\b0  highest educational qualification?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.QUALLEV_OTHER
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please Specify...\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.REASABS
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 19. What was the reason for \b %LFIRST_NAME%'s\b0  absence?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.REASABS_OTHER
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please Specify...\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.REASNSK
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 23. What was the matter?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.REASNSK_OTHER
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please Specify...\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.REGJOB
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 18. Did \b %LFIRST_NAME% \b0 have a job or business from which he/she was temporarily absent last week?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.RELHD_OTHER
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please Specify...\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.RSN2JOBS
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 35b. What is \b %LFIRST_NAME%'s\b0  reason for having more than one job or business?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.RSN2JOBS_OTHER
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please Specify...\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.RSNLESS
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 42. What was \b %LFIRST_NAME%'s\b0  reason for working less than 40 hours last week?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.RSNLESS_OTHER
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please Specify...\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.RSNPART
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 34. Give reason if not full time?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.RSNPART_OTHER
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please Specify...\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.SCINCOME
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 51a. If \b %LFIRST_NAME%\b0  is inactive, what is his/her \b main \b0 source of livelihood?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.SEEKING
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 21. Was \b %LFIRST_NAME%\b0  actively seeking work last week?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.SINDUS
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 38. In what kind of industry or service is \b %LFIRST_NAME%'s\b0  \b second\b0  occupation?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.SINDUS_TEXT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 38. In what kind of industry or service is \b %LFIRST_NAME%'s\b0  \b second\b0  occupation?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.SOCCUP
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 37. What is \b %LFIRST_NAME%'s\b0  \b second \b0 occupation?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.SOCCUP_TEXT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 37. What is \b %LFIRST_NAME%'s\b0  \b second \b0 occupation?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.SURVEYEND
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 That was the final question.\par
+EN=Thank you for participating in this survey\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.TIMEABS
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 19c. How long was \b %LFIRST_NAME%'s\b0  absence, without pay?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.TRAINEDFOROCC
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 14. Was \b %LFIRST_NAME%\b0  trained for any occupation?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.TWOJOBS
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 35a. Does \b %LFIRST_NAME%\b0  have more than one job or business?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.U2EARNGS
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 32d. How much does \b %LFIRST_NAME%\b0  obtain a week from this source? \b Second\b0\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.U2SINCOM
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 32c. If \b %LFIRST_NAME%\b0  is unemployed, what are his/her main sources of livelihood? \b Second\b0\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.UEARNGS
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 32d. How much does \b %LFIRST_NAME%\b0   obtain a week from this source? \b Main\b0\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.UNEMPLSA
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 32b. In what capacity was \b %LFIRST_NAME%\b0  working or is looking for work?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.USINCOME
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 32c. If \b %LFIRST_NAME%\b0  is unemployed, what are his/her main sources of livelihood? \b Main\b0\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.VACANT
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Is this a vacant household?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.WILLING
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 25a. Would \b %LFIRST_NAME%\b0  have been willing to work if he/she had found a job last week?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.WORKBEFO
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 49. Has \b %LFIRST_NAME%\b0  ever worked before?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.WORKED
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 17. Did \b %LFIRST_NAME%\b0  work for at least one hour last week?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.WRKWNTD
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 26. Which type of work was \b %LFIRST_NAME%\b0  looking for?\par
+EN=}
+
+[HELP]
+Field=LABOURFORCE_DICT.HRSWRKD
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Include time spent at all jobs/enterprises\par
+EN=}
+
+[HELP]
+Field=LABOURFORCE_DICT.NHRSWRKD
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Include Overtime if usual/the norm. \par
+EN=Exclude Overtime hours not usually worked.\par
+EN=}
+
+[HELP]
+Field=LABOURFORCE_DICT.OCCUPTR
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Press the search icon (magnifying glass at top right) to search for the correct code\par
+EN=}
+
+[HELP]
+Field=LABOURFORCE_DICT.OCCTRAINED
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Press the search icon (magnifying glass at top right) to search for the correct code\par
+EN=}
+
+[HELP]
+Field=LABOURFORCE_DICT.LSTOCCUP
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Press the search icon (magnifying glass at top right) to search for the correct code\par
+EN=}
+
+[HELP]
+Field=LABOURFORCE_DICT.LSTINDUS
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Press the search icon (magnifying glass at top right) to search for the correct code\par
+EN=}
+
+[HELP]
+Field=LABOURFORCE_DICT.OCCUP
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Press the search icon (magnifying glass at top right) to search for the correct code\par
+EN=}
+
+[HELP]
+Field=LABOURFORCE_DICT.SOCCUP
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Press the search icon (magnifying glass at top right) to search for the correct code\par
+EN=}
+
+[HELP]
+Field=LABOURFORCE_DICT.INDUS
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Press the search icon (magnifying glass at top right) to search for the correct code\par
+EN=}
+
+[HELP]
+Field=LABOURFORCE_DICT.SINDUS
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Press the search icon (magnifying glass at top right) to search for the correct code\par
+EN=}
+
+[HELP]
+Field=LABOURFORCE_DICT.FOCCUP
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Press the search icon (magnifying glass at top right) to search for the correct code\par
+EN=}
+
+[HELP]
+Field=LABOURFORCE_DICT.INCINDUS
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Press the search icon (magnifying glass at top right) to search for the correct code\par
+EN=}
+
+[HELP]
+Field=LABOURFORCE_DICT.INCOCCUP
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Press the search icon (magnifying glass at top right) to search for the correct code\par
+EN=}
+
+[HELP]
+Field=LABOURFORCE_DICT.CTRAINING
+Occurrences=1:10
+
+[HELP]
+Field=LABOURFORCE_DICT.QUALLEV
+Occurrences=1:10
 

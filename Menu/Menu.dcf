@@ -1,0 +1,206 @@
+﻿[Dictionary]
+Version=CSPro 7.1
+Label=Menu
+Name=MENU_DICT
+RecordTypeStart=1
+RecordTypeLen=1
+Positions=Relative
+ZeroFill=No
+DecimalChar=Yes
+
+[Level]
+Label=Menu questionnaire
+Name=MENU_QUEST
+
+[IdItems]
+
+[Item]
+Label=Menu identification
+Name=MENU_ID
+Start=2
+Len=1
+
+[Record]
+Label=Menu record
+Name=MENU_REC
+RecordTypeValue='1'
+RecordLen=77
+
+[Item]
+Label=User Name
+Name=UNAME
+Start=3
+Len=20
+DataType=Alpha
+
+[ValueSet]
+Label=User Name
+Name=UNAME_VS1
+Value='MBEST               ';Marcia Best
+Value='KRUSSELL            ';Karin Russell
+Value='CSEALY              ';Carol-Ann Sealy
+Value='RMAYERS             ';Ryan Mayers
+Value='SGRIFFITH           ';Sylvia Griffith
+Value='GHUSBANDS           ';George Husbands
+Value='AWALCOTT            ';Antonia Walcott
+Value='JCUMBERBATCH        ';Jeffrey Cumberbatch
+Value='FAGARD              ';Fatuma Agard
+Value='VTAYLOR             ';Valerie Taylor
+Value='JWILLIAMS           ';Janet Williams
+Value='LWILLIAMS           ';Lynette Williams
+Value='CQUINTYNE           ';Charles Quintyne
+Value='KBONAS              ';Kelly-Anne Bonas
+Value='SBLACKETT           ';Sherry-Ann Blackett
+Value='JHUSBANDS           ';Juliette Husbands
+Value='SHURDLE             ';Stacia Hurdle
+Value='GSHEPHERD           ';Gladwyn Shepherd
+Value='HCHASE              ';Harold Chase
+Value='MSMALL              ';Mervin Small
+Value='WDAVIS              ';Wayne Davis
+
+[Item]
+Label=User ID
+Name=USERID
+Start=23
+Len=2
+
+[ValueSet]
+Label=User ID
+Name=USERID_VS1
+Value=1;MBEST
+Value=3;KRUSSELL
+Value=4;CSEALY
+Value=5;RMAYERS
+Value=6;SGRIFFITH
+Value=7;GHUSBANDS
+Value=8;AWALCOTT
+Value=9;JCUMBERBATCH
+Value=10;FAGARD
+Value=11;VTAYLOR
+Value=14;JWILLIAMS
+Value=15;LWILLIAMS
+Value=17;CQUINTYNE
+Value=20;KBONAS
+Value=22;SBLACKETT
+Value=25;JHUSBANDS
+Value=26;SHURDLE
+Value=30;GSHEPHERD
+Value=95;HCHASE
+Value=93;MSMALL
+Value=94;WDAVIS
+
+[Item]
+Label=ED
+Name=ME_ED
+Start=25
+Len=3
+
+[ValueSet]
+Label=ED
+Name=ME_ED_VS1
+Value=1:181;St. Michael
+Value=182:295;Christ Church
+Value=296:335;St. George
+Value=336:397;St. Philip
+Value=398:418;St. John
+Value=419:479;St. James
+Value=480:508;St. Thomas
+Value=509:521;St. Joseph
+Value=522:532;St. Andrew
+Value=533:559;St. Peter
+Value=560:583;St. Lucy
+
+[Item]
+Label=Login
+Name=LOGIN
+Start=28
+Len=1
+
+[ValueSet]
+Label=Login
+Name=LOGIN_VS1
+Value=1;Interviewer
+Value=2;Supervisor
+Value=4;Change ED
+Value=3;Update App
+Value=9;Logout
+
+[ValueSet]
+Label=Login
+Name=LOGIN_VS2
+Value=1;Enumerator Menu
+Value=4;Change ED
+Value=3;Update App
+Value=9;Logout
+
+[Item]
+Label=Interviewer Menu
+Name=INTERVIEWER_MENU
+Start=29
+Len=1
+
+[ValueSet]
+Label=Interviewer Menu
+Name=INTERVIEWER_MENU_VS1
+Value=1;Fill Questionnaire
+Value=2;Fill Control Sheet
+Value=4;Fill Summary report
+Value=7;Upload Data
+Value=9;Back
+
+[Item]
+Label=Supervisor Menu
+Name=SUPERVISOR_MENU
+Start=30
+Len=1
+
+[ValueSet]
+Label=Supervisor Menu
+Name=SUPERVISOR_MENU_VS1
+Value=1;Download Data
+Value=2;Open Control Sheet
+Value=3;Open Questionnaire
+Value=4;Delete Questionnaire
+Value=5;View Enumerator Report
+Value=9;Back
+
+[Item]
+Label=Choose Round
+Name=CHOOSE_ROUND
+Start=31
+Len=2
+
+[ValueSet]
+Label=Choose Round
+Name=CHOOSE_ROUND_VS1
+Value=1;1
+Value=2;2
+Value=3;3
+Value=4;4
+
+[Item]
+Label=Choose ED
+Name=CHOOSE_ED
+Start=33
+Len=3
+
+[Item]
+Label=Choose Questionnaire
+Name=CHOOSE_QUESTIONNAIRE
+Start=36
+Len=12
+DataType=Alpha
+
+[Item]
+Label=Choose Household
+Name=CHOOSE_HOUSEHOLD
+Start=48
+Len=15
+DataType=Alpha
+
+[Item]
+Label=Choose Control Sheet
+Name=CHOOSE_CONTROL_SHEET
+Start=63
+Len=15
+DataType=Alpha

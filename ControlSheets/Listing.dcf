@@ -1,0 +1,395 @@
+﻿[Dictionary]
+Version=CSPro 7.1
+Label=Listing
+Name=LISTING_DICT
+RecordTypeStart=1
+RecordTypeLen=1
+Positions=Relative
+ZeroFill=No
+DecimalChar=Yes
+
+[Level]
+Label=Listing questionnaire
+Name=LISTING_QUEST
+
+[IdItems]
+
+[Item]
+Label=Round
+Name=LSTROUND
+Start=2
+Len=2
+
+[ValueSet]
+Label=Round
+Name=LSTROUND_VS1
+Value=1;1
+Value=2;2
+Value=3;3
+Value=4;4
+
+[Item]
+Label=Enumeration District
+Name=LSTED
+Start=4
+Len=3
+
+[ValueSet]
+Label=Enumeration District
+Name=LSTED_VS1
+Value=1:181;St. Michael
+Value=182:295;Christ Church
+Value=296:335;St. George
+Value=336:397;St. Philip
+Value=398:418;St. John
+Value=419:479;St. James
+Value=480:508;St. Thomas
+Value=509:521;St. Joseph
+Value=522:532;St. Andrew
+Value=533:559;St. Peter
+Value=560:583;St. Lucy
+
+[Item]
+Label=Parish
+Name=LSTPARISH
+Start=7
+Len=3
+
+[ValueSet]
+Label=Parish
+Name=LSTPARISH_VS1
+Value=201;St Michael
+Value=202;Christ Church
+Value=203;St George
+Value=204;St Philip
+Value=205;St John
+Value=206;St James
+Value=207;St Thomas
+Value=208;St Joseph
+Value=209;St Andrew
+Value=210;St Peter
+Value=211;St Lucy
+
+[ValueSet]
+Label=Stratum
+Name=LSTPARISH_VS2
+Value=201;1
+Value=202;2
+Value=204;2
+Value=203;3
+Value=206:207;3
+Value=205;4
+Value=208:211;4
+
+[Item]
+Label=Stratum
+Name=LSTSTRATUM
+Start=10
+Len=1
+
+[ValueSet]
+Label=Stratum
+Name=LSTSTRATUM_VS1
+Value=1;Stratum 1
+Value=2;Stratum 2
+Value=3;Stratum 3
+Value=4;Stratum 4
+
+[Item]
+Label=Building No.
+Name=LSTBUILDING
+Start=11
+Len=3
+
+[Item]
+Label=Sample number
+Name=LSTSAMPLE
+Start=14
+Len=3
+
+[Record]
+Label=Listing record
+Name=LISTING_REC
+RecordTypeValue='2'
+RecordLen=344
+
+[Item]
+Label=No.
+Name=LSTNO
+Start=17
+Len=3
+
+[Item]
+Label=Enumerator
+Name=LSTENUMCODE
+Start=20
+Len=2
+
+[ValueSet]
+Label=Enumerator
+Name=LSTENUMCODE_VS1
+Value=1;Best M
+Value=3;Russell K
+Value=4;Sealy C
+Value=5;Mayers R
+Value=6;Griffith S
+Value=7;Husbands G
+Value=8;Walcott A
+Value=9;Cumberbatch J
+Value=10;Agard F
+Value=11;Taylor V
+Value=14;Williams J
+Value=15;Williams L
+Value=17;Quintyne C
+Value=20;Bonas K
+Value=22;Blackett S
+Value=25;Husbands J
+Value=26;Hurdle S
+Value=30;Shepherd G
+Value=95;Chase H
+Value=93;Small M
+Value=94;Davis W
+
+[Item]
+Label=Last name
+Name=LSTLNAME
+Start=22
+Len=50
+DataType=Alpha
+
+[Item]
+Label=First Name
+Name=LSTFNAME
+Start=72
+Len=50
+DataType=Alpha
+
+[Item]
+Label=Address
+Name=LSTADDRESS
+Start=122
+Len=100
+DataType=Alpha
+
+[Item]
+Label=Start Date
+Name=LSTSTDATE
+Start=222
+Len=8
+
+[Item]
+Label=Start Year
+Name=LSTSTY
+Start=222
+Len=4
+ItemType=SubItem
+
+[ValueSet]
+Label=Start Year
+Name=LSTSTY_VS1
+Link=1282352848
+Value=2018;2,018
+Value=2019;2,019
+Value=2020;2,020
+Value=2021;2,021
+Value=2022;2,022
+Value=2023;2,023
+Value=2024;2,024
+Value=2025;2,025
+Value=2026;2,026
+Value=2027;2,027
+Value=2028;2,028
+Value=2029;2,029
+Value=2030;2,030
+Value=2031;2,031
+Value=2032;2,032
+Value=2033;2,033
+Value=2034;2,034
+Value=2035;2,035
+Value=2036;2,036
+Value=2037;2,037
+Value=2038;2,038
+Value=2039;2,039
+Value=2040;2,040
+Value=2041;2,041
+Value=2042;2,042
+Value=2043;2,043
+Value=2044;2,044
+Value=2045;2,045
+Value=2046;2,046
+Value=2047;2,047
+Value=2048;2,048
+Value=2049;2,049
+Value=2050;2,050
+Value=2051;2,051
+Value=2052;2,052
+Value=2053;2,053
+Value=2054;2,054
+Value=2055;2,055
+Value=2056;2,056
+Value=2057;2,057
+Value=2058;2,058
+Value=2059;2,059
+Value=2060;2,060
+Value=2061;2,061
+Value=2062;2,062
+Value=2063;2,063
+Value=2064;2,064
+Value=2065;2,065
+Value=2066;2,066
+Value=2067;2,067
+Value=2068;2,068
+Value=2069;2,069
+Value=2070;2,070
+Value=2071;2,071
+Value=2072;2,072
+Value=2073;2,073
+Value=2074;2,074
+Value=2075;2,075
+Value=2076;2,076
+Value=2077;2,077
+Value=2078;2,078
+Value=2079;2,079
+Value=2080;2,080
+Value=2081;2,081
+Value=2082;2,082
+Value=2083;2,083
+Value=2084;2,084
+Value=2085;2,085
+Value=2086;2,086
+Value=2087;2,087
+Value=2088;2,088
+Value=2089;2,089
+Value=2090;2,090
+Value=2091;2,091
+Value=2092;2,092
+Value=2093;2,093
+Value=2094;2,094
+Value=2095;2,095
+Value=2096;2,096
+Value=2097;2,097
+Value=2098;2,098
+Value=2099;2,099
+Value=2100;2,100
+
+[Item]
+Label=Start Month
+Name=LSTSTM
+Start=226
+Len=2
+ItemType=SubItem
+
+[ValueSet]
+Label=Start Month
+Name=LSTSTM_VS1
+Link=1282357600
+Value=1;January
+Value=2;February
+Value=3;March
+Value=4;April
+Value=5;May
+Value=6;June
+Value=7;July
+Value=8;August
+Value=9;September
+Value=10;October
+Value=11;November
+Value=12;December
+
+[Item]
+Label=Start Day
+Name=LSTSTD
+Start=228
+Len=2
+ItemType=SubItem
+
+[ValueSet]
+Label=Start Day
+Name=LSTSTD_VS1
+Link=1282360416
+Value=1;1
+Value=2;2
+Value=3;3
+Value=4;4
+Value=5;5
+Value=6;6
+Value=7;7
+Value=8;8
+Value=9;9
+Value=10;10
+Value=11;11
+Value=12;12
+Value=13;13
+Value=14;14
+Value=15;15
+Value=16;16
+Value=17;17
+Value=18;18
+Value=19;19
+Value=20;20
+Value=21;21
+Value=22;22
+Value=23;23
+Value=24;24
+Value=25;25
+Value=26;26
+Value=27;27
+Value=28;28
+Value=29;29
+Value=30;30
+Value=31;31
+
+[Item]
+Label=Finish Date
+Name=LSTFNDATE
+Start=230
+Len=8
+
+[Item]
+Label=Finish year
+Name=LSTFNY
+Start=230
+Len=4
+ItemType=SubItem
+
+[ValueSet]
+Label=Finish year
+Name=LSTFNY_VS1
+Link=1282352848
+
+[Item]
+Label=Finish Month
+Name=LSTFNM
+Start=234
+Len=2
+ItemType=SubItem
+
+[ValueSet]
+Label=Finish Month
+Name=LSTFNM_VS1
+Link=1282357600
+
+[Item]
+Label=Finish Day
+Name=LSTFND
+Start=236
+Len=2
+ItemType=SubItem
+
+[ValueSet]
+Label=Finish Day
+Name=LSTFND_VS1
+Link=1282360416
+
+[Item]
+Label=Telephone number
+Name=LSTTELEPHONE
+Start=238
+Len=7
+
+[Item]
+Label=Remarks
+Name=LSTREMARKS
+Start=245
+Len=100
+DataType=Alpha

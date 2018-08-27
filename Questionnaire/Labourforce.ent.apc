@@ -8,49 +8,501 @@ Version: 0.1
 Notes:
 
 Todo:
-	Codes for the following must be added
-		Occupation, industry, no of males/females, Years (date of birth and interview), sample no, visit no, interviewer, supervisor, enumerator, coder, number of earners, household size, country codes age range institution codes
-	Skip patterns must be added
-
+	CNeed to allow enumerators/supervisors to review edit questionnaires
+	Need to make a check for head of household after entering all persons
 }
+
 PROC GLOBAL
 //----------------------------VARIABLE DECLARATION---------------------------------------------
 numeric i,				//general variable
 		tempage,		//for calcuating age
+		numheads,		//number of heads of household
+		numspouses,		//number of spouses
+		headindex,		//index of head
+		cases,			//number of cases in ENUMERATIONREPORT
+		bldgno,			//Building number
 		;
+		
+string 	caselabel,		//stores the label for the current case
+		photoDir,		//Stores the location of the photos folder
+		photoFileName, 	//filename of photo
+		intenddate,		//end date of interview
+		;
+		
+//-----------------------------Function Declarations--------------------------------------------
+//Checks that date is valid. Returns 1 if valid. Returns 0 if invalid
+function checkDate(CDYEAR, CDMONTH, CDDAY)
+	if not CDYEAR in 1900:sysdate("YYYY"),9999 then
+		errmsg("Invalid Year. (=%d)",CDYEAR);
+		checkDate = 0;
+		exit;
+	endif;
+	
+	if not CDMONTH in 1:12,99 then
+		errmsg("Invalid Month. (=%d)",CDMONTH);
+		checkDate = 0;
+		exit;
+	endif;
+	
+	if CDMONTH in 9,4,6,11 then		//30 days have September, April, June and November
+		if not CDDAY in 1:30,99 then
+			errmsg("%s does not have %d days. Please confirm.",getlabel(LDOB_MONTH_VS1,CDMONTH),CDDAY);
+			checkDate = 0;
+		endif;
+	elseif CDMONTH in 1,3,5,7,8,10,12 then		//All the rest have 31
+		if not CDDAY in 1:31,99 then
+			errmsg("%s does not have %d days. Please confirm.",getlabel(LDOB_MONTH_VS1,CDMONTH),CDDAY);
+			checkDate = 0;
+		endif;
+	elseif CDMONTH = 2 and CDYEAR in 1900:2020 then					//Except February alone
+		if CDYEAR % 4 = 0 and CDYEAR <> 1900 then		
+			if not CDDAY in 1:29,99 then		//Which has 29 days each leap year
+				errmsg("%s does not have %d days. Please confirm.",getlabel(LDOB_MONTH_VS1,CDMONTH),CDDAY);
+				checkDate = 0;
+			endif;	
+		else
+			if not CDDAY in 1:28,99 then		//And 28 on all other years
+				errmsg("%s does not have %d days. Please confirm.",getlabel(LDOB_MONTH_VS1,CDMONTH),CDDAY);
+				checkDate = 0;
+			endif;		
+		endif;		//I had to change the rhyme a bit so that it would fit my code
+	elseif CDYEAR = 9999 then		//cleanup for unknown year
+		if CDMONTH = 2 then
+			if not CDDAY in 1:29,99 then
+				errmsg("%s does not have %d days. Please confirm.",getlabel(LDOB_MONTH_VS1,CDMONTH),DAY);
+				checkDate = 0
+			endif;
+		endif;
+	else
+		checkDate = 1;
+	endif;
+end;
 
+//Function uses device's GPS feature to get Location
+function getgps()
+	gps(open);
+	if gps(read,60,10,"Reading GPS, Please wait...") = 1 then	//read up to 60 seconds. if successful...
+		//execsystem(maketext("gps:%f,%f", gps(latitude),gps(longitude)));
+		if accept(maketext("Save this location? %f, %f",gps(latitude),gps(longitude)),"Yes","No") = 1 then	//if yes
+			LATITUDE = gps(latitude);
+			LONGITUDE = gps(longitude);
+		endif;
+	else
+		errmsg("Gps location failed, Please try again");
+		LATITUDE = notappl;
+		LONGITUDE = notappl;
+	endif;
+	gps(close);
+end;
+
+{//Function to take a photo using the device's camera. It saves to a filename matching the ID items
+function takePhoto()
+	photoFileName = pathname(CSEntry) + maketext("Menu/Photos/%03d-%03d-%03d-%d-%03d.jpg", visualvalue(RNDNO),visualvalue(EDNO),visualvalue(PARNO),visualvalue(STRATUM),visualvalue(HHNO)); 
+	if visualvalue(RNDNO) = notappl or visualvalue(EDNO) = notappl or visualvalue(PARNO) = notappl or visualvalue(STRATUM) = notappl or visualvalue(HHNO) = notappl then
+		errmsg("Please complete the household ID information before taking a photo.");
+	elseif direxist(photoDir) then
+		execsystem(maketext("camera:%s",photoFileName));
+	else
+		dircreate(photoDir);
+		execsystem(maketext("camera:%s",photoFileName));
+	endif;
+end;
+
+//Function to view photo of current case
+function viewPhoto()
+	photoFileName = pathname(CSEntry) + maketext("Menu/Photos/%03d-%03d-%03d-%d-%03d.jpg", visualvalue(RNDNO),visualvalue(EDNO),visualvalue(PARNO),visualvalue(STRATUM),visualvalue(HHNO));  
+	if direxist(photoDir) then
+		execsystem(maketext("view:%s", photoFileName));
+	else
+		dircreate(photoDir);
+		execsystem(maketext("view:%s", photoFileName));
+	endif;
+end;
+}
+
+PROC DELETE_FLAG
+
+onfocus
+	//if not set, then set to keep
+	if $ = notappl then
+		$ = 0;
+	endif;
+
+	
 PROC LABOURFORCE_FF
+preproc
+//---------------------------Declare Variables-----------------------------------
+	photoFileName = pathname(CSEntry) + maketext("Menu/Photos/%03d-%03d-%03d-%d-%03d.jpg", visualvalue(RNDNO),visualvalue(EDNO),visualvalue(PARNO),visualvalue(STRATUM),visualvalue(HHNO)); 
+	photoDir = pathname(CSEntry) + "Menu/Photos";
+	
+//---------------------------Userbar definition------------------------------------
+	userbar(clear);
+	userbar(add button, "Get Location", getgps());		//adds a "Get location" button to get coordinates
+	{userbar(add button, "Take a photo for the current case", takePhoto());		//adds a button to take a photo of current case. 
+	userbar(add button, "View photo of current case", viewPhoto());}		//adds a button to view photo of current case
+	userbar(show);
 
+PROC LABOURFORCE_QUEST
+onfocus
+	//Set occurence labels
+	do i = 1 while i <= maxocc(LABOURFORCE_REC001) and LFIRST_NAME(i) <> ""
+        setocclabel(LABOURFORCE_REC001(i), strip(LFIRST_NAME(i)));   //first roster
+        setocclabel(LABOURFORCE_REC000(i), strip(LFIRST_NAME(i)));   //second roster
+    enddo;
+    
+    setoperatorid(loadsetting("UNAME"));
+    
+    //DEBUG: DO THIS IN THE CENSUS APP
+
+postproc
+	//store the interview end date
+	if LENDDATE = notappl then
+		LENDDATE = sysdate("YYYYMMDD");
+	endif;
+	
+	//load case from enumeration report with current ID info and write info to it if no case found, make a new one
+	cases = countcases(ENUMERATIONREPORT_DICT where ERED_NO = EDNO and ERPARISH = PARNO and ERFIELD_OFFICER = ENMRTR and ERSERIAL_NO = HHNO);
+	if locate(ENUMERATIONREPORT_DICT,<=,maketext("%v%V%V%V",EDNO,PARNO,ENMRTR,HHNO)) and retrieve(ENUMERATIONREPORT_DICT) then
+		if ERUNIT_NO = notappl then
+			ERUNIT_NO = cases + 1;
+		endif;
+		if WEEK_ENDING = notappl then
+			WEEK_ENDING = sysdate("YYYYMMDD");
+		endif;
+		headindex = seek(LRTH = 0);		//find head of household
+		if headindex <> 0 then
+			if ERLAST_NAME = "" then
+				ERLAST_NAME = strip(LLAST_NAME(headindex));
+			endif;
+			if ERFIRST_NAME = "" then
+				ERFIRST_NAME = strip(LFIRST_NAME(headindex));
+			endif;	
+		elseif headindex = 0 or VACANT = 1 then
+			if ERLAST_NAME = "" then
+				ERLAST_NAME = "VACANT";
+			endif;
+			if ERFIRST_NAME = "" then
+				ERFIRST_NAME = "VACANT";
+			endif;
+		endif;	
+		if ERADDRESS = "" then
+			ERADDRESS = strip(ADDRES);
+		endif;
+		if ERSTART = notappl then
+			ERSTART = DATE;
+		endif;
+		if EREND = notappl then
+			EREND = LENDDATE;
+		endif;
+		if ERREMARKS = "" then
+			ERREMARKS = prompt("Do you have any remarks to be included in the report?");
+		endif;
+		writecase(ENUMERATIONREPORT_DICT);		//write case
+		clear(ENUMERATIONREPORT_DICT);			//clear external case from memory
+	else		//write a new case
+		loadcase(ENUMERATIONREPORT_DICT);
+		ERED_NO = RNDNO;
+		ERPARISH = PARNO;
+		ERFIELD_OFFICER = ENMRTR;
+		ERSERIAL_NO = HHNO;
+		ERUNIT_NO = cases + 1;
+		WEEK_ENDING = sysdate("YYYYMMDD");
+		
+		headindex = seek(LRTH = 0);		//find head of household
+		if headindex <> 0 then
+			ERLAST_NAME = strip(LLAST_NAME(headindex));
+			ERFIRST_NAME = strip(LFIRST_NAME(headindex));
+		elseif headindex = 0 or VACANT = 1 then
+			ERLAST_NAME = "VACANT";
+			ERFIRST_NAME = "VACANT";
+		endif;	
+		ERADDRESS = strip(ADDRES);
+		ERSTART = DATE;
+		EREND = LENDDATE;
+		ERREMARKS = prompt("Do you have any remarks to be included in the report?");
+		writecase(ENUMERATIONREPORT_DICT);		//write case
+		clear(ENUMERATIONREPORT_DICT);			//clear external case from memory
+	endif;	
+
+	//complete control sheet
+	locate(LISTING_DICT,=,maketext("%V%V%V%V%3d%V",RNDNO,EDNO,PARNO,STRATUM,bldgno,HHNO)) and retrieve(LISTING_DICT);
+	if LSTFNDATE = notappl then
+		LSTFNDATE = sysdate("YYYYMMDD");
+	endif;
+	if LSTREMARKS = "" then
+		if VACANT = 2 then
+			LSTREMARKS = getlabel(INTRVW_VS1,INTRVW(1));		//set remark to value of first interview result DEBUG: need to fix so that it's more accurate
+		elseif VACANT = 1 then
+			LSTREMARKS = "VACANT";
+		endif;
+	endif;
+	writecase(LISTING_DICT);
+	
+//----------------------------------------------------------------------------
+PROC RNDNO
+preproc
+	if visualvalue(RNDNO) = notappl then		//if round is blank
+		RNDNO = tonumber(sysparm("RNDNO"));		//Go to the pff file and get the system parameter named rndno. Change it to number and assign to variable
+		setproperty(RNDNO,"PROTECTED","Yes");	//and set the field to proctected
+	endif;
+	if visualvalue(EDNO) = notappl then
+		EDNO = tonumber(sysparm("EDNO"));	
+		setproperty(EDNO,"PROTECTED","Yes");
+	endif;
+	if visualvalue(PARNO) = notappl then
+		PARNO = tonumber(sysparm("PARNO"));	
+		setproperty(PARNO,"PROTECTED","Yes");
+	endif;
+	if visualvalue(STRATUM) = notappl then
+		STRATUM = tonumber(sysparm("STRATUM"));	
+		setproperty(STRATUM,"PROTECTED","Yes");
+	endif;
+	if visualvalue(HHNO) = notappl then
+		HHNO = tonumber(sysparm("HHNO"));	
+		setproperty(HHNO,"PROTECTED","Yes");
+	endif;
+	if visualvalue(ENMRTR) = notappl then
+		ENMRTR = tonumber(sysparm("ENMRTR"));	
+		setproperty(ENMRTR,"PROTECTED","Yes");
+	endif;
+	if strip(ADDRES) = "" then
+		ADDRES = sysparm("ADDRESS");	
+	endif;
+	bldgno = tonumber(sysparm("BLDGNO"));
+
+//--------------------------------------------------------------------------------
+PROC PARNO
+onfocus
+	recode EDNO	=>	$;
+			1-181	=>	201;	//St. Michael
+			182-295	=>	202;	//Christ Church
+			196-335	=>	203;	//St. George
+			336-397	=>	204;	//St. Philip
+			398-418	=>	205;	//St. John
+			419-479	=>	206;	//St. James
+			480-508	=>	207;	//St. Thomas
+			509-521 =>	208;	//St. Joseph
+			522-532	=>	209;	//St. Andrew
+			533-559	=>	210;	//St. Peter
+			560-583	=>	211;	//St. Lucy
+	endrecode;
+	noinput;
+	
+//--------------------------------------------------------
+PROC SUPERV
+onfocus
+	if ENMRTR > 90 then
+		$ = ENMRTR;
+	endif;
+	
+//-------------------------------------------------------------------
+PROC DATE
+postproc
+	locate(LISTING_DICT,=,maketext("%V%V%V%V%3d%V",RNDNO,EDNO,PARNO,STRATUM,bldgno,HHNO)) and retrieve(LISTING_DICT);
+	if LSTSTDATE = notappl then
+		LSTSTDATE = $;
+	endif;
+	writecase(LISTING_DICT);
+		
+//------------------------------------------------------------------------------
+PROC LATITUDE
+{
+	//defaults to 0
+	if $ = notappl then
+		$ = 0;
+	endif;
+}	
+//---------------------------------------------------------------------
+PROC LONGITUDE
+{
+	//defaults to 0
+	if $ = notappl then
+		$ = 0;
+	endif;
+}	
+//---------------------------------------------------------------------
+PROC VACANT
+
+	//set case labels for vacant houses
+	if $ = 1 then		//if vacant
+		caselabel = maketext("VACANT-%02d-%03d-%03d-%d-%03d",RNDNO,EDNO,PARNO,STRATUM,HHNO);
+		setcaselabel(LABOURFORCE_DICT,caselabel);
+	endif;
+PROC VOCCUP
+
+preproc
+	//only ask if vacant household
+	ask if VACANT = 1;
+	
+//---------------------------------------------------------------------
+PROC HH_TYP
+
+	//if vacant household, end questionnaire
+	if VACANT = 1 then
+		endlevel;
+	endif;
+	
+//---------------------------------------------------------------------
 PROC LIDNO
 preproc
 	$ = curocc();		//automatically enter the ID
 	noinput;
 	
 //--------------------------------------------------------
+PROC LPREVVISIT
+preproc
+	ask if VISITNO > 1;
+	
+//------------------------------------------------
+PROC LNEWMEM
+preproc
+	ask if VISITNO > 1;
+	
+postproc
+	//if not a new member, don't ask why they joined
+	if $ = 2 then
+		skip to LRTH;
+	endif;
+	
+//---------------------------------------------------------------------
+PROC LREASON
+preproc
+	ask if VISITNO > 1;
+	
+//------------------------------------------------
+PROC LREASON_OTHER
+preproc
+	//only ask if other is selected
+	ask if LREASON = 5;
+	
+//-----------------------------------------------------
+PROC LRTH
+
+	
+	//Set case labels in case listings to an easier to read format to include name of head
+	if $ = 0 then
+		caselabel = maketext("%s-%02d-%03d-%03d-%d-%03d",strip(LLAST_NAME),RNDNO,EDNO,PARNO,STRATUM,HHNO);
+		setcaselabel(LABOURFORCE_DICT,caselabel);
+	endif;
+	
+	//check that theres is only one head of household
+	numheads = count(LRTH where LRTH = 0);		//count the number of heads of household
+	if numheads > 1 then
+		i = seek(LRTH = 0, @1);			//look for the other head
+		errmsg("Too many heads of household.")
+		select("Change previous head",LRTH(i), "Change current head",$);
+	endif;
+	
+	//check that theres only 1 spouse or less
+	numspouses = count(LRTH where LRTH = 1);		//count the number of spouses
+	if numspouses > 1 then
+		i = seek(LRTH = 1, @1);			//look for the other spouse
+		errmsg("Too many spouses.")
+		select("Change previous spouse",LRTH(i), "Change current spouse",$);
+	endif;
+	
+	
+	
+//---------------------------------------------------------------------
+PROC LDOB
+Postproc
+	if checkdate(LDOB_YEAR,LDOB_MONTH,LDOB_DAY) = 0 then
+		reenter;
+	endif;
+
+//-----------------------------------------------------------------------------------------
+
 PROC LAGE
 
+preproc
+	//auto fill the age based on the DOB
+	if LDOB_YEAR <> 9999 and LDOB_MONTH <> 99 and LDOB_DAY <> 99 then
+		tempage = datediff(LDOB, sysdate("YYYYMMDD"), "Y");
+		$ = tempage;
+	endif;
+	
+postproc
 	//check that age corresponds to date of birth
-	tempage = datediff(LDOB, sysdate("YYYYMMDD"), "Y");
+	if LDOB_YEAR <> 9999 and LDOB_MONTH <> 99 and LDOB_DAY <> 99 then		//don't check if we don't know the DOB
+		tempage = datediff(LDOB, sysdate("YYYYMMDD"), "Y");
 		
-	if $ <> tempage then
-		errmsg("age (%d) does not agree with DOB (%s), please verify",$,edit("9999/99/99",LDOB))
-		select("Correct the age", $, "Correct the Date of birth", LDOB);
+		if $ <> tempage then
+			errmsg("age (%d) does not agree with DOB (%s), please verify",$,edit("9999/99/99",LDOB))
+			select("Correct the age", $, "Correct the Date of birth", LDOB,"Keep Age (Don't know Date of Birth)",continue);
+			LDOB = 99999999;
+		endif;
 	endif;
 
 //---------------------------------------------------------------------------
+PROC LELIGIBLE
+onfocus
+	//person is eligible if over 15 years
+	if LAGE >= 15 then
+		$ = 1;
+	elseif LAGE < 15 then
+		$ = 2;
+	endif;
+	setproperty($,"PROTECTED","Yes");
+	
+//----------------------------------------------------
 PROC ADDPER
+
 	if $ = 2 then
+		NUMBER_OF_PERSONS = count(LSEX);		//Helps sets Second roster size
+		HH_SZ = count(LSEX);		//prefills Household size variable
 		endgroup;
 	endif;
 
 //----------------------------------------------------------------------
-PROC HD_HH
+PROC LABOURFORCE_REC000
+postproc
+	//if partially responding and person has completed the questionnaire then change to fully responding
+	if INTRVW = 3 then
+		INTRVW = 1;
+	endif;
 	
+//-----------------------------------------------------
+PROC INTRVW
+preproc
+	//Set occurence label to person's name
+	setocclabel(LABOURFORCE_REC000(curocc()), strip(LFIRST_NAME));
+
+	//check that person is eligible to be interviewed
+	if LELIGIBLE <> 1 then		//if not eligible
+		skip to next;
+	endif;
+	
+postproc
+	//if no response then skip this person
+	if $ = 4 then
+		skip to next;
+	endif;
+	
+	//If listing error skip household
+	if $ = 2 then
+		endgroup;
+	endif;
+	
+	
+//---------------------------------------------------------------------
+PROC INTD
+//TODO: Input current date automatically
+PROC HD_HH
+onfocus
+	//if head of household, make this person head of household and skip to individual details
+	if LRTH = 0 then		//if head of household
+		$ = 1;				//yes person is head
+	else
+		$ = 2;				//else no person is not head
+		skip to INDIVNO;
+	endif;
+	
+{postproc	
 	//if not head of household, skip to individual details 
 	if $ = 2 then
 		skip to INDIVNO;
 	endif;
-
+}
 //---------------------------------------------------------------------------
 PROC LNDTNURE
 
@@ -60,33 +512,78 @@ PROC LNDTNURE
 	endif;
 
 //-----------------------------------------------------------
-PROC INDIVNO
-
-	//TODO: prefill information based on household listing ID number
-	i = seek(LIDNO = $);
+PROC LNDTNURE_OTHER
+preproc
+	//only ask if other is selected
+	ask if LNDTNURE = 5;
 	
-	if i = $ then
-		SEX = LSEX(i);
-		RELHD = LRTH(i);
-		BIRTHD = LDOB(i);
-		AGE = LAGE(i);
-	else
-		errmsg("No person with ID #%d was found, please try again",$);
-		reenter;
+//-----------------------------------------------------
+PROC HH_SZ
+onfocus
+	$ = totocc(LABOURFORCE_REC001);
+
+postproc
+	if $ > totocc(LABOURFORCE_REC001) then
+		errmsg("Are there more persons to be added? Persons listed = %d, Household size = %d",totocc(LABOURFORCE_REC001),$)
+		select("Yes",ADDPER,"No",$);
+	elseif $ < totocc(LABOURFORCE_REC001) then
+		$ = totocc(LABOURFORCE_REC001);
 	endif;
+	
+//------------------------------------------------------------------
+PROC EARNERS
+onfocus
+	$ = count(LEARNER where LEARNER = 1);
+	
+//----------------------------------------------------
+PROC HD_ERNR
+onfocus
+	if LRTH = 0 then
+		$ = LEARNER;
+		advance to MCHILDRN;
+	endif;
+	
+//--------------------------------------------
+PROC MCHILDRN
+onfocus
+	$ = count(LSEX where LSEX = 1 and LAGE < 15);
+	
+//-----------------------------------------------------------
+PROC FCHILDRN
+onfocus
+	$ = count(LSEX where LSEX = 2 and LAGE < 15);
+	
+//-----------------------------------------------------------
+PROC INDIVNO
+onfocus
+	//TODO: prefill information based on household listing ID number
+	INDIVNO = LIDNO;
+	
+	SEX = LSEX;
+	RELHD = LRTH;
+	BIRTHD = LDOB;
+	AGE = LAGE;
+	advance to CNTRY_CD;
+	
 	
 //---------------------------------------------------------------------------
 PROC RELHD
 
 	//compare to HD_HH to verify head of household
-	if not ($ = 0 and HD_HH = 1) then	
+{	if not ($ = 0 and HD_HH = 1) then	
 		if not ($ in 1:8 and HD_HH = 2) then
 			errmsg("Relation to head (%d) does not match with Head of shousehold status (%d)",$,HD_HH)
 			select("Change relation to head",$,"Change head of household status",HD_HH);
 		endif;
 	endif;  
-
+}
 //---------------------------------------------------------------------------
+PROC RELHD_OTHER
+preproc
+	//only ask if other is selected
+	ask if RELHD = 8;
+	
+//-----------------------------------------------------
 PROC AGE
 
 	//check that age corresponds to date of birth
@@ -94,10 +591,28 @@ PROC AGE
 		
 	if $ <> tempage then
 		errmsg("age (%d) does not agree with DOB (%s), please verify",$,edit("9999/99/99",BIRTHD))
-		select("Correct the age", $, "Correct the Date of birth", BIRTHD);
+		select("Correct the age", $, "Correct the Date of birth", BIRTHD,"Keep Age (Don't know Date of Birth",continue);
+		BIRTHD = notappl;
 	endif;
 
 //---------------------------------------------------------------------------
+PROC CNTRY_CD_OTHER
+preproc
+	ask if CNTRY_CD = 999;
+	
+//---------------------------------------
+PROC EDUCLEV_OTHER
+preproc
+	//only ask if other is selected
+	ask if EDUCLEV = 5;
+	
+//-----------------------------------------------------
+PROC QUALLEV_OTHER
+preproc
+	//only ask if other is selected
+	ask if QUALLEV = 9;
+	
+//-----------------------------------------------------
 PROC CTRAINING
 	
 	//if not currently being trained, skip to if ever trained
@@ -106,6 +621,13 @@ PROC CTRAINING
 	endif;
 	
 //---------------------------------------------------------------------------
+PROC OCCUPTR
+
+preproc
+	$ = 0;
+	noinput;
+	
+//-------------------------------------------------------
 PROC TRAINEDFOROCC
 
 	//if never trained, skip to Worked last week
@@ -114,6 +636,13 @@ PROC TRAINEDFOROCC
 	endif;
 	
 //---------------------------------------------------------------------------
+PROC OCCTRAINED
+
+preproc
+	$ = 0;
+	noinput;
+	
+//----------------------------------------------------------
 PROC WORKED
 
 	//if worked, skip to full time or part time
@@ -130,6 +659,12 @@ PROC REGJOB
 	endif;
 	
 //---------------------------------------------------------------------------
+PROC REASABS_OTHER
+preproc
+	//only ask if other is selected
+	ask if REASABS = 7;
+	
+//-----------------------------------------------------
 PROC TIMEABS
 
 	//if has a job, skip to Full time or part time
@@ -138,6 +673,12 @@ PROC TIMEABS
 	endif;
 
 //---------------------------------------------------------------------------
+PROC MAJACTV_OTHER
+preproc
+	//only ask if other is selected
+	ask if MAJACTV = 6;
+	
+//-----------------------------------------------------
 PROC SEEKING
 
 	//if not seeking work, skip to reason for not seeking work
@@ -150,6 +691,18 @@ PROC METHOD
 
 	//skip to last looked for work
 	skip to LSTLOOK;
+PROC METHOD_OTHER
+preproc
+	//only ask if other is selected
+	ask if METHOD = 6;
+	
+//-----------------------------------------------------
+PROC REASNSK_OTHER
+preproc
+	//only ask if other is selected
+	ask if REASNSK = 8;
+	
+//-----------------------------------------------------
 PROC LSTLOOK
 
 	//if never looked of looked for 4 months or more, skip to Hoping for job
@@ -188,6 +741,32 @@ PROC LSTWRKD
 	skip to LSTOCCUP;
 
 //-----------------------------------------------------------
+PROC LSTWRKD_OTHER
+preproc
+	//only ask if other is selected
+	ask if LSTWRKD = 5;
+	
+//-----------------------------------------------------
+PROC LSTOCCUP
+
+preproc
+	$ = 0;
+	noinput;
+	
+//----------------------------------------------------------
+PROC LSTINDUS
+
+preproc
+	$ = 0;
+	noinput;
+	
+//----------------------------------------------------------
+PROC U2EARNGS
+postproc
+	//end of Unemployed section
+	skip to next;
+
+//--------------------------------------------------------
 PROC FULLPART
 
 	//if full time, skip to more than one job
@@ -196,6 +775,12 @@ PROC FULLPART
 	endif;
 	
 //-----------------------------------------------------------------
+PROC RSNPART_OTHER
+preproc
+	//only ask if other is selected
+	ask if RSNPART = 8;
+	
+//-----------------------------------------------------
 PROC TWOJOBS
 
 	//if not more than one job, skip to employer status
@@ -204,59 +789,111 @@ PROC TWOJOBS
 	endif;
 	
 //---------------------------------------------------------------
+PROC RSN2JOBS_OTHER
+preproc
+	//only ask if other is selected
+	ask if RSN2JOBS = 4;
+	
+//-----------------------------------------------------
 PROC EMPL2STAT
 
 preproc
-	//skip if only one job
-	if TWOJOBS = 2 then
-		skip to OCCUP;
-	endif;
+	//only ask if more than one job
+	ask if TWOJOBS = 1
+	
+//--------------------------------------------------------
+PROC OCCUP
+
+preproc
+	$ = 0;
+	noinput;
+
+//-----------------------------------------
+PROC SOCCUP_TEXT
+
+preproc
+	//only ask if more than one job
+	ask if TWOJOBS = 1
 	
 //--------------------------------------------------------
 PROC SOCCUP
 
 preproc
-	//skip if only one job
-	if TWOJOBS = 2 then
-		skip to INDUS;
-	endif;
+	$ = 0;
+	noinput;
+
+//----------------------------------------------------------
+PROC INDUS
+
+preproc
+	$ = 0;
+	noinput;
+	
+//----------------------------------------------------------
+PROC SINDUS_TEXT
+
+preproc
+	//only ask if more than one job
+	ask if TWOJOBS = 1
 	
 //--------------------------------------------------------
 PROC SINDUS
 
 preproc
-	//skip if only one job
-	if TWOJOBS = 2 then
-		skip to EXPRNCE;
-	endif;
-	
-//--------------------------------------------------------
+	$ = 0;
+	noinput;
+
+//-----------------------------------------
 PROC EXPRNCE2
 
 preproc
-	//skip if only one job
-	if TWOJOBS = 2 then
-		skip to EARNGS;
-	endif;
+	//only ask if more than one job
+	ask if TWOJOBS = 1
+	
+//--------------------------------------------------------
+PROC EARNGS2
+
+preproc
+	//only ask if more than one job
+	ask if TWOJOBS = 1
+	
+//--------------------------------------------------------
+PROC AVGEARNS2
+
+preproc
+	//only ask if more than one job
+	ask if TWOJOBS = 1
 	
 //--------------------------------------------------------
 PROC NHRSWRKD
 
 	//end if worked 40 or more hours
 	if HRSWRKD in 10,11 then
-		endlevel;
+		skip to next;
 	endif;
 
 //-----------------------------------------------------------------------
 		
+PROC RSNLESS_OTHER
+preproc
+	//only ask if other is selected
+	ask if RSNLESS = 12;
+	
+//-----------------------------------------------------
 PROC ADDWRK
 
 	//if not willling to do additional work, end interview
 	if $ = 2 then
-		endlevel;
+		skip to next;
 	endif;
 
 //-----------------------------------------------------------------------
+PROC KINDWRK
+postproc
+	//end of employed section
+	skip to next;
+	
+//--------------------------------------------------------
 PROC HPWORK
 
 	//if not hoping for job, skip to ever worked
@@ -265,6 +902,20 @@ PROC HPWORK
 	endif;
 	
 //-----------------------------------------------------------
+PROC FOCCUP
+
+preproc
+	$ = 0;
+	noinput;
+
+//-----------------------------------------
+PROC INCINDUS
+
+preproc
+	$ = 0;
+	noinput;
+
+//-----------------------------------------
 PROC WORKBEFO
 
 	//if never worked before, skip to main sources of livelihood
@@ -273,3 +924,10 @@ PROC WORKBEFO
 	endif;
 	
 //---------------------------------------------------------------------
+PROC INCOCCUP
+
+preproc
+	$ = 0;
+	noinput;
+
+//-----------------------------------------

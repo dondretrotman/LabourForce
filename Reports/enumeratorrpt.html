@@ -1,0 +1,15 @@
+<div id="cspro_report"></div>
+<script type="application/vnd.cspro.report-template" id="cspro_report_template">
+	<h2>Continuous Labour Force Sample Survey Field Officer Enumeration Report<h2>
+	<h3>Name of field officer: {{ERFIELD_OFFICER}}</h3>
+	<h3>Week ending: {{WEEK_ENDING}}</h3>
+	<h3>ED No: {{ERED_NO}}</h3>
+	<h3>Parish: {{ERPARISH}}</h3>
+	
+	<table>
+		<tr><th>Unit No</th><th>Serial No</th><th>Head of Household Last name</th><th>Head of Household First Name</th><th>Address of Head of Household</th><th>Date Started</th><th>Date Completed</th><th>Remarks</th></tr>
+		{{#ENUMERATIONREPORT_REC}}
+			<tr><td>{{ERUNIT_NO}}</td><td>{{ERSERIAL_NO}}</td><td>{{ERLAST_NAME}}</td><td>{{ERFIRST_NAME}}</td><td>{{ERADDRESS}}</td><td>{{ERSTART}}</td><td>{{EREND}}</td><td>{{ERREMARKS}}</td></tr>
+		{{/ENUMERATIONREPORT_REC}}
+	</table>
+</script>
