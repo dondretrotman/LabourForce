@@ -4,7 +4,7 @@ AppType=Entry
 Description=Continuous Labourforce Sample Survey
 [DataEntryInit]
 OperatorID=WDAVIS              
-StartMode=Add; 15832111 10 10
+StartMode=Add; 14002051  2  2
 ShowInApplicationListing=Hidden
 [Files]
 Application=./Labourforce.ent
@@ -17,9 +17,9 @@ PFFFILE=
 [Parameters]
 Parameter=onexit = ../Menu/Menu.pff
 RNDNO= 1
-EDNO=583
-PARNO=211
+EDNO=400
+PARNO=205
 STRATUM=1
-HHNO= 10
+HHNO=  2
 ENMRTR=94
-ADDRESS=oiuiouo                                                                                             
+ADDRESS=Eros station                                                                                        
