@@ -4,9 +4,7 @@ AppType=Entry
 Description=Continuous Labourforce Sample Survey
 
 [DataEntryInit]
-StartMode=Add; 1 172011 20 15
 ShowInApplicationListing=Hidden
-Interactive=Ask
 
 [Files]
 Application=.\Labourforce.ent
@@ -29,4 +27,3 @@ HHNO=15
 PARNO=201
 RNDNO=1
 STRATUM=1
-

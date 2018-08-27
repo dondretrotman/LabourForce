@@ -3,7 +3,7 @@ Version=CSPro 7.1
 AppType=Entry
 Description=CLFSS Control Sheet
 [DataEntryInit]
-StartMode=Add
+StartMode=Modify; 15832111 10 10
 ShowInApplicationListing=Hidden
 [Files]
 Application=./Listing.ent
@@ -13,6 +13,10 @@ Paradata=./Controlsheet.cslog
 PFFFILE=
 [Parameters]
 Parameter=onexit = ..\Menu\Menu.pff
-MODE=DEFAULT
-LSTENUMCODE=94
-LSTED=400
+MODE=EDIT
+LSTROUND= 1
+LSTED=583
+LSTPARISH=211
+LSTSTRATUM=1
+LSTBUILDING= 10
+LSTSAMPLE= 10

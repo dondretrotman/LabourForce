@@ -3,13 +3,9 @@ Version=CSPro 7.1
 AppType=Entry
 
 [DataEntryInit]
-Interactive=Ask
+ShowInApplicationListing=Hidden
 
 [Files]
 Application=.\EnumerationReport.ent
 InputData=..\Data\enumrpt.csdb|CSPRODB
 Paradata=.\EnumerationReport.cslog
-
-
-[Parameters]
-
