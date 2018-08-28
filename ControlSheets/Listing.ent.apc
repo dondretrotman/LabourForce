@@ -48,7 +48,7 @@ preproc
 
 
 postproc
-	setcaselabel(LISTING_DICT, maketext("%03d-%03d-%03d: %s (%s)",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS)));
+	setcaselabel(LISTING_DICT, maketext("%V-%V-%V: %s (%s)",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS)));
 
 //--------------------------------------------------------------------------------
 PROC LSTPARISH
@@ -69,6 +69,17 @@ onfocus
 	noinput;
 	
 //--------------------------------------------------------
+PROC LSTSTRATUM
+onfocus
+	recode LSTPARISH => $;
+		201 => 1;
+		202,204 => 2;
+		203,206,207 => 3;
+		205,208-211 => 4;
+	endrecode;
+	noinput;
+	
+//-------------------------------------------------------
 PROC LSTNO
 preproc
 	$ = curocc();		//automatically enter the ID
@@ -99,6 +110,6 @@ onfocus
 	set behavior($) canenter(notappl) on (noconfirm);
 
 postproc
-	setcaselabel(LISTING_DICT, maketext("%v-%V-%v-%v-V: %s",LSTED,LSTROUND,LSTBUILDING,LSTSAMPLE,strip(LSTREMARKS)));
+	setcaselabel(LISTING_DICT, maketext("%V-%V-%V: %s (%s)",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS)));
 
 //-----------------------------------------------------------

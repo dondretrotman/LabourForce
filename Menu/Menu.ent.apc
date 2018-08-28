@@ -132,6 +132,7 @@ function LaunchQuestionnaire()
 	filewrite(pffFile,"OperatorID=%s",UNAME);
 	filewrite(pffFile,"StartMode=Add;%s",CHOOSE_HOUSEHOLD);
 	filewrite(pffFile,"ShowInApplicationListing=Hidden");
+	filewrite(pffFile,"AutoAdd=No");
 
 	filewrite(pffFile,"[Files]");
 	filewrite(pffFile,"Application=%s","./Labourforce.ent");
@@ -140,6 +141,7 @@ function LaunchQuestionnaire()
 	
 	filewrite(pffFile,"[ExternalFiles]");
 	filewrite(pffFile,"LISTING_DICT=%s","../Controlsheet.csdb|CSPRODB");
+	filewrite(pffFile,"ENUMERATIONREPORT_DICT=%s","../Data/enumrpt.csdb|CSPRODB");
 	
 	filewrite(pffFile,"[UserFiles]");
 	filewrite(pffFile,"PFFFILE=%s","");
@@ -150,8 +152,8 @@ function LaunchQuestionnaire()
 	filewrite(pffFile,"RNDNO=%s",CHOOSE_HOUSEHOLD[1:2]);
 	filewrite(pffFile,"EDNO=%s",CHOOSE_HOUSEHOLD[3:3]);
 	filewrite(pffFile,"PARNO=%s",CHOOSE_HOUSEHOLD[6:3]);
-	filewrite(pffFile,"STRATUM=%s",CHOOSE_HOUSEHOLD[9:1]);
-	filewrite(pffFile,"HHNO=%s",CHOOSE_HOUSEHOLD[13:3]);
+	filewrite(pffFile,"STRATUM=%s",CHOOSE_HOUSEHOLD[9:1]);		//skip Building no (CHOOSE_HOUSEHOLD[10:3]) which is not included in Labourforce ID items
+	filewrite(pffFile,"HHNO=%s",CHOOSE_HOUSEHOLD[10:3]);		
 	filewrite(pffFile,"ENMRTR=%s",maketext("%v",visualvalue(USERID)));
 	filewrite(pffFile,"ADDRESS=%s",address(searchArray(address,CHOOSE_HOUSEHOLD),2));
 	
@@ -408,6 +410,9 @@ end;
 
 //fills enumeration report and opens for Viewing
 function enumerationRpt()
+	locate(ENUMERATIONREPORT_DICT,>=,maketext("%V",ME_ED)) and retrieve(ENUMERATIONREPORT_DICT);
+	string wkending = maketext("%d/%d/%d",ERWEEKYEAR,ERWEEKMONTH,ERWEEKDAY);
+	setreportdata("wkending",wkending);
 	setreportdata(ENUMERATIONREPORT_REC);
 	report("../Reports/enumeratorrpt.html");
 end;
@@ -467,7 +472,9 @@ postproc
 		updateApp();
 		reenter;
 	elseif $ = 4 then		//change ED
-		move to ME_ED;		
+		move to ME_ED;	
+	elseif $ = 5 then		//upload data
+		uploadData();	
 	elseif $ = 9 then
 		UNAME = "";
 		USERID = notappl;
@@ -575,7 +582,7 @@ PROC CHOOSE_HOUSEHOLD
 onfocus
 	numeric nextEntry = 1;
 	forcase LISTING_DICT where LSTED = ME_ED do
-		vscode(nextEntry) = maketext("%v%v%v%v%v%v",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTBUILDING,LSTSAMPLE);
+		vscode(nextEntry) = maketext("%v%v%v%v%v",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTSAMPLE);
 		vsLabel(nextEntry) = maketext("%03d-%03d-%03d: %V (%v)",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS));
 		address(nextEntry,1) = vscode(nextEntry);
 		address(nextEntry,2) = LSTADDRESS;

@@ -87,6 +87,27 @@ Start=16
 Len=8
 
 [Item]
+Label=WeekYear
+Name=ERWEEKYEAR
+Start=16
+Len=4
+ItemType=SubItem
+
+[Item]
+Label=WeekMonth
+Name=ERWEEKMONTH
+Start=20
+Len=2
+ItemType=SubItem
+
+[Item]
+Label=WeekDay
+Name=ERWEEKDAY
+Start=22
+Len=2
+ItemType=SubItem
+
+[Item]
 Label=Household Head Last Name
 Name=ERLAST_NAME
 Start=24

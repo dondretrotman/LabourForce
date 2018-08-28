@@ -123,6 +123,7 @@ Value=1;Interviewer
 Value=2;Supervisor
 Value=4;Change ED
 Value=3;Update App
+Value=5;Upload Data
 Value=9;Logout
 
 [ValueSet]
@@ -131,6 +132,7 @@ Name=LOGIN_VS2
 Value=1;Enumerator Menu
 Value=4;Change ED
 Value=3;Update App
+Value=5;Upload Data
 Value=9;Logout
 
 [Item]

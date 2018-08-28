@@ -195,7 +195,7 @@ postproc
 			EREND = LENDDATE;
 		endif;
 		if ERREMARKS = "" then
-			ERREMARKS = prompt("Do you have any remarks to be included in the report?");
+			ERREMARKS = prompt("Do you have any remarks to be included in the Enumerator Report?");
 		endif;
 		writecase(ENUMERATIONREPORT_DICT);		//write case
 		clear(ENUMERATIONREPORT_DICT);			//clear external case from memory
@@ -289,6 +289,17 @@ onfocus
 	noinput;
 	
 //--------------------------------------------------------
+PROC STRATUM
+onfocus
+	recode PARNO => $;
+		201 => 1;
+		202,204 => 2;
+		203,206,207 => 3;
+		205,208-211 => 4;
+	endrecode;
+	noinput;
+	
+//-------------------------------------------------------
 PROC SUPERV
 onfocus
 	if ENMRTR > 90 then
