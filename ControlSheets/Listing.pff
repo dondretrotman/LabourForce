@@ -2,18 +2,25 @@
 Version=CSPro 7.1
 AppType=Entry
 Description=CLFSS Control Sheet
+
 [DataEntryInit]
-OperatorID=RMAYERS             
+OperatorID=RMAYERS
 StartMode=Add
 ShowInApplicationListing=Hidden
+Interactive=Ask
+
 [Files]
-Application=./Listing.ent
-InputData=../Data/Controlsheet.csdb|CSPRODB
+Application=.\Listing.ent
+InputData=..\Data\Controlsheet.csdb|CSPRODB
 Paradata=./Controlsheet.cslog
+
+
 [UserFiles]
 PFFFILE=
+
 [Parameters]
 Parameter=onexit = ../Menu/Menu.pff
-MODE=DEFAULT
+LSTED=1
 LSTENUMCODE=5
-LSTED=  1
+MODE=DEFAULT
+

@@ -6,8 +6,8 @@
 	
 	<table border="1">
 		<tr><th>Name of field officer</th><th>Unit No</th><th>Serial No</th><th>Week ending</th><th>Head of Household Last name</th><th>Head of Household First Name</th><th>Address of Head of Household</th><th>Date Started</th><th>Date Completed</th><th>Remarks</th></tr>
-		{{#REPORTARRAY}}
-			<tr> {{#.}}<td>{{.}}</td>{{/.}}</tr>
-		{{/REPORTARRAY}}
+		{{#reportarray}}
+			<tr><td>{{reportarray(,1)}}</td><td>{{reportarray(,2)}}</td><td>{{reportarray(,3)}}</t><td>{{reportarray(,4)}}</td><td>{{reportarray(,5)}}</td><td>{{reportarray(,6)}}</td><td>{{reportarray(,7)}}</td><td>{{reportarray(,8)}}</td><td>{{reportarray(,9)}}</td><td>{{reportarray(,10)}}</td></tr>
+		{{/reportarray}}
 	</table>
 </script>

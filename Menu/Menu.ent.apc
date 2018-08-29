@@ -24,7 +24,7 @@ numeric deleteflag,		//stores flag for case deletion
 array string	vsCode(99);		//valueset codes
 array string 	vsLabel(99);	//valueset labels
 array string 	address(99,2);	//stores addresses
-array string	reportarray(50,10);	//stores enumerator report data (50 = number of records, 10 = number of fields (ERFEILD_OFFICER, ERSERIAL_NO,ERUNIT_NO,WEEK_ENDING,ERLAST-NAME, ERFIRST_NAME, ERADDRESS, ERSTART, EREND,ERREMARKS))
+array string	REPORTARRAY(50,10);	//stores enumerator report data (50 = number of records, 10 = number of fields (ERFEILD_OFFICER, ERSERIAL_NO,ERUNIT_NO,WEEK_ENDING,ERLAST-NAME, ERFIRST_NAME, ERADDRESS, ERSTART, EREND,ERREMARKS))
 
 //--------------------------------Function declaration------------------------------------
 //Launches the Control sheet
@@ -427,23 +427,22 @@ function enumerationRpt()
 	endrecode;
 	numeric i = 1;
 	forcase ENUMERATIONREPORT_DICT where ERED_NO = ME_ED do		//for each case in enumeration report in the current ED
-		reportarray(i,1) = getlabel(ERFIELD_OFFICER_VS1,ERFIELD_OFFICER);	//field officer
-		reportarray(i,2) = maketext("%d",ERUNIT_NO);
-		reportarray(i,3) = maketext("%d",ERSERIAL_NO);
-		reportarray(i,4) = maketext("%d/%d/%d",ERWEEKYEAR,ERWEEKMONTH,ERWEEKDAY);						//week ending
-		reportarray(i,5) = ERLAST_NAME;
-		reportarray(i,6) = ERFIRST_NAME;
-		reportarray(i,7) = ERADDRESS;
-		reportarray(i,8) = maketext("%d/%d/%d",ERSTARTY,ERSTARTM,ERSTARTD);
-		reportarray(i,9) = maketext("%d/%d/%d",ERSTARTY,ERSTARTM,ERSTARTD);
-		reportarray(i,10) = ERREMARKS;
-		
+		REPORTARRAY(i,1) = getlabel(ERFIELD_OFFICER_VS1,ERFIELD_OFFICER);	//field officer
+		REPORTARRAY(i,2) = maketext("%d",ERUNIT_NO);
+		REPORTARRAY(i,3) = maketext("%d",ERSERIAL_NO);
+		REPORTARRAY(i,4) = maketext("%d/%d/%d",ERWEEKYEAR,ERWEEKMONTH,ERWEEKDAY);						//week ending
+		REPORTARRAY(i,5) = ERLAST_NAME;
+		REPORTARRAY(i,6) = ERFIRST_NAME;
+		REPORTARRAY(i,7) = ERADDRESS;
+		REPORTARRAY(i,8) = maketext("%d/%d/%d",ERSTARTY,ERSTARTM,ERSTARTD);
+		REPORTARRAY(i,9) = maketext("%d/%d/%d",ERSTARTY,ERSTARTM,ERSTARTD);
+		REPORTARRAY(i,10) = ERREMARKS;
 		inc(i);
 	endfor;
 
 	setreportdata("PARRPT",maketext("%d",parish));
 	setreportdata("EDRPT", maketext("%d",ME_ED));
-	setreportdata(reportarray);
+	setreportdata(REPORTARRAY);
 	report("../Reports/enumeratorrpt.html");
 	
 end;
@@ -525,8 +524,6 @@ postproc
 		LaunchControlSheet();
 	elseif $ = 3 then		//enumeration report
 		enumerationRpt();
-	elseif $ = 4 then
-		//TODO: summary report
 	elseif $ = 7 then		//upload data
 		uploadData();
 	elseif $ = 9 then		//logout
