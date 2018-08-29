@@ -17,12 +17,14 @@ string 	rnd_ed,		//round and ED number to be downloaded
 		username;		//stores user name
 
 numeric deleteflag,		//stores flag for case deletion
-		errflag;		//sets error flag
+		errflag,		//sets error flag
+		parish;			//parish
 
 //----------------------------------Array Declaration-------------------------------------
 array string	vsCode(99);		//valueset codes
 array string 	vsLabel(99);	//valueset labels
 array string 	address(99,2);	//stores addresses
+array string	reportarray(50,10);	//stores enumerator report data (50 = number of records, 10 = number of fields (ERFEILD_OFFICER, ERSERIAL_NO,ERUNIT_NO,WEEK_ENDING,ERLAST-NAME, ERFIRST_NAME, ERADDRESS, ERSTART, EREND,ERREMARKS))
 
 //--------------------------------Function declaration------------------------------------
 //Launches the Control sheet
@@ -410,11 +412,40 @@ end;
 
 //fills enumeration report and opens for Viewing
 function enumerationRpt()
-	locate(ENUMERATIONREPORT_DICT,>=,maketext("%V",ME_ED)) and retrieve(ENUMERATIONREPORT_DICT);
-	string wkending = maketext("%d/%d/%d",ERWEEKYEAR,ERWEEKMONTH,ERWEEKDAY);
-	setreportdata("wkending",wkending);
-	setreportdata(ENUMERATIONREPORT_REC);
+	recode ME_ED	=>	parish;		//recode ed to parish
+		1-181	=>	201;	//St. Michael
+		182-295	=>	202;	//Christ Church
+		196-335	=>	203;	//St. George
+		336-397	=>	204;	//St. Philip
+		398-418	=>	205;	//St. John
+		419-479	=>	206;	//St. James
+		480-508	=>	207;	//St. Thomas
+		509-521 =>	208;	//St. Joseph
+		522-532	=>	209;	//St. Andrew
+		533-559	=>	210;	//St. Peter
+		560-583	=>	211;	//St. Lucy
+	endrecode;
+	numeric i = 1;
+	forcase ENUMERATIONREPORT_DICT where ERED_NO = ME_ED do		//for each case in enumeration report in the current ED
+		reportarray(i,1) = getlabel(ERFIELD_OFFICER_VS1,ERFIELD_OFFICER);	//field officer
+		reportarray(i,2) = maketext("%d",ERUNIT_NO);
+		reportarray(i,3) = maketext("%d",ERSERIAL_NO);
+		reportarray(i,4) = maketext("%d/%d/%d",ERWEEKYEAR,ERWEEKMONTH,ERWEEKDAY);						//week ending
+		reportarray(i,5) = ERLAST_NAME;
+		reportarray(i,6) = ERFIRST_NAME;
+		reportarray(i,7) = ERADDRESS;
+		reportarray(i,8) = maketext("%d/%d/%d",ERSTARTY,ERSTARTM,ERSTARTD);
+		reportarray(i,9) = maketext("%d/%d/%d",ERSTARTY,ERSTARTM,ERSTARTD);
+		reportarray(i,10) = ERREMARKS;
+		
+		inc(i);
+	endfor;
+
+	setreportdata("PARRPT",maketext("%d",parish));
+	setreportdata("EDRPT", maketext("%d",ME_ED));
+	setreportdata(reportarray);
 	report("../Reports/enumeratorrpt.html");
+	
 end;
 
 PROC MENU_FF

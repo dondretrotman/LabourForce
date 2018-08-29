@@ -1,15 +1,13 @@
 <div id="cspro_report"></div>
 <script type="application/vnd.cspro.report-template" id="cspro_report_template">
 	<h2>Continuous Labour Force Sample Survey Field Officer Enumeration Report<h2>
-	<!-- <h3>Name of field officer: {{ERFIELD_OFFICER}}</h3>
-	<h3>Week ending: {{WEEK_ENDING}}</h3>
-	<h3>ED No: {{ERED_NO}}</h3>
-	<h3>Parish: {{ERPARISH}}</h3> -->
+	<h3>ED No: {{EDRPT}}</h3>
+	<h3>Parish: {{PARRPT}}</h3>
 	
 	<table border="1">
-		<tr><th>Name of field officer</th><th>Week ending</th><th>ED No</th><th>Parish</th><th>Serial No</th><th>Head of Household Last name</th><th>Head of Household First Name</th><th>Address of Head of Household</th><th>Date Started</th><th>Date Completed</th><th>Remarks</th></tr>
-		{{#ENUMERATIONREPORT_REC}}
-			<tr><td>{{ERFIELD_OFFICER}}</td><td>{{WEEK_ENDING}}</td><td>{{ERED_NO}}</td><td>{{ERPARISH}}</t<td>{{ERUNIT_NO}}</td><td>{{ERSERIAL_NO}}</td><td>{{ERLAST_NAME}}</td><td>{{ERFIRST_NAME}}</td><td>{{ERADDRESS}}</td><td>{{ERSTART}}</td><td>{{EREND}}</td><td>{{ERREMARKS}}</td></tr>
-		{{/ENUMERATIONREPORT_REC}}
+		<tr><th>Name of field officer</th><th>Unit No</th><th>Serial No</th><th>Week ending</th><th>Head of Household Last name</th><th>Head of Household First Name</th><th>Address of Head of Household</th><th>Date Started</th><th>Date Completed</th><th>Remarks</th></tr>
+		{{#reportarray}}
+			<tr><td>{{reportarray(,1)}}</td><td>{{reportarray(,2)}}</td><td>{{reportarray(,3)}}</t><td>{{reportarray(,4)}}</td><td>{{reportarray(,5)}}</td><td>{{reportarray(,6)}}</td><td>{{reportarray(,7)}}</td><td>{{reportarray(,8)}}</td><td>{{reportarray(,9)}}</td><td>{{reportarray(,10)}}</td></tr>
+		{{/reportarray}}
 	</table>
 </script>
