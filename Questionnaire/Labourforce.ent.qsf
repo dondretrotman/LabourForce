@@ -123,12 +123,30 @@ EN=\pard\cf1\fs24 36. Is \b %LFIRST_NAME%\b0  (Second occupation):\par
 EN=}
 
 [QUESTION]
+Field=LABOURFORCE_DICT.EMPL2STAT_OTHER
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please specify...\par
+EN=}
+
+[QUESTION]
 Field=LABOURFORCE_DICT.EMPLSTAT
 Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 36. Is \b %LFIRST_NAME%\b0   (Main occupation):\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.EMPLSTAT_OTHER
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please specify...\par
 EN=}
 
 [QUESTION]

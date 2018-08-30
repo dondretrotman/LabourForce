@@ -4,11 +4,9 @@ AppType=Entry
 Description=Continuous Labourforce Sample Survey
 
 [DataEntryInit]
-OperatorID=RMAYERS
-StartMode=Add; 1  12011  4
+OperatorID=WDAVIS
 ShowInApplicationListing=Hidden
-AutoAdd=NO
-Interactive=Ask
+AutoAdd=No
 
 [Files]
 Application=.\Labourforce.ent
@@ -24,11 +22,10 @@ PFFFILE=
 
 [Parameters]
 Parameter=onexit = ../Menu/Menu.pff
-ADDRESS=asdfsa
+ADDRESS=#454
 EDNO=1
-ENMRTR=5
-HHNO=4
-PARNO=201
+ENMRTR=94
+HHNO=3
+PARNO=202
 RNDNO=1
-STRATUM=1
-
+STRATUM=2

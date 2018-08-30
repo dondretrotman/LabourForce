@@ -453,7 +453,7 @@ PROC UNAME
 preproc
 	//if already logged in then just login, if not, continue logging in
 	if readloginstatus() = 1 then
-		skip to ME_ED;
+		advance to LOGIN;
 	endif;
 
 //--------------------------------------------------------------------

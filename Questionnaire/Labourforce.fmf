@@ -212,7 +212,7 @@ Item=DATE,LABOURFORCE_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=Date
-CaptureDateFormat=DDMMYYYY
+CaptureDateFormat=YYYYMMDD
 Form=2
   
 [Text]
@@ -2186,6 +2186,25 @@ Text=36a. Main employment status
 [EndColumn]
   
 [Column]
+Width=56
+  
+[HeaderText]
+Position=13,0,104,56
+Text=36a. Main employment status
+ 
+[Field]
+Name=EMPLSTAT_OTHER
+Position=280,0,701,20
+Item=EMPLSTAT_OTHER,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=36a. Main employment status
+ 
+[EndColumn]
+  
+[Column]
 Width=72
   
 [HeaderText]
@@ -2199,6 +2218,25 @@ Item=EMPL2STAT,LABOURFORCE_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
+  
+[Text]
+Text=36b. Secondary Employment Status
+ 
+[EndColumn]
+  
+[Column]
+Width=72
+  
+[HeaderText]
+Position=13,0,104,72
+Text=36b. Secondary Employment Status
+ 
+[Field]
+Name=EMPL2STAT_OTHER
+Position=280,0,701,20
+Item=EMPL2STAT_OTHER,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
   
 [Text]
 Text=36b. Secondary Employment Status

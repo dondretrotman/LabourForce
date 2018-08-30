@@ -102,6 +102,12 @@ PROC LSTTELEPHONE
 
 onfocus
 	set behavior($) canenter(notappl) on (noconfirm);
+	
+postproc
+	if $ < 1000000 then
+		errmsg("Phone number must have 7 digits");
+		reenter;
+	endif;
 
 //-----------------------------------------------------------
 PROC LSTREMARKS

@@ -454,7 +454,7 @@ Name=LABOURFORCE_REC
 RecordTypeValue='2'
 Required=No
 MaxRecords=10
-RecordLen=1044
+RecordLen=1104
 
 [Item]
 Label=Individual Number
@@ -2339,9 +2339,16 @@ Value=6;An apprentice
 Value=7;Other
 
 [Item]
+Label=36a. Main employment status
+Name=EMPLSTAT_OTHER
+Start=748
+Len=30
+DataType=Alpha
+
+[Item]
 Label=36b. Secondary Employment Status
 Name=EMPL2STAT
-Start=748
+Start=778
 Len=1
 
 [ValueSet]
@@ -2350,61 +2357,68 @@ Name=EMPL2STAT_VS1
 Link=126995960
 
 [Item]
+Label=36b. Secondary Employment Status
+Name=EMPL2STAT_OTHER
+Start=779
+Len=30
+DataType=Alpha
+
+[Item]
 Label=37. Main occupation
 Name=OCCUP_TEXT
-Start=749
+Start=809
 Len=30
 DataType=Alpha
 
 [Item]
 Label=37. Main occupation
 Name=OCCUP
-Start=779
+Start=839
 Len=4
 
 [Item]
 Label=37. Second occupation
 Name=SOCCUP_TEXT
-Start=783
+Start=843
 Len=30
 DataType=Alpha
 
 [Item]
 Label=37. Second occupation
 Name=SOCCUP
-Start=813
+Start=873
 Len=4
 
 [Item]
 Label=38. Main industry
 Name=INDUS_TEXT
-Start=817
+Start=877
 Len=30
 DataType=Alpha
 
 [Item]
 Label=38. Main industry
 Name=INDUS
-Start=847
+Start=907
 Len=4
 
 [Item]
 Label=38. Second industry
 Name=SINDUS_TEXT
-Start=851
+Start=911
 Len=30
 DataType=Alpha
 
 [Item]
 Label=38. Second industry
 Name=SINDUS
-Start=881
+Start=941
 Len=4
 
 [Item]
 Label=39. Work Experience
 Name=EXPRNCE
-Start=885
+Start=945
 Len=1
 
 [ValueSet]
@@ -2422,7 +2436,7 @@ Value=9;Not Stated
 [Item]
 Label=39. Secondary Work Experience
 Name=EXPRNCE2
-Start=886
+Start=946
 Len=1
 
 [ValueSet]
@@ -2433,7 +2447,7 @@ Link=126998424
 [Item]
 Label=40a. Earnings last week
 Name=EARNGS
-Start=887
+Start=947
 Len=2
 
 [ValueSet]
@@ -2456,7 +2470,7 @@ Value=99;Not stated
 [Item]
 Label=40a. Secondary earnings last week
 Name=EARNGS2
-Start=889
+Start=949
 Len=2
 
 [ValueSet]
@@ -2467,7 +2481,7 @@ Link=126998864
 [Item]
 Label=40b. Main average earnings
 Name=AVGEARNS
-Start=891
+Start=951
 Len=2
 
 [ValueSet]
@@ -2478,7 +2492,7 @@ Link=126998864
 [Item]
 Label=40b. Secondary average earnings
 Name=AVGEARNS2
-Start=893
+Start=953
 Len=2
 
 [ValueSet]
@@ -2489,7 +2503,7 @@ Link=126998864
 [Item]
 Label=41a. Hours actually worked
 Name=HRSWRKD
-Start=895
+Start=955
 Len=2
 
 [ValueSet]
@@ -2511,7 +2525,7 @@ Value=99;Not stated
 [Item]
 Label=41b. Hours normally worked
 Name=NHRSWRKD
-Start=897
+Start=957
 Len=2
 
 [ValueSet]
@@ -2522,7 +2536,7 @@ Link=127005640
 [Item]
 Label=42. Reason for working less than 40 hours
 Name=RSNLESS
-Start=899
+Start=959
 Len=2
 
 [ValueSet]
@@ -2545,14 +2559,14 @@ Value=99;Not Stated
 [Item]
 Label=42. Other
 Name=RSNLESS_OTHER
-Start=901
+Start=961
 Len=30
 DataType=Alpha
 
 [Item]
 Label=43a. Willing to do additional work
 Name=ADDWRK
-Start=931
+Start=991
 Len=1
 
 [ValueSet]
@@ -2565,7 +2579,7 @@ Value=9;Not stated
 [Item]
 Label=43b. Last looked for work
 Name=LASTLOOK
-Start=932
+Start=992
 Len=1
 
 [ValueSet]
@@ -2581,7 +2595,7 @@ Value=6;Never looked for work
 [Item]
 Label=44. Kind of additional work
 Name=KINDWRK
-Start=933
+Start=993
 Len=1
 
 [ValueSet]
@@ -2595,7 +2609,7 @@ Value=9;Not stated
 [Item]
 Label=45. Hoping for job
 Name=HPWORK
-Start=934
+Start=994
 Len=1
 
 [ValueSet]
@@ -2608,7 +2622,7 @@ Value=9;Not Stated
 [Item]
 Label=46. When to take job
 Name=INACTWHN
-Start=935
+Start=995
 Len=1
 
 [ValueSet]
@@ -2626,33 +2640,33 @@ Value=9;Not stated
 [Item]
 Label=47. Occupation wanted
 Name=FOCCUP_TEXT
-Start=936
+Start=996
 Len=30
 DataType=Alpha
 
 [Item]
 Label=47. Occupation wanted
 Name=FOCCUP
-Start=966
+Start=1026
 Len=4
 
 [Item]
 Label=48. Industry wanted
 Name=INCINDUS_TEXT
-Start=970
+Start=1030
 Len=30
 DataType=Alpha
 
 [Item]
 Label=48. Industry wanted
 Name=INCINDUS
-Start=1000
+Start=1060
 Len=4
 
 [Item]
 Label=49. Ever worked before
 Name=WORKBEFO
-Start=1004
+Start=1064
 Len=1
 
 [ValueSet]
@@ -2665,20 +2679,20 @@ Value=9;Not Stated
 [Item]
 Label=50. Last occupation
 Name=INCOCCUP_TEXT
-Start=1005
+Start=1065
 Len=30
 DataType=Alpha
 
 [Item]
 Label=50. Last occupation
 Name=INCOCCUP
-Start=1035
+Start=1095
 Len=4
 
 [Item]
 Label=51a. Main sources of livelihood
 Name=SCINCOME
-Start=1039
+Start=1099
 Len=1
 
 [ValueSet]
@@ -2697,7 +2711,7 @@ Value=9;Not Stated
 [Item]
 Label=51a. Secondary scources of livelihood
 Name=IN2INCOM
-Start=1040
+Start=1100
 Len=1
 
 [ValueSet]
@@ -2708,7 +2722,7 @@ Link=127011448
 [Item]
 Label=51b. Main source amount
 Name=INEARNGS
-Start=1041
+Start=1101
 Len=2
 
 [ValueSet]
@@ -2730,7 +2744,7 @@ Value=99;Not stated
 [Item]
 Label=51b. Secondary source amount
 Name=IN2EARNG
-Start=1043
+Start=1103
 Len=2
 
 [ValueSet]

@@ -236,6 +236,7 @@ postproc
 			LSTREMARKS = "VACANT";
 		endif;
 	endif;
+	setcaselabel(LISTING_DICT, maketext("%V-%V-%V: %s (%s)",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS)));
 	writecase(LISTING_DICT);
 	
 //----------------------------------------------------------------------------
@@ -316,22 +317,6 @@ postproc
 	writecase(LISTING_DICT);
 		
 //------------------------------------------------------------------------------
-PROC LATITUDE
-{
-	//defaults to 0
-	if $ = notappl then
-		$ = 0;
-	endif;
-}	
-//---------------------------------------------------------------------
-PROC LONGITUDE
-{
-	//defaults to 0
-	if $ = notappl then
-		$ = 0;
-	endif;
-}	
-//---------------------------------------------------------------------
 PROC VACANT
 
 	//set case labels for vacant houses
@@ -806,6 +791,12 @@ preproc
 	ask if RSN2JOBS = 4;
 	
 //-----------------------------------------------------
+PROC EMPLSTAT_OTHER
+preproc
+	//only ask if other is selected
+	ask if EMPLSTAT = 7;
+	
+//-----------------------------------------------------
 PROC EMPL2STAT
 
 preproc
@@ -813,6 +804,12 @@ preproc
 	ask if TWOJOBS = 1
 	
 //--------------------------------------------------------
+PROC EMPL2STAT_OTHER
+preproc
+	//only ask if other is selected
+	ask if EMPL2STAT = 7;
+	
+//-----------------------------------------------------
 PROC OCCUP
 
 preproc
