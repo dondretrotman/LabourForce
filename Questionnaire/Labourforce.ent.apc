@@ -161,10 +161,16 @@ postproc
 	endif;
 	
 	//load case from enumeration report with current ID info and write info to it if no case found, make a new one
-	cases = countcases(ENUMERATIONREPORT_DICT where ERED_NO = EDNO and ERPARISH = PARNO and ERFIELD_OFFICER = ENMRTR and ERSERIAL_NO = HHNO);
+	cases = countcases(ENUMERATIONREPORT_DICT where ERED_NO = EDNO and ERFIELD_OFFICER = ENMRTR);		//TODO: change this to count correct cases
 	if locate(ENUMERATIONREPORT_DICT,<=,maketext("%v%V%V%V",EDNO,PARNO,ENMRTR,HHNO)) and retrieve(ENUMERATIONREPORT_DICT) then
 		if ERUNIT_NO = notappl then
 			ERUNIT_NO = cases + 1;
+		endif;
+		if ERPARISH = notappl then
+			ERPARISH = PARNO;
+		endif;
+		if ERSERIAL_NO = notappl then
+			ERSERIAL_NO = HHNO;
 		endif;
 		if WEEK_ENDING = notappl then
 			WEEK_ENDING = sysdate("YYYYMMDD");
