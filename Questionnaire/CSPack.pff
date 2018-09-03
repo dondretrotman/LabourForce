@@ -1,0 +1,15 @@
+﻿[Run Information]
+Version=CSPro 7.1
+AppType=Pack
+
+[Files]
+Application=.\Labourforce.ent
+ZipFile=..\..\Packed app\Labourforce.zip
+Listing=.\CSPack.lst
+
+[Parameters]
+ViewListing=Always
+ViewResults=Yes
+PackInclude=VSImages,Resources,InputFile,ExternalFiles,UserFiles
+Silent=No
+

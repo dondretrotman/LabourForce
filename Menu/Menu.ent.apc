@@ -23,7 +23,7 @@ numeric deleteflag,		//stores flag for case deletion
 //----------------------------------Array Declaration-------------------------------------
 array string	vsCode(99);		//valueset codes
 array string 	vsLabel(99);	//valueset labels
-array string 	address(99,2);	//stores addresses
+array string 	address(99,3);	//stores addresses
 array string	REPORTARRAY(50,10);	//stores enumerator report data (50 = number of records, 10 = number of fields (ERFEILD_OFFICER, ERSERIAL_NO,ERUNIT_NO,WEEK_ENDING,ERLAST-NAME, ERFIRST_NAME, ERADDRESS, ERSTART, EREND,ERREMARKS))
 
 //--------------------------------Function declaration------------------------------------
@@ -158,6 +158,7 @@ function LaunchQuestionnaire()
 	filewrite(pffFile,"HHNO=%s",CHOOSE_HOUSEHOLD[10:3]);		
 	filewrite(pffFile,"ENMRTR=%s",maketext("%v",visualvalue(USERID)));
 	filewrite(pffFile,"ADDRESS=%s",address(searchArray(address,CHOOSE_HOUSEHOLD),2));
+	filewrite(pffFile,"BLDGNO=%s",address(searchArray(address,CHOOSE_HOUSEHOLD),3));
 	
 	close(pffFile);
 
@@ -614,6 +615,7 @@ onfocus
 		vsLabel(nextEntry) = maketext("%03d-%03d-%03d: %V (%v)",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS));
 		address(nextEntry,1) = vscode(nextEntry);
 		address(nextEntry,2) = LSTADDRESS;
+		address(nextEntry,3) = maketext("%V",LSTBUILDING);
 		inc(nextEntry);
 	endfor;
 	

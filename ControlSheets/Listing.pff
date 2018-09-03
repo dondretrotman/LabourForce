@@ -3,7 +3,7 @@ Version=CSPro 7.1
 AppType=Entry
 Description=CLFSS Control Sheet
 [DataEntryInit]
-OperatorID=WDAVIS              
+OperatorID=RMAYERS             
 StartMode=Add
 ShowInApplicationListing=Hidden
 [Files]
@@ -15,5 +15,5 @@ PFFFILE=
 [Parameters]
 Parameter=onexit = ../Menu/Menu.pff
 MODE=DEFAULT
-LSTENUMCODE=94
+LSTENUMCODE=5
 LSTED=308

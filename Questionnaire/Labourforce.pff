@@ -4,9 +4,11 @@ AppType=Entry
 Description=Continuous Labourforce Sample Survey
 
 [DataEntryInit]
-OperatorID=WDAVIS
+OperatorID=RMAYERS
+StartMode=Add; 13082033  1
 ShowInApplicationListing=Hidden
-AutoAdd=No
+AutoAdd=NO
+Interactive=Ask
 
 [Files]
 Application=.\Labourforce.ent
@@ -15,17 +17,19 @@ Paradata=./Labourforce.cslog
 
 [ExternalFiles]
 ENUMERATIONREPORT_DICT=..\Data\enumrpt.csdb|CSPRODB
-LISTING_DICT=..\Controlsheet.csdb|CSPRODB
+LISTING_DICT=..\Data\Controlsheet.csdb|CSPRODB
 
 [UserFiles]
 PFFFILE=
 
 [Parameters]
 Parameter=onexit = ../Menu/Menu.pff
-ADDRESS=#454
-EDNO=1
-ENMRTR=94
-HHNO=3
-PARNO=202
+ADDRESS=gotham
+BLDGNO=1
+EDNO=308
+ENMRTR=5
+HHNO=1
+PARNO=203
 RNDNO=1
-STRATUM=2
+STRATUM=3
+

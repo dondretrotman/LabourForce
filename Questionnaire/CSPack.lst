@@ -1,0 +1,18 @@
+﻿Application:  I:\Dondre\Projects2\Labour force CSPro\LabourForce\Questionnaire\Labourforce.ent
+   Zip file:  I:\Dondre\Projects2\Labour force CSPro\Packed app\Labourforce.zip
+
+The following application files were packed:
+    Labourforce.ent
+    .\Labourforce.fmf
+    .\Labourforce.dcf
+    ..\Reports\EnumerationReport.dcf
+    ..\ControlSheets\Listing.dcf
+    .\Labourforce.ent.apc
+    .\Labourforce.ent.mgf
+    .\Labourforce.ent.qsf
+    .\Labourforce.pff
+    ..\Data\data.csdb
+    ..\Data\enumrpt.csdb
+    ..\Controlsheet.csdb
+
+Zip file successfully created.

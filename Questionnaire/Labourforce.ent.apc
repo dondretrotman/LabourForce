@@ -27,6 +27,7 @@ string 	caselabel,		//stores the label for the current case
 		photoDir,		//Stores the location of the photos folder
 		photoFileName, 	//filename of photo
 		intenddate,		//end date of interview
+		idno,			//case id to be loaded
 		;
 		
 //-----------------------------Function Declarations--------------------------------------------
@@ -93,6 +94,7 @@ function getgps()
 		LONGITUDE = notappl;
 	endif;
 	gps(close);
+	
 end;
 
 {//Function to take a photo using the device's camera. It saves to a filename matching the ID items
@@ -270,6 +272,7 @@ preproc
 		ADDRES = sysparm("ADDRESS");	
 	endif;
 	bldgno = tonumber(sysparm("BLDGNO"));
+	errmsg("%d",bldgno);
 
 //--------------------------------------------------------------------------------
 PROC PARNO
@@ -310,12 +313,18 @@ onfocus
 //-------------------------------------------------------------------
 PROC DATE
 postproc
-	locate(LISTING_DICT,=,maketext("%V%V%V%V%3d%V",RNDNO,EDNO,PARNO,STRATUM,bldgno,HHNO)) and retrieve(LISTING_DICT);
-	if LSTSTDATE = notappl then
-		LSTSTDATE = $;
-	endif;
-	writecase(LISTING_DICT);
-		
+//	locate(LISTING_DICT,=,maketext("%V%V%V%V%03d%V",RNDNO,EDNO,PARNO,STRATUM,bldgno,HHNO)) and loadcase(LISTING_DICT);
+	idno = maketext("%V%V%V%V%3d%V",RNDNO,EDNO,PARNO,STRATUM,bldgno,HHNO);
+	loadcase(LISTING_DICT,idno);
+		errmsg("Loadingcase:%V%V%V%V%3d%V,loaded case:%s,currentcase:%s",RNDNO,EDNO,PARNO,STRATUM,bldgno,HHNO,getcaselabel(LISTING_DICT),getcaselabel(LABOURFORCE_DICT));
+		errmsg("%d",LSTSTDATE);		//TODO: Testing
+		if LSTSTDATE = notappl then
+			LSTSTDATE = $;
+		endif;
+		errmsg("%d",LSTSTDATE);		//TODO: Testing
+		writecase(LISTING_DICT);
+	
+	
 //------------------------------------------------------------------------------
 PROC VACANT
 
