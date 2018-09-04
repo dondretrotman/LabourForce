@@ -142,7 +142,7 @@ function LaunchQuestionnaire()
 	filewrite(pffFile,"Paradata=%s","./Labourforce.cslog");
 	
 	filewrite(pffFile,"[ExternalFiles]");
-	filewrite(pffFile,"LISTING_DICT=%s","../Controlsheet.csdb|CSPRODB");
+	filewrite(pffFile,"LISTING_DICT=%s","../Data/Controlsheet.csdb|CSPRODB");
 	filewrite(pffFile,"ENUMERATIONREPORT_DICT=%s","../Data/enumrpt.csdb|CSPRODB");
 	
 	filewrite(pffFile,"[UserFiles]");

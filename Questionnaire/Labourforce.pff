@@ -5,7 +5,7 @@ Description=Continuous Labourforce Sample Survey
 
 [DataEntryInit]
 OperatorID=RMAYERS
-StartMode=Add; 13082033  1
+StartMode=Add; 13082033  2
 ShowInApplicationListing=Hidden
 AutoAdd=NO
 Interactive=Ask
@@ -24,11 +24,11 @@ PFFFILE=
 
 [Parameters]
 Parameter=onexit = ../Menu/Menu.pff
-ADDRESS=gotham
-BLDGNO=1
+ADDRESS=Metropolis
+BLDGNO=2
 EDNO=308
 ENMRTR=5
-HHNO=1
+HHNO=2
 PARNO=203
 RNDNO=1
 STRATUM=3

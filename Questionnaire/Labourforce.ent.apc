@@ -10,6 +10,7 @@ Notes:
 Todo:
 	CNeed to allow enumerators/supervisors to review edit questionnaires
 	Need to make a check for head of household after entering all persons
+	Only the first enumerator report gets writtenz
 }
 
 PROC GLOBAL
@@ -164,6 +165,7 @@ postproc
 	
 	//load case from enumeration report with current ID info and write info to it if no case found, make a new one
 	cases = countcases(ENUMERATIONREPORT_DICT where ERED_NO = EDNO and ERFIELD_OFFICER = ENMRTR);		//TODO: change this to count correct cases
+	
 	if locate(ENUMERATIONREPORT_DICT,<=,maketext("%v%V%V%V",EDNO,PARNO,ENMRTR,HHNO)) and retrieve(ENUMERATIONREPORT_DICT) then
 		if ERUNIT_NO = notappl then
 			ERUNIT_NO = cases + 1;
@@ -179,37 +181,37 @@ postproc
 		endif;
 		headindex = seek(LRTH = 0);		//find head of household
 		if headindex <> 0 then
-			if ERLAST_NAME = "" then
+//			if ERLAST_NAME = "" then
 				ERLAST_NAME = strip(LLAST_NAME(headindex));
-			endif;
-			if ERFIRST_NAME = "" then
+//			endif;
+//			if ERFIRST_NAME = "" then
 				ERFIRST_NAME = strip(LFIRST_NAME(headindex));
-			endif;	
+//			endif;	
 		elseif headindex = 0 or VACANT = 1 then
-			if ERLAST_NAME = "" then
+//			if ERLAST_NAME = "" then
 				ERLAST_NAME = "VACANT";
-			endif;
-			if ERFIRST_NAME = "" then
+//			endif;
+//			if ERFIRST_NAME = "" then
 				ERFIRST_NAME = "VACANT";
-			endif;
+//			endif;
 		endif;	
-		if ERADDRESS = "" then
+//		if ERADDRESS = "" then
 			ERADDRESS = strip(ADDRES);
-		endif;
-		if ERSTART = notappl then
+//		endif;
+//		if ERSTART = notappl then
 			ERSTART = DATE;
-		endif;
-		if EREND = notappl then
+//		endif;
+//		if EREND = notappl then
 			EREND = LENDDATE;
-		endif;
-		if ERREMARKS = "" then
+//		endif;
+//		if ERREMARKS = "" then
 			ERREMARKS = prompt("Do you have any remarks to be included in the Enumerator Report?");
-		endif;
+//		endif;
 		writecase(ENUMERATIONREPORT_DICT);		//write case
-		clear(ENUMERATIONREPORT_DICT);			//clear external case from memory
+		//clear(ENUMERATIONREPORT_DICT);			//clear external case from memory
 	else		//write a new case
 		loadcase(ENUMERATIONREPORT_DICT);
-		ERED_NO = RNDNO;
+		ERED_NO = EDNO;
 		ERPARISH = PARNO;
 		ERFIELD_OFFICER = ENMRTR;
 		ERSERIAL_NO = HHNO;
@@ -229,7 +231,7 @@ postproc
 		EREND = LENDDATE;
 		ERREMARKS = prompt("Do you have any remarks to be included in the report?");
 		writecase(ENUMERATIONREPORT_DICT);		//write case
-		clear(ENUMERATIONREPORT_DICT);			//clear external case from memory
+		//clear(ENUMERATIONREPORT_DICT);			//clear external case from memory
 	endif;	
 
 	//complete control sheet
@@ -278,7 +280,7 @@ preproc
 		ADDRES = sysparm("ADDRESS");	
 	endif;
 	bldgno = tonumber(sysparm("BLDGNO"));
-	errmsg("%d",bldgno);
+
 
 //--------------------------------------------------------------------------------
 PROC PARNO
@@ -322,15 +324,22 @@ postproc
 //	locate(LISTING_DICT,=,maketext("%V%V%V%V%03d%V",RNDNO,EDNO,PARNO,STRATUM,bldgno,HHNO)) and loadcase(LISTING_DICT);
 	idno = maketext("%V%V%V%V%3d%V",RNDNO,EDNO,PARNO,STRATUM,bldgno,HHNO);
 	loadcase(LISTING_DICT,idno);
-		errmsg("Loadingcase:%V%V%V%V%3d%V,loaded case:%s,currentcase:%s",RNDNO,EDNO,PARNO,STRATUM,bldgno,HHNO,getcaselabel(LISTING_DICT),getcaselabel(LABOURFORCE_DICT));
-		errmsg("%d",LSTSTDATE);		//TODO: Testing
+//		errmsg("Loadingcase:%V%V%V%V%3d%V,loaded case:%s,currentcase:%s",RNDNO,EDNO,PARNO,STRATUM,bldgno,HHNO,getcaselabel(LISTING_DICT),getcaselabel(LABOURFORCE_DICT));
 		if LSTSTDATE = notappl then
 			LSTSTDATE = $;
 		endif;
-		errmsg("%d",LSTSTDATE);		//TODO: Testing
 		writecase(LISTING_DICT);
 	
-	
+	//if latitude or longitude are invalid, prompt to updatefield. If valid, ask if to leave coordinates or to update
+	if visualvalue(LATITUDE) in {15:90,0:12,}notappl,default or visualvalue(LONGITUDE) in {-58:180,-180:-61,}notappl,default then
+		errmsg("No coordinates recorded.")
+		select("Get new coordinates",continue,"Get coordinates later",VACANT);
+		getgps();
+	else
+		errmsg("Current coordinates are %f,%f.",visualvalue(LATITUDE),visualvalue(LONGITUDE))
+		select("Keep coordinates",VACANT,"Get new coordinates",continue);
+		getgps();
+	endif;
 //------------------------------------------------------------------------------
 PROC VACANT
 
@@ -481,6 +490,11 @@ preproc
 	//check that person is eligible to be interviewed
 	if LELIGIBLE <> 1 then		//if not eligible
 		skip to next;
+	endif;
+
+onfocus
+	if $ = notappl then
+		$ = 3;
 	endif;
 	
 postproc
