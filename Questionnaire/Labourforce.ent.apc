@@ -166,7 +166,7 @@ postproc
 	//load case from enumeration report with current ID info and write info to it if no case found, make a new one
 	cases = countcases(ENUMERATIONREPORT_DICT where ERED_NO = EDNO and ERFIELD_OFFICER = ENMRTR);		//TODO: change this to count correct cases
 	
-	if locate(ENUMERATIONREPORT_DICT,<=,maketext("%v%V%V%V",EDNO,PARNO,ENMRTR,HHNO)) and retrieve(ENUMERATIONREPORT_DICT) then
+	if locate(ENUMERATIONREPORT_DICT,=,maketext("%v%V%V%V",EDNO,PARNO,ENMRTR,HHNO)) and retrieve(ENUMERATIONREPORT_DICT) then		//debug: changed <= to = to see if that makes a difference
 		if ERUNIT_NO = notappl then
 			ERUNIT_NO = cases + 1;
 		endif;

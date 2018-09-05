@@ -2,34 +2,27 @@
 Version=CSPro 7.1
 AppType=Entry
 Description=Continuous Labourforce Sample Survey
-
 [DataEntryInit]
-OperatorID=RMAYERS
-StartMode=Add; 13082033  2
+OperatorID=RMAYERS             
+StartMode=Add; 13082033  5   
 ShowInApplicationListing=Hidden
-AutoAdd=NO
-Interactive=Ask
-
+AutoAdd=No
 [Files]
-Application=.\Labourforce.ent
-InputData=..\Data\data.csdb|CSPRODB
+Application=./Labourforce.ent
+InputData=../Data/data.csdb|CSPRODB
 Paradata=./Labourforce.cslog
-
 [ExternalFiles]
-ENUMERATIONREPORT_DICT=..\Data\enumrpt.csdb|CSPRODB
-LISTING_DICT=..\Data\Controlsheet.csdb|CSPRODB
-
+LISTING_DICT=../Data/Controlsheet.csdb|CSPRODB
+ENUMERATIONREPORT_DICT=../Data/enumrpt.csdb|CSPRODB
 [UserFiles]
 PFFFILE=
-
 [Parameters]
 Parameter=onexit = ../Menu/Menu.pff
-ADDRESS=Metropolis
-BLDGNO=2
+RNDNO= 1
 EDNO=308
-ENMRTR=5
-HHNO=2
 PARNO=203
-RNDNO=1
 STRATUM=3
-
+HHNO=  5
+ENMRTR=5
+ADDRESS=Themscaria                                                                                          
+BLDGNO=  5
