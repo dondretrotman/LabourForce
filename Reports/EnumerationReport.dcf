@@ -93,17 +93,17 @@ Name=ERSERIAL_NO
 Start=10
 Len=3
 
-[Item]
-Label=Sample Unit No.
-Name=ERUNIT_NO
-Start=13
-Len=3
-
 [Record]
 Label=EnumerationReport record
 Name=ENUMERATIONREPORT_REC
 RecordTypeValue='1'
 RecordLen=299
+
+[Item]
+Label=Sample Unit No.
+Name=ERUNIT_NO
+Start=13
+Len=3
 
 [Item]
 Label=Week Ending

@@ -8,9 +8,9 @@ Version: 0.1
 Notes:
 
 Todo:
-	CNeed to allow enumerators/supervisors to review edit questionnaires
-	Need to make a check for head of household after entering all persons
-	Only the first enumerator report gets writtenz
+	*Done* Need to allow enumerators/supervisors to review edit questionnaires
+	*Done* Need to make a check for head of household after entering all persons
+	*Done* Only the first enumerator report gets writtenz
 }
 
 PROC GLOBAL
@@ -29,6 +29,7 @@ string 	caselabel,		//stores the label for the current case
 		photoFileName, 	//filename of photo
 		intenddate,		//end date of interview
 		idno,			//case id to be loaded
+		promptremarks	//stores remarks for report
 		;
 		
 //-----------------------------Function Declarations--------------------------------------------
@@ -166,16 +167,18 @@ postproc
 	//load case from enumeration report with current ID info and write info to it if no case found, make a new one
 	cases = countcases(ENUMERATIONREPORT_DICT where ERED_NO = EDNO and ERFIELD_OFFICER = ENMRTR);		//TODO: change this to count correct cases
 	
-	if locate(ENUMERATIONREPORT_DICT,=,maketext("%v%V%V%V",EDNO,PARNO,ENMRTR,HHNO)) and retrieve(ENUMERATIONREPORT_DICT) then		//debug: changed <= to = to see if that makes a difference
+//	if locate(ENUMERATIONREPORT_DICT,=,maketext("%v%V%V%V",EDNO,PARNO,ENMRTR,HHNO)) and retrieve(ENUMERATIONREPORT_DICT) then		//debug: changed <= to = to see if that makes a difference
+	idno = maketext("%V%V%V%V",EDNO,PARNO,ENMRTR,HHNO);
+	if loadcase(ENUMERATIONREPORT_DICT,idno) then
 		if ERUNIT_NO = notappl then
 			ERUNIT_NO = cases + 1;
 		endif;
-		if ERPARISH = notappl then
-			ERPARISH = PARNO;
-		endif;
-		if ERSERIAL_NO = notappl then
-			ERSERIAL_NO = HHNO;
-		endif;
+//		if ERPARISH = notappl then
+//			ERPARISH = PARNO;
+//		endif;
+//		if ERSERIAL_NO = notappl then
+//			ERSERIAL_NO = HHNO;
+//		endif;
 		if WEEK_ENDING = notappl then
 			WEEK_ENDING = sysdate("YYYYMMDD");
 		endif;
@@ -205,7 +208,10 @@ postproc
 			EREND = LENDDATE;
 //		endif;
 //		if ERREMARKS = "" then
-			ERREMARKS = prompt("Do you have any remarks to be included in the Enumerator Report?");
+			promptremarks = prompt("Do you have any remarks to be included in the Enumerator Report?");
+				if promptremarks <> "" then
+					ERREMARKS = promptremarks;
+				endif;
 //		endif;
 		writecase(ENUMERATIONREPORT_DICT);		//write case
 		//clear(ENUMERATIONREPORT_DICT);			//clear external case from memory
@@ -229,7 +235,7 @@ postproc
 		ERADDRESS = strip(ADDRES);
 		ERSTART = DATE;
 		EREND = LENDDATE;
-		ERREMARKS = prompt("Do you have any remarks to be included in the report?");
+		ERREMARKS = prompt("Do you have any remarks to be included in the enumerator report?");
 		writecase(ENUMERATIONREPORT_DICT);		//write case
 		//clear(ENUMERATIONREPORT_DICT);			//clear external case from memory
 	endif;	
@@ -468,6 +474,13 @@ onfocus
 PROC ADDPER
 
 	if $ = 2 then
+		//check that there's one head of household
+		numheads = count(LRTH where LRTH = 0);
+		if numheads < 1 then
+			errmsg("There are no heads of household listed! Please make someone in the household the head or add another person to the household as the head");
+			reenter;
+		endif;
+		
 		NUMBER_OF_PERSONS = count(LSEX);		//Helps sets Second roster size
 		HH_SZ = count(LSEX);		//prefills Household size variable
 		endgroup;
