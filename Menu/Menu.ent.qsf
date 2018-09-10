@@ -92,10 +92,11 @@ Field=MENU_DICT.INTERVIEWER_MENU
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
-EN=\pard\cf1\fs24 Fill Questionnaire - Fill out a new questionnaire or review previous questionnaires\par
-EN=Fill Listing Record - Fill out a new listing or review previous listings\par
+EN=\pard\cf1\fs24 Fill Questionnaire - Fill out a new questionnaire or review previous questionnaires. A control sheet \b must \b0 be done for a household before a questionnaire can be filled out.\par
+EN=Fill Control Sheet - Fill out a new Control Sheet or review previous listings. A control sheet \b must \b0 be done for a household before a questionnaire can be filled out.\par
+EN=View Enumeration Report - View a summary of the questionnaires done so far for ED \b %ME_ED%\b0\par
 EN=Upload Data - Upload all questionnaires and listings. Also updates the app\par
-EN=Update App only - Updates the app. Exit the app and open again to see changes in the menu\par
+EN=Back - Go back to the Login menu.\par
 EN=}
 
 [HELP]
@@ -113,8 +114,11 @@ Condition=USERID < 90
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
-EN=\pard\cf1\fs24 Interviewer menu - Work as an interviewer\par
+EN=\pard\cf1\fs24 Enumerator menu - Work as an interviewer\par
+EN=Change ED - Change from ED %ME_ED% to another ED\par
 EN=Update App - Get the latest updates\par
+EN=Upload Data - Upload tablet data\par
+EN=Logout - Logout and close the app\par
 EN=}
 
 [HELP]
@@ -123,10 +127,38 @@ Condition=USERID >= 90
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
-EN=\pard\cf1\fs24 Interviewer menu - Work as an interviewer\par
+EN=\pard\cf1\fs24 Enumerator menu - Work as an interviewer\par
 EN=Supervisor menu - Work as a supervisor\par
+EN=Change ED - Change from ED %ME_ED% to another ED\par
 EN=Update App - Get the latest updates\par
-EN=
-EN=\pard\par
+EN=Upload Data - Upload tablet data\par
+EN=Logout - Logout and close the app\par
+EN=\par
+EN=}
+
+[HELP]
+Field=MENU_DICT.SUPERVISOR_MENU
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Download Data - Download data for ED %ME_ED%\par
+EN=Open Control Sheet - Opens a control sheet for ED %ME_ED%\par
+EN=Open Questionnaire - Opens a questionnaire for ED %ME_ED%\par
+EN=Delete Questionnaire - Flags a questionnaire for deletion. Please note that this does not actually delete the questionnaire\par
+EN=View Enumeration Report - View a summary of work done in ED %ME_ED%\par
+EN=Back - Go back to Login Menu\par
+EN=}
+
+[HELP]
+Field=MENU_DICT.CHOOSE_HOUSEHOLD
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 ID format is ED-Building#-Household#: Last name (Completion status)\par
+EN=\par
+EN=Completion status can be one of the following:\par
+EN=Blank - The questionnaire is new\par
+EN=Part responding - The questionnaire is partially complete\par
+EN=Complete - the questionnaire has been completed\par
 EN=}
 
