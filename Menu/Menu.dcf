@@ -142,10 +142,21 @@ Start=29
 Len=1
 
 [ValueSet]
-Label=Interviewer Menu
+Label=Interviewer Menu (Computer)
+Name=INTERVIEWER_MENU_VS2
+Value=1;Fill Questionnaire
+Value=2;Fill Control Sheet
+Value=4;Upload Control Sheets
+Value=3;View Enumeration Report
+Value=7;Upload Data
+Value=9;Back
+
+[ValueSet]
+Label=Interviewer Menu (Tablet)
 Name=INTERVIEWER_MENU_VS1
 Value=1;Fill Questionnaire
 Value=2;Fill Control Sheet
+Value=5;Download Control Sheets
 Value=3;View Enumeration Report
 Value=7;Upload Data
 Value=9;Back

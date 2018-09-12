@@ -99,6 +99,10 @@ function getgps()
 	
 end;
 
+function OnStop()
+	execpff("../Menu/Menu.pff", stop);
+end;
+
 {//Function to take a photo using the device's camera. It saves to a filename matching the ID items
 function takePhoto()
 	photoFileName = pathname(CSEntry) + maketext("Menu/Photos/%03d-%03d-%03d-%d-%03d.jpg", visualvalue(RNDNO),visualvalue(EDNO),visualvalue(PARNO),visualvalue(STRATUM),visualvalue(HHNO)); 
@@ -208,9 +212,11 @@ postproc
 			EREND = LENDDATE;
 //		endif;
 //		if ERREMARKS = "" then
-			promptremarks = prompt("Do you have any remarks to be included in the Enumerator Report?");
+			promptremarks = prompt("Do you have any remarks to be included in the Enumerator Report? Current remarsk are:%s",ERREMARKS);
 				if promptremarks <> "" then
 					ERREMARKS = promptremarks;
+				else
+					ERREMARKS = ERREMARKS+", "+Promptremarks;
 				endif;
 //		endif;
 		writecase(ENUMERATIONREPORT_DICT);		//write case
@@ -247,9 +253,9 @@ postproc
 	endif;
 	if LSTREMARKS = "" then
 		if VACANT = 2 then
-			LSTREMARKS = getlabel(INTRVW_VS1,INTRVW(1));		//set remark to value of first interview result DEBUG: need to fix so that it's more accurate
+			LSTREMARKS = LSTREMARKS+" | "+getlabel(INTRVW_VS1,INTRVW(1));		//set remark to value of first interview result DEBUG: need to fix so that it's more accurate
 		elseif VACANT = 1 then
-			LSTREMARKS = "VACANT";
+			LSTREMARKS = LSTREMARKS+" | VACANT";
 		endif;
 	endif;
 	setcaselabel(LISTING_DICT, maketext("%V-%V-%V: %s (%s)",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS)));
@@ -917,6 +923,7 @@ preproc
 //--------------------------------------------------------
 PROC NHRSWRKD
 
+postproc
 	//end if worked 40 or more hours
 	if HRSWRKD in 10,11 then
 		skip to next;
@@ -931,7 +938,7 @@ preproc
 	
 //-----------------------------------------------------
 PROC ADDWRK
-
+postproc
 	//if not willling to do additional work, end interview
 	if $ = 2 then
 		skip to next;

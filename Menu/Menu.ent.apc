@@ -6,6 +6,9 @@ TODO: 	*Done* add enumerator reports
 		*Done* add login
 		*DONE* Need to add ENUMERATIONREPORT_DICT pen files to update functions
 		*DONE* enumeration report: latest report overwrites last record
+		Add function that transfers Control Sheet to tablet through USB
+			Upload control sheets option
+			download control sheets option in enumerator menu
 }
 
 PROC GLOBAL
@@ -365,6 +368,45 @@ function downloadData(string rnd_edno)
 	endif;
 end;
 
+//function to upload control sheets from the computer to the server for use by the tablets
+function uploadcontrolsheets()
+	if syncconnect(FTP,"64.119.198.70","Census","Census2020ADM!N") then		//connect to FTP when within the Government WAN
+		if not syncdata(PUT,LISTING_DICT) then		//Upload Control Sheet
+			inc(errflag);
+		endif;
+		syncdisconnect();		//disconnect
+	elseif syncconnect(FTP,"10.129.20.110","Census","Census2020ADM!N") then		//connect to FTP when within the Government WAN
+		if not syncdata(PUT,LISTING_DICT) then		//Upload Control Sheet
+			inc(errflag);
+		endif;
+		syncdisconnect();		//disconnect
+	else
+		inc(errflag,2);
+	endif;
+	if errflag >= 1 then
+		errmsg("App upload failed, please try again. %d errors were found",errflag);
+	elseif errflag = 0 then
+		errmsg("App upload was successful");
+	endif;
+end;
+
+//function to download control sheets from the server to the tablets
+function downloadcontrolsheets(string rnd_edno)
+	if syncconnect(FTP,"10.129.20.110","Census","Census2020ADM!N") then		//connect to FTP when within the Government WAN
+		if not syncdata(GET,LISTING_DICT,rnd_edno) then		//download Control Sheet
+			inc(errflag);
+		endif;
+		syncdisconnect();		//disconnect
+	else
+		inc(errflag,2);
+	endif;
+	if errflag >= 1 then
+		errmsg("App upload failed, please try again. %d errors were found",errflag);
+	elseif errflag = 0 then
+		errmsg("App upload was successful");
+	endif;
+end;
+
 //deletes a questionnaire
 function deleteQuestionnaire()
 	deleteflag = 0;
@@ -519,13 +561,24 @@ PROC INTERVIEWER_MENU
 onfocus
 	$ = notappl;
 	
+	//Show valueset based on OS
+	if getos() in 10,30 then		//if windows
+		setvalueset($,INTERVIEWER_MENU_VS2);
+	elseif getos() = 20 then	//if android
+		setvalueset($,INTERVIEWER_MENU_VS1);
+	endif;
+	
 postproc
 	if $ = 1 then	//Fill questionnaire
 		skip to CHOOSE_HOUSEHOLD;
-	elseif $ = 2 then
+	elseif $ = 2 then		//fill control sheets
 		LaunchControlSheet();
 	elseif $ = 3 then		//enumeration report
 		enumerationRpt();
+	elseif $ = 4 then		//upload control sheets only
+		uploadcontrolsheets();
+	elseif $ = 5 then		//download control sheets
+		skip to CHOOSE_ROUND;
 	elseif $ = 7 then		//upload data
 		uploadData();
 	elseif $ = 9 then		//logout
@@ -564,10 +617,15 @@ reenter;		//don't leave the menu
 //---------------------------------------------------------
 PROC CHOOSE_ROUND
 Postproc
-	rnd_ed = maketext("%v%v", CHOOSE_ROUND,ME_ED);
-	downloadData(rnd_ed);
-	
-	move to SUPERVISOR_MENU;
+	if SUPERVISOR_MENU = 1 then		//if downloading questionnaires as Supervisor
+		rnd_ed = maketext("%v%v", CHOOSE_ROUND,ME_ED);
+		downloadData(rnd_ed);		//download questionnaires etc
+		move to SUPERVISOR_MENU;
+	elseif INTERVIEWER_MENU = 5 then		//if downloading control sheets as enumerator
+		rnd_ed = maketext("%v%v", CHOOSE_ROUND,ME_ED);
+		downloadcontrolsheets(rnd_ed);		//download control sheets
+		move to INTERVIEWER_MENU;
+	endif;
 
 //---------------------------------------------------------
 PROC CHOOSE_ED

@@ -21,14 +21,6 @@ EN=\pard\cf1\fs24 Choose Round to download\par
 EN=}
 
 [QUESTION]
-Field=MENU_DICT.INTERVIEWER_MENU
-EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
-EN={\colortbl ;\red0\green0\blue0;}
-EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
-EN=\pard\cf1\fs24 Please choose what you would like to do\par
-EN=}
-
-[QUESTION]
 Field=MENU_DICT.LOGIN
 Condition=USERID < 90
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
@@ -85,18 +77,6 @@ EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fchars
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 Please enter the ID number for \b %UNAME%\b0\par
-EN=}
-
-[HELP]
-Field=MENU_DICT.INTERVIEWER_MENU
-EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
-EN={\colortbl ;\red0\green0\blue0;}
-EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
-EN=\pard\cf1\fs24 Fill Questionnaire - Fill out a new questionnaire or review previous questionnaires. A control sheet \b must \b0 be done for a household before a questionnaire can be filled out.\par
-EN=Fill Control Sheet - Fill out a new Control Sheet or review previous listings. A control sheet \b must \b0 be done for a household before a questionnaire can be filled out.\par
-EN=View Enumeration Report - View a summary of the questionnaires done so far for ED \b %ME_ED%\b0\par
-EN=Upload Data - Upload all questionnaires and listings. Also updates the app\par
-EN=Back - Go back to the Login menu.\par
 EN=}
 
 [HELP]

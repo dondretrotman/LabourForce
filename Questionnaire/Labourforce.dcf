@@ -2510,16 +2510,17 @@ Len=2
 Label=41a. Hours actually worked
 Name=HRSWRKD_VS1
 Link=127005640
-Value=1;Under 5
-Value=2;5 - 9
-Value=3;10 - 14
-Value=4;15 - 19
-Value=5;20 - 24
-Value=6;25 - 29
-Value=7;30 - 34
-Value=8;35 - 39
-Value=9;40 - 44
-Value=10;45+
+Value=1;None
+Value=2;Under 5
+Value=3;5 - 9
+Value=4;10 - 14
+Value=5;15 - 19
+Value=6;20 - 24
+Value=7;25 - 29
+Value=8;30 - 34
+Value=9;35 - 39
+Value=10;40 - 44
+Value=11;45+
 Value=99;Not stated
 
 [Item]
