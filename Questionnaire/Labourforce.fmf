@@ -2198,6 +2198,7 @@ Text=36a. Main employment status
 Name=EMPLSTAT_OTHER
 Position=280,0,701,20
 Item=EMPLSTAT_OTHER,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -2237,6 +2238,7 @@ Text=36b. Secondary Employment Status
 Name=EMPL2STAT_OTHER
 Position=280,0,701,20
 Item=EMPL2STAT_OTHER,LABOURFORCE_DICT
+UpperCase=Yes
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
