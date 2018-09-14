@@ -6,9 +6,10 @@ TODO: 	*Done* add enumerator reports
 		*Done* add login
 		*DONE* Need to add ENUMERATIONREPORT_DICT pen files to update functions
 		*DONE* enumeration report: latest report overwrites last record
-		Add function that transfers Control Sheet to tablet through USB
+		*DONE* Add function that transfers Control Sheet to tablet through USB
 			Upload control sheets option
 			download control sheets option in enumerator menu
+		DEBUG: Data download  for supervisors is not working
 }
 
 PROC GLOBAL
@@ -22,7 +23,8 @@ string 	rnd_ed,		//round and ED number to be downloaded
 
 numeric deleteflag,		//stores flag for case deletion
 		errflag,		//sets error flag
-		parish;			//parish
+		parish,			//parish
+		version;		//version number
 
 //----------------------------------Array Declaration-------------------------------------
 array string	vsCode(99);		//valueset codes
@@ -175,7 +177,7 @@ end;
 function uploadData()
 	errflag = 0;		//clears  flag
 	if syncconnect(FTP,"64.119.198.70","Census","Census2020ADM!N") then		//connect to FTP when outside of the Government WAN
-		if not syncdata(PUT,LABOURFORCE_DICT) then		//Upload Lacourforce data
+		if not syncdata(PUT,LABOURFORCE_DICT) then		//Upload Labourforce data
 			inc(errflag);
 		endif;
 		if not syncdata(PUT,LISTING_DICT) then		//Upload Control Sheet
@@ -493,8 +495,14 @@ end;
 
 PROC MENU_FF
 
+PROC MENU_QUEST
+{preproc
+trace(on);
+set trace;
+}
 PROC UNAME
 preproc
+	version = publishdate();
 	//if already logged in then just login, if not, continue logging in
 	if readloginstatus() = 1 then
 		advance to LOGIN;
@@ -543,12 +551,20 @@ postproc
 	elseif $ = 2 then 	//supervisor
 		skip to SUPERVISOR_MENU;
 	elseif $ = 3 then		//update only
-		updateApp();
+		if connection() then
+			updateApp();
+		else
+			errmsg("Please connect to the internet before updating the app");
+		endif;
 		reenter;
 	elseif $ = 4 then		//change ED
 		move to ME_ED;	
 	elseif $ = 5 then		//upload data
-		uploadData();	
+		if connection() then
+			uploadData();	
+		else
+			errmsg("Please connect to the internet before uploading data");
+		endif;
 	elseif $ = 9 then
 		UNAME = "";
 		USERID = notappl;
@@ -576,13 +592,25 @@ postproc
 	elseif $ = 3 then		//enumeration report
 		enumerationRpt();
 	elseif $ = 4 then		//upload control sheets only
-		uploadcontrolsheets();
+		if connection() then
+			uploadcontrolsheets();
+		else
+			errmsg("Please connect to the internet before uploading control sheets");
+		endif;
 	elseif $ = 5 then		//download control sheets
-		skip to CHOOSE_ROUND;
+		if connection() then
+			skip to CHOOSE_ROUND;
+		else
+			errmsg("Please connect to the internet before downloading control sheets");
+		endif;
 	elseif $ = 6 then
 		skip to CHOOSE_CONTROL_SHEET;
 	elseif $ = 7 then		//upload data
-		uploadData();
+		if connection() then
+			uploadData();	
+		else
+			errmsg("Please connect to the internet before uploading data");
+		endif;
 	elseif $ = 9 then		//logout
 		move to LOGIN;
 	endif;
@@ -600,7 +628,11 @@ onfocus
 	
 postproc
 	if $ = 1 then		//download data
-		skip to CHOOSE_ROUND;
+		if connection() then
+			skip to CHOOSE_ROUND;
+		else
+			errmsg("Please connect to the internet before downloading data");
+		endif;
 	elseif $ = 2 then		//open control sheet
 		skip to CHOOSE_CONTROL_SHEET;
 	elseif $ = 3 then		//open questionnaire
@@ -621,6 +653,7 @@ PROC CHOOSE_ROUND
 Postproc
 	if SUPERVISOR_MENU = 1 then		//if downloading questionnaires as Supervisor
 		rnd_ed = maketext("%v%v", CHOOSE_ROUND,ME_ED);
+		//errmsg("%S",maketext("%v%v", CHOOSE_ROUND,ME_ED));
 		downloadData(rnd_ed);		//download questionnaires etc
 		move to SUPERVISOR_MENU;
 	elseif INTERVIEWER_MENU = 5 then		//if downloading control sheets as enumerator

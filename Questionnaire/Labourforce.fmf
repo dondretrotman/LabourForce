@@ -209,6 +209,7 @@ Text=Rotation Order
 Name=DATE
 Position=205,232,318,252
 Item=DATE,LABOURFORCE_DICT
+Protected=Yes
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
 DataCaptureType=Date
@@ -650,25 +651,6 @@ Text=Earner
 [EndColumn]
   
 [Column]
-Width=94
-  
-[HeaderText]
-Position=0,32,94,72
-Text=Form 2 completed by
- 
-[Field]
-Name=LCOMPLETED
-Position=57,0,86,20
-Item=LCOMPLETED,LABOURFORCE_DICT
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-  
-[Text]
-Text=Form 2 completed by
- 
-[EndColumn]
-  
-[Column]
 Width=90
   
 [HeaderText]
@@ -769,6 +751,27 @@ Text=10
   
 [Column]
 Width=10
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=10,0,104,40
+Text=Form 2 completed by
+ 
+[Field]
+Name=LCOMPLETED
+Position=672,0,701,20
+Item=LCOMPLETED,LABOURFORCE_DICT
+UpperCase=Yes
+FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
+  
+[Text]
+Position=0,0,136,16
+Text=Form 2 completed by
+ 
 [EndColumn]
   
 [Column]

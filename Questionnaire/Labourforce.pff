@@ -4,7 +4,7 @@ AppType=Entry
 Description=Continuous Labourforce Sample Survey
 
 [DataEntryInit]
-OperatorID=RMAYERS
+OperatorID=WDAVIS
 StartMode=Add; 13082033  1
 ShowInApplicationListing=Hidden
 AutoAdd=NO
@@ -27,7 +27,7 @@ Parameter=onexit = ../Menu/Menu.pff
 ADDRESS=gotham
 BLDGNO=1
 EDNO=308
-ENMRTR=5
+ENMRTR=94
 HHNO=1
 PARNO=203
 RNDNO=1

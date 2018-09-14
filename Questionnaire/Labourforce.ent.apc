@@ -22,6 +22,7 @@ numeric i,				//general variable
 		headindex,		//index of head
 		cases,			//number of cases in ENUMERATIONREPORT
 		bldgno,			//Building number
+		vsindex,		//valueset index
 		;
 		
 string 	caselabel,		//stores the label for the current case
@@ -31,6 +32,9 @@ string 	caselabel,		//stores the label for the current case
 		idno,			//case id to be loaded
 		promptremarks	//stores remarks for report
 		;
+		
+array string 	vsLabels(99);		//Stores valueset labels
+array numeric 	vsNumCodes(99);		//stores valueset codes
 		
 //-----------------------------Function Declarations--------------------------------------------
 //Checks that date is valid. Returns 1 if valid. Returns 0 if invalid
@@ -92,13 +96,14 @@ function getgps()
 		endif;
 	else
 		errmsg("Gps location failed, Please try again");
-		LATITUDE = notappl;
-		LONGITUDE = notappl;
+		LATITUDE = 0;
+		LONGITUDE = 0;
 	endif;
 	gps(close);
 	
 end;
 
+//Show menu after exiting
 function OnStop()
 	execpff("../Menu/Menu.pff", stop);
 end;
@@ -331,8 +336,28 @@ onfocus
 	endif;
 	
 //-------------------------------------------------------------------
-PROC DATE
+PROC ROTATION
 postproc
+	//set interview date
+	if DATE = notappl then
+		DATE = sysdate("YYYYMMDD");
+	endif;
+
+	//if latitude or longitude are invalid, prompt to updatefield. If valid, ask if to leave coordinates or to update
+	if visualvalue(LATITUDE) in {15:90,0:12,}notappl,default or visualvalue(LONGITUDE) in {-58:180,-180:-61,}notappl,default then
+		errmsg("No coordinates recorded.")
+		select("Get new coordinates",continue,"Get coordinates later",VACANT);
+		getgps();
+	else
+		errmsg("Current coordinates are %f,%f.",visualvalue(LATITUDE),visualvalue(LONGITUDE))
+		select("Keep coordinates",VACANT,"Get new coordinates",continue);
+		getgps();
+	endif;
+	
+//------------------------------------------------------------------------------
+PROC DATE
+{postproc
+//TODO: make this field protected
 //	locate(LISTING_DICT,=,maketext("%V%V%V%V%03d%V",RNDNO,EDNO,PARNO,STRATUM,bldgno,HHNO)) and loadcase(LISTING_DICT);
 	idno = maketext("%V%V%V%V%3d%V",RNDNO,EDNO,PARNO,STRATUM,bldgno,HHNO);
 	loadcase(LISTING_DICT,idno);
@@ -352,9 +377,18 @@ postproc
 		select("Keep coordinates",VACANT,"Get new coordinates",continue);
 		getgps();
 	endif;
+}
 //------------------------------------------------------------------------------
 PROC VACANT
-
+onfocus
+	idno = maketext("%V%V%V%V%3d%V",RNDNO,EDNO,PARNO,STRATUM,bldgno,HHNO);
+	loadcase(LISTING_DICT,idno);
+	if LSTSTDATE = notappl then
+		LSTSTDATE = DATE;
+	endif;
+	writecase(LISTING_DICT);
+	
+Postproc
 	//set case labels for vacant houses
 	if $ = 1 then		//if vacant
 		caselabel = maketext("VACANT-%02d-%03d-%03d-%d-%03d",RNDNO,EDNO,PARNO,STRATUM,HHNO);
@@ -501,6 +535,19 @@ postproc
 	endif;
 	
 //-----------------------------------------------------
+PROC LCOMPLETED
+onfocus
+	vsIndex = 1;		//initialise index
+	do i = 1 while i <= totocc(LABOURFORCE_REC001) //and LRTH(i) <> notappl
+		vsLabels(vsIndex) = maketext("%2d: %s, %s (%s)",LIDNO(i), strip(LLAST_NAME(i)), strip(LFIRST_NAME(i)), getlabel(LRTH_VS1,LRTH(i)));
+		vsNumCodes(vsIndex) = i;
+		inc(vsIndex);
+	enddo;
+	
+	vsNumCodes(vsIndex) = notappl;
+	setvalueset($, vsNumCodes, vsLabels);
+
+//--------------------------------------------
 PROC INTRVW
 preproc
 	//Set occurence label to person's name
