@@ -28,15 +28,13 @@ Item=LSTSAMPLE
 Name=FORM001
 Label=Listing record
 Level=1
-Size=1117,300
+Size=1028,312
   
 Item=LSTNO
 Item=LSTENUMCODE
 Item=LSTLNAME
 Item=LSTFNAME
 Item=LSTADDRESS
-Item=LSTSTDATE
-Item=LSTFNDATE
 Item=LSTTELEPHONE
 Item=LSTREMARKS
   
@@ -212,36 +210,6 @@ Form=2
 [Text]
 Position=50,150,100,166
 Text=Address
- 
-  
-[Field]
-Name=LSTSTDATE
-Position=193,177,306,197
-Item=LSTSTDATE,LISTING_DICT
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-DataCaptureType=Date
-CaptureDateFormat=YYYYMMDD
-Form=2
-  
-[Text]
-Position=50,180,113,196
-Text=Start Date
- 
-  
-[Field]
-Name=LSTFNDATE
-Position=193,207,306,227
-Item=LSTFNDATE,LISTING_DICT
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-DataCaptureType=Date
-CaptureDateFormat=YYYYMMDD
-Form=2
-  
-[Text]
-Position=50,210,121,226
-Text=Finish Date
  
   
 [Field]

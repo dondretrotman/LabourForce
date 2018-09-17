@@ -105,7 +105,8 @@ end;
 
 //Show menu after exiting
 function OnStop()
-	execpff("../Menu/Menu.pff", stop);
+	savepartial();		//save last position
+	execpff("../Menu/Menu.pff", stop);		//open the menu
 end;
 
 {//Function to take a photo using the device's camera. It saves to a filename matching the ID items

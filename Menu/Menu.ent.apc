@@ -493,6 +493,10 @@ function enumerationRpt()
 	
 end;
 
+function OnStop()
+	stop(1);
+end;
+
 PROC MENU_FF
 
 PROC MENU_QUEST
@@ -565,6 +569,7 @@ postproc
 		else
 			errmsg("Please connect to the internet before uploading data");
 		endif;
+		reenter;
 	elseif $ = 9 then
 		UNAME = "";
 		USERID = notappl;
@@ -589,19 +594,23 @@ postproc
 		skip to CHOOSE_HOUSEHOLD;
 	elseif $ = 2 then		//fill control sheets
 		LaunchControlSheet();
+		reenter;
 	elseif $ = 3 then		//enumeration report
 		enumerationRpt();
+		reenter;
 	elseif $ = 4 then		//upload control sheets only
 		if connection() then
 			uploadcontrolsheets();
 		else
 			errmsg("Please connect to the internet before uploading control sheets");
 		endif;
+		reenter;
 	elseif $ = 5 then		//download control sheets
 		if connection() then
 			skip to CHOOSE_ROUND;
 		else
 			errmsg("Please connect to the internet before downloading control sheets");
+			reenter;
 		endif;
 	elseif $ = 6 then
 		skip to CHOOSE_CONTROL_SHEET;
@@ -611,7 +620,8 @@ postproc
 		else
 			errmsg("Please connect to the internet before uploading data");
 		endif;
-	elseif $ = 9 then		//logout
+		reenter;
+	elseif $ = 9 then		//back
 		move to LOGIN;
 	endif;
 reenter;		//don't leave the menu
@@ -632,6 +642,7 @@ postproc
 			skip to CHOOSE_ROUND;
 		else
 			errmsg("Please connect to the internet before downloading data");
+			reenter;
 		endif;
 	elseif $ = 2 then		//open control sheet
 		skip to CHOOSE_CONTROL_SHEET;
@@ -641,9 +652,10 @@ postproc
 		skip to CHOOSE_QUESTIONNAIRE;
 	elseif $ = 5 then		//view Enumerator report
 		enumerationRpt();
+		reenter;
 	elseif $ = 6 then		//view summary report
 		//TODO
-	elseif $ = 9 then		//logout
+	elseif $ = 9 then		//back
 		move to LOGIN;
 	endif;
 reenter;		//don't leave the menu

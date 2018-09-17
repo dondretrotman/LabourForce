@@ -89,18 +89,6 @@ preproc
 	noinput;
 	
 //--------------------------------------------------------
-PROC LSTSTDATE
-onfocus
-	set behavior($) canenter(notappl) on (noconfirm);
-	noinput;
-
-//-----------------------------------------------------------
-PROC LSTFNDATE
-onfocus
-	set behavior($) canenter(notappl) on (noconfirm);
-	noinput;
-
-//-----------------------------------------------------------
 PROC LSTTELEPHONE
 
 onfocus
@@ -122,3 +110,15 @@ postproc
 	setcaselabel(LISTING_DICT, maketext("%V-%V-%V: %s (%s)",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS)));
 
 //-----------------------------------------------------------
+{PROC LSTSTDATE
+onfocus
+	set behavior($) canenter(notappl) on (noconfirm);
+	noinput;
+
+//-----------------------------------------------------------
+PROC LSTFNDATE
+onfocus
+	set behavior($) canenter(notappl) on (noconfirm);
+	noinput;
+
+//-----------------------------------------------------------}
