@@ -4,7 +4,7 @@ AppType=Entry
 Description=CLFSS Control Sheet
 
 [DataEntryInit]
-OperatorID=RMAYERS
+OperatorID=WDAVIS
 StartMode=Add
 ShowInApplicationListing=Hidden
 Interactive=Ask
@@ -21,6 +21,6 @@ PFFFILE=
 [Parameters]
 Parameter=onexit = ../Menu/Menu.pff
 LSTED=308
-LSTENUMCODE=5
+LSTENUMCODE=94
 MODE=DEFAULT
 
