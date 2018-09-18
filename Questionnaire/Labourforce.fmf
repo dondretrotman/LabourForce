@@ -212,8 +212,6 @@ Item=DATE,LABOURFORCE_DICT
 Protected=Yes
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
-DataCaptureType=Date
-CaptureDateFormat=YYYYMMDD
 Form=2
   
 [Text]
@@ -1305,27 +1303,6 @@ Text=12. Training for Occupation
 [EndColumn]
   
 [Column]
-Width=40
-  
-[HeaderText]
-Position=1,0,104,40
-Text=12. Training for Occupation
- 
-[Field]
-Name=OCCUPTR
-Position=644,0,701,20
-Item=OCCUPTR,LABOURFORCE_DICT
-HideInCaseTree=Yes
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-  
-[Text]
-Position=0,0,174,16
-Text=12. Training for Occupation
- 
-[EndColumn]
-  
-[Column]
 Width=56
   
 [HeaderText]
@@ -1382,27 +1359,6 @@ FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
 [Text]
-Text=15. Occupation trained
- 
-[EndColumn]
-  
-[Column]
-Width=40
-  
-[HeaderText]
-Position=2,0,104,40
-Text=15. Occupation trained
- 
-[Field]
-Name=OCCTRAINED
-Position=644,0,701,20
-Item=OCCTRAINED,LABOURFORCE_DICT
-HideInCaseTree=Yes
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-  
-[Text]
-Position=0,0,145,16
 Text=15. Occupation trained
  
 [EndColumn]
@@ -1892,27 +1848,6 @@ Text=31. Last Occupation
 Width=40
   
 [HeaderText]
-Position=24,0,104,40
-Text=31. Last Occupation
- 
-[Field]
-Name=LSTOCCUP
-Position=644,0,701,20
-Item=LSTOCCUP,LABOURFORCE_DICT
-HideInCaseTree=Yes
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-  
-[Text]
-Position=0,0,128,16
-Text=31. Last Occupation
- 
-[EndColumn]
-  
-[Column]
-Width=40
-  
-[HeaderText]
 Position=36,0,104,40
 Text=32a. Last Industry
  
@@ -1926,27 +1861,6 @@ UseUnicodeTextBox=Yes
   
 [Text]
 Text=32a. Last Industry
- 
-[EndColumn]
-  
-[Column]
-Width=40
-  
-[HeaderText]
-Position=36,0,104,40
-Text=32a. Last industry
- 
-[Field]
-Name=LSTINDUS
-Position=644,0,701,20
-Item=LSTINDUS,LABOURFORCE_DICT
-HideInCaseTree=Yes
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-  
-[Text]
-Position=0,0,117,16
-Text=32a. Last industry
  
 [EndColumn]
   
@@ -2274,27 +2188,6 @@ Text=37. Main occupation
 Width=40
   
 [HeaderText]
-Position=26,0,104,40
-Text=37. Main occupation
- 
-[Field]
-Name=OCCUP
-Position=644,0,701,20
-Item=OCCUP,LABOURFORCE_DICT
-HideInCaseTree=Yes
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-  
-[Text]
-Position=0,0,130,16
-Text=37. Main occupation
- 
-[EndColumn]
-  
-[Column]
-Width=40
-  
-[HeaderText]
 Position=22,0,104,40
 Text=37. Second occupation
  
@@ -2307,27 +2200,6 @@ FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
 [Text]
-Text=37. Second occupation
- 
-[EndColumn]
-  
-[Column]
-Width=40
-  
-[HeaderText]
-Position=22,0,104,40
-Text=37. Second occupation
- 
-[Field]
-Name=SOCCUP
-Position=644,0,701,20
-Item=SOCCUP,LABOURFORCE_DICT
-HideInCaseTree=Yes
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-  
-[Text]
-Position=0,0,146,16
 Text=37. Second occupation
  
 [EndColumn]
@@ -2356,27 +2228,6 @@ Text=38. Main industry
 Width=40
   
 [HeaderText]
-Position=39,0,104,40
-Text=38. Main industry
- 
-[Field]
-Name=INDUS
-Position=644,0,701,20
-Item=INDUS,LABOURFORCE_DICT
-HideInCaseTree=Yes
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-  
-[Text]
-Position=0,0,113,16
-Text=38. Main industry
- 
-[EndColumn]
-  
-[Column]
-Width=40
-  
-[HeaderText]
 Position=22,0,104,40
 Text=38. Second industry
  
@@ -2389,27 +2240,6 @@ FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
 [Text]
-Text=38. Second industry
- 
-[EndColumn]
-  
-[Column]
-Width=40
-  
-[HeaderText]
-Position=22,0,104,40
-Text=38. Second industry
- 
-[Field]
-Name=SINDUS
-Position=644,0,701,20
-Item=SINDUS,LABOURFORCE_DICT
-HideInCaseTree=Yes
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-  
-[Text]
-Position=0,0,129,16
 Text=38. Second industry
  
 [EndColumn]
@@ -2738,27 +2568,6 @@ Text=47. Occupation wanted
 Width=40
   
 [HeaderText]
-Position=2,0,104,40
-Text=47. Occupation wanted
- 
-[Field]
-Name=FOCCUP
-Position=644,0,701,20
-Item=FOCCUP,LABOURFORCE_DICT
-HideInCaseTree=Yes
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-  
-[Text]
-Position=0,0,146,16
-Text=47. Occupation wanted
- 
-[EndColumn]
-  
-[Column]
-Width=40
-  
-[HeaderText]
 Position=20,0,104,40
 Text=48. Industry wanted
  
@@ -2771,27 +2580,6 @@ FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
 [Text]
-Text=48. Industry wanted
- 
-[EndColumn]
-  
-[Column]
-Width=40
-  
-[HeaderText]
-Position=20,0,104,40
-Text=48. Industry wanted
- 
-[Field]
-Name=INCINDUS
-Position=644,0,701,20
-Item=INCINDUS,LABOURFORCE_DICT
-HideInCaseTree=Yes
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-  
-[Text]
-Position=0,0,127,16
 Text=48. Industry wanted
  
 [EndColumn]
@@ -2832,27 +2620,6 @@ FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
 [Text]
-Text=50. Last occupation
- 
-[EndColumn]
-  
-[Column]
-Width=40
-  
-[HeaderText]
-Position=26,0,104,40
-Text=50. Last occupation
- 
-[Field]
-Name=INCOCCUP
-Position=644,0,701,20
-Item=INCOCCUP,LABOURFORCE_DICT
-HideInCaseTree=Yes
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-  
-[Text]
-Position=0,0,126,16
 Text=50. Last occupation
  
 [EndColumn]

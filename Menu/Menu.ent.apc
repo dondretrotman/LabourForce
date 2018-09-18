@@ -9,28 +9,38 @@ TODO: 	*Done* add enumerator reports
 		*DONE* Add function that transfers Control Sheet to tablet through USB
 			Upload control sheets option
 			download control sheets option in enumerator menu
-		DEBUG: Data download  for supervisors is not working
+		*FIXED*: Data download  for supervisors is not working
 }
 
 PROC GLOBAL
 //--------------------------------Variable Declaration------------------------------------
 file 	pffFile,		//Creates a .pff file
-		loginfile;		//saves login status in a file
+		loginfile,		//saves login status in a file
+		;
 
 string 	rnd_ed,		//round and ED number to be downloaded
 		status,		//stores current login status
-		username;		//stores user name
+		username,		//stores user name
+		ftpip1,		//Stores ftp address
+		ftpip2,		//stores ftp secondary address
+		ftpun, 		//stores ftp username
+		ftppw,		//stores ftp password
+		;
 
 numeric deleteflag,		//stores flag for case deletion
 		errflag,		//sets error flag
 		parish,			//parish
-		version;		//version number
+		version,		//version number
+		;
 
 //----------------------------------Array Declaration-------------------------------------
 array string	vsCode(99);		//valueset codes
 array string 	vsLabel(99);	//valueset labels
 array string 	address(99,3);	//stores addresses
 array string	REPORTARRAY(50,10);	//stores enumerator report data (50 = number of records, 10 = number of fields (ERFEILD_OFFICER, ERSERIAL_NO,ERUNIT_NO,WEEK_ENDING,ERLAST-NAME, ERFIRST_NAME, ERADDRESS, ERSTART, EREND,ERREMARKS))
+
+//--------------------------------Initialize Variables------------------------------------
+
 
 //--------------------------------Function declaration------------------------------------
 //Launches the Control sheet
@@ -176,7 +186,7 @@ end;
 //Uploads all data
 function uploadData()
 	errflag = 0;		//clears  flag
-	if syncconnect(FTP,"64.119.198.70","Census","Census2020ADM!N") then		//connect to FTP when outside of the Government WAN
+	if syncconnect(FTP,ftpip1,ftpun,ftppw) then		//connect to FTP when outside of the Government WAN
 		if not syncdata(PUT,LABOURFORCE_DICT) then		//Upload Labourforce data
 			inc(errflag);
 		endif;
@@ -207,7 +217,7 @@ function uploadData()
 		endif;
 		syncdisconnect();		//disconnect
 
-	elseif syncconnect(FTP,"10.129.20.110","Census","Census2020ADM!N") then		//connect to FTP when within the Government WAN
+	elseif syncconnect(FTP,ftpip2,ftpun,ftppw) then		//connect to FTP when within the Government WAN
 		if not syncdata(PUT,LABOURFORCE_DICT) then		//Upload Lacourforce data
 			inc(errflag);
 		endif;
@@ -252,7 +262,7 @@ end;
 //update app only
 function updateApp()
 	errflag = 0;
-	if syncconnect(FTP,"64.119.198.70","Census","Census2020ADM!N") then		//connect to FTP when outside of the Government WAN
+	if syncconnect(FTP,ftpip1,ftpun,ftppw) then		//connect to FTP when outside of the Government WAN
 		if not syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen") then		//update questionnaire
 			inc(errflag);
 		endif;
@@ -269,7 +279,7 @@ function updateApp()
 			inc(errflag);
 		endif;
 		syncdisconnect();		//disconnect
-	elseif syncconnect(FTP,"10.129.20.110","Census","Census2020ADM!N") then		//connect to FTP when within the Government WAN
+	elseif syncconnect(FTP,ftpip2,ftpun,ftppw) then		//connect to FTP when within the Government WAN
 		if not syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen") then		//update questionnaire
 			inc(errflag);
 		endif;
@@ -303,7 +313,7 @@ function downloadData(string rnd_edno)
 	errflag = 0;
 	errmsg("Attempting to download all data from Round :%s, ED :%s",rnd_edno[1:2],rnd_edno[3:3]);
 	//errmsg("Data dictionary value Round :%V, ED :%V", RNDNO,EDNO);
-	if syncconnect(FTP,"64.119.198.70","Census","Census2020ADM!N") then		//connect to FTP when outside of the government WAN
+	if syncconnect(FTP,ftpip1,ftpun,ftppw) then		//connect to FTP when outside of the government WAN
 		if not syncdata(GET,LABOURFORCE_DICT,rnd_edno) then		//get labourforce data for round and ED
 			inc(errflag);
 		endif;
@@ -331,7 +341,7 @@ function downloadData(string rnd_edno)
 		endif;
 		syncdisconnect();		//disconnect
 		errmsg("Download of round %s, ED %s was successful",rnd_edno[1:2],rnd_edno[3:3]);
-	elseif syncconnect(FTP,"10.129.20.110","Census","Census2020ADM!N") then		//connect to FTP when outside of the government WAN
+	elseif syncconnect(FTP,ftpip2,ftpun,ftppw) then		//connect to FTP when outside of the government WAN
 		if not syncdata(GET,LABOURFORCE_DICT,rnd_edno) then		//get labourforce data for round and ED
 			inc(errflag);
 		endif;
@@ -372,12 +382,12 @@ end;
 
 //function to upload control sheets from the computer to the server for use by the tablets
 function uploadcontrolsheets()
-	if syncconnect(FTP,"64.119.198.70","Census","Census2020ADM!N") then		//connect to FTP when within the Government WAN
+	if syncconnect(FTP,ftpip2,ftpun,ftppw) then		//connect to FTP when within the Government WAN
 		if not syncdata(PUT,LISTING_DICT) then		//Upload Control Sheet
 			inc(errflag);
 		endif;
 		syncdisconnect();		//disconnect
-	elseif syncconnect(FTP,"10.129.20.110","Census","Census2020ADM!N") then		//connect to FTP when within the Government WAN
+	elseif syncconnect(FTP,ftpip1,ftpun,ftppw) then		//connect to FTP when within the Government WAN
 		if not syncdata(PUT,LISTING_DICT) then		//Upload Control Sheet
 			inc(errflag);
 		endif;
@@ -394,8 +404,13 @@ end;
 
 //function to download control sheets from the server to the tablets
 function downloadcontrolsheets(string rnd_edno)
-	if syncconnect(FTP,"10.129.20.110","Census","Census2020ADM!N") then		//connect to FTP when within the Government WAN
+	if syncconnect(FTP,ftpip2,ftpun,ftppw) then		//connect to FTP when within the Government WAN
 		if not syncdata(GET,LISTING_DICT,rnd_edno) then		//download Control Sheet
+			inc(errflag);
+		endif;
+		syncdisconnect();		//disconnect
+	elseif syncconnect(FTP,ftpip1,ftpun,ftppw) then		//connect to FTP when within the Government WAN
+		if not syncdata(GET,LISTING_DICT) then		//Upload Control Sheet
 			inc(errflag);
 		endif;
 		syncdisconnect();		//disconnect
@@ -500,13 +515,17 @@ end;
 PROC MENU_FF
 
 PROC MENU_QUEST
-{preproc
-trace(on);
-set trace;
-}
+preproc
+	//Initialize ftp variables
+	ftpip1 = "64.119.198.70";
+	ftpip2 = "10.129.20.110";
+	ftpun = "Census";
+	ftppw = "Census2020ADM!N";
+
+//--------------------------------------------------------------
 PROC UNAME
 preproc
-	version = publishdate();
+	version = publishdate();		//sets version number
 	//if already logged in then just login, if not, continue logging in
 	if readloginstatus() = 1 then
 		advance to LOGIN;
@@ -537,7 +556,7 @@ postproc
 	setoperatorid(UNAME);
 	
 	
-	
+//--------------------------------------------------------------------
 PROC LOGIN
 onfocus
 	$ = notappl;

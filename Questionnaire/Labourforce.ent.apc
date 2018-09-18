@@ -143,6 +143,7 @@ onfocus
 	endif;
 
 	
+
 PROC LABOURFORCE_FF
 preproc
 //---------------------------Declare Variables-----------------------------------
@@ -713,13 +714,7 @@ PROC CTRAINING
 	endif;
 	
 //---------------------------------------------------------------------------
-PROC OCCUPTR
 
-preproc
-	$ = 0;
-	noinput;
-	
-//-------------------------------------------------------
 PROC TRAINEDFOROCC
 
 	//if never trained, skip to Worked last week
@@ -728,13 +723,7 @@ PROC TRAINEDFOROCC
 	endif;
 	
 //---------------------------------------------------------------------------
-PROC OCCTRAINED
 
-preproc
-	$ = 0;
-	noinput;
-	
-//----------------------------------------------------------
 PROC WORKED
 
 	//if worked, skip to full time or part time
@@ -827,32 +816,14 @@ PROC EVERWKD
 	endif;
 	
 //--------------------------------------------------------------------
-PROC LSTWRKD
 
-	//skip to last occupation
-	skip to LSTOCCUP;
-
-//-----------------------------------------------------------
 PROC LSTWRKD_OTHER
 preproc
 	//only ask if other is selected
 	ask if LSTWRKD = 5;
 	
 //-----------------------------------------------------
-PROC LSTOCCUP
 
-preproc
-	$ = 0;
-	noinput;
-	
-//----------------------------------------------------------
-PROC LSTINDUS
-
-preproc
-	$ = 0;
-	noinput;
-	
-//----------------------------------------------------------
 PROC U2EARNGS
 postproc
 	//end of Unemployed section
@@ -906,13 +877,7 @@ preproc
 	ask if EMPL2STAT = 7;
 	
 //-----------------------------------------------------
-PROC OCCUP
 
-preproc
-	$ = 0;
-	noinput;
-
-//-----------------------------------------
 PROC SOCCUP_TEXT
 
 preproc
@@ -920,20 +885,6 @@ preproc
 	ask if TWOJOBS = 1
 	
 //--------------------------------------------------------
-PROC SOCCUP
-
-preproc
-	$ = 0;
-	noinput;
-
-//----------------------------------------------------------
-PROC INDUS
-
-preproc
-	$ = 0;
-	noinput;
-	
-//----------------------------------------------------------
 PROC SINDUS_TEXT
 
 preproc
@@ -941,13 +892,6 @@ preproc
 	ask if TWOJOBS = 1
 	
 //--------------------------------------------------------
-PROC SINDUS
-
-preproc
-	$ = 0;
-	noinput;
-
-//-----------------------------------------
 PROC EXPRNCE2
 
 preproc
@@ -1007,20 +951,6 @@ PROC HPWORK
 	endif;
 	
 //-----------------------------------------------------------
-PROC FOCCUP
-
-preproc
-	$ = 0;
-	noinput;
-
-//-----------------------------------------
-PROC INCINDUS
-
-preproc
-	$ = 0;
-	noinput;
-
-//-----------------------------------------
 PROC WORKBEFO
 
 	//if never worked before, skip to main sources of livelihood
@@ -1029,10 +959,3 @@ PROC WORKBEFO
 	endif;
 	
 //---------------------------------------------------------------------
-PROC INCOCCUP
-
-preproc
-	$ = 0;
-	noinput;
-
-//-----------------------------------------
