@@ -68,7 +68,7 @@ function LaunchControlSheet()
 	filewrite(pffFile,"PFFFILE=%s","");
 
 	filewrite(pffFile,"[Parameters]");
-	filewrite(pffFile,"Parameter=%s","onexit = ../Menu/Menu.pff");
+	filewrite(pffFile,"Parameter=%s","onexit=../Menu/Menu.pff");
 	filewrite(pffFile,"MODE=DEFAULT");
 	filewrite(pffFile,"LSTENUMCODE=%s",maketext("%v",visualvalue(USERID)));
 	filewrite(pffFile,"LSTED=%s",maketext("%v",ME_ED));
@@ -103,7 +103,7 @@ function launchSupervisorControlSheet()
 	filewrite(pffFile,"PFFFILE=%s","");
 
 	filewrite(pffFile,"[Parameters]");
-	filewrite(pffFile,"Parameter=%s","onexit = ../Menu/Menu.pff");
+	filewrite(pffFile,"Parameter=%s","onexit=../Menu/Menu.pff");
 	
 	filewrite(pffFile,"MODE=EDIT");
 	filewrite(pffFile,"LSTROUND=%s",CHOOSE_CONTROL_SHEET[1:2]);
@@ -165,7 +165,7 @@ function LaunchQuestionnaire()
 	filewrite(pffFile,"PFFFILE=%s","");
 
 	filewrite(pffFile,"[Parameters]");
-	filewrite(pffFile,"Parameter=%s","onexit = ../Menu/Menu.pff");
+	filewrite(pffFile,"Parameter=%s","onexit=../Menu/Menu.pff");
 	
 	filewrite(pffFile,"RNDNO=%s",CHOOSE_HOUSEHOLD[1:2]);
 	filewrite(pffFile,"EDNO=%s",CHOOSE_HOUSEHOLD[3:3]);

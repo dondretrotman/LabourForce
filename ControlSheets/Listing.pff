@@ -2,25 +2,22 @@
 Version=CSPro 7.1
 AppType=Entry
 Description=CLFSS Control Sheet
-
 [DataEntryInit]
-OperatorID=WDAVIS
-StartMode=Add
+OperatorID=WDAVIS              
+StartMode=Add; 13082033  5  5
 ShowInApplicationListing=Hidden
-Interactive=Ask
-
 [Files]
-Application=.\Listing.ent
-InputData=..\Data\Controlsheet.csdb|CSPRODB
+Application=./Listing.ent
+InputData=../Data/Controlsheet.csdb|CSPRODB
 Paradata=./Controlsheet.cslog
-
-
 [UserFiles]
 PFFFILE=
-
 [Parameters]
-Parameter=onexit = ../Menu/Menu.pff
+Parameter=onexit=../Menu/Menu.pff
+MODE=EDIT
+LSTROUND= 1
 LSTED=308
-LSTENUMCODE=94
-MODE=DEFAULT
-
+LSTPARISH=203
+LSTSTRATUM=3
+LSTBUILDING=  5
+LSTSAMPLE=  5

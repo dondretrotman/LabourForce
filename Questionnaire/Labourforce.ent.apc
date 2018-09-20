@@ -268,6 +268,8 @@ postproc
 	setcaselabel(LISTING_DICT, maketext("%V-%V-%V: %s (%s)",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS)));
 	writecase(LISTING_DICT);
 	
+	//execpff("../Menu/Menu.pff");		//start menu app as soon as questionnaire exits
+	
 //----------------------------------------------------------------------------
 PROC RNDNO
 preproc
@@ -341,7 +343,7 @@ onfocus
 PROC ROTATION
 postproc
 	//set interview date
-	if DATE = notappl then
+	if visualvalue(DATE) = notappl then
 		DATE = sysdate("YYYYMMDD");
 	endif;
 
@@ -356,30 +358,6 @@ postproc
 		getgps();
 	endif;
 	
-//------------------------------------------------------------------------------
-PROC DATE
-{postproc
-//TODO: make this field protected
-//	locate(LISTING_DICT,=,maketext("%V%V%V%V%03d%V",RNDNO,EDNO,PARNO,STRATUM,bldgno,HHNO)) and loadcase(LISTING_DICT);
-	idno = maketext("%V%V%V%V%3d%V",RNDNO,EDNO,PARNO,STRATUM,bldgno,HHNO);
-	loadcase(LISTING_DICT,idno);
-//		errmsg("Loadingcase:%V%V%V%V%3d%V,loaded case:%s,currentcase:%s",RNDNO,EDNO,PARNO,STRATUM,bldgno,HHNO,getcaselabel(LISTING_DICT),getcaselabel(LABOURFORCE_DICT));
-		if LSTSTDATE = notappl then
-			LSTSTDATE = $;
-		endif;
-		writecase(LISTING_DICT);
-	
-	//if latitude or longitude are invalid, prompt to updatefield. If valid, ask if to leave coordinates or to update
-	if visualvalue(LATITUDE) in {15:90,0:12,}notappl,default or visualvalue(LONGITUDE) in {-58:180,-180:-61,}notappl,default then
-		errmsg("No coordinates recorded.")
-		select("Get new coordinates",continue,"Get coordinates later",VACANT);
-		getgps();
-	else
-		errmsg("Current coordinates are %f,%f.",visualvalue(LATITUDE),visualvalue(LONGITUDE))
-		select("Keep coordinates",VACANT,"Get new coordinates",continue);
-		getgps();
-	endif;
-}
 //------------------------------------------------------------------------------
 PROC VACANT
 onfocus
@@ -513,6 +491,21 @@ onfocus
 	setproperty($,"PROTECTED","Yes");
 	
 //----------------------------------------------------
+PROC LEARNER
+onfocus
+	//person is eligible if over 15 years
+	if LAGE < 15 then
+		$ = 2;
+	endif;
+	
+postproc
+	if LAGE <= 15 and $ = 1 then
+		errmsg("Person %d years old cannot be an earner",LAGE);
+		$ = 2;
+	endif;
+	
+	
+//----------------------------------------------------
 PROC ADDPER
 
 	if $ = 2 then
@@ -538,6 +531,15 @@ postproc
 	
 //-----------------------------------------------------
 PROC LCOMPLETED
+preproc
+	//Set occurence label to person's name
+	setocclabel(LABOURFORCE_REC000(curocc()), strip(LFIRST_NAME));
+
+	//check that person is eligible to be interviewed
+	if LELIGIBLE <> 1 then		//if not eligible
+		skip to next;
+	endif;
+	
 onfocus
 	vsIndex = 1;		//initialise index
 	do i = 1 while i <= totocc(LABOURFORCE_REC001) //and LRTH(i) <> notappl
@@ -551,14 +553,7 @@ onfocus
 
 //--------------------------------------------
 PROC INTRVW
-preproc
-	//Set occurence label to person's name
-	setocclabel(LABOURFORCE_REC000(curocc()), strip(LFIRST_NAME));
 
-	//check that person is eligible to be interviewed
-	if LELIGIBLE <> 1 then		//if not eligible
-		skip to next;
-	endif;
 
 onfocus
 	if $ = notappl then
@@ -746,10 +741,14 @@ preproc
 	ask if REASABS = 7;
 	
 //-----------------------------------------------------
+PROC PAIDABS
+	if $ = 1 then
+		skip to FULLPART;
+	endif;
 PROC TIMEABS
 
 	//if has a job, skip to Full time or part time
-	if WORKED = 1 then
+	if WORKED = 1 or $ = 1 then
 		skip to FULLPART;
 	endif;
 

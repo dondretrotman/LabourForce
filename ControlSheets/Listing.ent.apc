@@ -7,6 +7,9 @@ end;
 PROC LISTING_FF
 
 
+PROC LISTING_QUEST
+postproc
+//	execpff("../Menu/Menu.pff");
 PROC LSTROUND
 preproc
 	if sysparm("MODE") = "EDIT" then				//If 
