@@ -58,6 +58,7 @@ function LaunchControlSheet()
 	filewrite(pffFile,"OperatorID=%s",UNAME);
 	filewrite(pffFile,"StartMode=Add");
 	filewrite(pffFile,"ShowInApplicationListing=Hidden");
+	filewrite(pffFile,"Lock=CaseListing");
 
 	filewrite(pffFile,"[Files]");
 	filewrite(pffFile,"Application=%s","./Listing.ent");
@@ -93,6 +94,7 @@ function launchSupervisorControlSheet()
 	filewrite(pffFile,"OperatorID=%s",UNAME);
 	filewrite(pffFile,"StartMode=Add;%s",CHOOSE_CONTROL_SHEET);
 	filewrite(pffFile,"ShowInApplicationListing=Hidden");
+	filewrite(pffFile,"Lock=CaseListing");
 
 	filewrite(pffFile,"[Files]");
 	filewrite(pffFile,"Application=%s","./Listing.ent");
@@ -151,6 +153,7 @@ function LaunchQuestionnaire()
 	filewrite(pffFile,"StartMode=Add;%s",CHOOSE_HOUSEHOLD);
 	filewrite(pffFile,"ShowInApplicationListing=Hidden");
 	filewrite(pffFile,"AutoAdd=No");
+	filewrite(pffFile,"Lock=CaseListing");
 
 	filewrite(pffFile,"[Files]");
 	filewrite(pffFile,"Application=%s","./Labourforce.ent");
