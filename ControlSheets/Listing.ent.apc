@@ -9,7 +9,11 @@ PROC LISTING_FF
 
 PROC LISTING_QUEST
 postproc
-//	execpff("../Menu/Menu.pff");
+	if getos() = 20 then		//if windows then don't immediately run menu program
+		execpff("../Menu/Menu.pff");
+	endif;
+	
+//------------------------------------------------------------
 PROC LSTROUND
 preproc
 	if sysparm("MODE") = "EDIT" then				//If 

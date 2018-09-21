@@ -254,11 +254,11 @@ function uploadData()
 		inc(errflag,2);
 	endif;
 	if errflag > 1 then
-		errmsg("App upload failed, please try again. %d errors were found",errflag);
+		errmsg("Data upload failed, please try again. %d errors were found",errflag);
 	elseif errflag = 0 then
-		errmsg("App upload was successful");
+		errmsg("Data upload was successful");
 	elseif errflag = 1 then
-		errmsg("App upload was probably successful but there was an error, please restart the app and try again to make sure. If you keep getting this error please contact the IT dept"); 
+		errmsg("Data upload was probably successful but there was an error, please restart the app and try again to make sure. If you keep getting this error please contact the IT dept"); 
 	endif;
 end;
 
@@ -343,7 +343,6 @@ function downloadData(string rnd_edno)
 			inc(errflag);
 		endif;
 		syncdisconnect();		//disconnect
-		errmsg("Download of round %s, ED %s was successful",rnd_edno[1:2],rnd_edno[3:3]);
 	elseif syncconnect(FTP,ftpip2,ftpun,ftppw) then		//connect to FTP when outside of the government WAN
 		if not syncdata(GET,LABOURFORCE_DICT,rnd_edno) then		//get labourforce data for round and ED
 			inc(errflag);
@@ -399,9 +398,9 @@ function uploadcontrolsheets()
 		inc(errflag,2);
 	endif;
 	if errflag >= 1 then
-		errmsg("App upload failed, please try again. %d errors were found",errflag);
+		errmsg("Data upload failed, please try again. %d errors were found",errflag);
 	elseif errflag = 0 then
-		errmsg("App upload was successful");
+		errmsg("Data upload was successful");
 	endif;
 end;
 
@@ -421,9 +420,9 @@ function downloadcontrolsheets(string rnd_edno)
 		inc(errflag,2);
 	endif;
 	if errflag >= 1 then
-		errmsg("App upload failed, please try again. %d errors were found",errflag);
+		errmsg("Data download failed, please try again. %d errors were found",errflag);
 	elseif errflag = 0 then
-		errmsg("App upload was successful");
+		errmsg("Data download was successful");
 	endif;
 end;
 

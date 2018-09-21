@@ -268,7 +268,7 @@ postproc
 	setcaselabel(LISTING_DICT, maketext("%V-%V-%V: %s (%s)",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS)));
 	writecase(LISTING_DICT);
 	
-	//execpff("../Menu/Menu.pff");		//start menu app as soon as questionnaire exits
+	execpff("../Menu/Menu.pff");		//start menu app as soon as questionnaire exits
 	
 //----------------------------------------------------------------------------
 PROC RNDNO
