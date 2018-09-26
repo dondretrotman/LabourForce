@@ -346,7 +346,8 @@ postproc
 	if visualvalue(DATE) = notappl then
 		DATE = sysdate("YYYYMMDD");
 	endif;
-
+	
+	//TODO: Move promt for gps to end of interview
 	//if latitude or longitude are invalid, prompt to updatefield. If valid, ask if to leave coordinates or to update
 	if visualvalue(LATITUDE) in {15:90,0:12,}notappl,default or visualvalue(LONGITUDE) in {-58:180,-180:-61,}notappl,default then
 		errmsg("No coordinates recorded.")
