@@ -93,11 +93,11 @@ function getgps()
 		if accept(maketext("Save this location? %f, %f",gps(latitude),gps(longitude)),"Yes","No") = 1 then	//if yes
 			LATITUDE = gps(latitude);
 			LONGITUDE = gps(longitude);
+			getgps = 1;
 		endif;
 	else
 		errmsg("Gps location failed, Please try again");
-		LATITUDE = 0;
-		LONGITUDE = 0;
+		getgps = 0;
 	endif;
 	gps(close);
 	
@@ -144,6 +144,8 @@ onfocus
 
 	
 
+PROC INTD
+//TODO: Input current date automatically
 PROC LABOURFORCE_FF
 preproc
 //---------------------------Declare Variables-----------------------------------
@@ -170,6 +172,26 @@ onfocus
     //DEBUG: DO THIS IN THE CENSUS APP
 
 postproc
+	//if latitude or longitude are invalid, prompt to updatefield. If valid, ask if to leave coordinates or to update
+	while visualvalue(LATITUDE) in {15:90,0:12,}0,notappl,default or visualvalue(LONGITUDE) in {-58:180,-180:-61,}0,notappl,default do
+		i=0;
+		do until i in 1,2
+			i = accept(maketext("No location recorded. Please get current location before proceeding to the next dwelling unit (%f,%f)",LATITUDE,LONGITUDE),"Get current location","Get location later");
+		enddo;
+		if i = 1 then
+			getgps();		//get location
+		elseif i = 2 then
+			break;			//cancel the while loop
+		endif;
+		{errmsg("No coordinates recorded.")
+		select("Get new coordinates",continue,"Get coordinates later",next);
+		getgps();
+	else
+		errmsg("Current coordinates are %f,%f.",visualvalue(LATITUDE),visualvalue(LONGITUDE))
+		select("Get new coordinates",continue,"Keep coordinates",break);
+		getgps();}
+	enddo;
+	
 	//store the interview end date
 	if LENDDATE = notappl then
 		LENDDATE = sysdate("YYYYMMDD");
@@ -219,7 +241,7 @@ postproc
 			EREND = LENDDATE;
 //		endif;
 //		if ERREMARKS = "" then
-			promptremarks = prompt("Do you have any remarks to be included in the Enumerator Report? Current remarsk are:%s",ERREMARKS);
+			promptremarks = prompt("Do you have any remarks to be included in the Enumerator Report? Current remarks are:%s",strip(ERREMARKS));
 				if promptremarks <> "" then
 					ERREMARKS = promptremarks;
 				else
@@ -347,9 +369,9 @@ postproc
 		DATE = sysdate("YYYYMMDD");
 	endif;
 	
-	//TODO: Move promt for gps to end of interview
+	//TODO: DONE Move promt for gps to end of interview
 	//if latitude or longitude are invalid, prompt to updatefield. If valid, ask if to leave coordinates or to update
-	if visualvalue(LATITUDE) in {15:90,0:12,}notappl,default or visualvalue(LONGITUDE) in {-58:180,-180:-61,}notappl,default then
+	{if visualvalue(LATITUDE) in {15:90,0:12,}notappl,default or visualvalue(LONGITUDE) in {-58:180,-180:-61,}notappl,default then
 		errmsg("No coordinates recorded.")
 		select("Get new coordinates",continue,"Get coordinates later",VACANT);
 		getgps();
@@ -357,7 +379,7 @@ postproc
 		errmsg("Current coordinates are %f,%f.",visualvalue(LATITUDE),visualvalue(LONGITUDE))
 		select("Keep coordinates",VACANT,"Get new coordinates",continue);
 		getgps();
-	endif;
+	endif;}
 	
 //------------------------------------------------------------------------------
 PROC VACANT
@@ -562,6 +584,9 @@ onfocus
 	endif;
 	
 postproc
+	if visualvalue(INTD) = notappl then
+		INTD = sysdate("YYYYMMDD");
+	endif;
 	//if no response then skip this person
 	if $ = 4 then
 		skip to next;
@@ -574,8 +599,6 @@ postproc
 	
 	
 //---------------------------------------------------------------------
-PROC INTD
-//TODO: Input current date automatically
 PROC HD_HH
 onfocus
 	//if head of household, make this person head of household and skip to individual details
@@ -678,10 +701,12 @@ PROC AGE
 	//check that age corresponds to date of birth
 	tempage = datediff(BIRTHD, sysdate("YYYYMMDD"), "Y");
 		
-	if $ <> tempage then
-		errmsg("age (%d) does not agree with DOB (%s), please verify",$,edit("9999/99/99",BIRTHD))
-		select("Correct the age", $, "Correct the Date of birth", BIRTHD,"Keep Age (Don't know Date of Birth",continue);
-		BIRTHD = notappl;
+	if BYR <> 9999 and BMO <> 99 and BDY <> 99 then
+		if $ <> tempage then
+			errmsg("age (%d) does not agree with DOB (%s), please verify",$,edit("9999/99/99",BIRTHD))
+			select("Correct the age", $, "Correct the Date of birth", BIRTHD,"Keep Age (Don't know Date of Birth",continue);
+			BIRTHD = notappl;
+		endif;
 	endif;
 
 //---------------------------------------------------------------------------

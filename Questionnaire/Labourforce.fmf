@@ -33,9 +33,6 @@ Item=VISITNO
 Item=HH_TYP
 Item=ENMRTR
 Item=ROTATION
-Item=DATE
-Item=LATITUDE
-Item=LONGITUDE
 Item=VACANT
 Item=VOCCUP
 Item=SUPERV
@@ -203,48 +200,6 @@ Form=2
 [Text]
 Position=72,199,165,215
 Text=Rotation Order
- 
-  
-[Field]
-Name=DATE
-Position=205,232,318,252
-Item=DATE,LABOURFORCE_DICT
-Protected=Yes
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-Form=2
-  
-[Text]
-Position=72,235,101,251
-Text=Date
- 
-  
-[Field]
-Name=LATITUDE
-Position=205,268,388,288
-Item=LATITUDE,LABOURFORCE_DICT
-Protected=Yes
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-Form=2
-  
-[Text]
-Position=72,271,124,287
-Text=Latitude
- 
-  
-[Field]
-Name=LONGITUDE
-Position=205,304,402,324
-Item=LONGITUDE,LABOURFORCE_DICT
-Protected=Yes
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-Form=2
-  
-[Text]
-Position=72,307,136,323
-Text=Longitude
  
   
 [Field]
@@ -789,28 +744,6 @@ DataCaptureType=DropDown
   
 [Text]
 Text=Interview Results
- 
-[EndColumn]
-  
-[Column]
-Width=28
-  
-[HeaderText]
-Position=4,4,104,28
-Text=Interview Date
- 
-[Field]
-Name=INTD
-Position=588,0,701,20
-Item=INTD,LABOURFORCE_DICT
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-DataCaptureType=Date
-CaptureDateFormat=YYYYMMDD
-  
-[Text]
-Position=0,0,93,16
-Text=Interview Date
  
 [EndColumn]
   

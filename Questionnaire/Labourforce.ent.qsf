@@ -390,7 +390,7 @@ EN={\colortbl ;\red0\green0\blue0;\red0\green0\blue255;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\b\fs24 %LFIRST_NAME%'s\b0  interview results\par
 EN=\cf2\par
-EN=Enter Part Responding if this person has not yet completed the questionnaire.\cf1\par
+EN=Select "Part Responding" if this person has not yet completed the questionnaire. It automatically changes to "Fully Responding" after the interview is completed.\cf1\par
 EN=}
 
 [QUESTION]
@@ -441,9 +441,10 @@ EN=}
 Field=LABOURFORCE_DICT.LDOB
 Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
-EN={\colortbl ;\red0\green0\blue0;}
+EN={\colortbl ;\red0\green0\blue0;\red0\green0\blue255;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 What is \b %LFIRST_NAME%\b0 's date of birth? (YYYY/MM/DD)\par
+EN=\cf2 If the Date of Birth is unknown, enter "99999999"\cf1\par
 EN=}
 
 [QUESTION]
