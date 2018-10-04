@@ -6,6 +6,7 @@ Description=Continuous Labour Force Sample Survey
 [DataEntryInit]
 StartMode=Add
 Lock=CaseListing
+Interactive=Ask
 
 [Files]
 Application=.\Menu.ent
@@ -20,3 +21,6 @@ LISTING_DICT=..\Data\Controlsheet.csdb|CSPRODB
 [UserFiles]
 LOGINFILE=
 PFFFILE=
+
+[Parameters]
+

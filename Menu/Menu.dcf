@@ -152,7 +152,7 @@ Value=9;Back
 [ValueSet]
 Label=Interviewer Menu (Tablet)
 Name=INTERVIEWER_MENU_VS1
-Value=1;Fill Questionnaire
+Value=1;View\Fill Questionnaire
 Value=2;Fill Control Sheet
 Value=6;View Control Sheet
 Value=5;Download Control Sheets
