@@ -24,24 +24,28 @@ EN=}
 Field=MENU_DICT.LOGIN
 Condition=USERID < 90
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
-EN={\colortbl ;\red0\green0\blue0;}
+EN={\colortbl ;\red0\green0\blue0;\red0\green0\blue255;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 Logged in as \b %username%\b0  (Enumerator) \par
 EN=Your Enumeration District is \b %ME_ED%\par
+EN=\cf2\b0 Version: %VERSION%\cf1\b\par
 EN=\par
 EN=\b0 Please choose an action\par
+EN=\cf2 Press the question mark symbol (?) for help\cf1\par
 EN=}
 
 [QUESTION]
 Field=MENU_DICT.LOGIN
 Condition=USERID >= 90
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
-EN={\colortbl ;\red0\green0\blue0;}
+EN={\colortbl ;\red0\green0\blue0;\red0\green0\blue255;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
-EN=\pard\cf1\fs24 Logged in as \b %UNAME%\b0  (Supervisor) \par
-EN=Your Enumeration District is \b %ME_ED%\b0\par
+EN=\pard\cf1\fs24 Logged in as \b %username%\b0  (Supervisor) \par
+EN=Your Enumeration District is \b %ME_ED%\par
+EN=\cf2\b0 Version: %VERSION%\cf1\par
 EN=\par
 EN=Please choose an action\par
+EN=\cf2 Press the question mark symbol (?) for help\cf1\par
 EN=}
 
 [QUESTION]
@@ -54,12 +58,6 @@ EN=}
 
 [QUESTION]
 Field=MENU_DICT.SUPERVISOR_MENU
-EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
-EN={\colortbl ;\red0\green0\blue0;}
-EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
-EN=\pard\cf1\fs24 Download data - Download questionnaires and listings from the server for a particular ED\par
-EN=\par
-EN=}
 
 [QUESTION]
 Field=MENU_DICT.UNAME
@@ -68,7 +66,7 @@ EN={\colortbl ;\red0\green0\blue0;\red0\green0\blue255;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 Welcome to the Continuous Labour Force Sample Survey. Please enter your username in the format FirstInitialLastName (e.g. John Doe types "JDOE")\par
 EN=\par
-EN=\cf2 Version %VERSION%\cf1\par
+EN=\cf2 Version: %VERSION%\cf1\par
 EN=}
 
 [QUESTION]
@@ -140,5 +138,19 @@ EN=Completion status can be one of the following:\par
 EN=Blank - The questionnaire is new\par
 EN=Part responding - The questionnaire is partially complete\par
 EN=Complete - the questionnaire has been completed\par
+EN=}
+
+[HELP]
+Field=MENU_DICT.INTERVIEWER_MENU
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 View\\Fill Questionnaire - See a list of all available questionnaires and fill them out\par
+EN=Fill Control Sheet - Fill out a new control sheet\par
+EN=View Control Sheet - View existing control sheets\par
+EN=Download Control Sheets - Download control sheets that were filled out and uploaded from a computer\par
+EN=View Enumeration Report - View a report on completed households\par
+EN=Upload Data - Upload data to server. Please be sure to have internet access first\par
+EN=Back - Go back to the previous menu\par
 EN=}
 

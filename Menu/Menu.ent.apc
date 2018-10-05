@@ -749,10 +749,23 @@ onfocus
 	vsCode(nextEntry) = "";
 	
 	setvalueset($, vsCode, vsLabel);
+	
+	if vscode(1) = "" then		//if nothing is in the valueset
+		errmsg("There are no questionnaires available for this ED (ED%d). Please fill out a control sheet first",ME_ED);
+		if LOGIN = 1 then 
+			move to INTERVIEWER_MENU;
+		elseif LOGIN = 2 then
+			move to SUPERVISOR_MENU;
+		endif;
+	endif;
 
 postproc
 	launchQuestionnaire();
-	move to INTERVIEWER_MENU;
+	if LOGIN = 1 then 
+		move to INTERVIEWER_MENU;
+	elseif LOGIN = 2 then
+		move to SUPERVISOR_MENU;
+	endif;
 
 //--------------------------------------------------------------------------
 PROC CHOOSE_CONTROL_SHEET
@@ -767,9 +780,23 @@ onfocus
 	vsCode(nextEntry) = "";
 	
 	setvalueset($, vsCode, vsLabel);
+	
+	if vscode(1) = "" then		//if nothing is in the valueset
+		errmsg("There are no Control Sheets available for this ED (ED%d). Please fill out a control sheet first",ME_ED);
+		if LOGIN = 1 then 
+			move to INTERVIEWER_MENU;
+		elseif LOGIN = 2 then
+			move to SUPERVISOR_MENU;
+		endif;
+	endif;
+
 
 postproc
 	launchSupervisorControlSheet();
-	move to INTERVIEWER_MENU;
+	if LOGIN = 1 then 
+		move to INTERVIEWER_MENU;
+	elseif LOGIN = 2 then
+		move to SUPERVISOR_MENU;
+	endif;
 
 //--------------------------------------------------------------------------
