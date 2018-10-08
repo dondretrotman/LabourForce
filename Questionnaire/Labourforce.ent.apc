@@ -144,8 +144,6 @@ onfocus
 
 	
 
-PROC INTD
-//TODO: Input current date automatically
 PROC LABOURFORCE_FF
 preproc
 //---------------------------Declare Variables-----------------------------------
@@ -584,9 +582,7 @@ onfocus
 	endif;
 	
 postproc
-	if visualvalue(INTD) = notappl then
-		INTD = sysdate("YYYYMMDD");
-	endif;
+
 	//if no response then skip this person
 	if $ = 4 then
 		skip to next;
@@ -601,6 +597,7 @@ postproc
 //---------------------------------------------------------------------
 PROC HD_HH
 onfocus
+	
 	//if head of household, make this person head of household and skip to individual details
 	if LRTH = 0 then		//if head of household
 		$ = 1;				//yes person is head
@@ -984,3 +981,5 @@ PROC WORKBEFO
 	endif;
 	
 //---------------------------------------------------------------------
+PROC INTD
+//TODO: Input current date automatically

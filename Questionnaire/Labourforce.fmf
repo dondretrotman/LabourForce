@@ -748,6 +748,27 @@ Text=Interview Results
 [EndColumn]
   
 [Column]
+Width=40
+  
+[HeaderText]
+Position=33,0,104,40
+Text=Interview Date
+ 
+[Field]
+Name=INTD
+Position=588,0,701,20
+Item=INTD,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=Date
+CaptureDateFormat=YYYYMMDD
+  
+[Text]
+Position=0,0,117,20
+Text=Interview Date
+ 
+[EndColumn]
+  
+[Column]
 Width=28
   
 [HeaderText]
