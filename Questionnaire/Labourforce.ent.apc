@@ -582,7 +582,6 @@ onfocus
 	endif;
 	
 postproc
-
 	//if no response then skip this person
 	if $ = 4 then
 		skip to next;
@@ -595,6 +594,8 @@ postproc
 	
 	
 //---------------------------------------------------------------------
+PROC INTD
+//TODO: Input current date automatically
 PROC HD_HH
 onfocus
 	
@@ -981,5 +982,3 @@ PROC WORKBEFO
 	endif;
 	
 //---------------------------------------------------------------------
-PROC INTD
-//TODO: Input current date automatically

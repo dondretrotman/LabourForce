@@ -14,6 +14,15 @@ EN=\pard\cf1\fs24 25b. Would \b %LFIRST_NAME%\b0  have been able to work last we
 EN=}
 
 [QUESTION]
+Field=LABOURFORCE_DICT.ADDPER
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please remember to include ALL members of the household.\par
+EN=}
+
+[QUESTION]
 Field=LABOURFORCE_DICT.ADDWRK
 Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
@@ -383,6 +392,15 @@ EN=\pard\cf1\fs24 51b. How much does \b %LFIRST_NAME%\b0  obtain a week from his
 EN=}
 
 [QUESTION]
+Field=LABOURFORCE_DICT.INTD
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Enter the date of this interview\par
+EN=}
+
+[QUESTION]
 Field=LABOURFORCE_DICT.INTRVW
 Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
@@ -434,7 +452,7 @@ Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
-EN=\pard\cf1\fs24 Who is the person providing the information for this person?\par
+EN=\pard\cf1\fs24 Who is the person providing the information for \b %LFIRST_NAME% %LLAST_NAME%\b0 ?\par
 EN=}
 
 [QUESTION]
@@ -1050,6 +1068,21 @@ EN=\pard\cf1\fs24 Is this a vacant household?\par
 EN=}
 
 [QUESTION]
+Field=LABOURFORCE_DICT.VISITNO
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}{\f1\fnil\fcharset2 Symbol;}}
+EN={\colortbl ;\red0\green0\blue255;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 To go navigate the questionnaire, do one of the following\par
+EN=
+EN=\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-720\li720 Swipe on the screen\cf2\par
+EN={\pntext\f1\'B7\tab}\cf1 Tap the arrow on the edge of the screen\cf2\par
+EN={\pntext\f1\'B7\tab}\cf1 Tap "Next" on the software keyboard if available\cf2\par
+EN=
+EN=\pard  \par
+EN=\cf1 Tap the question mark symbol (?) for more help on an item\cf2\par
+EN=}
+
+[QUESTION]
 Field=LABOURFORCE_DICT.WILLING
 Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
@@ -1210,4 +1243,48 @@ Occurrences=1:10
 [HELP]
 Field=LABOURFORCE_DICT.QUALLEV
 Occurrences=1:10
+
+[HELP]
+Field=LABOURFORCE_DICT.LSTINDUS_TEXT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 The business name or the type of industry that the business is involved in are acceptable answers\par
+EN=}
+
+[HELP]
+Field=LABOURFORCE_DICT.INDUS_TEXT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 The business name or the type of industry that the business is involved in are acceptable answers\par
+EN=}
+
+[HELP]
+Field=LABOURFORCE_DICT.SINDUS_TEXT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 The business name or the type of industry that the business is involved in are acceptable answers\par
+EN=}
+
+[HELP]
+Field=LABOURFORCE_DICT.INCINDUS_TEXT
+Occurrences=1:10
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 The business name or the type of industry that the business is involved in are acceptable answers\par
+EN=}
+
+[HELP]
+Field=LABOURFORCE_DICT.VISITNO
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;\red0\green0\blue255;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Choose the number of times that this household has been visited\cf2\par
+EN=}
 

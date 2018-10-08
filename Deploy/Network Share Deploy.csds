@@ -1,7 +1,7 @@
 {
   "fileType": "Application Deployment Specification",
   "version": "7.1",
-  "name": "CLFSS CAPI",
+  "name": "Menu",
   "description": "Continuous Labour Force Sample Survey ",
   "files": [
     {
@@ -54,8 +54,9 @@
     }
   ],
   "deployment": {
-    "type": "FTP",
+    "type": "LocalFolder",
     "cswebUrl": "http:\/\/csweb.teleyah.com\/api",
-    "ftpUrl": "ftp:\/\/172.28.10.215"
+    "ftpUrl": "ftp:\/\/172.28.10.215",
+    "localFolderPath": "\\\\statserver.gov.bb\\censussurveys\\CLFSS PC\\LabourForce"
   }
 }

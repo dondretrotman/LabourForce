@@ -30,6 +30,9 @@
     },
     {
       "path": "..\\Reports\\EnumerationReport.pff"
+    },
+    {
+      "path": "..\\Manual.pdf"
     }
   ],
   "dictionaries": [

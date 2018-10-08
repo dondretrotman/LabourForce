@@ -4,7 +4,7 @@ AppType=Entry
 Description=Continuous Labourforce Sample Survey
 [DataEntryInit]
 OperatorID=WDAVIS              
-StartMode=Add; 15832114  1   
+StartMode=Add; 13082033  1   
 ShowInApplicationListing=Hidden
 AutoAdd=No
 Lock=CaseListing
@@ -20,10 +20,10 @@ PFFFILE=
 [Parameters]
 Parameter=onexit=../Menu/Menu.pff
 RNDNO= 1
-EDNO=583
-PARNO=211
-STRATUM=4
+EDNO=308
+PARNO=203
+STRATUM=3
 HHNO=  1
 ENMRTR=94
-ADDRESS=#454 COUNTRY VIEW ESTATE                                                                            
+ADDRESS=gotham                                                                                              
 BLDGNO=  1

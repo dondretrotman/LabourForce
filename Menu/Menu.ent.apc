@@ -31,6 +31,8 @@ numeric deleteflag,		//stores flag for case deletion
 		errflag,		//sets error flag
 		parish,			//parish
 		version,		//version number
+		lastupdate,		//last update day
+		i,				//general counter
 		;
 
 //----------------------------------Array Declaration-------------------------------------
@@ -488,7 +490,7 @@ function enumerationRpt()
 		533-559	=>	210;	//St. Peter
 		560-583	=>	211;	//St. Lucy
 	endrecode;
-	numeric i = 1;
+	i = 1;
 	forcase ENUMERATIONREPORT_DICT where ERED_NO = ME_ED do		//for each case in enumeration report in the current ED
 		REPORTARRAY(i,1) = getlabel(ERFIELD_OFFICER_VS1,ERFIELD_OFFICER);	//field officer
 		REPORTARRAY(i,2) = maketext("%d",ERUNIT_NO);
@@ -510,11 +512,20 @@ function enumerationRpt()
 	
 end;
 
+//displays the manual
+function ViewManual()
+	execsystem("view:"+pathname(application)+"../Manual.pdf");
+end;
+
 function OnStop()
 	stop(1);
 end;
 
 PROC MENU_FF
+preproc
+	userbar(clear);
+	userbar(add button, "View Manual",ViewManual());
+	userbar(show);
 
 PROC MENU_QUEST
 preproc
@@ -528,6 +539,25 @@ preproc
 PROC UNAME
 preproc
 	version = publishdate();		//sets version number
+	
+	lastupdate = int(publishdate() / 1000000);		//publish yearmonthdate
+
+	if datediff(lastupdate,sysdate("YYYYMMDD")) > 1 and getos() = 20 then		//if more than one day since last update and on android
+		if connection() then		//check for internet connection
+			i = 0;
+			do until i in 1,2
+				i = accept("Current app version is more than one day old. Check for updates?","Yes","No");
+			enddo;
+			if i = 1 then 
+				UpdateApp();		//update the app
+			elseif i = 2 then
+				if readloginstatus() = 1 then
+					advance to LOGIN;
+				endif;
+			endif;
+		endif;
+	endif;
+	
 	//if already logged in then just login, if not, continue logging in
 	if readloginstatus() = 1 then
 		advance to LOGIN;

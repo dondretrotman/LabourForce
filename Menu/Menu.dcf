@@ -111,13 +111,13 @@ Value=533:559;St. Peter
 Value=560:583;St. Lucy
 
 [Item]
-Label=Login
+Label=Main Menu
 Name=LOGIN
 Start=28
 Len=1
 
 [ValueSet]
-Label=Login
+Label=Main Menu
 Name=LOGIN_VS1
 Value=1;Interviewer
 Value=2;Supervisor
@@ -127,7 +127,7 @@ Value=5;Upload Data
 Value=9;Logout
 
 [ValueSet]
-Label=Login
+Label=Main Menu
 Name=LOGIN_VS2
 Value=1;Enumerator Menu
 Value=4;Change ED
