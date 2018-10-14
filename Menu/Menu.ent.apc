@@ -31,7 +31,8 @@ numeric deleteflag,		//stores flag for case deletion
 		errflag,		//sets error flag
 		parish,			//parish
 		version,		//version number
-		lastupdate,		//last update day
+		lastupdate,		//last update version day
+		updated,		//Last time the app was updated
 		i,				//general counter
 		;
 
@@ -259,6 +260,7 @@ function uploadData()
 		errmsg("Data upload failed, please try again. %d errors were found",errflag);
 	elseif errflag = 0 then
 		errmsg("Data upload was successful");
+		savesetting("Updated",maketext("%d",sysdate("YYYYMMDD")));
 	elseif errflag = 1 then
 		errmsg("Data upload was probably successful but there was an error, please restart the app and try again to make sure. If you keep getting this error please contact the IT dept"); 
 	endif;
@@ -308,6 +310,7 @@ function updateApp()
 		errmsg("App update failed, please try again. %d errors were found",errflag);
 	elseif errflag = 0 then
 		errmsg("App update was successful");
+		savesetting("Updated",maketext("%d",sysdate("YYYYMMDD")));
 	elseif errflag = 1 then
 		errmsg("App update was probably successful but there was an error, please restart the app and try again to make sure. If you keep getting this error please contact the IT dept"); 
 	endif;
@@ -379,6 +382,7 @@ function downloadData(string rnd_edno)
 		errmsg("Download of round %s, ED %s failed, Please try again. %d errors were found",rnd_edno[1:2],rnd_edno[3:3],errflag);
 	elseif errflag = 0 then
 		errmsg("Download of round %s, ED %s was successful",rnd_edno[1:2],rnd_edno[3:3]);
+		savesetting("Updated",maketext("%d",sysdate("YYYYMMDD")));
 	elseif errflag = 1 then
 		errmsg("Download of round %s, ED %s failed, Please try again",rnd_edno[1:2],rnd_edno[3:3]);
 	endif;
@@ -541,8 +545,10 @@ preproc
 	version = publishdate();		//sets version number
 	
 	lastupdate = int(publishdate() / 1000000);		//publish yearmonthdate
+	
+	updated = tonumber(loadsetting("Updated"));
 
-	if datediff(lastupdate,sysdate("YYYYMMDD")) > 1 and getos() = 20 then		//if more than one day since last update and on android
+	if datediff(lastupdate,sysdate("YYYYMMDD")) < 1 and datediff(lastupdate,updated) < 1 and getos() = 20 then		//if more than one day since last update and on android
 		if connection() then		//check for internet connection
 			i = 0;
 			do until i in 1,2
