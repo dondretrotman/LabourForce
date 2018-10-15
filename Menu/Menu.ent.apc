@@ -66,7 +66,7 @@ function LaunchControlSheet()
 	filewrite(pffFile,"[Files]");
 	filewrite(pffFile,"Application=%s","./Listing.ent");
 	filewrite(pffFile,"InputData=%s","../Data/Controlsheet.csdb|CSPRODB");
-	filewrite(pffFile,"Paradata=%s","./Controlsheet.cslog");
+	filewrite(pffFile,"Paradata=%s","../Data/Controlsheet.cslog");
 	
 	filewrite(pffFile,"[UserFiles]");
 	filewrite(pffFile,"PFFFILE=%s","");
@@ -102,7 +102,7 @@ function launchSupervisorControlSheet()
 	filewrite(pffFile,"[Files]");
 	filewrite(pffFile,"Application=%s","./Listing.ent");
 	filewrite(pffFile,"InputData=%s","../Data/Controlsheet.csdb|CSPRODB");
-	filewrite(pffFile,"Paradata=%s","./Controlsheet.cslog");
+	filewrite(pffFile,"Paradata=%s","../Data/Controlsheet.cslog");
 	
 	filewrite(pffFile,"[UserFiles]");
 	filewrite(pffFile,"PFFFILE=%s","");
@@ -161,7 +161,7 @@ function LaunchQuestionnaire()
 	filewrite(pffFile,"[Files]");
 	filewrite(pffFile,"Application=%s","./Labourforce.ent");
 	filewrite(pffFile,"InputData=%s","../Data/data.csdb|CSPRODB");
-	filewrite(pffFile,"Paradata=%s","./Labourforce.cslog");
+	filewrite(pffFile,"Paradata=%s","../Data/Labourforce.cslog");
 	
 	filewrite(pffFile,"[ExternalFiles]");
 	filewrite(pffFile,"LISTING_DICT=%s","../Data/Controlsheet.csdb|CSPRODB");
@@ -202,7 +202,7 @@ function uploadData()
 		if not syncdata(PUT,ENUMERATIONREPORT_DICT) then	//upload enumeration report
 			inc(errflag);
 		endif;
-		if not syncfile(PUT,"../Questionnaire/Labourforce.cslog",maketext("LabourforceLogs/Labourforce%s.cslog",getdeviceid())) then		//Upload paradata logs
+		if not syncfile(PUT,"../Data/Labourforce.cslog",maketext("LabourforceLogs/Labourforce%s.cslog",getdeviceid())) then		//Upload paradata logs
 			inc(errflag);
 		endif;
 		//syncfile(PUT,"../Photos/*.jpg", "/CSPro/Photos/");
@@ -233,7 +233,7 @@ function uploadData()
 		if not syncdata(PUT,ENUMERATIONREPORT_DICT) then	//upload enumeration report
 			inc(errflag);
 		endif;
-		if not syncfile(PUT,"../Questionnaire/Labourforce.cslog",maketext("LabourforceLogs/Labourforce%s.cslog",getdeviceid())) then		//Upload paradata logs
+		if not syncfile(PUT,"../Data/Labourforce.cslog",maketext("LabourforceLogs/Labourforce%s.cslog",getdeviceid())) then		//Upload paradata logs
 			inc(errflag);
 		endif;
 		//syncfile(PUT,"../Photos/*.jpg", "/CSPro/Photos/");

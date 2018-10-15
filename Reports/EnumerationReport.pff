@@ -9,7 +9,7 @@ Interactive=Ask
 [Files]
 Application=.\EnumerationReport.ent
 InputData=..\Data\enumrpt.csdb|CSPRODB
-Paradata=.\EnumerationReport.cslog
+Paradata=..\Data\EnumerationReport.cslog
 
 
 [Parameters]

@@ -11,7 +11,7 @@ Interactive=Ask
 [Files]
 Application=.\Menu.ent
 InputData=|NONE
-Paradata=.\Menu.cslog
+Paradata=..\Data\Menu.cslog
 
 [ExternalFiles]
 ENUMERATIONREPORT_DICT=..\Data\enumrpt.csdb|CSPRODB
