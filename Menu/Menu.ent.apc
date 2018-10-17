@@ -42,9 +42,6 @@ array string 	vsLabel(99);	//valueset labels
 array string 	address(99,3);	//stores addresses
 array string	REPORTARRAY(50,10);	//stores enumerator report data (50 = number of records, 10 = number of fields (ERFEILD_OFFICER, ERSERIAL_NO,ERUNIT_NO,WEEK_ENDING,ERLAST-NAME, ERFIRST_NAME, ERADDRESS, ERSTART, EREND,ERREMARKS))
 
-//--------------------------------Initialize Variables------------------------------------
-
-
 //--------------------------------Function declaration------------------------------------
 //Launches the Control sheet
 function LaunchControlSheet()
@@ -62,6 +59,7 @@ function LaunchControlSheet()
 	filewrite(pffFile,"StartMode=Add");
 	filewrite(pffFile,"ShowInApplicationListing=Hidden");
 	filewrite(pffFile,"Lock=CaseListing");
+	filewrite(pffFile,"AutoAdd=Yes");
 
 	filewrite(pffFile,"[Files]");
 	filewrite(pffFile,"Application=%s","./Listing.ent");
@@ -72,7 +70,7 @@ function LaunchControlSheet()
 	filewrite(pffFile,"PFFFILE=%s","");
 
 	filewrite(pffFile,"[Parameters]");
-	filewrite(pffFile,"Parameter=%s","onexit=../Menu/Menu.pff");
+	filewrite(pffFile,"OnExit=../Menu/Menu.pff");
 	filewrite(pffFile,"MODE=DEFAULT");
 	filewrite(pffFile,"LSTENUMCODE=%s",maketext("%v",visualvalue(USERID)));
 	filewrite(pffFile,"LSTED=%s",maketext("%v",ME_ED));
@@ -98,6 +96,7 @@ function launchSupervisorControlSheet()
 	filewrite(pffFile,"StartMode=Add;%s",CHOOSE_CONTROL_SHEET);
 	filewrite(pffFile,"ShowInApplicationListing=Hidden");
 	filewrite(pffFile,"Lock=CaseListing");
+	filewrite(pffFile,"AutoAdd=No");
 
 	filewrite(pffFile,"[Files]");
 	filewrite(pffFile,"Application=%s","./Listing.ent");
@@ -108,7 +107,7 @@ function launchSupervisorControlSheet()
 	filewrite(pffFile,"PFFFILE=%s","");
 
 	filewrite(pffFile,"[Parameters]");
-	filewrite(pffFile,"Parameter=%s","onexit=../Menu/Menu.pff");
+	filewrite(pffFile,"OnExit=../Menu/Menu.pff");
 	
 	filewrite(pffFile,"MODE=EDIT");
 	filewrite(pffFile,"LSTROUND=%s",CHOOSE_CONTROL_SHEET[1:2]);
@@ -171,7 +170,7 @@ function LaunchQuestionnaire()
 	filewrite(pffFile,"PFFFILE=%s","");
 
 	filewrite(pffFile,"[Parameters]");
-	filewrite(pffFile,"Parameter=%s","onexit=../Menu/Menu.pff");
+	filewrite(pffFile,"OnExit=../Menu/Menu.pff");
 	
 	filewrite(pffFile,"RNDNO=%s",CHOOSE_HOUSEHOLD[1:2]);
 	filewrite(pffFile,"EDNO=%s",CHOOSE_HOUSEHOLD[3:3]);
@@ -412,12 +411,12 @@ end;
 
 //function to download control sheets from the server to the tablets
 function downloadcontrolsheets(string rnd_edno)
-	if syncconnect(FTP,ftpip2,ftpun,ftppw) then		//connect to FTP when within the Government WAN
+	if syncconnect(FTP,ftpip1,ftpun,ftppw) then		//connect to FTP when within the Government WAN
 		if not syncdata(GET,LISTING_DICT,rnd_edno) then		//download Control Sheet
 			inc(errflag);
 		endif;
 		syncdisconnect();		//disconnect
-	elseif syncconnect(FTP,ftpip1,ftpun,ftppw) then		//connect to FTP when within the Government WAN
+	elseif syncconnect(FTP,ftpip2,ftpun,ftppw) then		//connect to FTP when within the Government WAN
 		if not syncdata(GET,LISTING_DICT) then		//Upload Control Sheet
 			inc(errflag);
 		endif;
@@ -527,18 +526,25 @@ end;
 
 PROC MENU_FF
 preproc
+	//trace(on);
+	//trace(on,"trace.txt");
+	//set trace;
 	userbar(clear);
 	userbar(add button, "View Manual",ViewManual());
 	userbar(show);
+	
+postproc
+	//set trace(off);
 
 PROC MENU_QUEST
 preproc
+
 	//Initialize ftp variables
 	ftpip1 = "64.119.198.70";
 	ftpip2 = "10.129.20.110";
 	ftpun = "Census";
 	ftppw = "Census2020ADM!N";
-
+	
 //--------------------------------------------------------------
 PROC UNAME
 preproc
@@ -548,7 +554,7 @@ preproc
 	
 	updated = tonumber(loadsetting("Updated"));
 
-	if datediff(lastupdate,sysdate("YYYYMMDD")) < 1 and datediff(lastupdate,updated) < 1 and getos() = 20 then		//if more than one day since last update and on android
+	if datediff(lastupdate,sysdate("YYYYMMDD")) >= 1 and datediff(lastupdate,updated) >= 1 and getos() = 20 then		//if more than one day since last update and on android
 		if connection() then		//check for internet connection
 			i = 0;
 			do until i in 1,2

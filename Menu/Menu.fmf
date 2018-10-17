@@ -12,6 +12,7 @@ File=.\Menu.dcf
 [Form]
 Name=FORM000
 Label=Menu questionnaire
+QuestionTextHeight=145
 Level=1
 Size=754,443
   
@@ -91,8 +92,8 @@ DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=127,123,163,139
-Text=Login
+Position=127,123,197,139
+Text=Main Menu
  
   
 [Field]

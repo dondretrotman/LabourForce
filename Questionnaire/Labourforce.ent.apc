@@ -595,7 +595,13 @@ postproc
 	
 //---------------------------------------------------------------------
 PROC INTD
-//TODO: Input current date automatically
+onfocus
+	if $ = notappl then		//if no date then set as today's date
+		$ = sysdate("YYYYMMDD");
+		noinput;
+	endif;
+	
+//-----------------------------------------------------
 PROC HD_HH
 onfocus
 	
@@ -615,10 +621,11 @@ onfocus
 }
 //---------------------------------------------------------------------------
 PROC LNDTNURE
-
+onfocus
 	//if house is rented, then land is probably rented
 	if OCCPNCY in 2,3 then
 		$ = 3;
+		noinput;
 	endif;
 
 //-----------------------------------------------------------
@@ -643,14 +650,17 @@ postproc
 //------------------------------------------------------------------
 PROC EARNERS
 onfocus
-	$ = count(LEARNER where LEARNER = 1);
+	if $ = notappl then
+		$ = count(LEARNER where LEARNER = 1);
+		noinput;
+	endif;
 	
 //----------------------------------------------------
 PROC HD_ERNR
 onfocus
 	if LRTH = 0 then
 		$ = LEARNER;
-		advance to MCHILDRN;
+		noinput;
 	endif;
 	
 //--------------------------------------------

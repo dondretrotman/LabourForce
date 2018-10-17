@@ -8,10 +8,15 @@ PROC LISTING_FF
 
 
 PROC LISTING_QUEST
+preproc
+	//trace(on);
+	//trace(on,"traces.txt");
+	//set trace;
 postproc
 	if getos() = 20 then		//if windows then don't immediately run menu program
 		execpff("../Menu/Menu.pff");
 	endif;
+	
 	
 //------------------------------------------------------------
 PROC LSTROUND

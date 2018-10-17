@@ -2,26 +2,20 @@
 Version=CSPro 7.1
 AppType=Entry
 Description=CLFSS Control Sheet
-
 [DataEntryInit]
-OperatorID=WDAVIS
+OperatorID=RMAYERS             
 StartMode=Add
-Lock=CaseListing
 ShowInApplicationListing=Hidden
-Interactive=Ask
-
+Lock=CaseListing
+AutoAdd=Yes
 [Files]
-Application=.\Listing.ent
-InputData=..\Data\Controlsheet.csdb|CSPRODB
-Paradata=..\Data\Controlsheet.cslog
-
-
+Application=./Listing.ent
+InputData=../Data/Controlsheet.csdb|CSPRODB
+Paradata=../Data/Controlsheet.cslog
 [UserFiles]
 PFFFILE=
-
 [Parameters]
-Parameter=onexit=../Menu/Menu.pff
-LSTED=583
-LSTENUMCODE=94
+OnExit=../Menu/Menu.pff
 MODE=DEFAULT
-
+LSTENUMCODE=5
+LSTED=583
