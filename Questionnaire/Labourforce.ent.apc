@@ -850,10 +850,18 @@ PROC EVERWKD
 	
 //--------------------------------------------------------------------
 
+PROC LSTWRKD
+postproc
+	if $ in 1:6,9 then
+		skip to LSTOCCUP_TEXT;
+	endif;
+	
+//------------------------------------------------------------
 PROC LSTWRKD_OTHER
 preproc
 	//only ask if other is selected
-	ask if LSTWRKD = 5;
+	//DEBUG: WHY IS THIS HERE??? THIS DOESN'T EXIST ON THE FORM! Hopefully the below statement ensures that it is never called untill I confirm
+	ask if LSTWRKD = 8;
 	
 //-----------------------------------------------------
 
