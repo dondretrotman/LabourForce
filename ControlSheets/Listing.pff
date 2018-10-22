@@ -3,11 +3,11 @@ Version=CSPro 7.1
 AppType=Entry
 Description=CLFSS Control Sheet
 [DataEntryInit]
-OperatorID=RMAYERS             
-StartMode=Add
+OperatorID=WDAVIS              
+StartMode=Add; 14832073  6  6
 ShowInApplicationListing=Hidden
 Lock=CaseListing
-AutoAdd=Yes
+AutoAdd=No
 [Files]
 Application=./Listing.ent
 InputData=../Data/Controlsheet.csdb|CSPRODB
@@ -16,6 +16,10 @@ Paradata=../Data/Controlsheet.cslog
 PFFFILE=
 [Parameters]
 OnExit=../Menu/Menu.pff
-MODE=DEFAULT
-LSTENUMCODE=5
-LSTED=583
+MODE=EDIT
+LSTROUND= 1
+LSTED=483
+LSTPARISH=207
+LSTSTRATUM=3
+LSTBUILDING=  6
+LSTSAMPLE=  6

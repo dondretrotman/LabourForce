@@ -58,7 +58,9 @@ function LaunchControlSheet()
 	filewrite(pffFile,"OperatorID=%s",UNAME);
 	filewrite(pffFile,"StartMode=Add");
 	filewrite(pffFile,"ShowInApplicationListing=Hidden");
-	filewrite(pffFile,"Lock=CaseListing");
+	if getos() = 20 then				//only include the following line if on an android tablet
+		filewrite(pffFile,"Lock=CaseListing");
+	endif;
 	filewrite(pffFile,"AutoAdd=Yes");
 
 	filewrite(pffFile,"[Files]");
