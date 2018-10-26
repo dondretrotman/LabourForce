@@ -105,7 +105,7 @@ Len=3
 Label=Household Listing
 Name=HOUSEHOLD_LISTING
 RecordTypeValue='1'
-RecordLen=170
+RecordLen=270
 
 [Item]
 Label=Latitude
@@ -398,7 +398,7 @@ Label=Vacant occupancy
 Name=VOCCUP_VS1
 Value=41;Vacant
 Value=44;Refusal
-Value=46;Non-Contact
+Value=45;Non-Contact
 Value=46;Other
 Value=9;Not Stated
 
@@ -445,6 +445,13 @@ ItemType=SubItem
 Label=Address
 Name=ADDRES
 Start=71
+Len=100
+DataType=Alpha
+
+[Item]
+Label=Other
+Name=VACANT_OTHER
+Start=171
 Len=100
 DataType=Alpha
 
@@ -843,6 +850,11 @@ Label=Form 2 completed by
 Name=LCOMPLETED
 Start=165
 Len=2
+
+[ValueSet]
+Label=Form 2 completed by
+Name=LCOMPLETED_VS1
+Value=11;Proxy (Non-Household Member)
 
 [Item]
 Label=Add another person?
@@ -2216,9 +2228,8 @@ Value=4;Disability/unemployment benefits
 Value=5;Multiple sources
 Value=6;Local contribution from relatives/friends
 Value=7;Other public assistance
+Value=8;No Secondary Source
 Value=9;Not Stated
-Value=' ';Not applicable
-Name=NOTAPPL,Special
 
 [Item]
 Label=32d. Main livelihood earning
@@ -2262,9 +2273,8 @@ Value=8;$800 - $899
 Value=9;$900 - $999
 Value=10;$1000 - $1300
 Value=11;Over $1300
+Value=12;No Secondary Source
 Value=99;Not stated
-Value='  ';Not applicable
-Name=NOTAPPL,Special
 
 [Item]
 Label=33. Full-time or part-time worker
@@ -2741,7 +2751,7 @@ Value=4;Disability/unemployment benefits
 Value=5;Multiple sources
 Value=6;Local contribution from relatives/friends
 Value=7;Other public assistance
-Value=8;None
+Value=8;No Secondary Source
 Value=9;Not Stated
 
 [Item]

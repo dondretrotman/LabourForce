@@ -1,0 +1,16 @@
+﻿[CSPro Application]
+Version=CSPro 7.1
+Label=DATAENTRY
+Name=DATAENTRY
+AppType=DataEntry
+OperatorID=No
+[AppCode]
+File=.\DataEntry.ent.apc
+[Message]
+File=.\DataEntry.ent.mgf
+[Help]
+File=.\DataEntry.ent.qsf
+[Forms]
+File=.\DataEntry.fmf
+[Dictionary Types]
+Dict-Type=.\Labourforce.dcf,Input,.\DataEntry.fmf

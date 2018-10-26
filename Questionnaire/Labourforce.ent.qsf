@@ -299,6 +299,7 @@ EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fchars
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 51b. How much does \b %LFIRST_NAME%\b0  obtain a week from his/her \b second\b0  source of livelihood?\par
+EN=\par
 EN=}
 
 [QUESTION]
@@ -308,6 +309,7 @@ EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fchars
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 51a. If \b %LFIRST_NAME%\b0  is inactive, what is his/her \b second\b0  source of livelihood?\par
+EN=\par
 EN=}
 
 [QUESTION]
@@ -450,9 +452,10 @@ EN=}
 Field=LABOURFORCE_DICT.LCOMPLETED
 Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
-EN={\colortbl ;\red0\green0\blue0;}
+EN={\colortbl ;\red0\green0\blue0;\red0\green0\blue255;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 Who is the person providing the information for \b %LFIRST_NAME% %LLAST_NAME%\b0 ?\par
+EN=\cf2 Select "Proxy (Non-resident)" if the information is being provided by somone not residing in the household\cf1\par
 EN=}
 
 [QUESTION]
@@ -1020,7 +1023,8 @@ Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
-EN=\pard\cf1\fs24 32d. How much does \b %LFIRST_NAME%\b0  obtain a week from this source? \b Second\b0\par
+EN=\pard\cf1\fs24 32d. How much does \b %LFIRST_NAME%\b0  obtain a week from this source? \b Second\par
+EN=\b0\par
 EN=}
 
 [QUESTION]
@@ -1029,7 +1033,8 @@ Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
-EN=\pard\cf1\fs24 32c. If \b %LFIRST_NAME%\b0  is unemployed, what are his/her main sources of livelihood? \b Second\b0\par
+EN=\pard\cf1\fs24 32c. If \b %LFIRST_NAME%\b0  is unemployed, what are his/her main sources of livelihood? \b Second\par
+EN=\b0\par
 EN=}
 
 [QUESTION]
@@ -1065,6 +1070,14 @@ EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fchars
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 Is this a vacant household?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.VACANT_OTHER
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please Specify\par
 EN=}
 
 [QUESTION]

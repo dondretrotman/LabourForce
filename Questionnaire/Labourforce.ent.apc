@@ -402,6 +402,11 @@ preproc
 	ask if VACANT = 1;
 	
 //---------------------------------------------------------------------
+PROC VACANT_OTHER
+preproc
+	ask if VOCCUP = 46;
+	
+//---------------------------------------------------------
 PROC HH_TYP
 
 	//if vacant household, end questionnaire
@@ -568,6 +573,9 @@ onfocus
 		vsNumCodes(vsIndex) = i;
 		inc(vsIndex);
 	enddo;
+	vsLabels(vsIndex) = "Proxy (Non-resident)";
+	vsNumCodes(vsIndex) = 11;
+	inc(vsIndex);
 	
 	vsNumCodes(vsIndex) = notappl;
 	setvalueset($, vsNumCodes, vsLabels);

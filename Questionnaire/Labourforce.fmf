@@ -27,7 +27,7 @@ Item=HHNO
 Name=FORM001
 Label=Household Listing
 Level=1
-Size=427,510
+Size=1078,596
   
 Item=VISITNO
 Item=HH_TYP
@@ -36,6 +36,7 @@ Item=ROTATION
 Item=VACANT
 Item=VOCCUP
 Item=SUPERV
+Item=VACANT_OTHER
   
 [EndForm]
   
@@ -231,8 +232,21 @@ Text=Vacant occupancy
  
   
 [Field]
+Name=VACANT_OTHER
+Position=205,417,1015,437
+Item=VACANT_OTHER,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+Form=2
+  
+[Text]
+Position=72,420,107,436
+Text=Other
+ 
+  
+[Field]
 Name=HH_TYP
-Position=205,414,220,434
+Position=205,451,220,471
 Item=HH_TYP,LABOURFORCE_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
@@ -240,7 +254,7 @@ DataCaptureType=DropDown
 Form=2
   
 [Text]
-Position=72,417,174,433
+Position=72,454,174,470
 Text=Household Type
  
 [EndGroup]
