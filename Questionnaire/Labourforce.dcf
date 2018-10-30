@@ -460,7 +460,7 @@ Label=Labourforce record
 Name=LABOURFORCE_REC
 RecordTypeValue='2'
 Required=No
-MaxRecords=10
+MaxRecords=40
 RecordLen=1104
 
 [Item]

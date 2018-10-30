@@ -10,6 +10,7 @@ TODO: 	*Done* add enumerator reports
 			Upload control sheets option
 			download control sheets option in enumerator menu
 		*FIXED*: Data download  for supervisors is not working
+		enable delete option for enumerators
 }
 
 PROC GLOBAL
@@ -552,11 +553,12 @@ PROC UNAME
 preproc
 	version = publishdate();		//sets version number
 	
-	lastupdate = int(publishdate() / 1000000);		//publish yearmonthdate
+	lastupdate = int(publishdate() / 1000000);		//yearmonthdate of last version number
 	
-	updated = tonumber(loadsetting("Updated"));
-
-	if datediff(lastupdate,sysdate("YYYYMMDD")) >= 1 and datediff(lastupdate,updated) >= 1 and getos() = 20 then		//if more than one day since last update and on android
+	updated = tonumber(loadsetting("Updated"));		//Last date app was updated
+	//errmsg("sysdate(%d)-lastupdate(%d)=%d",sysdate("YYYYMMDD"),lastupdate,datediff(sysdate("YYYYMMDD"),lastupdate));
+	//errmsg("updated(%d)-lastupdate(%d)=%d",updated,lastupdate,datediff(updated,lastupdate));
+	if (datediff(sysdate("YYYYMMDD"),lastupdate) >= 1) and (datediff(updated,lastupdate) >= 1) and (getos() = 20) then		//if more than one day since last update and on android
 		if connection() then		//check for internet connection
 			i = 0;
 			do until i in 1,2
@@ -686,6 +688,8 @@ postproc
 			errmsg("Please connect to the internet before uploading data");
 		endif;
 		reenter;
+	elseif $ = 8 then		//delete questionnaire
+		skip to CHOOSE_QUESTIONNAIRE;
 	elseif $ = 9 then		//back
 		move to LOGIN;
 	endif;
@@ -774,8 +778,11 @@ onfocus
 
 postproc
 	deleteQuestionnaire();
-
-	move to SUPERVISOR_MENU;
+	if LOGIN = 1 then 
+		move to INTERVIEWER_MENU;
+	elseif LOGIN = 2 then
+		move to SUPERVISOR_MENU;
+	endif;
 
 //---------------------------------------------------------
 PROC CHOOSE_HOUSEHOLD
