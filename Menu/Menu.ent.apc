@@ -455,7 +455,7 @@ end;
 function deleteControlSheet()
 	deleteflag = 0;
 	convid = DELETE_CONTROL_SHEET[1:9]+DELETE_CONTROL_SHEET[13:15];
-	errmsg("Are you sure you want to flag the questionnaire with ID = %V? for deletion", DELETE_CONTROL_SHEET)
+	errmsg("Are you sure you want to flag the Control sheet and associated questionnaire with ID = %V? for deletion", DELETE_CONTROL_SHEET)
 	select("Yes, flag for deletion",continue,"No, flag to remain",SUPERVISOR_MENU);
 	
 	//delcase(LISTING_DICT,CHOOSE_QUESTIONNAIRE);		//works
