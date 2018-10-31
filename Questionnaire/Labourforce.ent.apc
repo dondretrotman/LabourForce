@@ -574,7 +574,7 @@ onfocus
 		inc(vsIndex);
 	enddo;
 	vsLabels(vsIndex) = "Proxy (Non-resident)";
-	vsNumCodes(vsIndex) = 11;
+	vsNumCodes(vsIndex) = 88;
 	inc(vsIndex);
 	
 	vsNumCodes(vsIndex) = notappl;

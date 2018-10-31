@@ -854,7 +854,7 @@ Len=2
 [ValueSet]
 Label=Form 2 completed by
 Name=LCOMPLETED_VS1
-Value=11;Proxy (Non-Household Member)
+Value=88;Proxy (Non-Household Member)
 
 [Item]
 Label=Add another person?

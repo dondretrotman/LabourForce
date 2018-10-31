@@ -24,7 +24,7 @@ Len=1
 Label=Menu record
 Name=MENU_REC
 RecordTypeValue='1'
-RecordLen=77
+RecordLen=92
 
 [Item]
 Label=User Name
@@ -147,6 +147,7 @@ Name=INTERVIEWER_MENU_VS2
 Value=2;Fill Control Sheet
 Value=6;View Control Sheet
 Value=4;Upload Control Sheets
+Value=8;Delete Control Sheet
 Value=9;Back
 
 [ValueSet]
@@ -156,7 +157,7 @@ Value=1;View\Fill Questionnaire
 Value=2;Fill Control Sheet
 Value=6;View Control Sheet
 Value=5;Download Control Sheets
-Value=8;Delete Questionnaire
+Value=8;Delete Control Sheet
 Value=3;View Enumeration Report
 Value=7;Upload Data
 Value=9;Back
@@ -198,7 +199,7 @@ Start=33
 Len=3
 
 [Item]
-Label=Choose Questionnaire
+Label=Delete Questionnaire
 Name=CHOOSE_QUESTIONNAIRE
 Start=36
 Len=12
@@ -215,5 +216,12 @@ DataType=Alpha
 Label=Choose Control Sheet
 Name=CHOOSE_CONTROL_SHEET
 Start=63
+Len=15
+DataType=Alpha
+
+[Item]
+Label=Delete Control Sheet
+Name=DELETE_CONTROL_SHEET
+Start=78
 Len=15
 DataType=Alpha

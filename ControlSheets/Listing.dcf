@@ -111,7 +111,7 @@ Len=3
 Label=Listing record
 Name=LISTING_REC
 RecordTypeValue='2'
-RecordLen=344
+RecordLen=345
 
 [Item]
 Label=No.
@@ -393,3 +393,9 @@ Name=LSTREMARKS
 Start=245
 Len=100
 DataType=Alpha
+
+[Item]
+Label=Delete flag
+Name=LSTDELETE_FLAG
+Start=345
+Len=1

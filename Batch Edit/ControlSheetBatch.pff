@@ -1,0 +1,19 @@
+﻿[Run Information]
+Version=CSPro 7.1
+AppType=Batch
+
+[Files]
+Application=.\ControlSheetBatch.bch
+InputData=..\Data\Controlsheet.csdb|CSPRODB
+OutputData=..\Data\editedControlSheets.csdb|CSPRODB
+Listing=.\ControlSheetBatch.lst
+
+
+[Parameters]
+ViewListing=Always
+ViewResults=Yes
+ListingWidth=80
+MessageWrap=No
+ErrmsgOverride=No
+InputOrder=Sequential
+

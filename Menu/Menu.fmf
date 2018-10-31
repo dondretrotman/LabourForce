@@ -14,7 +14,7 @@ Name=FORM000
 Label=Menu questionnaire
 QuestionTextHeight=145
 Level=1
-Size=754,443
+Size=754,509
   
 Item=INTERVIEWER_MENU
 Item=SUPERVISOR_MENU
@@ -27,6 +27,7 @@ Item=UNAME
 Item=USERID
 Item=ME_ED
 Item=CHOOSE_CONTROL_SHEET
+Item=DELETE_CONTROL_SHEET
   
 [EndForm]
   
@@ -161,8 +162,8 @@ DataCaptureType=DropDown
 Form=1
   
 [Text]
-Position=127,321,267,337
-Text=Choose Questionnaire
+Position=127,321,261,337
+Text=Delete Questionnaire
  
   
 [Field]
@@ -191,6 +192,19 @@ Form=1
 [Text]
 Position=127,401,265,417
 Text=Choose Control Sheet
+ 
+  
+[Field]
+Name=DELETE_CONTROL_SHEET
+Position=319,442,530,462
+Item=DELETE_CONTROL_SHEET,MENU_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
+Form=1
+  
+[Text]
+Position=127,445,259,461
+Text=Delete Control Sheet
  
 [EndGroup]
   

@@ -1,0 +1,13 @@
+﻿[CSPro Application]
+Version=CSPro 7.1
+Label=CONTROLSHEETBATCH
+Name=CONTROLSHEETBATCH
+AppType=Batch
+[AppCode]
+File=.\ControlSheetBatch.bch.apc
+[Message]
+File=.\ControlSheetBatch.bch.mgf
+[Order]
+File=.\ControlSheetBatch.ord
+[Dictionary Types]
+Dict-Type=..\ControlSheets\Listing.dcf,Input,.\ControlSheetBatch.ord

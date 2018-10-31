@@ -1,0 +1,19 @@
+﻿[Run Information]
+Version=CSPro 7.1
+AppType=Batch
+
+[Files]
+Application=.\LabourforceBatch.bch
+InputData=..\Data\data.csdb|CSPRODB
+OutputData=..\Data\editeddata.csdb|CSPRODB
+Listing=.\LabourforceBatch.lst
+
+
+[Parameters]
+ViewListing=Always
+ViewResults=Yes
+ListingWidth=80
+MessageWrap=No
+ErrmsgOverride=No
+InputOrder=Sequential
+

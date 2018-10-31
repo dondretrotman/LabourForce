@@ -1,0 +1,13 @@
+﻿[CSPro Application]
+Version=CSPro 7.1
+Label=LABOURFORCEBATCH
+Name=LABOURFORCEBATCH
+AppType=Batch
+[AppCode]
+File=.\LabourforceBatch.bch.apc
+[Message]
+File=.\LabourforceBatch.bch.mgf
+[Order]
+File=.\LabourforceBatch.ord
+[Dictionary Types]
+Dict-Type=..\Questionnaire\Labourforce.dcf,Input,.\LabourforceBatch.ord

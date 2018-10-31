@@ -26,6 +26,7 @@ string 	rnd_ed,		//round and ED number to be downloaded
 		ftpip2,		//stores ftp secondary address
 		ftpun, 		//stores ftp username
 		ftppw,		//stores ftp password
+		convid,		//stores control sheet id that was converted to a questionnaire id
 		;
 
 numeric deleteflag,		//stores flag for case deletion
@@ -449,6 +450,29 @@ function deleteQuestionnaire()
 	errmsg("Case set for deletion");
 end;
 
+//deletes a control sheet (May want to delete the associated questionnaire as well)
+//TODO: DEBUG: To be completed
+function deleteControlSheet()
+	deleteflag = 0;
+	convid = DELETE_CONTROL_SHEET[1:9]+DELETE_CONTROL_SHEET[13:15];
+	errmsg("Are you sure you want to flag the questionnaire with ID = %V? for deletion", DELETE_CONTROL_SHEET)
+	select("Yes, flag for deletion",continue,"No, flag to remain",SUPERVISOR_MENU);
+	
+	//delcase(LISTING_DICT,CHOOSE_QUESTIONNAIRE);		//works
+	
+	loadcase(LISTING_DICT,DELETE_CONTROL_SHEET);
+	LSTDELETE_FLAG = 1;		//mark case for deletion
+	writecase(LISTING_DICT);
+	deleteflag = 1;
+	
+	//delete associated questionnaire if any
+	if loadcase(LABOURFORCE_DICT,convid) = 1 then
+		DELETE_FLAG = 1;		//mark case for deletion
+		writecase(LABOURFORCE_DICT);
+	endif;
+	errmsg("Case (and associated questionnaire) set for deletion");
+end;
+
 //Writes the login status to a file
 function writeloginstatus(x)
 	string loginFilename = pathname(application)+"loginflag.dat";
@@ -689,7 +713,7 @@ postproc
 		endif;
 		reenter;
 	elseif $ = 8 then		//delete questionnaire
-		skip to CHOOSE_QUESTIONNAIRE;
+		skip to DELETE_CONTROL_SHEET;
 	elseif $ = 9 then		//back
 		move to LOGIN;
 	endif;
@@ -775,6 +799,15 @@ onfocus
 	
 	vscode(nextEntry) = "";
 	setvalueset($,vsCode,vsLabel);
+	
+	if vscode(1) = "" then		//if nothing is in the valueset
+		errmsg("There are no questionnaires available for this ED (ED%d). Please fill out a control sheet first",ME_ED);
+		if LOGIN = 1 then 
+			move to INTERVIEWER_MENU;
+		elseif LOGIN = 2 then
+			move to SUPERVISOR_MENU;
+		endif;
+	endif;
 
 postproc
 	deleteQuestionnaire();
@@ -844,6 +877,38 @@ onfocus
 
 postproc
 	launchSupervisorControlSheet();
+	if LOGIN = 1 then 
+		move to INTERVIEWER_MENU;
+	elseif LOGIN = 2 then
+		move to SUPERVISOR_MENU;
+	endif;
+
+//--------------------------------------------------------------------------
+PROC DELETE_CONTROL_SHEET
+onfocus
+	numeric nextEntry = 1;
+	forcase LISTING_DICT where LSTED = ME_ED do
+		vscode(nextEntry) = maketext("%v%v%v%v%v%v",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTBUILDING,LSTSAMPLE);
+		vsLabel(nextEntry) = maketext("%03d-%03d-%03d: %V (%v)",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS));
+		inc(nextEntry);
+	endfor;
+	
+	vsCode(nextEntry) = "";
+	
+	setvalueset($, vsCode, vsLabel);
+	
+	if vscode(1) = "" then		//if nothing is in the valueset
+		errmsg("There are no Control Sheets available for this ED (ED%d). Please fill out a control sheet first",ME_ED);
+		if LOGIN = 1 then 
+			move to INTERVIEWER_MENU;
+		elseif LOGIN = 2 then
+			move to SUPERVISOR_MENU;
+		endif;
+	endif;
+
+
+postproc
+	deleteControlSheet();
 	if LOGIN = 1 then 
 		move to INTERVIEWER_MENU;
 	elseif LOGIN = 2 then

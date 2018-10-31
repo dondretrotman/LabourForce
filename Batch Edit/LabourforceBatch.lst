@@ -1,0 +1,27 @@
+﻿Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Batch Edit\LabourforceBatch.bch
+Type            BATCH
+Input Data      <<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data.csdb                                                                                                                                                                                                                              
+<Output>        <<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\editeddata.csdb                                                                                                                                                                                                                        
+
+Date            Oct 31, 2018
+Start Time      16:17:26
+End Time        16:17:26
+
+CSPRO Process Summary
+          +-----------------------------------------------------+
+          |       5 Records Read ( 100% of input file)          |
+          |       0 Ignored (       0 unknown,        0 erased) |
+          |       0 Messages (       0 U,       0 W,       0 E) |
+          +---------+--------------+--------------+-------------+
+          |  Level  |  Input Case  |  Bad Struct  |  Level Post |
+          +---------+--------------+--------------+-------------+
+          |     1   |          3   |          0   |          1  |
+          +---------+--------------+--------------+-------------+                                                     
+                                                                                
+                                                                                
+                                                                                
+
+Process Messages
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
