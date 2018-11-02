@@ -399,3 +399,9 @@ Label=Delete flag
 Name=LSTDELETE_FLAG
 Start=345
 Len=1
+
+[ValueSet]
+Label=Delete flag
+Name=LSTDELETE_FLAG_VS1
+Value=1;Delete case
+Value=0;Keep case

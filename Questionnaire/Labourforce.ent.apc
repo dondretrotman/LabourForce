@@ -481,6 +481,12 @@ Postproc
 	if checkdate(LDOB_YEAR,LDOB_MONTH,LDOB_DAY) = 0 then
 		reenter;
 	endif;
+	
+	if VISITNO > 1 then		//if second or later visit
+		if LPREVVISIT = 3 then	//and person is no longer a member of the household
+			skip to ADDPER;
+		endif;
+	endif; 
 
 //-----------------------------------------------------------------------------------------
 
@@ -504,7 +510,7 @@ postproc
 			LDOB = 99999999;
 		endif;
 	endif;
-
+	
 //---------------------------------------------------------------------------
 PROC LELIGIBLE
 onfocus
@@ -563,6 +569,10 @@ preproc
 
 	//check that person is eligible to be interviewed
 	if LELIGIBLE <> 1 then		//if not eligible
+		skip to next;
+	endif;
+	
+	if LPREVVISIT = 3 then		//if no longer a member of the household
 		skip to next;
 	endif;
 	

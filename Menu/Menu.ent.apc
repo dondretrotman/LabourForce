@@ -889,7 +889,7 @@ onfocus
 	numeric nextEntry = 1;
 	forcase LISTING_DICT where LSTED = ME_ED do
 		vscode(nextEntry) = maketext("%v%v%v%v%v%v",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTBUILDING,LSTSAMPLE);
-		vsLabel(nextEntry) = maketext("%03d-%03d-%03d: %V (%v)",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS));
+		vsLabel(nextEntry) = maketext("%03d-%03d-%03d: %V (%v) %s",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS),getlabel(LSTDELETE_FLAG_VS1,LSTDELETE_FLAG));
 		inc(nextEntry);
 	endfor;
 	
