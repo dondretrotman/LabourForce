@@ -27,6 +27,7 @@ string 	rnd_ed,		//round and ED number to be downloaded
 		ftpun, 		//stores ftp username
 		ftppw,		//stores ftp password
 		convid,		//stores control sheet id that was converted to a questionnaire id
+		temparray,	//temporarily stores a string array value
 		;
 
 numeric deleteflag,		//stores flag for case deletion
@@ -35,7 +36,7 @@ numeric deleteflag,		//stores flag for case deletion
 		version,		//version number
 		lastupdate,		//last update version day
 		updated,		//Last time the app was updated
-		i,				//general counter
+		a,i,j,k,l,		//general counters and temp variables
 		;
 
 //----------------------------------Array Declaration-------------------------------------
@@ -312,8 +313,9 @@ function updateApp()
 	if errflag > 1 then
 		errmsg("App update failed, please try again. %d errors were found",errflag);
 	elseif errflag = 0 then
-		errmsg("App update was successful");
+		errmsg("App update was successful. Please restart the app to see any changes");
 		savesetting("Updated",maketext("%d",sysdate("YYYYMMDD")));
+		stop(0);
 	elseif errflag = 1 then
 		errmsg("App update was probably successful but there was an error, please restart the app and try again to make sure. If you keep getting this error please contact the IT dept"); 
 	endif;
@@ -456,7 +458,7 @@ function deleteControlSheet()
 	deleteflag = 0;
 	convid = DELETE_CONTROL_SHEET[1:9]+DELETE_CONTROL_SHEET[13:15];
 	errmsg("Are you sure you want to flag the Control sheet and associated questionnaire with ID = %V? for deletion", DELETE_CONTROL_SHEET)
-	select("Yes, flag for deletion",continue,"No, flag to remain",SUPERVISOR_MENU);
+	select("Yes, flag for deletion",continue,"No, flag to remain",LOGIN);
 	
 	//delcase(LISTING_DICT,CHOOSE_QUESTIONNAIRE);		//works
 	
@@ -521,6 +523,7 @@ function enumerationRpt()
 		560-583	=>	211;	//St. Lucy
 	endrecode;
 	i = 1;
+	j = 1;
 	forcase ENUMERATIONREPORT_DICT where ERED_NO = ME_ED do		//for each case in enumeration report in the current ED
 		REPORTARRAY(i,1) = getlabel(ERFIELD_OFFICER_VS1,ERFIELD_OFFICER);	//field officer
 		REPORTARRAY(i,2) = maketext("%d",ERUNIT_NO);
@@ -534,7 +537,26 @@ function enumerationRpt()
 		REPORTARRAY(i,10) = ERREMARKS;
 		inc(i);
 	endfor;
+	
+	//Sort the array
+	while j <= i-1 do			//while j = total items in the aray
+		k = j;
+		while k <= i-1 do		//while k = total items in the array
+			if tonumber(REPORTARRAY(j,2)) > tonumber(REPORTARRAY(k,2)) then
+				l = 1;
+				while l <= 10 do	//while l <= number of fields in the array
+					temparray = REPORTARRAY(j,l);
+					REPORTARRAY(j,l) = REPORTARRAY(k,l);
+					REPORTARRAY(k,l) = temparray;
+					inc(l);
+				enddo;
+			endif;
+			inc(k);
+		enddo;
+		inc(j);	
+	enddo;
 
+	setreportdata("COUNTRPT",maketext("%d",i-1));
 	setreportdata("PARRPT",maketext("%d",parish));
 	setreportdata("EDRPT", maketext("%d",ME_ED));
 	setreportdata(REPORTARRAY);
@@ -889,7 +911,7 @@ onfocus
 	numeric nextEntry = 1;
 	forcase LISTING_DICT where LSTED = ME_ED do
 		vscode(nextEntry) = maketext("%v%v%v%v%v%v",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTBUILDING,LSTSAMPLE);
-		vsLabel(nextEntry) = maketext("%03d-%03d-%03d: %V (%v) %s",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS),getlabel(LSTDELETE_FLAG_VS1,LSTDELETE_FLAG));
+		vsLabel(nextEntry) = maketext("%03d-%03d-%03d: %V (%v) - %s",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS),getlabel(LSTDELETE_FLAG_VS1,LSTDELETE_FLAG));
 		inc(nextEntry);
 	endfor;
 	

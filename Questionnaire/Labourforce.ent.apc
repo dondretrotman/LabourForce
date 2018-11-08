@@ -595,7 +595,7 @@ PROC INTRVW
 
 
 onfocus
-	if $ = notappl then
+	if $ = notappl then		//if blank set to partially complete
 		$ = 3;
 	endif;
 	
