@@ -597,7 +597,7 @@ preproc
 	//Initialize ftp variables
 	ftpip1 = "64.119.198.70";
 	ftpip2 = "10.129.20.110";
-	ftpun = "Census2";
+	ftpun = "Census";
 	ftppw = "Census2020ADM!N";
 	
 	//caculate current round
