@@ -36,6 +36,8 @@ numeric deleteflag,		//stores flag for case deletion
 		version,		//version number
 		lastupdate,		//last update version day
 		updated,		//Last time the app was updated
+		rnd,			//stores round number
+		rndmonth,		//Current month for calculating round number
 		a,i,j,k,l,		//general counters and temp variables
 		;
 
@@ -197,13 +199,13 @@ end;
 function uploadData()
 	errflag = 0;		//clears  flag
 	if syncconnect(FTP,ftpip1,ftpun,ftppw) then		//connect to FTP when outside of the Government WAN
-		if not syncdata(PUT,LABOURFORCE_DICT) then		//Upload Labourforce data
+		if not syncdata(PUT,LABOURFORCE_DICT,maketext("%2d%3d",rnd,ME_ED)) then		//Upload Labourforce data
 			inc(errflag);
 		endif;
-		if not syncdata(PUT,LISTING_DICT) then		//Upload Control Sheet
+		if not syncdata(PUT,LISTING_DICT,maketext("%2d%3d",rnd,ME_ED)) then		//Upload Control Sheet
 			inc(errflag);
 		endif;
-		if not syncdata(PUT,ENUMERATIONREPORT_DICT) then	//upload enumeration report
+		if not syncdata(PUT,ENUMERATIONREPORT_DICT,maketext("%3d",ME_ED)) then	//upload enumeration report
 			inc(errflag);
 		endif;
 		if not syncfile(PUT,"../Data/Labourforce.cslog",maketext("LabourforceLogs/Labourforce%s.cslog",getdeviceid())) then		//Upload paradata logs
@@ -228,13 +230,13 @@ function uploadData()
 		syncdisconnect();		//disconnect
 
 	elseif syncconnect(FTP,ftpip2,ftpun,ftppw) then		//connect to FTP when within the Government WAN
-		if not syncdata(PUT,LABOURFORCE_DICT) then		//Upload Lacourforce data
+		if not syncdata(PUT,LABOURFORCE_DICT,maketext("%2d%3d",rnd,ME_ED)) then		//Upload Lacourforce data
 			inc(errflag);
 		endif;
-		if not syncdata(PUT,LISTING_DICT) then		//Upload Control Sheet
+		if not syncdata(PUT,LISTING_DICT,maketext("%3d",ME_ED)) then		//Upload Control Sheet
 			inc(errflag);
 		endif;
-		if not syncdata(PUT,ENUMERATIONREPORT_DICT) then	//upload enumeration report
+		if not syncdata(PUT,ENUMERATIONREPORT_DICT,maketext("%2d%3d",rnd,ME_ED)) then	//upload enumeration report
 			inc(errflag);
 		endif;
 		if not syncfile(PUT,"../Data/Labourforce.cslog",maketext("LabourforceLogs/Labourforce%s.cslog",getdeviceid())) then		//Upload paradata logs
@@ -322,15 +324,15 @@ function updateApp()
 end;
 
 //downloads Data based on ED
-function downloadData(string rnd_edno)
+function downloadData({string rnd_edno})
 	errflag = 0;
-	errmsg("Attempting to download all data from Round :%s, ED :%s",rnd_edno[1:2],rnd_edno[3:3]);
+	errmsg("Attempting to download all data from Round :%d, ED :%d",rnd,ME_ED);
 	//errmsg("Data dictionary value Round :%V, ED :%V", RNDNO,EDNO);
 	if syncconnect(FTP,ftpip1,ftpun,ftppw) then		//connect to FTP when outside of the government WAN
-		if not syncdata(GET,LABOURFORCE_DICT,rnd_edno) then		//get labourforce data for round and ED
+		if not syncdata(GET,LABOURFORCE_DICT,maketext("%2d%3d",rnd,ME_ED)) then		//get labourforce data for round and ED
 			inc(errflag);
 		endif;
-		if not syncdata(GET,LISTING_DICT,rnd_edno) then			//get control sheet data for round and ED
+		if not syncdata(GET,LISTING_DICT,maketext("%2d%3d",rnd,ME_ED)) then			//get control sheet data for round and ED
 			inc(errflag);
 		endif;
 		if not syncdata(get,ENUMERATIONREPORT_DICT,maketext("%v",ME_ED)) then	//get enumeration report for ED
@@ -354,10 +356,10 @@ function downloadData(string rnd_edno)
 		endif;
 		syncdisconnect();		//disconnect
 	elseif syncconnect(FTP,ftpip2,ftpun,ftppw) then		//connect to FTP when outside of the government WAN
-		if not syncdata(GET,LABOURFORCE_DICT,rnd_edno) then		//get labourforce data for round and ED
+		if not syncdata(GET,LABOURFORCE_DICT,maketext("%2d%3d",rnd,ME_ED)) then		//get labourforce data for round and ED
 			inc(errflag);
 		endif;
-		if not syncdata(GET,LISTING_DICT,rnd_edno) then			//get control sheet data for round and ED
+		if not syncdata(GET,LISTING_DICT,maketext("%2d%3d",rnd,ME_ED)) then			//get control sheet data for round and ED
 			inc(errflag);
 		endif;
 		if not syncdata(get,ENUMERATIONREPORT_DICT,maketext("%v",ME_ED)) then	//get enumeration report for ED
@@ -384,24 +386,28 @@ function downloadData(string rnd_edno)
 		inc(errflag,2);
 	endif;
 	if errflag > 1 then
-		errmsg("Download of round %s, ED %s failed, Please try again. %d errors were found",rnd_edno[1:2],rnd_edno[3:3],errflag);
+		errmsg("Download of round %d, ED %d failed, Please try again. %d errors were found",rnd,ME_ED,errflag);
 	elseif errflag = 0 then
-		errmsg("Download of round %s, ED %s was successful",rnd_edno[1:2],rnd_edno[3:3]);
+		errmsg("Download of round %d, ED %d was successful",rnd,ME_ED);
 		savesetting("Updated",maketext("%d",sysdate("YYYYMMDD")));
 	elseif errflag = 1 then
-		errmsg("Download of round %s, ED %s failed, Please try again",rnd_edno[1:2],rnd_edno[3:3]);
+		errmsg("Download of round %d, ED %d failed, Please try again",rnd,ME_ED);
 	endif;
+end;
+
+function downloadNewRound()
+	errmsg("To Be Added...");
 end;
 
 //function to upload control sheets from the computer to the server for use by the tablets
 function uploadcontrolsheets()
 	if syncconnect(FTP,ftpip2,ftpun,ftppw) then		//connect to FTP when within the Government WAN
-		if not syncdata(PUT,LISTING_DICT) then		//Upload Control Sheet
+		if not syncdata(PUT,LISTING_DICT,maketext("%2d%3d",rnd,ME_ED)) then		//Upload Control Sheet
 			inc(errflag);
 		endif;
 		syncdisconnect();		//disconnect
 	elseif syncconnect(FTP,ftpip1,ftpun,ftppw) then		//connect to FTP when within the Government WAN
-		if not syncdata(PUT,LISTING_DICT) then		//Upload Control Sheet
+		if not syncdata(PUT,LISTING_DICT,maketext("%2d%3d",rnd,ME_ED)) then		//Upload Control Sheet
 			inc(errflag);
 		endif;
 		syncdisconnect();		//disconnect
@@ -416,14 +422,14 @@ function uploadcontrolsheets()
 end;
 
 //function to download control sheets from the server to the tablets
-function downloadcontrolsheets(string rnd_edno)
+function downloadcontrolsheets({string rnd_edno})
 	if syncconnect(FTP,ftpip1,ftpun,ftppw) then		//connect to FTP when within the Government WAN
-		if not syncdata(GET,LISTING_DICT,rnd_edno) then		//download Control Sheet
+		if not syncdata(GET,LISTING_DICT,maketext("%2d%3d",rnd,ME_ED)) then		//download Control Sheet
 			inc(errflag);
 		endif;
 		syncdisconnect();		//disconnect
 	elseif syncconnect(FTP,ftpip2,ftpun,ftppw) then		//connect to FTP when within the Government WAN
-		if not syncdata(GET,LISTING_DICT) then		//Upload Control Sheet
+		if not syncdata(GET,LISTING_DICT,maketext("%2d%3d",rnd,ME_ED)) then		//Download Control Sheet
 			inc(errflag);
 		endif;
 		syncdisconnect();		//disconnect
@@ -591,8 +597,17 @@ preproc
 	//Initialize ftp variables
 	ftpip1 = "64.119.198.70";
 	ftpip2 = "10.129.20.110";
-	ftpun = "Census";
+	ftpun = "Census2";
 	ftppw = "Census2020ADM!N";
+	
+	//caculate current round
+	rndmonth = sysdate("MM");
+	recode 	rndmonth => rnd;
+			1-3		=>	1;
+			4-6		=>	2;
+			7-9		=>	3;
+			10-12	=>	4;
+	endrecode;
 	
 //--------------------------------------------------------------
 PROC UNAME
@@ -720,7 +735,7 @@ postproc
 		reenter;
 	elseif $ = 5 then		//download control sheets
 		if connection() then
-			skip to CHOOSE_ROUND;
+			downloadcontrolsheets();
 		else
 			errmsg("Please connect to the internet before downloading control sheets");
 			reenter;
@@ -738,6 +753,8 @@ postproc
 		skip to DELETE_CONTROL_SHEET;
 	elseif $ = 9 then		//back
 		move to LOGIN;
+	elseif $ = 10 then		//download New round
+		DownloadNewRound();
 	endif;
 reenter;		//don't leave the menu
 
@@ -754,7 +771,7 @@ onfocus
 postproc
 	if $ = 1 then		//download data
 		if connection() then
-			skip to CHOOSE_ROUND;
+			downloaddata();
 		else
 			errmsg("Please connect to the internet before downloading data");
 			reenter;
@@ -777,7 +794,7 @@ reenter;		//don't leave the menu
 
 //---------------------------------------------------------
 PROC CHOOSE_ROUND
-Postproc
+{Postproc
 	if SUPERVISOR_MENU = 1 then		//if downloading questionnaires as Supervisor
 		rnd_ed = maketext("%v%v", CHOOSE_ROUND,ME_ED);
 		//errmsg("%S",maketext("%v%v", CHOOSE_ROUND,ME_ED));
@@ -787,7 +804,7 @@ Postproc
 		rnd_ed = maketext("%v%v", CHOOSE_ROUND,ME_ED);
 		downloadcontrolsheets(rnd_ed);		//download control sheets
 		move to INTERVIEWER_MENU;
-	endif;
+	endif;}
 
 //---------------------------------------------------------
 PROC CHOOSE_ED
@@ -822,14 +839,14 @@ onfocus
 	vscode(nextEntry) = "";
 	setvalueset($,vsCode,vsLabel);
 	
-	if vscode(1) = "" then		//if nothing is in the valueset
+	{if vscode(1) = "" then		//if nothing is in the valueset
 		errmsg("There are no questionnaires available for this ED (ED%d). Please fill out a control sheet first",ME_ED);
 		if LOGIN = 1 then 
 			move to INTERVIEWER_MENU;
 		elseif LOGIN = 2 then
 			move to SUPERVISOR_MENU;
 		endif;
-	endif;
+	endif;}
 
 postproc
 	deleteQuestionnaire();

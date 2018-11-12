@@ -24,7 +24,7 @@ Len=1
 Label=Menu record
 Name=MENU_REC
 RecordTypeValue='1'
-RecordLen=92
+RecordLen=93
 
 [Item]
 Label=User Name
@@ -139,7 +139,7 @@ Value=9;Logout
 Label=Interviewer Menu
 Name=INTERVIEWER_MENU
 Start=29
-Len=1
+Len=2
 
 [ValueSet]
 Label=Interviewer Menu (Computer)
@@ -147,7 +147,10 @@ Name=INTERVIEWER_MENU_VS2
 Value=2;Fill Control Sheet
 Value=6;View Control Sheet
 Value=4;Upload Control Sheets
+Value=10;Download New Round
+Value=0;---------------------------------------
 Value=8;Delete Control Sheet
+Value=0;---------------------------------------
 Value=9;Back
 
 [ValueSet]
@@ -157,7 +160,10 @@ Value=1;View\Fill Questionnaire
 Value=2;Fill Control Sheet
 Value=6;View Control Sheet
 Value=5;Download Control Sheets
+Value=10;Download New Round
+Value=0;---------------------------------------
 Value=8;Delete Control Sheet
+Value=0;---------------------------------------
 Value=3;View Enumeration Report
 Value=7;Upload Data
 Value=9;Back
@@ -165,7 +171,7 @@ Value=9;Back
 [Item]
 Label=Supervisor Menu
 Name=SUPERVISOR_MENU
-Start=30
+Start=31
 Len=1
 
 [ValueSet]
@@ -181,7 +187,7 @@ Value=9;Back
 [Item]
 Label=Choose Round
 Name=CHOOSE_ROUND
-Start=31
+Start=32
 Len=2
 
 [ValueSet]
@@ -195,33 +201,33 @@ Value=4;4
 [Item]
 Label=Choose ED
 Name=CHOOSE_ED
-Start=33
+Start=34
 Len=3
 
 [Item]
 Label=Delete Questionnaire
 Name=CHOOSE_QUESTIONNAIRE
-Start=36
+Start=37
 Len=12
 DataType=Alpha
 
 [Item]
 Label=Choose Household
 Name=CHOOSE_HOUSEHOLD
-Start=48
+Start=49
 Len=15
 DataType=Alpha
 
 [Item]
 Label=Choose Control Sheet
 Name=CHOOSE_CONTROL_SHEET
-Start=63
+Start=64
 Len=15
 DataType=Alpha
 
 [Item]
 Label=Delete Control Sheet
 Name=DELETE_CONTROL_SHEET
-Start=78
+Start=79
 Len=15
 DataType=Alpha
