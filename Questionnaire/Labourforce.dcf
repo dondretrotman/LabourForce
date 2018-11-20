@@ -1217,7 +1217,7 @@ Len=2
 [ValueSet]
 Label=Earners
 Name=EARNERS_VS1
-Value=0:10;valid
+Value=0:40;valid
 
 [Item]
 Label=Head Earner
@@ -1240,7 +1240,7 @@ Len=2
 [ValueSet]
 Label=No of Male Children
 Name=MCHILDRN_VS1
-Value=0:10;Valid
+Value=0:40;Valid
 
 [Item]
 Label=No of Female Children
@@ -1251,7 +1251,7 @@ Len=2
 [ValueSet]
 Label=No of Female Children
 Name=FCHILDRN_VS1
-Value=0:10;Valid
+Value=0:40;Valid
 
 [Item]
 Label=1. Individual No
@@ -1262,7 +1262,7 @@ Len=2
 [ValueSet]
 Label=1. Individual No
 Name=INDIVNO_VS1
-Value=1:10;Valid
+Value=1:40;Valid
 
 [Item]
 Label=3. Sex
