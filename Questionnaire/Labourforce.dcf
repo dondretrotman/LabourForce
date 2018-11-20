@@ -1206,7 +1206,7 @@ Len=2
 [ValueSet]
 Label=HHsize
 Name=HH_SZ_VS1
-Value=1:10;Valid
+Value=1:40;Valid
 
 [Item]
 Label=Earners
