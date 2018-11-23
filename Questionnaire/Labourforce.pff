@@ -5,8 +5,7 @@ Description=Continuous Labourforce Sample Survey
 
 [DataEntryInit]
 OperatorID=WDAVIS
-StartMode=Add; 14832073  6
-Lock=CaseListing
+StartMode=Modify
 ShowInApplicationListing=Hidden
 AutoAdd=NO
 Interactive=Ask
@@ -25,12 +24,12 @@ PFFFILE=
 
 [Parameters]
 OnExit=../Menu/Menu.pff
-ADDRESS=JACKSON
-BLDGNO=6
-EDNO=483
+ADDRESS=APES HILL TENANTRY BAY WOODS. ST. JAMES
+BLDGNO=4
+EDNO=435
 ENMRTR=94
-HHNO=6
-PARNO=207
-RNDNO=1
+HHNO=2
+PARNO=206
+RNDNO=4
 STRATUM=3
 

@@ -2,6 +2,7 @@
 
 {
 	TODO: set operator id to CODER code
+	If LCompleted = 11 ad number of persons in household are <=10 then change Lcompleted to 88
 }
 PROC GLOBAL
 

@@ -210,7 +210,7 @@ Form=2
 LogicControl=No
 Type=Record
 TypeName=LABOURFORCE_REC
-Max=10
+Max=40
   
 [Field]
 Name=OCCUPTR_TEXT
