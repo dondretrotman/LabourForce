@@ -1,0 +1,86 @@
+﻿[FormFile]
+Version=CSPro 7.1
+Name=AUXIL_FF
+Label=Auxil
+DefaultTextFont=-013 0000 0000 0000 0700 0000 0000 0000 0000 0000 0000 0000 0000 Arial
+FieldEntryFont=0018 0000 0000 0000 0600 0000 0000 0000 0000 0000 0000 0000 0000 Courier New
+Type=OperatorControlled
+  
+[Dictionaries]
+File=.\Auxil.dcf
+  
+[Form]
+Name=FORM000
+Label=Auxil questionnaire
+Level=1
+Size=1092,339
+  
+Item=AUXILTYPE
+Item=AUXILTXT
+Item=AUXILKEY
+Item=AUXILCODE
+  
+[EndForm]
+  
+[Level]
+Name=AUXIL_QUEST
+Label=Auxil questionnaire
+  
+[Group]
+Required=Yes
+Name=AUXIL_QUEST_FORM
+Label=Auxil questionnaire
+Form=1
+LogicControl=No
+Max=1
+  
+[Field]
+Name=AUXILTYPE
+Position=397,226,412,246
+Item=AUXILTYPE,AUXIL_DICT
+Protected=Yes
+Form=1
+  
+[Text]
+Position=369,205,449,221
+Text=Coding Type
+ 
+  
+[Field]
+Name=AUXILTXT
+Position=467,226,608,246
+Item=AUXILTXT,AUXIL_DICT
+Protected=Yes
+Form=1
+  
+[Text]
+Position=470,205,547,221
+Text=Coding Text
+ 
+  
+[Field]
+Name=AUXILKEY
+Position=366,264,1067,284
+Item=AUXILKEY,AUXIL_DICT
+UseEnterKey=Yes
+UpperCase=Yes
+Form=1
+  
+[Text]
+Position=181,267,339,283
+Text=Occupation\\Industry Text
+ 
+  
+[Field]
+Name=AUXILCODE
+Position=366,294,423,314
+Item=AUXILCODE,AUXIL_DICT
+UseEnterKey=Yes
+Form=1
+  
+[Text]
+Position=181,297,344,313
+Text=Occupation\\Industry Code
+ 
+[EndGroup]
+  

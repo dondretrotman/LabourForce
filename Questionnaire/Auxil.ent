@@ -1,23 +1,20 @@
 ﻿[CSPro Application]
 Version=CSPro 7.1
-Label=DATAENTRY
-Name=DATAENTRY
+Label=AUXIL
+Name=AUXIL
 AppType=DataEntry
-OperatorID=No
 [External Dictionaries]
 File=.\OccupationCodes.dcf
 File=.\IndustryCodes.dcf
 [AppCode]
-File=.\DataEntry.ent.apc
+File=.\Auxil.ent.apc
 [Message]
-File=.\DataEntry.ent.mgf
+File=.\Auxil.ent.mgf
 [Help]
-File=.\DataEntry.ent.qsf
+File=.\Auxil.ent.qsf
 [Forms]
-File=.\DataEntry.fmf
 File=.\Auxil.fmf
 [Dictionary Types]
-Dict-Type=.\Labourforce.dcf,Input,.\DataEntry.fmf
 Dict-Type=.\OccupationCodes.dcf,External
+Dict-Type=.\Auxil.dcf,Input,.\Auxil.fmf
 Dict-Type=.\IndustryCodes.dcf,External
-Dict-Type=.\Auxil.dcf,External,.\Auxil.fmf

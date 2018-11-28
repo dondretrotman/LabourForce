@@ -3,41 +3,234 @@
 {
 	TODO: set operator id to CODER code
 	If LCompleted = 11 ad number of persons in household are <=10 then change Lcompleted to 88
+	Change to more closeley follow the example with auxilalry form etc
+	Find out what auil.dat is supposed to contain
 }
 PROC GLOBAL
+//--------------------------Variable Declaration----------------------------------------
+numeric	len,		//Length of text
+		sel,		//select case
+		ok,
+		occupationcode,
+		industrycode,
+		searchflag,		//if search was successful
+		;
+
+//-------------------------Function Declaration------------------------------------------
+//Function Looks for first 
+function lookupOccupation(string text)
+	lookupOccupation = selcase(OCCUPATION_CODES_DICT,"")
+		include(LU_OCCUPATION) where pos(strip(text[1:3]),LU_OCCUPATION);		//searches for the first 3 characters of the text
+end;
 
 PROC LABOURFORCE_FF
 
 PROC OCCUPTR
 preproc
 	ask if length(strip(OCCUPTR_TEXT)) > 0;
+	
+postproc
+	if $ = missing then
+		clear(AUXIL_DICT);
+		enter AUXIL_FF;
+	else
+		ok = loadcase(OCCUPATION_CODES_DICT,LU_ISCO_CODE);
+		if ok <> 1 then
+			reenter;
+		endif;
+	endif;
 PROC OCCTRAINED
 preproc
 	ask if length(strip(OCCTRAINED_TEXT)) > 0;
+
+postproc
+	if $ = missing then
+		clear(AUXIL_DICT);
+		enter AUXIL_FF;
+	else
+		ok = loadcase(OCCUPATION_CODES_DICT,LU_ISCO_CODE);
+		if ok <> 1 then
+			reenter;
+		endif;
+	endif;
 PROC LSTOCCUP
 preproc
 	ask if length(strip(LSTOCCUP_TEXT)) > 0;
+
+postproc
+	if $ = missing then
+		clear(AUXIL_DICT);
+		enter AUXIL_FF;
+	else
+		ok = loadcase(OCCUPATION_CODES_DICT,LU_ISCO_CODE);
+		if ok <> 1 then
+			reenter;
+		endif;
+	endif;
 PROC LSTINDUS
 preproc
 	ask if length(strip(LSTINDUS_TEXT)) > 0;
+
+postproc
+	if $ = missing then
+		clear(AUXIL_DICT);
+		enter AUXIL_FF;
+	else
+		ok = loadcase(INDUSTRY_CODES_DICT,ISIC_V4_CODE);
+		if ok <> 1 then
+			reenter;
+		endif;
+	endif;
 PROC OCCUP
 preproc
 	ask if length(strip(OCCUP_TEXT)) > 0;
+	
+postproc
+	{if $ = missing then
+		clear(AUXIL_DICT);
+		AUXILTYPE = 1;
+		enter AUXIL_FF;
+		if searchflag = 1 then
+			$ = occupationcode;
+		endif;
+	else}
+		ok = loadcase(OCCUPATION_CODES_DICT,LU_ISCO_CODE);
+		if ok <> 1 then
+			reenter;
+		endif;
+//	endif;
 PROC SOCCUP
 preproc
 	ask if length(strip(SOCCUP_TEXT)) > 0;
+
+postproc
+	if $ = missing then
+		clear(AUXIL_DICT);
+		enter AUXIL_FF;
+	else
+		ok = loadcase(OCCUPATION_CODES_DICT,LU_ISCO_CODE);
+		if ok <> 1 then
+			reenter;
+		endif;
+	endif;
 PROC INDUS
 preproc
 	ask if length(strip(INDUS_TEXT)) > 0;
+
+postproc
+	if $ = missing then
+		clear(AUXIL_DICT);
+		enter AUXIL_FF;
+	else
+		ok = loadcase(INDUSTRY_CODES_DICT,ISIC_V4_CODE);
+		if ok <> 1 then
+			reenter;
+		endif;
+	endif;
 PROC SINDUS
 preproc
 	ask if length(strip(SINDUS_TEXT)) > 0;
+
+postproc
+	if $ = missing then
+		clear(AUXIL_DICT);
+		enter AUXIL_FF;
+	else
+		ok = loadcase(INDUSTRY_CODES_DICT,ISIC_V4_CODE);
+		if ok <> 1 then
+			reenter;
+		endif;
+	endif;
 PROC FOCCUP
 preproc
 	ask if length(strip(FOCCUP_TEXT)) > 0;
+
+postproc
+	if $ = missing then
+		clear(AUXIL_DICT);
+		enter AUXIL_FF;
+	else
+		ok = loadcase(OCCUPATION_CODES_DICT,LU_ISCO_CODE);
+		if ok <> 1 then
+			reenter;
+		endif;
+	endif;
 PROC INCINDUS
 preproc
 	ask if length(strip(INCINDUS_TEXT)) > 0;
+
+postproc
+	if $ = missing then
+		clear(AUXIL_DICT);
+		enter AUXIL_FF;
+	else
+		ok = loadcase(INDUSTRY_CODES_DICT,ISIC_V4_CODE);
+		if ok <> 1 then
+			reenter;
+		endif;
+	endif;
 PROC INCOCCUP
 preproc
 	ask if length(strip(INCOCCUP_TEXT)) > 0;
+
+postproc
+	if $ = missing then
+		clear(AUXIL_DICT);
+		enter AUXIL_FF;
+	else
+		ok = loadcase(OCCUPATION_CODES_DICT,LU_ISCO_CODE);
+		if ok <> 1 then
+			reenter;
+		endif;
+	endif;
+PROC AUXILTXT
+preproc
+	{indicate type of listing}
+	if AUXILTYPE = 1 then
+		$ = "Occupation";
+	else
+		$ = "Industry";
+	endif;
+
+
+PROC AUXILKEY
+
+	{return length of string without blanks. If length >= 3 and occupation or industry text
+	is found on corresponding data file, the matching selection window is opened. }
+	searchflag = 0;
+	Len = length(strip(AUXILKEY));
+
+	if Len >= 3 then
+		
+		if AUXILTYPE = 1 then
+			{if length >= 3 and text for occupation (AUXILKEY) matches text in OCC.DAT}
+				Sel = selcase(OCCUPATION_CODES_DICT,"")
+					include(LU_OCCUPATION) where pos(strip(AUXILKEY),LU_OCCUPATION);
+		endif;
+		
+		if AUXILTYPE = 2 then
+			{if length >= 3 and text for industry (AUXILKEY) matches text in IND.DAT}
+				Sel = selcase(INDUSTRY_CODES_DICT,"")
+					include(INDUSTRY) where pos(strip(AUXILKEY),INDUSTRY);
+		endif;
+		
+	endif;
+
+	{if selection is found, then assign code to occupation or industry field.}
+	if Sel then
+	
+		if AUXILTYPE = 1 then
+			AUXILCODE = LU_ISCO_CODE;
+			occupationcode = LU_ISCO_CODE;
+			searchflag = 1;
+		else
+			AUXILCODE = ISIC_V4_CODE;
+			industrycode = ISIC_V4_CODE;
+			searchflag = 1;
+		endif;
+	
+	else
+		errmsg("Invalid entry");
+		reenter;
+	
+	endif;

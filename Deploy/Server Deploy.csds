@@ -57,6 +57,6 @@
     "type": "LocalFolder",
     "cswebUrl": "http:\/\/csweb.teleyah.com\/api",
     "ftpUrl": "ftp:\/\/172.28.10.215",
-    "localFolderPath": "\\\\statserver.gov.bb\\censussurveys\\LBFORCE CAPI DATA\\CSPro\\Update"
+    "localFolderPath": "\\\\statserver.gov.bb\\FTP_Data_Warehouse\\CSPro\\Update"
   }
 }

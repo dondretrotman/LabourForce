@@ -9,6 +9,10 @@ Interactive=Ask
 Application=.\DataEntry.ent
 InputData=..\..\Data\Downloaded data\Labourforce.csdb|CSPRODB
 
+[ExternalFiles]
+AUXIL_DICT=..\Data\auxil.csdb|CSPRODB
+INDUSTRY_CODES_DICT=..\Data\IndustryCodes.csdb|CSPRODB
+OCCUPATION_CODES_DICT=..\Data\Occupationcodes.csdb|CSPRODB
 
 [Parameters]
 
