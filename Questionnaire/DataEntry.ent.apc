@@ -3,8 +3,7 @@
 {
 	TODO: set operator id to CODER code
 	If LCompleted = 11 ad number of persons in household are <=10 then change Lcompleted to 88
-	Change to more closeley follow the example with auxilalry form etc
-	Find out what auil.dat is supposed to contain
+	Change all Occupation and Industry codes in the excel file to UPPERCASE
 }
 PROC GLOBAL
 //--------------------------Variable Declaration----------------------------------------
@@ -32,9 +31,12 @@ preproc
 postproc
 	if $ = missing then
 		clear(AUXIL_DICT);
+		AUXILTYPE = 1;
+		AUXILKEY = OCCUPTR_TEXT;
 		enter AUXIL_FF;
+		$ = occupationcode;
 	else
-		ok = loadcase(OCCUPATION_CODES_DICT,LU_ISCO_CODE);
+		ok = loadcase(OCCUPATION_CODES_DICT,$);
 		if ok <> 1 then
 			reenter;
 		endif;
@@ -46,13 +48,17 @@ preproc
 postproc
 	if $ = missing then
 		clear(AUXIL_DICT);
+		AUXILTYPE = 1;
+		AUXILKEY = OCCTRAINED_TEXT;
 		enter AUXIL_FF;
+		$ = occupationcode;
 	else
-		ok = loadcase(OCCUPATION_CODES_DICT,LU_ISCO_CODE);
+		ok = loadcase(OCCUPATION_CODES_DICT,$);
 		if ok <> 1 then
 			reenter;
 		endif;
 	endif;
+
 PROC LSTOCCUP
 preproc
 	ask if length(strip(LSTOCCUP_TEXT)) > 0;
@@ -60,9 +66,12 @@ preproc
 postproc
 	if $ = missing then
 		clear(AUXIL_DICT);
+		AUXILTYPE = 1;
+		AUXILKEY = LSTOCCUP_TEXT;
 		enter AUXIL_FF;
+		$ = occupationcode;
 	else
-		ok = loadcase(OCCUPATION_CODES_DICT,LU_ISCO_CODE);
+		ok = loadcase(OCCUPATION_CODES_DICT,$);
 		if ok <> 1 then
 			reenter;
 		endif;
@@ -74,9 +83,12 @@ preproc
 postproc
 	if $ = missing then
 		clear(AUXIL_DICT);
+		AUXILTYPE = 2;
+		AUXILKEY = LSTINDUS_TEXT;
 		enter AUXIL_FF;
+		$ = industrycode;
 	else
-		ok = loadcase(INDUSTRY_CODES_DICT,ISIC_V4_CODE);
+		ok = loadcase(INDUSTRY_CODES_DICT,$);
 		if ok <> 1 then
 			reenter;
 		endif;
@@ -86,19 +98,18 @@ preproc
 	ask if length(strip(OCCUP_TEXT)) > 0;
 	
 postproc
-	{if $ = missing then
+	if $ = missing then
 		clear(AUXIL_DICT);
 		AUXILTYPE = 1;
+		AUXILKEY = OCCUP_TEXT;
 		enter AUXIL_FF;
-		if searchflag = 1 then
-			$ = occupationcode;
-		endif;
-	else}
-		ok = loadcase(OCCUPATION_CODES_DICT,LU_ISCO_CODE);
+		$ = occupationcode;
+	else
+		ok = loadcase(OCCUPATION_CODES_DICT,$);
 		if ok <> 1 then
 			reenter;
 		endif;
-//	endif;
+	endif;
 PROC SOCCUP
 preproc
 	ask if length(strip(SOCCUP_TEXT)) > 0;
@@ -106,9 +117,12 @@ preproc
 postproc
 	if $ = missing then
 		clear(AUXIL_DICT);
+		AUXILTYPE = 1;
+		AUXILKEY = SOCCUP_TEXT;
 		enter AUXIL_FF;
+		$ = occupationcode;
 	else
-		ok = loadcase(OCCUPATION_CODES_DICT,LU_ISCO_CODE);
+		ok = loadcase(OCCUPATION_CODES_DICT,$);
 		if ok <> 1 then
 			reenter;
 		endif;
@@ -120,9 +134,12 @@ preproc
 postproc
 	if $ = missing then
 		clear(AUXIL_DICT);
+		AUXILTYPE = 2;
+		AUXILKEY = INDUS_TEXT;
 		enter AUXIL_FF;
+		$ = industrycode;
 	else
-		ok = loadcase(INDUSTRY_CODES_DICT,ISIC_V4_CODE);
+		ok = loadcase(INDUSTRY_CODES_DICT,$);
 		if ok <> 1 then
 			reenter;
 		endif;
@@ -134,9 +151,12 @@ preproc
 postproc
 	if $ = missing then
 		clear(AUXIL_DICT);
+		AUXILTYPE = 2;
+		AUXILKEY = SINDUS_TEXT;
 		enter AUXIL_FF;
+		$ = industrycode;
 	else
-		ok = loadcase(INDUSTRY_CODES_DICT,ISIC_V4_CODE);
+		ok = loadcase(INDUSTRY_CODES_DICT,$);
 		if ok <> 1 then
 			reenter;
 		endif;
@@ -148,9 +168,12 @@ preproc
 postproc
 	if $ = missing then
 		clear(AUXIL_DICT);
+		AUXILTYPE = 1;
+		AUXILKEY = FOCCUP_TEXT;
 		enter AUXIL_FF;
+		$ = occupationcode;
 	else
-		ok = loadcase(OCCUPATION_CODES_DICT,LU_ISCO_CODE);
+		ok = loadcase(OCCUPATION_CODES_DICT,$);
 		if ok <> 1 then
 			reenter;
 		endif;
@@ -162,9 +185,12 @@ preproc
 postproc
 	if $ = missing then
 		clear(AUXIL_DICT);
+		AUXILTYPE = 2;
+		AUXILKEY = INCINDUS_TEXT;
 		enter AUXIL_FF;
+		$ = industrycode;
 	else
-		ok = loadcase(INDUSTRY_CODES_DICT,ISIC_V4_CODE);
+		ok = loadcase(INDUSTRY_CODES_DICT,$);
 		if ok <> 1 then
 			reenter;
 		endif;
@@ -176,9 +202,12 @@ preproc
 postproc
 	if $ = missing then
 		clear(AUXIL_DICT);
+		AUXILTYPE = 1;
+		AUXILKEY = INCOCCUP_TEXT;
 		enter AUXIL_FF;
+		$ = occupationcode;
 	else
-		ok = loadcase(OCCUPATION_CODES_DICT,LU_ISCO_CODE);
+		ok = loadcase(OCCUPATION_CODES_DICT,$);
 		if ok <> 1 then
 			reenter;
 		endif;
@@ -197,40 +226,32 @@ PROC AUXILKEY
 
 	{return length of string without blanks. If length >= 3 and occupation or industry text
 	is found on corresponding data file, the matching selection window is opened. }
-	searchflag = 0;
-	Len = length(strip(AUXILKEY));
 
-	if Len >= 3 then
 		
-		if AUXILTYPE = 1 then
-			{if length >= 3 and text for occupation (AUXILKEY) matches text in OCC.DAT}
-				Sel = selcase(OCCUPATION_CODES_DICT,"")
-					include(LU_OCCUPATION) where pos(strip(AUXILKEY),LU_OCCUPATION);
-		endif;
-		
-		if AUXILTYPE = 2 then
+	if AUXILTYPE = 1 then
+		{if length >= 3 and text for occupation (AUXILKEY) matches text in OCC.DAT}
+		Sel = selcase(OCCUPATION_CODES_DICT,"")
+			include(LU_OCCUPATION) where pos(strip($),LU_OCCUPATION);
+	endif;
+	if AUXILTYPE = 2 then
 			{if length >= 3 and text for industry (AUXILKEY) matches text in IND.DAT}
-				Sel = selcase(INDUSTRY_CODES_DICT,"")
-					include(INDUSTRY) where pos(strip(AUXILKEY),INDUSTRY);
-		endif;
-		
+		Sel = selcase(INDUSTRY_CODES_DICT,"")
+			include(INDUSTRY) where pos(strip($),INDUSTRY);
 	endif;
 
 	{if selection is found, then assign code to occupation or industry field.}
-	if Sel then
+	if Sel = 1 then
 	
 		if AUXILTYPE = 1 then
 			AUXILCODE = LU_ISCO_CODE;
 			occupationcode = LU_ISCO_CODE;
-			searchflag = 1;
 		else
 			AUXILCODE = ISIC_V4_CODE;
 			industrycode = ISIC_V4_CODE;
-			searchflag = 1;
 		endif;
 	
 	else
-		errmsg("Invalid entry");
+		//errmsg("Invalid entry");
 		reenter;
 	
 	endif;

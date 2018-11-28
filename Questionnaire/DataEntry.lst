@@ -1,0 +1,21 @@
+﻿Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Questionnaire\DataEntry.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        AUXIL_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\auxil.csdb
+External        OCCUPATION_CODES_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\Occupationcodes.csdb
+External        INDUSTRY_CODES_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\IndustryCodes.csdb
+
+Date            Nov 28, 2018
+Start Time      00:26:30
+End Time        00:26:34
+
+CSPRO Process Summary
+
+System messages:
+
+ Number    Frequency   Message text
+ ------    ---------   ------------
+   1010            1   Application error: protected field %n out of rang
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------

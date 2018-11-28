@@ -1804,6 +1804,12 @@ Name=OCCUPTR
 Start=397
 Len=4
 
+[ValueSet]
+Label=12. Training for Occupation
+Name=OCCUPTR_VS1
+Value='    ';Missing
+Name=MISSING,Special
+
 [Item]
 Label=13. Place currently training
 Name=PLACETR
@@ -1857,6 +1863,12 @@ Label=15. Occupation trained
 Name=OCCTRAINED
 Start=434
 Len=4
+
+[ValueSet]
+Label=15. Occupation trained
+Name=OCCTRAINED_VS1
+Value='    ';Missing
+Name=MISSING,Special
 
 [Item]
 Label=16. Place trained
@@ -2194,6 +2206,12 @@ Name=LSTOCCUP
 Start=638
 Len=4
 
+[ValueSet]
+Label=31. Last Occupation
+Name=LSTOCCUP_VS1
+Value='    ';missing
+Name=MISSING,Special
+
 [Item]
 Label=32a. Last Industry
 Name=LSTINDUS_TEXT
@@ -2206,6 +2224,12 @@ Label=32a. Last industry
 Name=LSTINDUS
 Start=672
 Len=4
+
+[ValueSet]
+Label=32a. Last industry
+Name=LSTINDUS_VS1
+Value='    ';Missing
+Name=MISSING,Special
 
 [Item]
 Label=32b. Last unemployment status
@@ -2433,6 +2457,12 @@ Name=OCCUP
 Start=839
 Len=4
 
+[ValueSet]
+Label=37. Main occupation
+Name=OCCUP_VS1
+Value='    ';Missing
+Name=MISSING,Special
+
 [Item]
 Label=37. Second occupation
 Name=SOCCUP_TEXT
@@ -2445,6 +2475,12 @@ Label=37. Second occupation
 Name=SOCCUP
 Start=873
 Len=4
+
+[ValueSet]
+Label=37. Second occupation
+Name=SOCCUP_VS1
+Value='    ';Missing
+Name=MISSING,Special
 
 [Item]
 Label=38. Main industry
@@ -2459,6 +2495,12 @@ Name=INDUS
 Start=907
 Len=4
 
+[ValueSet]
+Label=38. Main industry
+Name=INDUS_VS1
+Value='    ';Missing
+Name=MISSING,Special
+
 [Item]
 Label=38. Second industry
 Name=SINDUS_TEXT
@@ -2471,6 +2513,12 @@ Label=38. Second industry
 Name=SINDUS
 Start=941
 Len=4
+
+[ValueSet]
+Label=38. Second industry
+Name=SINDUS_VS1
+Value='    ';Missing
+Name=MISSING,Special
 
 [Item]
 Label=39. Work Experience
@@ -2708,6 +2756,12 @@ Name=FOCCUP
 Start=1026
 Len=4
 
+[ValueSet]
+Label=47. Occupation wanted
+Name=FOCCUP_VS1
+Value='    ';Missing
+Name=MISSING,Special
+
 [Item]
 Label=48. Industry wanted
 Name=INCINDUS_TEXT
@@ -2720,6 +2774,12 @@ Label=48. Industry wanted
 Name=INCINDUS
 Start=1060
 Len=4
+
+[ValueSet]
+Label=48. Industry wanted
+Name=INCINDUS_VS1
+Value='    ';Missing
+Name=MISSING,Special
 
 [Item]
 Label=49. Ever worked before
@@ -2746,6 +2806,12 @@ Label=50. Last occupation
 Name=INCOCCUP
 Start=1095
 Len=4
+
+[ValueSet]
+Label=50. Last occupation
+Name=INCOCCUP_VS1
+Value='    ';Missing
+Name=MISSING,Special
 
 [Item]
 Label=51a. Main sources of livelihood

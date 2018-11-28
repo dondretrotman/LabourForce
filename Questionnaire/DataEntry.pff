@@ -3,11 +3,12 @@ Version=CSPro 7.1
 AppType=Entry
 
 [DataEntryInit]
+StartMode=Modify
 Interactive=Ask
 
 [Files]
 Application=.\DataEntry.ent
-InputData=..\..\Data\Downloaded data\Labourforce.csdb|CSPRODB
+InputData=..\Data\data.csdb|CSPRODB
 
 [ExternalFiles]
 AUXIL_DICT=..\Data\auxil.csdb|CSPRODB
