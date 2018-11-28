@@ -15,6 +15,9 @@ numeric	len,		//Length of text
 		searchflag,		//if search was successful
 		;
 
+string	caselabel,		//sets label for the case
+		;
+
 //-------------------------Function Declaration------------------------------------------
 //Function Looks for first 
 function lookupOccupation(string text)
@@ -24,6 +27,22 @@ end;
 
 PROC LABOURFORCE_FF
 
+PROC LABOURFORCE_QUEST
+preproc
+	set errmsg(operator,"Press 'Enter' to dismiss",13);
+
+postproc
+	//errmsg("%d - %s",visualvalue(CODER),sysparm("CODER"));
+	if visualvalue(CODER) in notappl,default then
+		CODER = tonumber(sysparm("CODER"));
+	endif;
+	//errmsg("%d - %s",visualvalue(CODER),sysparm("CODER"));
+	if not CODER in notappl,default then
+		caselabel = getcaselabel(LABOURFORCE_DICT)+maketext(": Coded (%02d)",CODER);	//TODO: FIX THIS SO THAT IT DOESN'T KEEP GETTING LONGER
+		setcaselabel(LABOURFORCE_DICT,caselabel);
+	endif;
+
+//-----------------------------------------------------------------------------
 PROC OCCUPTR
 preproc
 	ask if length(strip(OCCUPTR_TEXT)) > 0;
@@ -41,6 +60,8 @@ postproc
 			reenter;
 		endif;
 	endif;
+
+//-----------------------------------------------------------------------------
 PROC OCCTRAINED
 preproc
 	ask if length(strip(OCCTRAINED_TEXT)) > 0;
@@ -59,6 +80,7 @@ postproc
 		endif;
 	endif;
 
+//-----------------------------------------------------------------------------
 PROC LSTOCCUP
 preproc
 	ask if length(strip(LSTOCCUP_TEXT)) > 0;
@@ -76,6 +98,8 @@ postproc
 			reenter;
 		endif;
 	endif;
+
+//-----------------------------------------------------------------------------
 PROC LSTINDUS
 preproc
 	ask if length(strip(LSTINDUS_TEXT)) > 0;
@@ -93,6 +117,8 @@ postproc
 			reenter;
 		endif;
 	endif;
+
+//-----------------------------------------------------------------------------
 PROC OCCUP
 preproc
 	ask if length(strip(OCCUP_TEXT)) > 0;
@@ -110,6 +136,8 @@ postproc
 			reenter;
 		endif;
 	endif;
+
+//-----------------------------------------------------------------------------
 PROC SOCCUP
 preproc
 	ask if length(strip(SOCCUP_TEXT)) > 0;
@@ -127,6 +155,8 @@ postproc
 			reenter;
 		endif;
 	endif;
+
+//-----------------------------------------------------------------------------
 PROC INDUS
 preproc
 	ask if length(strip(INDUS_TEXT)) > 0;
@@ -144,6 +174,8 @@ postproc
 			reenter;
 		endif;
 	endif;
+
+//-----------------------------------------------------------------------------
 PROC SINDUS
 preproc
 	ask if length(strip(SINDUS_TEXT)) > 0;
@@ -161,6 +193,8 @@ postproc
 			reenter;
 		endif;
 	endif;
+
+//-----------------------------------------------------------------------------
 PROC FOCCUP
 preproc
 	ask if length(strip(FOCCUP_TEXT)) > 0;
@@ -178,6 +212,8 @@ postproc
 			reenter;
 		endif;
 	endif;
+
+//-----------------------------------------------------------------------------
 PROC INCINDUS
 preproc
 	ask if length(strip(INCINDUS_TEXT)) > 0;
@@ -195,6 +231,8 @@ postproc
 			reenter;
 		endif;
 	endif;
+
+//-----------------------------------------------------------------------------
 PROC INCOCCUP
 preproc
 	ask if length(strip(INCOCCUP_TEXT)) > 0;
@@ -212,6 +250,8 @@ postproc
 			reenter;
 		endif;
 	endif;
+
+//-----------------------------------------------------------------------------
 PROC AUXILTXT
 preproc
 	{indicate type of listing}
@@ -244,14 +284,18 @@ PROC AUXILKEY
 	
 		if AUXILTYPE = 1 then
 			AUXILCODE = LU_ISCO_CODE;
+			AUXILKEY = LU_OCCUPATION;
 			occupationcode = LU_ISCO_CODE;
 		else
 			AUXILCODE = ISIC_V4_CODE;
+			AUXILKEY = INDUSTRY;
 			industrycode = ISIC_V4_CODE;
 		endif;
 	
 	else
-		//errmsg("Invalid entry");
+		errmsg("Invalid entry");
 		reenter;
 	
 	endif;
+
+//-----------------------------------------------------------------------------

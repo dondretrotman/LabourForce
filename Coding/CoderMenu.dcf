@@ -1,0 +1,89 @@
+﻿[Dictionary]
+Version=CSPro 7.1
+Label=CoderMenu
+Name=CODERMENU_DICT
+RecordTypeStart=1
+RecordTypeLen=1
+Positions=Relative
+ZeroFill=No
+DecimalChar=Yes
+
+[Level]
+Label=CoderMenu questionnaire
+Name=CODERMENU_QUEST
+
+[IdItems]
+
+[Item]
+Label=CoderMenu identification
+Name=CODERMENU_ID
+Start=2
+Len=1
+
+[Record]
+Label=CoderMenu record
+Name=CODERMENU_REC
+RecordTypeValue='1'
+RecordLen=40
+
+[Item]
+Label=User Name
+Name=UNAME
+Start=3
+Len=20
+DataType=Alpha
+
+[ValueSet]
+Label=User Name
+Name=UNAME_VS1
+Value='LBRATHWAITE         ';Lorna Brathwaite
+Value='KBUTCHERLEWIS       ';Keann Butcher-Lewis
+Value='RBLADES             ';Roger Blades
+Value='MBRATHWAITE         ';Michelle Brathwaite
+Value='KRUSSELL            ';Karin Russell
+Value='LSMITH              ';Lisa Smith
+Value='JJOHNSON            ';Jean Johnson
+Value='KBONAS              ';Kellyeanne Bonas
+
+[Item]
+Label=User ID
+Name=USERID
+Start=23
+Len=2
+
+[ValueSet]
+Label=User ID
+Name=USERID_VS1
+Value=16;LBRATHWAITE
+Value=41;KBUTCHERLEWIS
+Value=51;RBLADES
+Value=52;MBRATHWAITE
+Value=54;KRUSSELL
+Value=58;LSMITH
+Value=65;JJOHNSON
+Value=66;KBONAS
+
+[Item]
+Label=ED
+Name=CO_ED
+Start=25
+Len=3
+
+[Item]
+Label=Main Menu
+Name=MAIN_MENU
+Start=28
+Len=1
+
+[ValueSet]
+Label=Main Menu
+Name=MAIN_MENU_VS1
+Value=1;Choose Questionnaire
+Value=9;Logout
+
+[Item]
+Label=Choose Questionnaire
+Name=CHOOSE_QUESTIONNAIRE
+Start=29
+Len=12
+DataType=Alpha

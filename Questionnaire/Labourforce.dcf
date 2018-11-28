@@ -105,7 +105,7 @@ Len=3
 Label=Household Listing
 Name=HOUSEHOLD_LISTING
 RecordTypeValue='1'
-RecordLen=270
+RecordLen=272
 
 [Item]
 Label=Latitude
@@ -454,6 +454,24 @@ Name=VACANT_OTHER
 Start=171
 Len=100
 DataType=Alpha
+
+[Item]
+Label=Coder
+Name=CODER
+Start=271
+Len=2
+
+[ValueSet]
+Label=Coder
+Name=CODER_VS1
+Value=16;Lorna Brathwaite
+Value=41;Keann Butcher-Lewis
+Value=51;Roger Blades
+Value=52;Michelle Brathwaite
+Value=54;Karin Russell
+Value=58;Lisa Smith
+Value=65;Jean Johnson
+Value=66;Kellyanne Bonas
 
 [Record]
 Label=Labourforce record
@@ -936,8 +954,8 @@ Value=2;Listing error
 Value=4;No respondent/informant or refusal
 
 [Item]
-Label=Coder
-Name=CODER
+Label=Coderold
+Name=BLANK
 Start=171
 Len=2
 

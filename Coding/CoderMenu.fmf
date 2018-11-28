@@ -1,0 +1,106 @@
+﻿[FormFile]
+Version=CSPro 7.1
+Name=CODERMENU_FF
+Label=CoderMenu
+DefaultTextFont=-013 0000 0000 0000 0700 0000 0000 0000 0000 0000 0000 0000 0000 Arial
+FieldEntryFont=0018 0000 0000 0000 0600 0000 0000 0000 0000 0000 0000 0000 0000 Courier New
+Type=SystemControlled
+  
+[Dictionaries]
+File=.\CoderMenu.dcf
+  
+[Form]
+Name=FORM001
+Label=CoderMenu record
+Level=1
+Size=1207,300
+  
+Item=UNAME
+Item=USERID
+Item=CO_ED
+Item=MAIN_MENU
+Item=CHOOSE_QUESTIONNAIRE
+  
+[EndForm]
+  
+[Level]
+Name=CODERMENU_QUEST
+Label=CoderMenu questionnaire
+  
+[Group]
+Required=Yes
+Name=CODERMENU_REC_FORM
+Label=CoderMenu record
+Form=1
+LogicControl=No
+Max=1
+  
+[Field]
+Name=UNAME
+Position=212,27,382,47
+Item=UNAME,CODERMENU_DICT
+UpperCase=Yes
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+Form=1
+  
+[Text]
+Position=50,30,119,46
+Text=User Name
+ 
+  
+[Field]
+Name=USERID
+Position=212,57,241,77
+Item=USERID,CODERMENU_DICT
+UpperCase=Yes
+FieldLabelType=DictionaryLabel
+Form=1
+  
+[Text]
+Position=50,60,95,76
+Text=User ID
+ 
+  
+[Field]
+Name=CO_ED
+Position=212,87,255,107
+Item=CO_ED,CODERMENU_DICT
+UpperCase=Yes
+FieldLabelType=DictionaryLabel
+Form=1
+  
+[Text]
+Position=50,90,67,106
+Text=ED
+ 
+  
+[Field]
+Name=MAIN_MENU
+Position=212,117,227,137
+Item=MAIN_MENU,CODERMENU_DICT
+UpperCase=Yes
+FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
+Form=1
+  
+[Text]
+Position=50,120,120,136
+Text=Main Menu
+ 
+  
+[Field]
+Name=CHOOSE_QUESTIONNAIRE
+Position=212,147,381,167
+Item=CHOOSE_QUESTIONNAIRE,CODERMENU_DICT
+UpperCase=Yes
+FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
+Form=1
+  
+[Text]
+Position=50,150,190,166
+Text=Choose Questionnaire
+ 
+[EndGroup]
+  

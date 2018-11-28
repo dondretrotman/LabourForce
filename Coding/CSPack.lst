@@ -1,0 +1,18 @@
+﻿Application:  I:\Dondre\Projects2\Labour force CSPro\LabourForce\Questionnaire\Labourforce.ent
+   Zip file:  I:\Dondre\Projects2\Labour force CSPro\LabourForce\LBF.zip
+
+The following application files were packed:
+    Labourforce.ent
+    .\Labourforce.fmf
+    .\Labourforce.dcf
+    ..\Reports\EnumerationReport.dcf
+    ..\ControlSheets\Listing.dcf
+    .\Labourforce.ent.apc
+    .\Labourforce.ent.mgf
+    .\Labourforce.ent.qsf
+    .\Labourforce.pff
+    ..\Data\enumrpt.csdb
+    ..\Data\Controlsheet.csdb
+
+*** Error building zip; unable to write to zip file.  Make sure that the disk is not full or write protected and that you have permissions to write to the destination folder.
+

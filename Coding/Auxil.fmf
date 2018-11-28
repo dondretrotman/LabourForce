@@ -39,6 +39,7 @@ Name=AUXILTYPE
 Position=397,226,412,246
 Item=AUXILTYPE,AUXIL_DICT
 Protected=Yes
+UpperCase=Yes
 Form=1
   
 [Text]
@@ -51,6 +52,7 @@ Name=AUXILTXT
 Position=467,226,608,246
 Item=AUXILTXT,AUXIL_DICT
 Protected=Yes
+UpperCase=Yes
 Form=1
   
 [Text]
@@ -63,6 +65,7 @@ Name=AUXILKEY
 Position=366,264,1067,284
 Item=AUXILKEY,AUXIL_DICT
 UseEnterKey=Yes
+UpperCase=Yes
 Form=1
   
 [Text]
@@ -75,6 +78,7 @@ Name=AUXILCODE
 Position=366,294,423,314
 Item=AUXILCODE,AUXIL_DICT
 UseEnterKey=Yes
+UpperCase=Yes
 Form=1
   
 [Text]

@@ -1,0 +1,21 @@
+﻿[CSPro Application]
+Version=CSPro 7.1
+Label=CODERMENU
+Name=CODERMENU
+AppType=DataEntry
+OperatorID=No
+AutoAdvanceOnSelection=Yes
+ShowErrorMessageNumbers=No
+[External Dictionaries]
+File=..\Questionnaire\Labourforce.dcf
+[AppCode]
+File=.\CoderMenu.ent.apc
+[Message]
+File=.\CoderMenu.ent.mgf
+[Help]
+File=.\CoderMenu.ent.qsf
+[Forms]
+File=.\CoderMenu.fmf
+[Dictionary Types]
+Dict-Type=.\CoderMenu.dcf,Input,.\CoderMenu.fmf
+Dict-Type=..\Questionnaire\Labourforce.dcf,External

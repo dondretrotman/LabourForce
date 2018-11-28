@@ -4,6 +4,7 @@ Label=DATAENTRY
 Name=DATAENTRY
 AppType=DataEntry
 OperatorID=No
+CaseTree=Never
 [External Dictionaries]
 File=.\OccupationCodes.dcf
 File=.\IndustryCodes.dcf
@@ -17,7 +18,7 @@ File=.\DataEntry.ent.qsf
 File=.\DataEntry.fmf
 File=.\Auxil.fmf
 [Dictionary Types]
-Dict-Type=.\Labourforce.dcf,Input,.\DataEntry.fmf
+Dict-Type=..\Questionnaire\Labourforce.dcf,Input,.\DataEntry.fmf
 Dict-Type=.\OccupationCodes.dcf,External
 Dict-Type=.\IndustryCodes.dcf,External
 Dict-Type=.\Auxil.dcf,External,.\Auxil.fmf
