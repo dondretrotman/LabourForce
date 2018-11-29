@@ -24,7 +24,7 @@ Len=1
 Label=CoderMenu record
 Name=CODERMENU_REC
 RecordTypeValue='1'
-RecordLen=40
+RecordLen=41
 
 [Item]
 Label=User Name
@@ -78,12 +78,27 @@ Len=1
 [ValueSet]
 Label=Main Menu
 Name=MAIN_MENU_VS1
-Value=1;Choose Questionnaire
+Value=1;Download Questionnaires
+Value=2;Choose Questionnaire
 Value=9;Logout
+
+[Item]
+Label=Choose Round
+Name=CHOOSE_ROUND
+Start=29
+Len=1
+
+[ValueSet]
+Label=Choose Round
+Name=CHOOSE_ROUND_VS1
+Value=1;One
+Value=2;Two
+Value=3;Three
+Value=4;Four
 
 [Item]
 Label=Choose Questionnaire
 Name=CHOOSE_QUESTIONNAIRE
-Start=29
+Start=30
 Len=12
 DataType=Alpha

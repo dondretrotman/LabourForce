@@ -13,13 +13,14 @@ File=.\CoderMenu.dcf
 Name=FORM001
 Label=CoderMenu record
 Level=1
-Size=1207,300
+Size=407,215
   
 Item=UNAME
 Item=USERID
 Item=CO_ED
 Item=MAIN_MENU
 Item=CHOOSE_QUESTIONNAIRE
+Item=CHOOSE_ROUND
   
 [EndForm]
   
@@ -90,8 +91,21 @@ Text=Main Menu
  
   
 [Field]
+Name=CHOOSE_ROUND
+Position=212,144,227,164
+Item=CHOOSE_ROUND,CODERMENU_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
+Form=1
+  
+[Text]
+Position=50,147,142,163
+Text=Choose Round
+ 
+  
+[Field]
 Name=CHOOSE_QUESTIONNAIRE
-Position=212,147,381,167
+Position=212,170,381,190
 Item=CHOOSE_QUESTIONNAIRE,CODERMENU_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
@@ -99,7 +113,7 @@ DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=50,150,190,166
+Position=50,173,190,189
 Text=Choose Questionnaire
  
 [EndGroup]

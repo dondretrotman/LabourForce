@@ -148,3 +148,144 @@ CSPRO Process Summary
 
 CSPRO Executor Normal End
 --------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 28, 2018
+Start Time      21:01:31
+End Time        21:02:07
+
+CSPRO Process Summary
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\Labourforce.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 28, 2018
+Start Time      21:04:21
+End Time        21:04:37
+
+CSPRO Process Summary
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 28, 2018
+Start Time      21:26:14
+End Time        21:26:47
+
+CSPRO Process Summary
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+     61       1    -   Attempting to download all data from Round :%d, E       -
+     72       1    -   Download of round %d, ED %d failed, Please try ag       -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 28, 2018
+Start Time      21:27:52
+End Time        21:33:27
+
+CSPRO Process Summary
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+     60       1    -   Attempting to download all data from Round :%d, E       -
+     71       1    -   Download of round %d, ED %d failed, Please try ag       -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 28, 2018
+Start Time      21:35:21
+End Time        21:35:47
+
+CSPRO Process Summary
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 28, 2018
+Start Time      21:37:59
+End Time        21:51:03
+
+CSPRO Process Summary
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+     60       1    -   Attempting to download all data from Round :%d, E       -
+     71       1    -   Download of round %d, ED %d failed, Please try ag       -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 29, 2018
+Start Time      06:43:53
+End Time        06:44:34
+
+CSPRO Process Summary
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 29, 2018
+Start Time      06:46:24
+End Time        08:15:32
+
+CSPRO Process Summary
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
