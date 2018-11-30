@@ -1,0 +1,60 @@
+{
+  "fileType": "Application Deployment Specification",
+  "version": "7.1",
+  "name": "Menu",
+  "description": "Continuous Labour Force Sample Survey ",
+  "files": [
+    {
+      "path": "..\\Data\\OccupationCodes.csdb"
+    },
+    {
+      "path": "..\\Data\\IndustryCodes.csdb"
+    },
+    {
+      "path": "..\\Coding\\DataEntry.pff"
+    },
+    {
+      "path": "..\\Coding\\DataEntry.ent"
+    },
+    {
+      "path": "..\\Coding\\CoderMenu.pff"
+    },
+    {
+      "path": "..\\Coding\\CoderMenu.ent"
+    },
+    {
+      "path": "..\\Coding\\Auxil.ent"
+    },
+    {
+      "path": "..\\Manual.pdf"
+    }
+  ],
+  "dictionaries": [
+    {
+      "path": "..\\Questionnaire\\Labourforce.dcf",
+      "uploadForSync": true
+    },
+    {
+      "path": "..\\Coding\\OccupationCodes.dcf",
+      "uploadForSync": true
+    },
+    {
+      "path": "..\\Coding\\IndustryCodes.dcf",
+      "uploadForSync": true
+    },
+    {
+      "path": "..\\Coding\\Auxil.dcf",
+      "uploadForSync": true
+    },
+    {
+      "path": "..\\Coding\\CoderMenu.dcf",
+      "uploadForSync": true
+    }
+  ],
+  "deployment": {
+    "type": "LocalFolder",
+    "cswebUrl": "http:\/\/csweb.teleyah.com\/api",
+    "ftpUrl": "ftp:\/\/172.28.10.215",
+    "localFolderPath": "\\\\statserver.gov.bb\\training\\CLFSS\\CLFSS PC\\Coding"
+  }
+}

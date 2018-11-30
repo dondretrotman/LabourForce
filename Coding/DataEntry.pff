@@ -6,16 +6,18 @@ AppType=Entry
 OperatorID=LSMITH
 StartMode=Modify; 44352063 13
 Lock=Add
-FullScreen=Yes
+FullScreen=YES
+Interactive=Ask
 
 [Files]
-Application=./DataEntry.ent
-InputData=../Data/data.csdb|CSPRODB
+Application=.\DataEntry.ent
+InputData=..\Data\data.csdb|CSPRODB
 
 [ExternalFiles]
-AUXIL_DICT=../Data/auxil.csdb|CSPRODB
-INDUSTRY_CODES_DICT=../Data/IndustryCodes.csdb|CSPRODB
-OCCUPATION_CODES_DICT=../Data/Occupationcodes.csdb|CSPRODB
+AUXIL_DICT=..\Data\auxil.csdb|CSPRODB
+INDUSTRY_CODES_DICT=..\Data\IndustryCodes.csdb|CSPRODB
+OCCUPATION_CODES_DICT=..\Data\Occupationcodes.csdb|CSPRODB
 
 [Parameters]
 CODER=58
+
