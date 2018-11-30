@@ -4,6 +4,8 @@ Label=CODERMENU
 Name=CODERMENU
 AppType=DataEntry
 OperatorID=No
+ShowEndCaseDialog=No
+CenterForms=Yes
 AutoAdvanceOnSelection=Yes
 ShowErrorMessageNumbers=No
 [External Dictionaries]

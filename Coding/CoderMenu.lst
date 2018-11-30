@@ -289,3 +289,304 @@ CSPRO Process Summary
 
 CSPRO Executor Normal End
 --------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 29, 2018
+Start Time      20:46:42
+End Time        20:46:45
+
+CSPRO Process Summary
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 29, 2018
+Start Time      20:47:41
+End Time        20:47:46
+
+CSPRO Process Summary
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 29, 2018
+Start Time      20:48:11
+End Time        20:48:54
+
+CSPRO Process Summary
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 29, 2018
+Start Time      20:49:18
+End Time        20:49:20
+
+CSPRO Process Summary
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 29, 2018
+Start Time      21:20:06
+End Time        21:20:22
+
+CSPRO Process Summary
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+     88       1    -   %s                                                      -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 29, 2018
+Start Time      21:36:58
+End Time        21:37:23
+
+CSPRO Process Summary
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+     88       1    -   %s                                                      -
+     89       1    -   %s                                                      -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 29, 2018
+Start Time      21:39:09
+End Time        21:39:29
+
+CSPRO Process Summary
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+     88       1    -   %s                                                      -
+     89       1    -   %s                                                      -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 29, 2018
+Start Time      21:52:32
+End Time        21:52:36
+
+CSPRO Process Summary
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 29, 2018
+Start Time      22:03:26
+End Time        22:03:53
+
+CSPRO Process Summary
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+    101       1    -   Upload of round %d, ED %d failed, Please try agai       -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 29, 2018
+Start Time      22:06:19
+End Time        22:07:09
+
+CSPRO Process Summary
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 29, 2018
+Start Time      22:08:35
+End Time        22:08:38
+
+CSPRO Process Summary
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 29, 2018
+Start Time      22:08:44
+End Time        22:08:47
+
+CSPRO Process Summary
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 29, 2018
+Start Time      22:10:19
+End Time        22:10:34
+
+CSPRO Process Summary
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+    101       1    -   Upload of round %d, ED %d failed, Please try agai       -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 29, 2018
+Start Time      22:10:41
+End Time        22:10:44
+
+CSPRO Process Summary
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 29, 2018
+Start Time      22:13:37
+End Time        22:13:41
+
+CSPRO Process Summary
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 29, 2018
+Start Time      22:13:54
+End Time        22:14:49
+
+CSPRO Process Summary
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+     62       1    -   Attempting to download all data from Round :%d, E       -
+     73       1    -   Download of round %d, ED %d failed, Please try ag       -
+    101       1    -   Upload of round %d, ED %d failed, Please try agai       -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Nov 29, 2018
+Start Time      22:20:59
+End Time        22:21:29
+
+CSPRO Process Summary
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+    101       1    -   Upload of round %d, ED %d failed, Please try agai       -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------

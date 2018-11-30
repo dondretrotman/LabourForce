@@ -3,6 +3,9 @@ Version=CSPro 7.1
 AppType=Entry
 
 [DataEntryInit]
+StartMode=Add
+Lock=CaseListing
+FullScreen=YES
 Interactive=Ask
 
 [Files]

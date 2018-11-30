@@ -1,23 +1,17 @@
 ﻿[Run Information]
 Version=CSPro 7.1
 AppType=Entry
-
 [DataEntryInit]
-OperatorID=LSMITH
+OperatorID=LSMITH              
 StartMode=Modify; 44352063 13
 Lock=Add
-FullScreen=YES
-Interactive=Ask
-
+FullScreen=Yes
 [Files]
-Application=.\DataEntry.ent
-InputData=..\Data\data.csdb|CSPRODB
-
+Application=./DataEntry.ent
+InputData=../Data/data.csdb|CSPRODB
 [ExternalFiles]
-AUXIL_DICT=..\Data\auxil.csdb|CSPRODB
-INDUSTRY_CODES_DICT=..\Data\IndustryCodes.csdb|CSPRODB
-OCCUPATION_CODES_DICT=..\Data\Occupationcodes.csdb|CSPRODB
-
+AUXIL_DICT=../Data/auxil.csdb|CSPRODB
+INDUSTRY_CODES_DICT=../Data/IndustryCodes.csdb|CSPRODB
+OCCUPATION_CODES_DICT=../Data/Occupationcodes.csdb|CSPRODB
 [Parameters]
 CODER=58
-

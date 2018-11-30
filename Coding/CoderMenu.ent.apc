@@ -4,18 +4,19 @@ PROC GLOBAL
 TODO: Set data file as a central data file Look into programmatically changing the data file based on round and year
 }
 //--------------------------------Variable Declaration---------------------------------------
-string	ftpip,
-		ftpun,
-		ftppw,
-		username,
-		status,
+string	ftpip,			//Stores ftp address
+		ftpun,			//stores ftp username
+		ftppw,			//stores ftp password
+		username,		//stores user name
+		status,			//stores current login status
 		;
 		
-numeric	errflag,
+numeric	errflag,		//sets error flag
+		roundnumber,	//saves round number
 		;
 
-file	loginfile,
-		pffFile,
+file	loginfile,		//saves login status in a file	
+		pffFile,		//Creates a .pff file
 		;
 		
 //-------------------------------Array Declaration------------------------------------------
@@ -72,12 +73,36 @@ function downloadData()
 		errmsg("Download of round %d, ED %d failed, Please try again. %d errors were found",CHOOSE_ROUND,CO_ED,errflag);
 	elseif errflag = 0 then
 		errmsg("Download of round %d, ED %d was successful",CHOOSE_ROUND,CO_ED);
-		savesetting("Updated",maketext("%d",sysdate("YYYYMMDD")));
 	elseif errflag = 1 then
 		errmsg("Download of round %d, ED %d failed, Please try again",CHOOSE_ROUND,CO_ED);
 	endif;
 end;
 
+//uploads data to server
+function saveWork()
+	if not roundnumber in 1:4 then
+		roundnumber = 0;
+		do until roundnumber in 1:4
+			roundnumber = accept("Choose current round","One","Two","Three","Four");
+		enddo;
+	endif;
+	errflag = 0;
+	//errmsg("Attempting to download all data from Round :%d, ED :%d",CHOOSE_ROUND,CO_ED);
+	//errmsg("Data dictionary value Round :%V, ED :%V", RNDNO,EDNO);
+	if syncconnect(FTP,ftpip,ftpun,ftppw) then		//connect to FTP when outside of the government WAN
+		if not syncdata(PUT,LABOURFORCE_DICT,maketext("%2d%v",roundnumber,CO_ED)) then		//upload labourforce data for round and ED
+			inc(errflag);
+		endif;
+		syncdisconnect();		//disconnect
+	else
+		inc(errflag,2);
+	endif;
+	if errflag >= 1 then
+		errmsg("Upload of round %d, ED %d failed, Please try again. %d errors were found",roundnumber,CO_ED,errflag);
+	//elseif errflag = 0 then
+	//	errmsg("Upload of round %d, ED %d was successful",roundnumber,CO_ED);	
+	endif;
+end;
 
 //Writes the login status to a file
 function writeloginstatus(x)
@@ -109,6 +134,10 @@ function readloginstatus()
 		USERID = notappl;
 		UNAME = "";
 	endif;
+end;
+
+function OnStop();
+	SaveWork();
 end;
 
 PROC CODERMENU_FF
@@ -165,14 +194,18 @@ postproc
 		skip to CHOOSE_ROUND;
 	elseif $ = 2 then
 		skip to CHOOSE_QUESTIONNAIRE;
+	elseif $ = 3 then
+		SaveWork();
 	elseif $ = 9 then
 		UNAME = "";
 		USERID = notappl;
 		writeloginstatus(0);
 		stop(1);
 	endif;
+	reenter;
 PROC CHOOSE_ROUND
 postproc
+	roundnumber = $;
 	downloadData();
 	move to MAIN_MENU;
 PROC CHOOSE_QUESTIONNAIRE

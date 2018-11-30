@@ -80,6 +80,7 @@ Label=Main Menu
 Name=MAIN_MENU_VS1
 Value=1;Download Questionnaires
 Value=2;Choose Questionnaire
+Value=3;Save to server
 Value=9;Logout
 
 [Item]
