@@ -13,6 +13,7 @@ numeric	len,		//Length of text
 		occupationcode,
 		industrycode,
 		searchflag,		//if search was successful
+		headindex,		//finds head of household
 		;
 
 string	caselabel,		//sets label for the case
@@ -35,14 +36,21 @@ postproc
 	//errmsg("%d - %s",visualvalue(CODER),sysparm("CODER"));
 	if visualvalue(CODER) in notappl,default then
 		CODER = tonumber(sysparm("CODER"));
-	endif;
-	//errmsg("%d - %s",visualvalue(CODER),sysparm("CODER"));
-	if not CODER in notappl,default then
-		caselabel = getcaselabel(LABOURFORCE_DICT)+maketext(": Coded (%02d)",CODER);	//TODO: FIX THIS SO THAT IT DOESN'T KEEP GETTING LONGER
-		setcaselabel(LABOURFORCE_DICT,caselabel);
+	//	if caselabel[-1] <> ")" then		//append the coder name only if last character is not a )
+			headindex = seek(LRTH = 0);
+			caselabel = maketext("%S-%02d-%03d-%03d-%d-%03d: Coded (%v)",strip(LLAST_NAME(headindex)),RNDNO,EDNO,PARNO,STRATUM,HHNO, getlabel(CODER_VS1, CODER) );
+			setcaselabel(LABOURFORCE_DICT,caselabel);
+	//	endif;
 	endif;
 
 //-----------------------------------------------------------------------------
+PROC LIDNO
+preproc
+	if $ = notappl then
+		skip to next;
+	endif;
+	
+//---------------------------------------------------
 PROC OCCUPTR
 preproc
 	ask if length(strip(OCCUPTR_TEXT)) > 0;
@@ -119,6 +127,11 @@ postproc
 	endif;
 
 //-----------------------------------------------------------------------------
+PROC LSTINDUS_SECTOR
+preproc
+	ask if length(strip(LSTINDUS_TEXT)) > 0;
+	
+//------------------------------------------------------
 PROC OCCUP
 preproc
 	ask if length(strip(OCCUP_TEXT)) > 0;
@@ -176,6 +189,11 @@ postproc
 	endif;
 
 //-----------------------------------------------------------------------------
+PROC INDUS_SECTOR
+preproc
+	ask if length(strip(INDUS_TEXT)) > 0;
+	
+//------------------------------------------------------
 PROC SINDUS
 preproc
 	ask if length(strip(SINDUS_TEXT)) > 0;
@@ -195,6 +213,11 @@ postproc
 	endif;
 
 //-----------------------------------------------------------------------------
+PROC SINDUS_SECTOR
+preproc
+	ask if length(strip(SINDUS_TEXT)) > 0;
+	
+//------------------------------------------------------
 PROC FOCCUP
 preproc
 	ask if length(strip(FOCCUP_TEXT)) > 0;
@@ -233,6 +256,11 @@ postproc
 	endif;
 
 //-----------------------------------------------------------------------------
+PROC INCINDUS_SECTOR
+preproc
+	ask if length(strip(INCINDUS_TEXT)) > 0;
+	
+//------------------------------------------------------
 PROC INCOCCUP
 preproc
 	ask if length(strip(INCOCCUP_TEXT)) > 0;

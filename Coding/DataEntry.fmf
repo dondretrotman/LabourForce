@@ -28,7 +28,7 @@ Name=FORM001
 Label=Occupation/Industry codes
 Level=1
 Repeat=LABOURFORCE_REC
-Size=1128,874
+Size=1128,947
   
 Item=OCCUPTR_TEXT
 Item=OCCUPTR
@@ -58,13 +58,17 @@ Item=PARNO000
 Item=STRATUM000
 Item=HHNO000
 Item=LIDNO
+Item=LSTINDUS_SECTOR
+Item=INDUS_SECTOR
+Item=SINDUS_SECTOR
+Item=INCINDUS_SECTOR
   
-Box=37,123,1103,849,Thick
+Box=37,123,1103,922,Thick
 Box=36,121,511,289,Raised
-Box=36,287,1102,399,Raised
-Box=36,397,1102,594,Raised
-Box=36,593,1102,729,Raised
-Box=37,727,518,849,Raised
+Box=36,287,1102,430,Raised
+Box=36,429,1102,654,Raised
+Box=36,653,1102,802,Raised
+Box=37,800,518,922,Raised
   
 [Text]
 Name=TEXT1
@@ -96,35 +100,35 @@ Form=2
   
 [Text]
 Name=TEXT5
-Position=64,413,261,429
+Position=64,439,261,455
 Text=What is your main occupation?
 Form=2
  
   
 [Text]
 Name=TEXT6
-Position=525,414,861,430
+Position=525,440,861,456
 Text=In what kind of industry or service is this occupation?
 Form=2
  
   
 [Text]
 Name=TEXT7
-Position=65,614,328,630
+Position=65,674,328,690
 Text=In what occupation do you hope to work?
 Form=2
  
   
 [Text]
 Name=TEXT8
-Position=528,612,884,628
+Position=528,672,884,688
 Text=In what type of business (industry) do you hope to work?
 Form=2
  
   
 [Text]
 Name=TEXT9
-Position=66,742,268,758
+Position=66,815,268,831
 Text=What was your last occupation?
 Form=2
  
@@ -222,6 +226,84 @@ LogicControl=No
 Type=Record
 TypeName=LABOURFORCE_REC
 Max=40
+  
+[Field]
+Name=RNDNO000
+Position=56,65,85,85
+Item=RNDNO,LABOURFORCE_DICT
+Mirror=Yes
+FieldLabelType=DictionaryLabel
+Form=2
+  
+[Text]
+Position=54,46,95,62
+Text=Round
+ 
+  
+[Field]
+Name=EDNO000
+Position=113,65,156,85
+Item=EDNO,LABOURFORCE_DICT
+Mirror=Yes
+FieldLabelType=DictionaryLabel
+Form=2
+  
+[Text]
+Position=113,46,184,62
+Text=ED Number
+ 
+  
+[Field]
+Name=PARNO000
+Position=203,65,246,85
+Item=PARNO,LABOURFORCE_DICT
+Mirror=Yes
+FieldLabelType=DictionaryLabel
+Form=2
+  
+[Text]
+Position=203,46,243,62
+Text=Parish
+ 
+  
+[Field]
+Name=STRATUM000
+Position=273,65,288,85
+Item=STRATUM,LABOURFORCE_DICT
+Mirror=Yes
+FieldLabelType=DictionaryLabel
+Form=2
+  
+[Text]
+Position=269,46,319,62
+Text=Stratum
+ 
+  
+[Field]
+Name=HHNO000
+Position=336,65,379,85
+Item=HHNO,LABOURFORCE_DICT
+Mirror=Yes
+FieldLabelType=DictionaryLabel
+Form=2
+  
+[Text]
+Position=334,46,437,62
+Text=Sample Number
+ 
+  
+[Field]
+Name=LIDNO
+Position=455,65,484,85
+Item=LIDNO,LABOURFORCE_DICT
+Protected=Yes
+FieldLabelType=DictionaryLabel
+Form=2
+  
+[Text]
+Position=453,46,570,62
+Text=Individual Number
+ 
   
 [Field]
 Name=OCCUPTR_TEXT
@@ -336,8 +418,21 @@ Text=32a. Last industry
  
   
 [Field]
+Name=LSTINDUS_SECTOR
+Position=706,396,721,416
+Item=LSTINDUS_SECTOR,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
+Form=2
+  
+[Text]
+Position=526,399,678,415
+Text=32a. Last Industry sector
+ 
+  
+[Field]
 Name=OCCUP_TEXT
-Position=245,438,495,458
+Position=245,464,495,484
 Item=OCCUP_TEXT,LABOURFORCE_DICT
 Protected=Yes
 UpperCase=Yes
@@ -346,26 +441,26 @@ UseUnicodeTextBox=Yes
 Form=2
   
 [Text]
-Position=65,441,192,457
+Position=65,467,192,483
 Text=37. Main occupation
  
   
 [Field]
 Name=OCCUP
-Position=245,475,302,495
+Position=245,495,302,515
 Item=OCCUP,LABOURFORCE_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
 Form=2
   
 [Text]
-Position=65,478,192,494
+Position=65,498,192,514
 Text=37. Main occupation
  
   
 [Field]
 Name=SOCCUP_TEXT
-Position=245,511,495,531
+Position=245,558,495,578
 Item=SOCCUP_TEXT,LABOURFORCE_DICT
 Protected=Yes
 UpperCase=Yes
@@ -374,26 +469,26 @@ UseUnicodeTextBox=Yes
 Form=2
   
 [Text]
-Position=65,514,209,530
+Position=65,561,209,577
 Text=37. Second occupation
  
   
 [Field]
 Name=SOCCUP
-Position=245,548,302,568
+Position=245,590,302,610
 Item=SOCCUP,LABOURFORCE_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
 Form=2
   
 [Text]
-Position=65,551,209,567
+Position=65,593,209,609
 Text=37. Second occupation
  
   
 [Field]
 Name=INDUS_TEXT
-Position=706,438,956,458
+Position=706,464,956,484
 Item=INDUS_TEXT,LABOURFORCE_DICT
 Protected=Yes
 UpperCase=Yes
@@ -402,26 +497,39 @@ UseUnicodeTextBox=Yes
 Form=2
   
 [Text]
-Position=526,441,633,457
+Position=526,467,633,483
 Text=38. Main industry
  
   
 [Field]
 Name=INDUS
-Position=706,475,763,495
+Position=706,495,763,515
 Item=INDUS,LABOURFORCE_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
 Form=2
   
 [Text]
-Position=526,478,633,494
+Position=526,498,633,514
 Text=38. Main industry
  
   
 [Field]
+Name=INDUS_SECTOR
+Position=706,526,721,546
+Item=INDUS_SECTOR,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
+Form=2
+  
+[Text]
+Position=526,529,675,545
+Text=38. Main Industry sector
+ 
+  
+[Field]
 Name=SINDUS_TEXT
-Position=706,511,956,531
+Position=706,558,956,578
 Item=SINDUS_TEXT,LABOURFORCE_DICT
 Protected=Yes
 UpperCase=Yes
@@ -430,26 +538,39 @@ UseUnicodeTextBox=Yes
 Form=2
   
 [Text]
-Position=526,514,650,530
+Position=526,561,650,577
 Text=38. Second industry
  
   
 [Field]
 Name=SINDUS
-Position=706,548,763,568
+Position=706,590,763,610
 Item=SINDUS,LABOURFORCE_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
 Form=2
   
 [Text]
-Position=526,551,650,567
+Position=526,593,650,609
 Text=38. Second industry
  
   
 [Field]
+Name=SINDUS_SECTOR
+Position=706,622,721,642
+Item=SINDUS_SECTOR,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
+Form=2
+  
+[Text]
+Position=526,625,692,641
+Text=38. Second Industry sector
+ 
+  
+[Field]
 Name=FOCCUP_TEXT
-Position=245,637,495,657
+Position=245,697,495,717
 Item=FOCCUP_TEXT,LABOURFORCE_DICT
 Protected=Yes
 UpperCase=Yes
@@ -458,26 +579,26 @@ UseUnicodeTextBox=Yes
 Form=2
   
 [Text]
-Position=65,640,210,656
+Position=65,700,210,716
 Text=47. Occupation wanted
  
   
 [Field]
 Name=FOCCUP
-Position=245,674,302,694
+Position=245,734,302,754
 Item=FOCCUP,LABOURFORCE_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
 Form=2
   
 [Text]
-Position=65,677,210,693
+Position=65,737,210,753
 Text=47. Occupation wanted
  
   
 [Field]
 Name=INCINDUS_TEXT
-Position=706,637,956,657
+Position=706,697,956,717
 Item=INCINDUS_TEXT,LABOURFORCE_DICT
 Protected=Yes
 UpperCase=Yes
@@ -486,26 +607,39 @@ UseUnicodeTextBox=Yes
 Form=2
   
 [Text]
-Position=526,640,649,656
+Position=526,700,649,716
 Text=48. Industry wanted
  
   
 [Field]
 Name=INCINDUS
-Position=706,674,763,694
+Position=706,734,763,754
 Item=INCINDUS,LABOURFORCE_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
 Form=2
   
 [Text]
-Position=526,677,649,693
+Position=526,737,649,753
 Text=48. Industry wanted
  
   
 [Field]
+Name=INCINDUS_SECTOR
+Position=706,769,721,789
+Item=INCINDUS_SECTOR,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
+Form=2
+  
+[Text]
+Position=526,772,691,788
+Text=48. Industry wanted sector
+ 
+  
+[Field]
 Name=INCOCCUP_TEXT
-Position=245,764,495,784
+Position=245,837,495,857
 Item=INCOCCUP_TEXT,LABOURFORCE_DICT
 Protected=Yes
 UpperCase=Yes
@@ -514,102 +648,21 @@ UseUnicodeTextBox=Yes
 Form=2
   
 [Text]
-Position=65,767,187,783
+Position=65,840,187,856
 Text=50. Last occupation
  
   
 [Field]
 Name=INCOCCUP
-Position=245,801,302,821
+Position=245,874,302,894
 Item=INCOCCUP,LABOURFORCE_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
 Form=2
   
 [Text]
-Position=65,804,187,820
+Position=65,877,187,893
 Text=50. Last occupation
- 
-  
-[Field]
-Name=RNDNO000
-Position=56,65,85,85
-Item=RNDNO,LABOURFORCE_DICT
-Mirror=Yes
-FieldLabelType=DictionaryLabel
-DataCaptureType=DropDown
-Form=2
-  
-[Text]
-Position=54,46,95,62
-Text=Round
- 
-  
-[Field]
-Name=EDNO000
-Position=113,65,156,85
-Item=EDNO,LABOURFORCE_DICT
-Mirror=Yes
-FieldLabelType=DictionaryLabel
-Form=2
-  
-[Text]
-Position=113,46,184,62
-Text=ED Number
- 
-  
-[Field]
-Name=PARNO000
-Position=203,65,246,85
-Item=PARNO,LABOURFORCE_DICT
-Mirror=Yes
-FieldLabelType=DictionaryLabel
-DataCaptureType=DropDown
-Form=2
-  
-[Text]
-Position=203,46,243,62
-Text=Parish
- 
-  
-[Field]
-Name=STRATUM000
-Position=273,65,288,85
-Item=STRATUM,LABOURFORCE_DICT
-Mirror=Yes
-FieldLabelType=DictionaryLabel
-DataCaptureType=DropDown
-Form=2
-  
-[Text]
-Position=269,46,319,62
-Text=Stratum
- 
-  
-[Field]
-Name=HHNO000
-Position=336,65,379,85
-Item=HHNO,LABOURFORCE_DICT
-Mirror=Yes
-FieldLabelType=DictionaryLabel
-Form=2
-  
-[Text]
-Position=334,46,437,62
-Text=Sample Number
- 
-  
-[Field]
-Name=LIDNO
-Position=455,65,484,85
-Item=LIDNO,LABOURFORCE_DICT
-Protected=Yes
-FieldLabelType=DictionaryLabel
-Form=2
-  
-[Text]
-Position=453,46,570,62
-Text=Individual Number
  
 [EndGroup]
   

@@ -425,6 +425,11 @@ PROC LPREVVISIT
 preproc
 	ask if VISITNO > 1;
 	
+postproc
+	if $ = 2 then
+		advance to ADDPER;
+	endif;
+	
 //------------------------------------------------
 PROC LNEWMEM
 preproc

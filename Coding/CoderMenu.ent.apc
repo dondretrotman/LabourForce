@@ -137,7 +137,7 @@ function readloginstatus()
 end;
 
 function OnStop();
-	SaveWork();
+	//SaveWork();
 end;
 
 PROC CODERMENU_FF

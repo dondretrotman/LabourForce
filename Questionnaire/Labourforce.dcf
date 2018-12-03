@@ -479,7 +479,7 @@ Name=LABOURFORCE_REC
 RecordTypeValue='2'
 Required=No
 MaxRecords=40
-RecordLen=1104
+RecordLen=1108
 
 [Item]
 Label=Individual Number
@@ -2912,3 +2912,49 @@ Value=10;$1000 - $1300
 Value=11;Over $1300
 Value=12;No Secondary Source
 Value=99;Not stated
+
+[Item]
+Label=32a. Last Industry sector
+Name=LSTINDUS_SECTOR
+Start=1105
+Len=1
+
+[ValueSet]
+Label=32a. Last Industry sector
+Name=LSTINDUS_SECTOR_VS1
+Link=114282216
+Value=1;Public
+Value=2;Private
+
+[Item]
+Label=38. Main Industry sector
+Name=INDUS_SECTOR
+Start=1106
+Len=1
+
+[ValueSet]
+Label=38. Main Industry sector
+Name=INDUS_SECTOR_VS1
+Link=114282216
+
+[Item]
+Label=38. Second Industry sector
+Name=SINDUS_SECTOR
+Start=1107
+Len=1
+
+[ValueSet]
+Label=38. Second Industry sector
+Name=SINDUS_SECTOR_VS1
+Link=114282216
+
+[Item]
+Label=48. Industry wanted sector
+Name=INCINDUS_SECTOR
+Start=1108
+Len=1
+
+[ValueSet]
+Label=48. Industry wanted sector
+Name=INCINDUS_SECTOR_VS1
+Link=114282216
