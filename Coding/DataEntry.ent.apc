@@ -31,22 +31,26 @@ PROC LABOURFORCE_FF
 PROC LABOURFORCE_QUEST
 preproc
 	set errmsg(operator,"Press 'Enter' to dismiss",13);
+	setoperatorid(sysparm("UNAME"));
 
 postproc
 	//errmsg("%d - %s",visualvalue(CODER),sysparm("CODER"));
 	if visualvalue(CODER) in notappl,default then
 		CODER = tonumber(sysparm("CODER"));
-	//	if caselabel[-1] <> ")" then		//append the coder name only if last character is not a )
-			headindex = seek(LRTH = 0);
-			caselabel = maketext("%S-%02d-%03d-%03d-%d-%03d: Coded (%v)",strip(LLAST_NAME(headindex)),RNDNO,EDNO,PARNO,STRATUM,HHNO, getlabel(CODER_VS1, CODER) );
-			setcaselabel(LABOURFORCE_DICT,caselabel);
-	//	endif;
+		headindex = seek(LRTH = 0);
+		caselabel = maketext("%S-%02d-%03d-%03d-%d-%03d: Coded (%v)",strip(LLAST_NAME(headindex)),RNDNO,EDNO,PARNO,STRATUM,HHNO, getlabel(CODER_VS1, CODER) );
+		setcaselabel(LABOURFORCE_DICT,caselabel);
 	endif;
 
 //-----------------------------------------------------------------------------
 PROC LIDNO
 preproc
-	if $ = notappl then
+	//check that person is eligible to be interviewed
+	if LELIGIBLE <> 1 then		//if not eligible
+		skip to next;
+	endif;
+	
+	if LPREVVISIT = 3 then		//if no longer a member of the household
 		skip to next;
 	endif;
 	

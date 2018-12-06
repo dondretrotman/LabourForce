@@ -3,9 +3,10 @@ Version=CSPro 7.1
 AppType=Entry
 [DataEntryInit]
 OperatorID=LSMITH              
-StartMode=Modify; 41852022  9
-Lock=Add
+StartMode=Modify; 41852022  1
+Lock=Add,Verify,Stats
 FullScreen=Yes
+AutoAdd=No
 [Files]
 Application=./DataEntry.ent
 InputData=../Data/data.csdb|CSPRODB
@@ -15,3 +16,4 @@ INDUSTRY_CODES_DICT=../Data/IndustryCodes.csdb|CSPRODB
 OCCUPATION_CODES_DICT=../Data/Occupationcodes.csdb|CSPRODB
 [Parameters]
 CODER=58
+UNAME=LSMITH              

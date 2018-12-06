@@ -36,8 +36,9 @@ function launchQuestionnaire()
 	filewrite(pffFile,"[DataEntryInit]");
 	filewrite(pffFile,"OperatorID=%s",UNAME);
 	filewrite(pffFile,"StartMode=Modify;%s",CHOOSE_QUESTIONNAIRE);
-	filewrite(pffFile,"Lock=Add");
+	filewrite(pffFile,"Lock=Add,Verify,Stats");
 	filewrite(pffFile,"FullScreen=Yes");
+	filewrite(pffFile,"AutoAdd=No");
 
 	filewrite(pffFile,"[Files]");
 	filewrite(pffFile,"Application=%s","./DataEntry.ent");
@@ -50,6 +51,7 @@ function launchQuestionnaire()
 	
 	filewrite(pffFile,"[Parameters]");
 	filewrite(pffFile,"CODER=%s",maketext("%v",visualvalue(USERID)));
+	filewrite(pffFile,"UNAME=%s",UNAME);
 
 	close(pffFile);
 

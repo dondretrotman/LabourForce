@@ -4,7 +4,7 @@ AppType=Entry
 
 [DataEntryInit]
 StartMode=Add
-Lock=CaseListing
+Lock=Stats,CaseListing
 FullScreen=YES
 Interactive=Ask
 
