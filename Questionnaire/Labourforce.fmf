@@ -2133,6 +2133,25 @@ Text=32a. Last Industry
 [EndColumn]
   
 [Column]
+Width=40
+  
+[HeaderText]
+Position=7,0,104,40
+Text=32a. Private/Public
+ 
+[Field]
+Name=LSTINDUS_SECTOR
+Position=686,0,701,20
+Item=LSTINDUS_SECTOR,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
+  
+[Text]
+Text=32a. Private/Public
+ 
+[EndColumn]
+  
+[Column]
 Width=56
   
 [HeaderText]
@@ -2496,6 +2515,25 @@ Text=38. Main industry
 Width=40
   
 [HeaderText]
+Position=7,0,104,40
+Text=38. Private/Public
+ 
+[Field]
+Name=INDUS_SECTOR
+Position=686,0,701,20
+Item=INDUS_SECTOR,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
+  
+[Text]
+Text=38. Private/Public
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
 Position=22,0,104,40
 Text=38. Second industry
  
@@ -2509,6 +2547,25 @@ UseUnicodeTextBox=Yes
   
 [Text]
 Text=38. Second industry
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=7,0,104,40
+Text=38. Private/Public
+ 
+[Field]
+Name=SINDUS_SECTOR
+Position=686,0,701,20
+Item=SINDUS_SECTOR,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
+  
+[Text]
+Text=38. Private/Public
  
 [EndColumn]
   
@@ -2849,6 +2906,25 @@ UseUnicodeTextBox=Yes
   
 [Text]
 Text=48. Industry wanted
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=7,0,104,40
+Text=48. Private/Public
+ 
+[Field]
+Name=INCINDUS_SECTOR
+Position=686,0,701,20
+Item=INCINDUS_SECTOR,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
+  
+[Text]
+Text=48. Private/Public
  
 [EndColumn]
   

@@ -331,6 +331,15 @@ EN=\pard\cf1\fs24 48. In what type of business (industry) does \b %LFIRST_NAME%\
 EN=}
 
 [QUESTION]
+Field=LABOURFORCE_DICT.INCINDUS_SECTOR
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.17134}\viewkind4\uc1
+EN=\pard\cf1\fs24 48. Is this business/industry (\b %INCINDUS_TEXT%\b0 ) in Government (public), or is it a private business?\fs19\par
+EN=}
+
+[QUESTION]
 Field=LABOURFORCE_DICT.INCINDUS_TEXT
 Occurrences=1:10
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
@@ -373,6 +382,15 @@ EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fchars
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 38. In what kind of industry or service is \b %LFIRST_NAME%'s\b0  \b main\b0  occupation?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.INDUS_SECTOR
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.17134}\viewkind4\uc1
+EN=\pard\cf1\fs24 38. Is this business/industry (\b %INDUS_TEXT%\b0 ) in Government (public), or is it a private business?\par
 EN=}
 
 [QUESTION]
@@ -583,6 +601,15 @@ EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fchars
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 32a. In what type of business (industry) was \b %LFIRST_NAME%\b0  working or was he/she seeking employment?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LSTINDUS_SECTOR
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.17134}\viewkind4\uc1
+EN=\pard\cf1\fs24 32a. Is this business/industry (\b %LSTINDUS_TEXT%\b0 ) in Government (public), or is it a private business?\par
 EN=}
 
 [QUESTION]
@@ -952,6 +979,15 @@ EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fchars
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 38. In what kind of industry or service is \b %LFIRST_NAME%'s\b0  \b second\b0  occupation?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.SINDUS_SECTOR
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.17134}\viewkind4\uc1
+EN=\pard\cf1\fs24 38. Is this business/industry (\b %SINDUS_TEXT%\b0 ) in Government (public), or is it a private business?\par
 EN=}
 
 [QUESTION]

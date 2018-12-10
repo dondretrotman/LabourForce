@@ -2914,47 +2914,48 @@ Value=12;No Secondary Source
 Value=99;Not stated
 
 [Item]
-Label=32a. Last Industry sector
+Label=32a. Private/Public
 Name=LSTINDUS_SECTOR
 Start=1105
 Len=1
 
 [ValueSet]
-Label=32a. Last Industry sector
+Label=32a. Private/Public
 Name=LSTINDUS_SECTOR_VS1
 Link=114282216
-Value=1;Public
+Value=1;Public (Government)
 Value=2;Private
+Value=9;Unknown
 
 [Item]
-Label=38. Main Industry sector
+Label=38. Private/Public
 Name=INDUS_SECTOR
 Start=1106
 Len=1
 
 [ValueSet]
-Label=38. Main Industry sector
+Label=38. Private/Public
 Name=INDUS_SECTOR_VS1
 Link=114282216
 
 [Item]
-Label=38. Second Industry sector
+Label=38. Private/Public
 Name=SINDUS_SECTOR
 Start=1107
 Len=1
 
 [ValueSet]
-Label=38. Second Industry sector
+Label=38. Private/Public
 Name=SINDUS_SECTOR_VS1
 Link=114282216
 
 [Item]
-Label=48. Industry wanted sector
+Label=48. Private/Public
 Name=INCINDUS_SECTOR
 Start=1108
 Len=1
 
 [ValueSet]
-Label=48. Industry wanted sector
+Label=48. Private/Public
 Name=INCINDUS_SECTOR_VS1
 Link=114282216

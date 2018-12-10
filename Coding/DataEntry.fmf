@@ -405,29 +405,29 @@ Text=32a. Last Industry
  
   
 [Field]
-Name=LSTINDUS
-Position=706,366,763,386
-Item=LSTINDUS,LABOURFORCE_DICT
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-Form=2
-  
-[Text]
-Position=526,368,636,384
-Text=32a. Last industry
- 
-  
-[Field]
 Name=LSTINDUS_SECTOR
-Position=706,396,721,416
+Position=706,366,721,386
 Item=LSTINDUS_SECTOR,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
 Form=2
   
 [Text]
-Position=526,399,678,415
-Text=32a. Last Industry sector
+Position=526,368,645,384
+Text=32a. Private/Public
+ 
+  
+[Field]
+Name=LSTINDUS
+Position=706,397,763,417
+Item=LSTINDUS,LABOURFORCE_DICT
+UpperCase=Yes
+FieldLabelType=DictionaryLabel
+Form=2
+  
+[Text]
+Position=526,399,636,415
+Text=32a. Last industry
  
   
 [Field]
@@ -502,29 +502,29 @@ Text=38. Main industry
  
   
 [Field]
-Name=INDUS
-Position=706,495,763,515
-Item=INDUS,LABOURFORCE_DICT
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-Form=2
-  
-[Text]
-Position=526,498,633,514
-Text=38. Main industry
- 
-  
-[Field]
 Name=INDUS_SECTOR
-Position=706,526,721,546
+Position=706,495,721,515
 Item=INDUS_SECTOR,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
 Form=2
   
 [Text]
-Position=526,529,675,545
-Text=38. Main Industry sector
+Position=526,498,637,514
+Text=38. Private/Public
+ 
+  
+[Field]
+Name=INDUS
+Position=706,526,763,546
+Item=INDUS,LABOURFORCE_DICT
+UpperCase=Yes
+FieldLabelType=DictionaryLabel
+Form=2
+  
+[Text]
+Position=526,529,633,545
+Text=38. Main industry
  
   
 [Field]
@@ -543,29 +543,29 @@ Text=38. Second industry
  
   
 [Field]
-Name=SINDUS
-Position=706,590,763,610
-Item=SINDUS,LABOURFORCE_DICT
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-Form=2
-  
-[Text]
-Position=526,593,650,609
-Text=38. Second industry
- 
-  
-[Field]
 Name=SINDUS_SECTOR
-Position=706,622,721,642
+Position=706,590,721,610
 Item=SINDUS_SECTOR,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
 Form=2
   
 [Text]
-Position=526,625,692,641
-Text=38. Second Industry sector
+Position=526,593,637,609
+Text=38. Private/Public
+ 
+  
+[Field]
+Name=SINDUS
+Position=706,620,763,640
+Item=SINDUS,LABOURFORCE_DICT
+UpperCase=Yes
+FieldLabelType=DictionaryLabel
+Form=2
+  
+[Text]
+Position=526,623,650,639
+Text=38. Second industry
  
   
 [Field]
@@ -612,29 +612,29 @@ Text=48. Industry wanted
  
   
 [Field]
-Name=INCINDUS
-Position=706,734,763,754
-Item=INCINDUS,LABOURFORCE_DICT
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-Form=2
-  
-[Text]
-Position=526,737,649,753
-Text=48. Industry wanted
- 
-  
-[Field]
 Name=INCINDUS_SECTOR
-Position=706,769,721,789
+Position=706,734,721,754
 Item=INCINDUS_SECTOR,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
 Form=2
   
 [Text]
-Position=526,772,691,788
-Text=48. Industry wanted sector
+Position=526,737,637,753
+Text=48. Private/Public
+ 
+  
+[Field]
+Name=INCINDUS
+Position=706,768,763,788
+Item=INCINDUS,LABOURFORCE_DICT
+UpperCase=Yes
+FieldLabelType=DictionaryLabel
+Form=2
+  
+[Text]
+Position=526,771,649,787
+Text=48. Industry wanted
  
   
 [Field]

@@ -69,6 +69,21 @@ Name=CO_ED
 Start=25
 Len=3
 
+[ValueSet]
+Label=ED
+Name=CO_ED_VS1
+Value=1:181;St. Michael
+Value=182:295;Christ Church
+Value=296:335;St. George
+Value=336:397;St. Philip
+Value=398:418;St. John
+Value=419:479;St. James
+Value=480:508;St. Thomas
+Value=509:521;St. Joseph
+Value=522:532;St. Andrew
+Value=533:559;St. Peter
+Value=560:583;St. Lucy
+
 [Item]
 Label=Main Menu
 Name=MAIN_MENU
