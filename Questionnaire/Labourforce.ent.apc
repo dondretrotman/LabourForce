@@ -888,6 +888,13 @@ preproc
 	
 //-----------------------------------------------------
 
+PROC LSTINDUS_SECTOR
+Preproc
+	ask if length(strip(LSTINDUS_TEXT)) > 0;
+	
+	if $ = notappl then
+		$ = 9;
+	endif;
 PROC U2EARNGS
 postproc
 	//end of Unemployed section
@@ -949,7 +956,7 @@ preproc
 	ask if TWOJOBS = 1
 	
 //--------------------------------------------------------
-PROC INDUS_TEXT
+PROC INDUS_SECTOR
 Preproc
 	ask if length(strip(INDUS_TEXT)) > 0;
 	
@@ -963,6 +970,13 @@ preproc
 	ask if TWOJOBS = 1
 	
 //--------------------------------------------------------
+PROC SINDUS_SECTOR
+Preproc
+	ask if length(strip(SINDUS_TEXT)) > 0;
+	
+	if $ = notappl then
+		$ = 9;
+	endif;
 PROC EXPRNCE2
 
 preproc
@@ -1022,6 +1036,13 @@ PROC HPWORK
 	endif;
 	
 //-----------------------------------------------------------
+PROC INCINDUS_SECTOR
+Preproc
+	ask if length(strip(INCINDUS_TEXT)) > 0;
+	
+	if $ = notappl then
+		$ = 9;
+	endif;
 PROC WORKBEFO
 
 	//if never worked before, skip to main sources of livelihood
@@ -1030,24 +1051,3 @@ PROC WORKBEFO
 	endif;
 	
 //---------------------------------------------------------------------
-PROC LSTINDUS_SECTOR
-Preproc
-	ask if length(strip(LSTINDUS_TEXT)) > 0;
-	
-	if $ = notappl then
-		$ = 9;
-	endif;
-PROC SINDUS_SECTOR
-Preproc
-	ask if length(strip(SINDUS_TEXT)) > 0;
-	
-	if $ = notappl then
-		$ = 9;
-	endif;
-PROC INCINDUS_SECTOR
-Preproc
-	ask if length(strip(INCINDUS_TEXT)) > 0;
-	
-	if $ = notappl then
-		$ = 9;
-	endif;
