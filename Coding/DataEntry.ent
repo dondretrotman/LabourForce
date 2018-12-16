@@ -4,7 +4,6 @@ Label=DATAENTRY
 Name=DATAENTRY
 AppType=DataEntry
 OperatorID=No
-AutoPartialSaveMinutes=3
 CaseTree=Never
 [External Dictionaries]
 File=.\OccupationCodes.dcf

@@ -19,6 +19,7 @@ Label=LU_ISCO_CODE
 Name=LU_ISCO_CODE
 Start=1
 Len=4
+DataType=Alpha
 
 [Record]
 Label=OCCUPATION_CODES Record

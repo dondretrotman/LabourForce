@@ -19,6 +19,7 @@ Label=ISIC_V4_CODE
 Name=ISIC_V4_CODE
 Start=1
 Len=4
+DataType=Alpha
 
 [Record]
 Label=INDUSTRY_CODES Record

@@ -51,3 +51,4 @@ Label=Occupation\Industry Code
 Name=AUXILCODE
 Start=64
 Len=4
+DataType=Alpha

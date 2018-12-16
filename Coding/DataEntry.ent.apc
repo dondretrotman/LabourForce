@@ -10,13 +10,13 @@ PROC GLOBAL
 numeric	len,		//Length of text
 		sel,		//select case
 		ok,
-		occupationcode,
-		industrycode,
 		searchflag,		//if search was successful
 		headindex,		//finds head of household
 		;
 
 string	caselabel,		//sets label for the case
+		industrycode,
+		occupationcode,
 		;
 
 //-------------------------Function Declaration------------------------------------------
@@ -60,7 +60,7 @@ preproc
 	ask if length(strip(OCCUPTR_TEXT)) > 0;
 	
 postproc
-	if $ = missing then
+	if length(strip($)) = 0 then
 		clear(AUXIL_DICT);
 		AUXILTYPE = 1;
 		AUXILKEY = OCCUPTR_TEXT;
@@ -79,7 +79,7 @@ preproc
 	ask if length(strip(OCCTRAINED_TEXT)) > 0;
 
 postproc
-	if $ = missing then
+	if length(strip($)) = 0 then
 		clear(AUXIL_DICT);
 		AUXILTYPE = 1;
 		AUXILKEY = OCCTRAINED_TEXT;
@@ -98,7 +98,7 @@ preproc
 	ask if length(strip(LSTOCCUP_TEXT)) > 0;
 
 postproc
-	if $ = missing then
+	if length(strip($)) = 0 then
 		clear(AUXIL_DICT);
 		AUXILTYPE = 1;
 		AUXILKEY = LSTOCCUP_TEXT;
@@ -112,12 +112,17 @@ postproc
 	endif;
 
 //-----------------------------------------------------------------------------
+PROC LSTINDUS_SECTOR
+preproc
+	ask if length(strip(LSTINDUS_TEXT)) > 0;
+	
+//------------------------------------------------------
 PROC LSTINDUS
 preproc
 	ask if length(strip(LSTINDUS_TEXT)) > 0;
 
 postproc
-	if $ = missing then
+	if length(strip($)) = 0 then
 		clear(AUXIL_DICT);
 		AUXILTYPE = 2;
 		AUXILKEY = LSTINDUS_TEXT;
@@ -131,17 +136,12 @@ postproc
 	endif;
 
 //-----------------------------------------------------------------------------
-PROC LSTINDUS_SECTOR
-preproc
-	ask if length(strip(LSTINDUS_TEXT)) > 0;
-	
-//------------------------------------------------------
 PROC OCCUP
 preproc
 	ask if length(strip(OCCUP_TEXT)) > 0;
 	
 postproc
-	if $ = missing then
+	if length(strip($)) = 0 then
 		clear(AUXIL_DICT);
 		AUXILTYPE = 1;
 		AUXILKEY = OCCUP_TEXT;
@@ -160,7 +160,7 @@ preproc
 	ask if length(strip(SOCCUP_TEXT)) > 0;
 
 postproc
-	if $ = missing then
+	if length(strip($)) = 0 then
 		clear(AUXIL_DICT);
 		AUXILTYPE = 1;
 		AUXILKEY = SOCCUP_TEXT;
@@ -174,39 +174,20 @@ postproc
 	endif;
 
 //-----------------------------------------------------------------------------
-PROC INDUS
-preproc
-	ask if length(strip(INDUS_TEXT)) > 0;
-
-postproc
-	if $ = missing then
-		clear(AUXIL_DICT);
-		AUXILTYPE = 2;
-		AUXILKEY = INDUS_TEXT;
-		enter AUXIL_FF;
-		$ = industrycode;
-	else
-		ok = loadcase(INDUSTRY_CODES_DICT,$);
-		if ok <> 1 then
-			reenter;
-		endif;
-	endif;
-
-//-----------------------------------------------------------------------------
 PROC INDUS_SECTOR
 preproc
 	ask if length(strip(INDUS_TEXT)) > 0;
 	
 //------------------------------------------------------
-PROC SINDUS
+PROC INDUS
 preproc
-	ask if length(strip(SINDUS_TEXT)) > 0;
+	ask if length(strip(INDUS_TEXT)) > 0;
 
 postproc
-	if $ = missing then
+	if length(strip($)) = 0 then
 		clear(AUXIL_DICT);
 		AUXILTYPE = 2;
-		AUXILKEY = SINDUS_TEXT;
+		AUXILKEY = INDUS_TEXT;
 		enter AUXIL_FF;
 		$ = industrycode;
 	else
@@ -222,12 +203,31 @@ preproc
 	ask if length(strip(SINDUS_TEXT)) > 0;
 	
 //------------------------------------------------------
+PROC SINDUS
+preproc
+	ask if length(strip(SINDUS_TEXT)) > 0;
+
+postproc
+	if length(strip($)) = 0 then
+		clear(AUXIL_DICT);
+		AUXILTYPE = 2;
+		AUXILKEY = SINDUS_TEXT;
+		enter AUXIL_FF;
+		$ = industrycode;
+	else
+		ok = loadcase(INDUSTRY_CODES_DICT,$);
+		if ok <> 1 then
+			reenter;
+		endif;
+	endif;
+
+//-----------------------------------------------------------------------------
 PROC FOCCUP
 preproc
 	ask if length(strip(FOCCUP_TEXT)) > 0;
 
 postproc
-	if $ = missing then
+	if length(strip($)) = 0 then
 		clear(AUXIL_DICT);
 		AUXILTYPE = 1;
 		AUXILKEY = FOCCUP_TEXT;
@@ -241,12 +241,17 @@ postproc
 	endif;
 
 //-----------------------------------------------------------------------------
+PROC INCINDUS_SECTOR
+preproc
+	ask if length(strip(INCINDUS_TEXT)) > 0;
+	
+//------------------------------------------------------
 PROC INCINDUS
 preproc
 	ask if length(strip(INCINDUS_TEXT)) > 0;
 
 postproc
-	if $ = missing then
+	if length(strip($)) = 0 then
 		clear(AUXIL_DICT);
 		AUXILTYPE = 2;
 		AUXILKEY = INCINDUS_TEXT;
@@ -260,17 +265,12 @@ postproc
 	endif;
 
 //-----------------------------------------------------------------------------
-PROC INCINDUS_SECTOR
-preproc
-	ask if length(strip(INCINDUS_TEXT)) > 0;
-	
-//------------------------------------------------------
 PROC INCOCCUP
 preproc
 	ask if length(strip(INCOCCUP_TEXT)) > 0;
 
 postproc
-	if $ = missing then
+	if length(strip($)) = 0 then
 		clear(AUXIL_DICT);
 		AUXILTYPE = 1;
 		AUXILKEY = INCOCCUP_TEXT;
