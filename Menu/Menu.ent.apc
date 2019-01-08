@@ -396,7 +396,56 @@ function downloadData({string rnd_edno})
 end;
 
 function downloadNewRound()
-	errmsg("To Be Added...");
+	errflag = 0;
+	errmsg("Attempting to download all data from Round :%d, ED :%d",rnd,ME_ED);
+	//errmsg("Data dictionary value Round :%V, ED :%V", RNDNO,EDNO);
+	if syncconnect(FTP,ftpip1,ftpun,ftppw) then		//connect to FTP when outside of the government WAN
+		if not syncdata(GET,LABOURFORCE_DICT,maketext("%2d%v",rnd,ME_ED)) then		//get labourforce data for round and ED
+			inc(errflag);
+		endif;
+		if not syncdata(GET,LISTING_DICT,maketext("%2d%v",rnd,ME_ED)) then			//get control sheet data for round and ED
+			inc(errflag);
+		endif;
+		//syncfile(GET,"CSPro/Photos/*.jpg","../Photos/");
+		if not syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen") then		//update questionnaire
+			inc(errflag);
+		endif;
+		if not syncfile(GET,"/CSPro/Update/ControlSheets/Listing.pen","../ControlSheets/Listing.pen") then		//update control sheet
+			inc(errflag);
+		endif;
+		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
+			inc(errflag);
+		endif;
+		syncdisconnect();		//disconnect
+	elseif syncconnect(FTP,ftpip2,ftpun,ftppw) then		//connect to FTP when outside of the government WAN
+		if not syncdata(GET,LABOURFORCE_DICT,maketext("%2d%v",rnd,ME_ED)) then		//get labourforce data for round and ED
+			inc(errflag);
+		endif;
+		if not syncdata(GET,LISTING_DICT,maketext("%2d%v",rnd,ME_ED)) then			//get control sheet data for round and ED
+			inc(errflag);
+		endif;
+		//syncfile(GET,"CSPro/Photos/*.jpg","../Photos/");
+		if not syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen") then		//update questionnaire
+			inc(errflag);
+		endif;
+		if not syncfile(GET,"/CSPro/Update/ControlSheets/Listing.pen","../ControlSheets/Listing.pen") then		//update control sheet
+			inc(errflag);
+		endif;
+		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
+			inc(errflag);
+		endif;
+		syncdisconnect();		//disconnect
+	else
+		inc(errflag,2);
+	endif;
+	if errflag > 1 then
+		errmsg("Download of round %d, ED %d failed, Please try again. %d errors were found",rnd,ME_ED,errflag);
+	elseif errflag = 0 then
+		errmsg("Download of round %d, ED %d was successful",rnd,ME_ED);
+		savesetting("Updated",maketext("%d",sysdate("YYYYMMDD")));
+	elseif errflag = 1 then
+		errmsg("Download of round %d, ED %d failed, Please try again",rnd,ME_ED);
+	endif;
 end;
 
 //function to upload control sheets from the computer to the server for use by the tablets

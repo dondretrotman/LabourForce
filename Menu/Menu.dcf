@@ -197,6 +197,11 @@ Value=1;1
 Value=2;2
 Value=3;3
 Value=4;4
+Value=5;5
+Value=6;6
+Value=7;7
+Value=8;8
+Value=9;9
 
 [Item]
 Label=Choose ED
