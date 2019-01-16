@@ -190,6 +190,7 @@ PROC MAIN_MENU
 onfocus
 	$ = notappl;
 	username = getlabel(UNAME_VS1,UNAME);
+	HOUSEHOLD_COUNT = countcases(LABOURFORCE_DICT where EDNO = CO_ED);
 	
 postproc
 	if $ = 1 then
