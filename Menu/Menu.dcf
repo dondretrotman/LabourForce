@@ -24,7 +24,7 @@ Len=1
 Label=Menu record
 Name=MENU_REC
 RecordTypeValue='1'
-RecordLen=122
+RecordLen=124
 
 [Item]
 Label=User Name
@@ -92,9 +92,39 @@ Value=94;WDAVIS
 Value=99;C3N5U5ADM1N
 
 [Item]
+Label=Round
+Name=ME_ROUND
+Start=25
+Len=2
+
+[ValueSet]
+Label=Round
+Name=ME_ROUND_VS1
+Value=1;1
+Value=2;2
+Value=3;3
+Value=4;4
+Value=5;5
+Value=6;6
+Value=7;7
+Value=8;8
+Value=9;9
+Value=10;10
+Value=11;11
+Value=12;12
+Value=13;13
+Value=14;14
+Value=15;15
+Value=16;16
+Value=17;17
+Value=18;18
+Value=19;19
+Value=20;20
+
+[Item]
 Label=ED
 Name=ME_ED
-Start=25
+Start=27
 Len=3
 
 [ValueSet]
@@ -115,7 +145,7 @@ Value=560:583;St. Lucy
 [Item]
 Label=Main Menu
 Name=LOGIN
-Start=28
+Start=30
 Len=1
 
 [ValueSet]
@@ -151,7 +181,7 @@ Value=9;Logout
 [Item]
 Label=Interviewer Menu
 Name=INTERVIEWER_MENU
-Start=29
+Start=31
 Len=2
 
 [ValueSet]
@@ -184,7 +214,7 @@ Value=9;Back
 [Item]
 Label=Supervisor Menu
 Name=SUPERVISOR_MENU
-Start=31
+Start=33
 Len=1
 
 [ValueSet]
@@ -200,7 +230,7 @@ Value=9;Back
 [Item]
 Label=Admin Menu
 Name=ADMIN_MENU
-Start=32
+Start=34
 Len=2
 
 [ValueSet]
@@ -217,7 +247,7 @@ Value=9;Back
 [Item]
 Label=Choose Round
 Name=CHOOSE_ROUND
-Start=34
+Start=36
 Len=2
 
 [ValueSet]
@@ -236,47 +266,47 @@ Value=9;9
 [Item]
 Label=Choose ED
 Name=CHOOSE_ED
-Start=36
+Start=38
 Len=3
 
 [Item]
 Label=Delete Questionnaire
 Name=CHOOSE_QUESTIONNAIRE
-Start=39
+Start=41
 Len=12
 DataType=Alpha
 
 [Item]
 Label=Choose Household
 Name=CHOOSE_HOUSEHOLD
-Start=51
+Start=53
 Len=15
 DataType=Alpha
 
 [Item]
 Label=Choose Control Sheet
 Name=CHOOSE_CONTROL_SHEET
-Start=66
+Start=68
 Len=15
 DataType=Alpha
 
 [Item]
 Label=Delete Control Sheet
 Name=DELETE_CONTROL_SHEET
-Start=81
+Start=83
 Len=15
 DataType=Alpha
 
 [Item]
 Label=Admin Delete Control Sheet
 Name=ADMIN_DELETE_CONTROL_SHEET
-Start=96
+Start=98
 Len=15
 DataType=Alpha
 
 [Item]
 Label=Admin Delete Questionnaire
 Name=ADMIN_DELETE_QUESTIONNAIRE
-Start=111
+Start=113
 Len=12
 DataType=Alpha

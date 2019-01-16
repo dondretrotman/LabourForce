@@ -555,7 +555,7 @@ function writeloginstatus(x)
 	string loginFilename = pathname(application)+"loginflag.dat";
 	setfile(loginfile,loginFilename,create);
 
-	filewrite(loginfile,"%d%03d%02d%s",x,visualvalue(ME_ED),USERID,strip(UNAME));	//write value of "x" to file. 1=logged in, 0=logged out
+	filewrite(loginfile,maketext("%d%02d%03d%02d%s",x,visualvalue(ME_ROUND),visualvalue(ME_ED),USERID,strip(UNAME)));	//write value of "x" to file. 1=logged in, 0=logged out
 	setoperatorid(strip(UNAME));
 	savesetting("UNAME",strip(UNAME));
 	
@@ -570,11 +570,12 @@ function readloginstatus()
 	close(loginfile);						//close file
 	
 	readloginstatus = tonumber(status[1:1]);		//set function to file contents
-	ME_ED = tonumber(status[2:3]);
+	ME_ROUND = tonumber(status[2:2]);
+	ME_ED = tonumber(status[4:3]);
 	if tonumber(status[1:1]) = 1 then		//if logged in set login details
-		USERID = tonumber(status[5:2]);
-		UNAME = status[7];
-		setoperatorid(status[7]);		//sets operator ID to username
+		USERID = tonumber(status[7:2]);
+		UNAME = status[9];
+		setoperatorid(status[9]);		//sets operator ID to username
 		savesetting("UNAME",strip(UNAME));		//saves username as a setting so that other apps can access
 	elseif tonumber(status[1:1]) = 0 then		//if logged out clear login details from form
 		USERID = notappl;
@@ -722,6 +723,14 @@ postproc
 
 
 //---------------------------------------------------------------
+PROC ME_ROUND
+onfocus
+	//displays saved round number
+	$ = tonumber(loadsetting("ROUND"));
+	
+postproc
+	//saves the Round number as a setting
+	savesetting("ROUND",maketext("%d",$));
 PROC ME_ED
 onfocus
 	//displays saved ED  number
@@ -729,9 +738,11 @@ onfocus
 	$ = tonumber(loadsetting("ED")); 
 	
 postproc
+	rnd_ed = maketext("%v%v",ME_ROUND,ME_ED);
 	//saves the ED number as a setting
 	savesetting("ED",maketext("%d",$));
 	setoperatorid(UNAME);
+	writeloginstatus(1);		//write round and ED to login status
 	
 	
 //--------------------------------------------------------------------
@@ -903,8 +914,8 @@ reenter;		//don't leave the menu
 
 //---------------------------------------------------------
 PROC CHOOSE_ROUND
-Postproc
-	rnd_ed = maketext("%v%v", CHOOSE_ROUND,ME_ED);
+onfocus
+	//rnd_ed = maketext("%v%v", CHOOSE_ROUND,ME_ED);
 	if SUPERVISOR_MENU = 1 then		//if downloading questionnaires as Supervisor
 		//rnd_ed = maketext("%v%v", CHOOSE_ROUND,ME_ED);
 		//errmsg("%S",maketext("%v%v", CHOOSE_ROUND,ME_ED));

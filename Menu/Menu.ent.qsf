@@ -27,6 +27,7 @@ EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fchars
 EN={\colortbl ;\red0\green0\blue0;\red0\green0\blue255;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 Logged in as \b %username%\b0  (Enumerator) \par
+EN=The current Round is \b %ME_ROUND%\b0\par
 EN=Your Enumeration District is \b %ME_ED%\par
 EN=\cf2\b0 Version: %VERSION%\cf1\b\par
 EN=\par
@@ -71,6 +72,14 @@ EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fchars
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 Enter the Enumeration District that you will be working on\par
+EN=}
+
+[QUESTION]
+Field=MENU_DICT.ME_ROUND
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please enter the current round\par
 EN=}
 
 [QUESTION]
