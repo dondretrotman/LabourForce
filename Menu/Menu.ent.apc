@@ -473,12 +473,12 @@ end;
 //function to download control sheets from the server to the tablets
 function downloadcontrolsheets(string rnd_edno)
 	if syncconnect(FTP,ftpip1,ftpun,ftppw) then		//connect to FTP when within the Government WAN
-		if not syncdata(GET,LISTING_DICT,maketext("%5s",rnd_ed)) then		//download Control Sheet
+		if not syncdata(GET,LISTING_DICT,maketext("%5s",rnd_edno)) then		//download Control Sheet
 			inc(errflag);
 		endif;
 		syncdisconnect();		//disconnect
 	elseif syncconnect(FTP,ftpip2,ftpun,ftppw) then		//connect to FTP when within the Government WAN
-		if not syncdata(GET,LISTING_DICT,maketext("%5s",rnd_ed)) then		//Download Control Sheet
+		if not syncdata(GET,LISTING_DICT,maketext("%5s",rnd_edno)) then		//Download Control Sheet
 			inc(errflag);
 		endif;
 		syncdisconnect();		//disconnect
@@ -528,6 +528,26 @@ function deleteControlSheet()
 		writecase(LABOURFORCE_DICT);
 	endif;
 	errmsg("Case (and associated questionnaire) set for deletion");
+end;
+
+//BE CAREFULL WITH THIS!!! IT ACTUALLY DELETES A CONTROL SHEET WITH NO WAY TO RECOVER!!!
+function adminDeleteControlSheet()
+	convid = ADMIN_DELETE_CONTROL_SHEET[1:9]+ADMIN_DELETE_CONTROL_SHEET[13:15];
+	errmsg("Are you sure you want to ACTUALLY DELETE the QUESTIONNAIRES for this household with ID = %V for deletion? THERE IS NO WAY TO UNDO THIS!", convid)
+	select("Yes, DELETE all QUESTIONNAIRES for this household",continue,"No, flag to remain",LOGIN);
+	delcase(LABOURFORCE_DICT,convid);						//deletes associated questionnaires
+	errmsg("Questionnaire(s) has been deleted. Are you sure you want to ACTUALLY DELETE the LISTING ENTRY with ID = %V for deletion? THERE IS NO WAY TO UNDO THIS!", ADMIN_DELETE_CONTROL_SHEET)
+	select("Yes, DELETE this LISTING ENTRY",continue,"No, flag to remain",LOGIN);
+	delcase(LISTING_DICT,ADMIN_DELETE_CONTROL_SHEET);		//deletes control sheet
+	errmsg("Control Sheet has been deleted");
+end;
+
+//BE CAREFULL WITH THIS!!! IT ACTUALLY DELETES A CONTROL SHEET WITH NO WAY TO RECOVER!!!
+function adminDeleteQuestionnaire()
+	errmsg("Are you sure you want to ACTUALLY DELETE the QUESTIONNAIRES for this household with ID = %V for deletion? THERE IS NO WAY TO UNDO THIS!", ADMIN_DELETE_QUESTIONNAIRE)
+	select("Yes, DELETE all QUESTIONNAIRES for this household",continue,"No, flag to remain",LOGIN);
+	delcase(LABOURFORCE_DICT,ADMIN_DELETE_QUESTIONNAIRE);						//deletes associated questionnaires
+	errmsg("Questionnaire(s) has been deleted.");
 end;
 
 //Writes the login status to a file
@@ -720,10 +740,12 @@ onfocus
 	$ = notappl;
 	username = getlabel(UNAME_VS1,UNAME);
 	
-	if visualvalue(USERID) >= 90 then		//Supervisor
+	if visualvalue(USERID) in 90:98 then		//Supervisor
 		setvalueset(LOGIN,LOGIN_VS1);
 	elseif visualvalue(USERID) < 90 then	//enumerator
 		setvalueset(LOGIN,LOGIN_VS2);
+	elseif visualvalue(USERID) = 99 then	//admin
+		setvalueset(LOGIN,LOGIN_VS3);
 	endif;
 	
 postproc
@@ -731,6 +753,8 @@ postproc
 		skip to INTERVIEWER_MENU;
 	elseif $ = 2 then 	//supervisor
 		skip to SUPERVISOR_MENU;
+	elseif $ = 8 then	//admin
+		skip to ADMIN_MENU;
 	elseif $ = 3 then		//update only
 		if connection() then
 			updateApp();
@@ -793,7 +817,7 @@ postproc
 		skip to CHOOSE_CONTROL_SHEET;
 	elseif $ = 7 then		//upload data
 		if connection() then
-			uploadData();	
+			skip to CHOOSE_ROUND;	
 		else
 			errmsg("Please connect to the internet before uploading data");
 		endif;
@@ -842,20 +866,65 @@ postproc
 reenter;		//don't leave the menu
 
 //---------------------------------------------------------
+PROC ADMIN_MENU
+onfocus
+	$ = notappl;		//don't show the last selection
+	if deleteflag = 0 then
+		loadcase(LABOURFORCE_DICT,CHOOSE_QUESTIONNAIRE);
+		DELETE_FLAG = 0;		//keep case
+		writecase(LABOURFORCE_DICT);
+	endif;
+	
+postproc
+	if $ = 1 then		//download data
+		if connection() then
+			skip to CHOOSE_ROUND;
+		else
+			errmsg("Please connect to the internet before downloading data");
+			reenter;
+		endif;
+	elseif $ = 2 then		//open control sheet
+		skip to CHOOSE_CONTROL_SHEET;
+	elseif $ = 3 then		//open questionnaire
+		skip to CHOOSE_HOUSEHOLD;
+	elseif $ = 98 then		//delete questionnaire
+		skip to ADMIN_DELETE_QUESTIONNAIRE;
+	elseif $ = 97 then
+		skip to ADMIN_DELETE_CONTROL_SHEET;
+	elseif $ = 5 then		//view Enumerator report
+		enumerationRpt();
+		reenter;
+	elseif $ = 6 then		//view summary report
+		//TODO
+	elseif $ = 9 then		//back
+		move to LOGIN;
+	endif;
+reenter;		//don't leave the menu
+
+//---------------------------------------------------------
 PROC CHOOSE_ROUND
 Postproc
+	rnd_ed = maketext("%v%v", CHOOSE_ROUND,ME_ED);
 	if SUPERVISOR_MENU = 1 then		//if downloading questionnaires as Supervisor
-		rnd_ed = maketext("%v%v", CHOOSE_ROUND,ME_ED);
+		//rnd_ed = maketext("%v%v", CHOOSE_ROUND,ME_ED);
 		//errmsg("%S",maketext("%v%v", CHOOSE_ROUND,ME_ED));
 		downloadData(rnd_ed);		//download questionnaires etc
 		move to SUPERVISOR_MENU;
 	elseif INTERVIEWER_MENU = 5 then		//if downloading control sheets as enumerator
-		rnd_ed = maketext("%v%v", CHOOSE_ROUND,ME_ED);
+		//rnd_ed = maketext("%v%v", CHOOSE_ROUND,ME_ED);
 		downloadcontrolsheets(rnd_ed);		//download control sheets
 		move to INTERVIEWER_MENU;
 	elseif INTERVIEWER_MENU = 10 then
-		rnd_ed = maketext("%v%v", CHOOSE_ROUND-1,ME_ED);
-		downloadnewround(rnd_ed);
+		//rnd_ed = maketext("%v%v", CHOOSE_ROUND,ME_ED);
+		//downloadnewround(rnd_ed);
+		move to INTERVIEWER_MENU;
+	elseif ADMIN_MENU = 1 then
+		//rnd_ed = maketext("%v%v", CHOOSE_ROUND,ME_ED);
+		errmsg("%S",maketext("%v%v", CHOOSE_ROUND,ME_ED));
+		downloadData(rnd_ed);		//download questionnaires etc
+		move to ADMIN_MENU; 
+	elseif INTERVIEWER_MENU = 7 then		//upload control sheets
+		uploadData();
 		move to INTERVIEWER_MENU;
 	endif;
 
@@ -1008,3 +1077,78 @@ postproc
 	endif;
 
 //--------------------------------------------------------------------------
+PROC ADMIN_DELETE_CONTROL_SHEET
+onfocus
+	numeric nextEntry = 1;
+	forcase LISTING_DICT where LSTED = ME_ED do
+		vscode(nextEntry) = maketext("%v%v%v%v%v%v",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTBUILDING,LSTSAMPLE);
+		vsLabel(nextEntry) = maketext("%03d-%03d-%03d: %V (%v) - %s",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS),getlabel(LSTDELETE_FLAG_VS1,LSTDELETE_FLAG));
+		inc(nextEntry);
+	endfor;
+	
+	vsCode(nextEntry) = "";
+	
+	setvalueset($, vsCode, vsLabel);
+	
+	{if vscode(1) = "" then		//if nothing is in the valueset
+		errmsg("There are no Control Sheets available for this ED (ED%d). Please fill out a control sheet first",ME_ED);
+		if LOGIN = 1 then 
+			move to INTERVIEWER_MENU;
+		elseif LOGIN = 2 then
+			move to SUPERVISOR_MENU;
+		endif;
+	endif;
+}
+
+postproc
+	adminDeleteControlSheet();
+	if LOGIN = 1 then 
+		move to INTERVIEWER_MENU;
+	elseif LOGIN = 2 then
+		move to SUPERVISOR_MENU;
+	elseif LOGIN = 8 then
+		move to ADMIN_MENU;
+	endif;
+
+//--------------------------------------------------------------------------
+PROC ADMIN_DELETE_QUESTIONNAIRE
+onfocus
+	numeric nextEntry = 1;
+	numeric headindex;
+	forcase LABOURFORCE_DICT do
+		loadcase(LABOURFORCE_DICT,RNDNO,EDNO,PARNO,STRATUM,HHNO);
+		if VACANT = 2 then		//if not a vacant household, include name
+			headindex = seek(LRTH = 0);
+			vscode(nextEntry) = maketext("%V%V%V%V%V",RNDNO,EDNO,PARNO,STRATUM,HHNO);
+			vslabel(nextEntry) = maketext("%S-%02d-%03d-%03d-%d-%03d (%V)",strip(LLAST_NAME(headindex)),RNDNO,EDNO,PARNO,STRATUM,HHNO, getlabel(DELETE_FLAG_VS1, DELETE_FLAG) );
+			inc(nextEntry);
+		else		//if a vacant household, use vacant label
+			vscode(nextEntry) = maketext("%V%V%V%V%V",RNDNO,EDNO,PARNO,STRATUM,HHNO);
+			vslabel(nextEntry) = maketext("Vacant-%02d-%03d-%03d-%d-%03d (%V)",RNDNO,EDNO,PARNO,STRATUM,HHNO,getlabel(DELETE_FLAG_VS1, DELETE_FLAG));
+			inc(nextEntry);
+		endif;
+	endfor;
+	
+	vscode(nextEntry) = "";
+	setvalueset($,vsCode,vsLabel);
+	
+	{if vscode(1) = "" then		//if nothing is in the valueset
+		errmsg("There are no questionnaires available for this ED (ED%d). Please fill out a control sheet first",ME_ED);
+		if LOGIN = 1 then 
+			move to INTERVIEWER_MENU;
+		elseif LOGIN = 2 then
+			move to SUPERVISOR_MENU;
+		endif;
+	endif;}
+
+postproc
+	adminDeleteQuestionnaire();
+	if LOGIN = 1 then 
+		move to INTERVIEWER_MENU;
+	elseif LOGIN = 2 then
+		move to SUPERVISOR_MENU;
+	elseif LOGIN = 8 then
+		move to ADMIN_MENU;
+	endif;
+
+//---------------------------------------------------------

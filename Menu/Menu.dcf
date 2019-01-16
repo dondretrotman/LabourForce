@@ -24,7 +24,7 @@ Len=1
 Label=Menu record
 Name=MENU_REC
 RecordTypeValue='1'
-RecordLen=93
+RecordLen=122
 
 [Item]
 Label=User Name
@@ -57,6 +57,7 @@ Value='GSHEPHERD           ';Gladwyn Shepherd
 Value='HCHASE              ';Harold Chase
 Value='MSMALL              ';Mervin Small
 Value='WDAVIS              ';Wayne Davis
+Value='C3N5U5ADM1N         ';Dondre Trotman
 
 [Item]
 Label=User ID
@@ -88,6 +89,7 @@ Value=30;GSHEPHERD
 Value=95;HCHASE
 Value=93;MSMALL
 Value=94;WDAVIS
+Value=99;C3N5U5ADM1N
 
 [Item]
 Label=ED
@@ -130,6 +132,17 @@ Value=9;Logout
 Label=Main Menu
 Name=LOGIN_VS2
 Value=1;Enumerator Menu
+Value=4;Change ED
+Value=3;Update App
+Value=5;Upload Data
+Value=9;Logout
+
+[ValueSet]
+Label=Main Menu
+Name=LOGIN_VS3
+Value=1;Enumerator Menu
+Value=2;Supervisor
+Value=8;Admin
 Value=4;Change ED
 Value=3;Update App
 Value=5;Upload Data
@@ -185,9 +198,26 @@ Value=5;View Enumerator Report
 Value=9;Back
 
 [Item]
+Label=Admin Menu
+Name=ADMIN_MENU
+Start=32
+Len=2
+
+[ValueSet]
+Label=Admin Menu
+Name=ADMIN_MENU_VS1
+Value=1;Download Data
+Value=2;Open Control Sheet
+Value=3;Open Questionnaire
+Value=98;Delete Questionnaire (FOR REAL!)
+Value=97;Delete Control Sheet (FOR REAL!)
+Value=5;View Enumerator Report
+Value=9;Back
+
+[Item]
 Label=Choose Round
 Name=CHOOSE_ROUND
-Start=32
+Start=34
 Len=2
 
 [ValueSet]
@@ -206,33 +236,47 @@ Value=9;9
 [Item]
 Label=Choose ED
 Name=CHOOSE_ED
-Start=34
+Start=36
 Len=3
 
 [Item]
 Label=Delete Questionnaire
 Name=CHOOSE_QUESTIONNAIRE
-Start=37
+Start=39
 Len=12
 DataType=Alpha
 
 [Item]
 Label=Choose Household
 Name=CHOOSE_HOUSEHOLD
-Start=49
+Start=51
 Len=15
 DataType=Alpha
 
 [Item]
 Label=Choose Control Sheet
 Name=CHOOSE_CONTROL_SHEET
-Start=64
+Start=66
 Len=15
 DataType=Alpha
 
 [Item]
 Label=Delete Control Sheet
 Name=DELETE_CONTROL_SHEET
-Start=79
+Start=81
 Len=15
+DataType=Alpha
+
+[Item]
+Label=Admin Delete Control Sheet
+Name=ADMIN_DELETE_CONTROL_SHEET
+Start=96
+Len=15
+DataType=Alpha
+
+[Item]
+Label=Admin Delete Questionnaire
+Name=ADMIN_DELETE_QUESTIONNAIRE
+Start=111
+Len=12
 DataType=Alpha
