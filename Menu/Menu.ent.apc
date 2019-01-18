@@ -775,6 +775,8 @@ postproc
 		reenter;
 	elseif $ = 4 then		//change ED
 		move to ME_ED;	
+	elseif $ = 6 then
+		move to ME_ROUND;
 	elseif $ = 5 then		//upload data
 		if connection() then
 			uploadData();	
@@ -837,7 +839,7 @@ postproc
 		skip to DELETE_CONTROL_SHEET;
 	elseif $ = 9 then		//back
 		move to LOGIN;
-	elseif $ = 10 then		//download New round
+	elseif $ = 10 then		//download New round DEBUG:THIS WAS DELETED FROM THE MENU PERSONS SHOUL USE CHANGE ROUND INSTEAD
 		skip to CHOOSE_ROUND;
 	endif;
 reenter;		//don't leave the menu
