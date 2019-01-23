@@ -9,6 +9,7 @@ string	ftpip,			//Stores ftp address
 		ftppw,			//stores ftp password
 		username,		//stores user name
 		status,			//stores current login status
+		round_ed,		//stores round and ed
 		;
 		
 numeric	errflag,		//sets error flag
@@ -61,10 +62,10 @@ end;
 //downloads Data based on ED
 function downloadData()
 	errflag = 0;
-	errmsg("Attempting to download all data from Round :%d, ED :%d",CHOOSE_ROUND,CO_ED);
+	errmsg("Attempting to download all data from Round :%d, ED :%d",CO_ROUND,CO_ED);
 	//errmsg("Data dictionary value Round :%V, ED :%V", RNDNO,EDNO);
 	if syncconnect(FTP,ftpip,ftpun,ftppw) then		//connect to FTP when outside of the government WAN
-		if not syncdata(GET,LABOURFORCE_DICT,maketext("%2d%v",CHOOSE_ROUND,CO_ED)) then		//get labourforce data for round and ED
+		if not syncdata(GET,LABOURFORCE_DICT,maketext("%2d%v",CO_ROUND,CO_ED)) then		//get labourforce data for round and ED
 			inc(errflag);
 		endif;
 		syncdisconnect();		//disconnect
@@ -72,27 +73,27 @@ function downloadData()
 		inc(errflag,2);
 	endif;
 	if errflag > 1 then
-		errmsg("Download of round %d, ED %d failed, Please try again. %d errors were found",CHOOSE_ROUND,CO_ED,errflag);
+		errmsg("Download of round %d, ED %d failed, Please try again. %d errors were found",CO_ROUND,CO_ED,errflag);
 	elseif errflag = 0 then
-		errmsg("Download of round %d, ED %d was successful",CHOOSE_ROUND,CO_ED);
+		errmsg("Download of round %d, ED %d was successful",CO_ROUND,CO_ED);
 	elseif errflag = 1 then
-		errmsg("Download of round %d, ED %d failed, Please try again",CHOOSE_ROUND,CO_ED);
+		errmsg("Download of round %d, ED %d failed, Please try again",CO_ROUND,CO_ED);
 	endif;
 end;
 
 //uploads data to server
 function saveWork()
-	if not roundnumber in 1:4 then
+	{if not roundnumber in 1:4 then
 		roundnumber = 0;
 		do until roundnumber in 1:4
 			roundnumber = accept("Choose current round","One","Two","Three","Four");
 		enddo;
-	endif;
+	endif;}
 	errflag = 0;
 	//errmsg("Attempting to download all data from Round :%d, ED :%d",CHOOSE_ROUND,CO_ED);
 	//errmsg("Data dictionary value Round :%V, ED :%V", RNDNO,EDNO);
 	if syncconnect(FTP,ftpip,ftpun,ftppw) then		//connect to FTP when outside of the government WAN
-		if not syncdata(PUT,LABOURFORCE_DICT,maketext("%2d%v",roundnumber,CO_ED)) then		//upload labourforce data for round and ED
+		if not syncdata(PUT,LABOURFORCE_DICT,maketext("%5s",round_ed)) then		//upload labourforce data for round and ED
 			inc(errflag);
 		endif;
 		syncdisconnect();		//disconnect
@@ -100,7 +101,7 @@ function saveWork()
 		inc(errflag,2);
 	endif;
 	if errflag >= 1 then
-		errmsg("Upload of round %d, ED %d failed, Please try again. %d errors were found",roundnumber,CO_ED,errflag);
+		errmsg("Upload of round %s, ED %s failed, Please try again. %d errors were found",round_ed[1:2],round_ed[3:5],errflag);
 	//elseif errflag = 0 then
 	//	errmsg("Upload of round %d, ED %d was successful",roundnumber,CO_ED);	
 	endif;
@@ -111,7 +112,7 @@ function writeloginstatus(x)
 	string loginFilename = pathname(application)+"loginflag.dat";
 	setfile(loginfile,loginFilename,create);
 
-	filewrite(loginfile,"%d%03d%02d%s",x,visualvalue(CO_ED),USERID,strip(UNAME));	//write value of "x" to file. 1=logged in, 0=logged out
+	filewrite(loginfile,maketext("%d%02d%03d%02d%s",x,visualvalue(CO_ROUND),visualvalue(CO_ED),USERID,strip(UNAME)));	//write value of "x" to file. 1=logged in, 0=logged out
 	setoperatorid(strip(UNAME));
 	savesetting("UNAME",strip(UNAME));
 	
@@ -126,11 +127,12 @@ function readloginstatus()
 	close(loginfile);						//close file
 	
 	readloginstatus = tonumber(status[1:1]);		//set function to file contents
-	CO_ED = tonumber(status[2:3]);
+	CO_ROUND = tonumber(status[2:2]);
+	CO_ED = tonumber(status[4:3]);
 	if tonumber(status[1:1]) = 1 then		//if logged in set login details
-		USERID = tonumber(status[5:2]);
-		UNAME = status[7];
-		setoperatorid(status[7]);		//sets operator ID to username
+		USERID = tonumber(status[7:2]);
+		UNAME = status[9];
+		setoperatorid(status[9]);		//sets operator ID to username
 		savesetting("UNAME",strip(UNAME));		//saves username as a setting so that other apps can access
 	elseif tonumber(status[1:1]) = 0 then		//if logged out clear login details from form
 		USERID = notappl;
@@ -173,6 +175,15 @@ postproc
 
 
 //---------------------------------------------------------------
+PROC CO_ROUND
+onfocus
+	//displays saved round number
+	$ = tonumber(loadsetting("ROUND"));
+	
+postproc
+	roundnumber = $;
+	//saves the Round number as a setting
+	savesetting("ROUND",maketext("%d",$));
 PROC CO_ED
 onfocus
 	//displays saved ED  number
@@ -180,6 +191,7 @@ onfocus
 	$ = tonumber(loadsetting("ED")); 
 	
 postproc
+	round_ed = maketext("%v%v",CO_ROUND,CO_ED);
 	//saves the ED number as a setting
 	savesetting("ED",maketext("%d",$));
 	setoperatorid(UNAME);
@@ -190,7 +202,7 @@ PROC MAIN_MENU
 onfocus
 	$ = notappl;
 	username = getlabel(UNAME_VS1,UNAME);
-	HOUSEHOLD_COUNT = countcases(LABOURFORCE_DICT where EDNO = CO_ED);
+	HOUSEHOLD_COUNT = countcases(LABOURFORCE_DICT where EDNO = CO_ED and RNDNO = CO_ROUND);
 	
 postproc
 	if $ = 1 then
@@ -205,17 +217,18 @@ postproc
 		writeloginstatus(0);
 		stop(1);
 	endif;
-	reenter;
+reenter;
 PROC CHOOSE_ROUND
-postproc
-	roundnumber = $;
-	downloadData();
-	move to MAIN_MENU;
+onfocus
+	//if MAIN_MENU = 1 then
+		downloadData();
+		move to CO_ED;
+	//endif;
 PROC CHOOSE_QUESTIONNAIRE
 onfocus
 	numeric nextEntry = 1;
 	numeric headindex;
-	forcase LABOURFORCE_DICT where EDNO = CO_ED and VACANT = 2 do
+	forcase LABOURFORCE_DICT where EDNO = CO_ED and VACANT = 2 and RNDNO = CO_ROUND do
 		loadcase(LABOURFORCE_DICT,RNDNO,EDNO,PARNO,STRATUM,HHNO);
 		if CODER = notappl then		//and was not coded
 			headindex = seek(LRTH = 0);

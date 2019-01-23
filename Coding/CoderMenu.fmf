@@ -13,7 +13,7 @@ File=.\CoderMenu.dcf
 Name=FORM001
 Label=CoderMenu record
 Level=1
-Size=411,215
+Size=411,242
   
 Item=UNAME
 Item=USERID
@@ -22,6 +22,7 @@ Item=MAIN_MENU
 Item=CHOOSE_QUESTIONNAIRE
 Item=CHOOSE_ROUND
 Item=HOUSEHOLD_COUNT
+Item=CO_ROUND
   
 [EndForm]
   
@@ -53,33 +54,46 @@ Text=User Name
   
 [Field]
 Name=USERID
-Position=212,57,241,77
+Position=212,55,241,75
 Item=USERID,CODERMENU_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
 Form=1
   
 [Text]
-Position=50,60,95,76
+Position=50,58,95,74
 Text=User ID
  
   
 [Field]
+Name=CO_ROUND
+Position=212,83,241,103
+Item=CO_ROUND,CODERMENU_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
+Form=1
+  
+[Text]
+Position=50,86,91,102
+Text=Round
+ 
+  
+[Field]
 Name=CO_ED
-Position=212,87,255,107
+Position=212,111,255,131
 Item=CO_ED,CODERMENU_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
 Form=1
   
 [Text]
-Position=50,90,67,106
+Position=50,114,67,130
 Text=ED
  
   
 [Field]
 Name=MAIN_MENU
-Position=212,117,227,137
+Position=212,139,227,159
 Item=MAIN_MENU,CODERMENU_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
@@ -87,26 +101,26 @@ DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=50,120,120,136
+Position=50,142,120,158
 Text=Main Menu
  
   
 [Field]
 Name=CHOOSE_ROUND
-Position=212,144,227,164
+Position=212,168,227,188
 Item=CHOOSE_ROUND,CODERMENU_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=50,147,142,163
+Position=50,171,142,187
 Text=Choose Round
  
   
 [Field]
 Name=CHOOSE_QUESTIONNAIRE
-Position=212,170,381,190
+Position=212,197,381,217
 Item=CHOOSE_QUESTIONNAIRE,CODERMENU_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
@@ -114,20 +128,20 @@ DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=50,173,190,189
+Position=50,200,190,216
 Text=Choose Questionnaire
  
   
 [Field]
 Name=HOUSEHOLD_COUNT
-Position=282,87,325,107
+Position=282,111,325,131
 Item=HOUSEHOLD_COUNT,CODERMENU_DICT
 Protected=Yes
 FieldLabelType=DictionaryLabel
 Form=1
   
 [Text]
-Position=280,60,386,76
+Position=280,86,386,102
 Text=Household count
  
 [EndGroup]

@@ -24,7 +24,7 @@ Len=1
 Label=CoderMenu record
 Name=CODERMENU_REC
 RecordTypeValue='1'
-RecordLen=44
+RecordLen=46
 
 [Item]
 Label=User Name
@@ -64,9 +64,39 @@ Value=65;JJOHNSON
 Value=66;KBONAS
 
 [Item]
+Label=Round
+Name=CO_ROUND
+Start=25
+Len=2
+
+[ValueSet]
+Label=Round
+Name=CO_ROUND_VS1
+Value=1;1
+Value=2;2
+Value=3;3
+Value=4;4
+Value=5;5
+Value=6;6
+Value=7;7
+Value=8;8
+Value=9;9
+Value=10;10
+Value=11;11
+Value=12;12
+Value=13;13
+Value=14;14
+Value=15;15
+Value=16;16
+Value=17;17
+Value=18;18
+Value=19;19
+Value=20;20
+
+[Item]
 Label=ED
 Name=CO_ED
-Start=25
+Start=27
 Len=3
 
 [ValueSet]
@@ -87,7 +117,7 @@ Value=560:583;St. Lucy
 [Item]
 Label=Main Menu
 Name=MAIN_MENU
-Start=28
+Start=30
 Len=1
 
 [ValueSet]
@@ -101,7 +131,7 @@ Value=9;Logout
 [Item]
 Label=Choose Round
 Name=CHOOSE_ROUND
-Start=29
+Start=31
 Len=1
 
 [ValueSet]
@@ -120,12 +150,12 @@ Value=9;Nine
 [Item]
 Label=Choose Questionnaire
 Name=CHOOSE_QUESTIONNAIRE
-Start=30
+Start=32
 Len=12
 DataType=Alpha
 
 [Item]
 Label=Household count
 Name=HOUSEHOLD_COUNT
-Start=42
+Start=44
 Len=3

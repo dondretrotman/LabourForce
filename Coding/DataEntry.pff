@@ -2,8 +2,8 @@
 Version=CSPro 7.1
 AppType=Entry
 [DataEntryInit]
-OperatorID=LSMITH              
-StartMode=Modify; 41852022 16
+OperatorID=KRUSSELL            
+StartMode=Modify; 4 172011  6
 Lock=Add,Verify,Stats
 FullScreen=Yes
 AutoAdd=No
@@ -15,5 +15,5 @@ AUXIL_DICT=../Data/auxil.csdb|CSPRODB
 INDUSTRY_CODES_DICT=../Data/IndustryCodes.csdb|CSPRODB
 OCCUPATION_CODES_DICT=../Data/Occupationcodes.csdb|CSPRODB
 [Parameters]
-CODER=58
-UNAME=LSMITH              
+CODER=54
+UNAME=KRUSSELL            
