@@ -1,27 +1,35 @@
-﻿Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Batch Edit\LabourforceBatch.bch
+﻿Application     \\statserver.gov.bb\FTP_Data_Warehouse\Downloaded data\Batch Edit\LabourforceBatch.bch
 Type            BATCH
-Input Data      <<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data.csdb                                                                                                                                                                                                                              
-<Output>        <<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\editeddata.csdb                                                                                                                                                                                                                        
+Input Data      <<CSPro DB>> \\statserver.gov.bb\FTP_Data_Warehouse\Downloaded data\Labourforce.csdb                                                                                                                                                                                                                        
+<Output>        <<CSPro DB>> \\statserver.gov.bb\FTP_Data_Warehouse\Downloaded data\Labourforce-edited.csdb                                                                                                                                                                                                                 
 
-Date            Oct 31, 2018
-Start Time      16:17:26
-End Time        16:17:26
+Date            Jan 25, 2019
+Start Time      13:43:02
+End Time        13:43:03
 
 CSPRO Process Summary
           +-----------------------------------------------------+
-          |       5 Records Read ( 100% of input file)          |
+          |    5206 Records Read ( 100% of input file)          |
           |       0 Ignored (       0 unknown,        0 erased) |
           |       0 Messages (       0 U,       0 W,       0 E) |
           +---------+--------------+--------------+-------------+
           |  Level  |  Input Case  |  Bad Struct  |  Level Post |
           +---------+--------------+--------------+-------------+
-          |     1   |          3   |          0   |          1  |
+          |     1   |       1933   |          0   |       1890  |
           +---------+--------------+--------------+-------------+                                                     
                                                                                 
                                                                                 
                                                                                 
 
 Process Messages
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+     23       6   0.3  ID fields are empty. Deleting case                   1933
+     35      28   1.5  Household fields are empty. Deleting case            1918
+     44       9   0.5  Delete flag is set. Deleting case                    1927
 
 CSPRO Executor Normal End
 --------------------------------------------------------------------------------

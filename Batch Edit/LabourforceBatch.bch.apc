@@ -3,22 +3,45 @@
 TODO:	Check that son is male and daughter is female
 }
 PROC GLOBAL
+//VARIABLES
+numeric	denomID = 0,
+		denomHHLIST = 0,
+		denomDELETE = 0,
+		;
 
 PROC LABOURFORCE_FF
 
 PROC IDS0_EDT
 postproc
+	//filter empty records
+	inc(denomID);
 	if RNDNO = notappl and 
 	EDNO = notappl and
 	PARNO = notappl and
 	STRATUM = notappl and
 	HHNO = notappl then
+		errmsg("ID fields are empty. Deleting case") denom = denomID summary;
 		skip case;
 	endif;
 	
 //-----------------------------------------------------------------
+PROC HOUSEHOLD_LISTING_EDT
+postproc
+	//filter empty households with no questionnaires
+	inc(denomHHLIST);
+	if HH_TYP = notappl and 
+	DATE = notappl and 
+	LENDDATE = notappl then
+		errmsg("Household fields are empty. Deleting case") denom = denomHHLIST summary;
+		skip case;
+	endif;
+	
+//--------------------------------------------------------------------------------
+	
 PROC DELETE_FLAG
+inc(denomDELETE);
 if $ = 1 then		//if delete flag is set
+	errmsg("Delete flag is set. Deleting case") denom = denomDELETE summary;
 	skip case;		//skip (delete) the current case
 endif;
 
