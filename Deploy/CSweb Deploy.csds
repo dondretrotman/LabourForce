@@ -1,0 +1,62 @@
+{
+  "fileType": "Application Deployment Specification",
+  "version": "7.1",
+  "name": "Menu",
+  "description": "Continuous Labour Force Sample Survey ",
+  "files": [
+    {
+      "path": "..\\Menu\\Menu.pff"
+    },
+    {
+      "path": "..\\Menu\\Menu.ent"
+    },
+    {
+      "path": "..\\Questionnaire\\Labourforce.ent"
+    },
+    {
+      "path": "..\\Questionnaire\\Labourforce.pff"
+    },
+    {
+      "path": "..\\ControlSheets\\Listing.pff"
+    },
+    {
+      "path": "..\\ControlSheets\\Listing.ent"
+    },
+    {
+      "path": "..\\Reports\\EnumerationReport.ent"
+    },
+    {
+      "path": "..\\Reports\\enumeratorrpt.html"
+    },
+    {
+      "path": "..\\Reports\\EnumerationReport.pff"
+    },
+    {
+      "path": "..\\Manual.pdf"
+    }
+  ],
+  "dictionaries": [
+    {
+      "path": "..\\Menu\\Menu.dcf",
+      "uploadForSync": true
+    },
+    {
+      "path": "..\\Questionnaire\\Labourforce.dcf",
+      "uploadForSync": true
+    },
+    {
+      "path": "..\\ControlSheets\\Listing.dcf",
+      "uploadForSync": true
+    },
+    {
+      "path": "..\\Reports\\EnumerationReport.dcf",
+      "uploadForSync": true
+    }
+  ],
+  "deployment": {
+    "type": "CSWeb",
+    "cswebUrl": "http:\/\/172.28.10.220\/csweb\/api",
+    "ftpUrl": "ftp:\/\/172.28.10.215",
+    "localFolderPath": "\\\\statserver.gov.bb\\FTP_Data_Warehouse\\CSPro\\Update"
+  }
+}
