@@ -10,4 +10,4 @@ File=.\LabourforceBatch.bch.mgf
 [Order]
 File=.\LabourforceBatch.ord
 [Dictionary Types]
-Dict-Type=.\Labourforce.dcf,Input,.\LabourforceBatch.ord
+Dict-Type=..\Questionnaire\Labourforce.dcf,Input,.\LabourforceBatch.ord

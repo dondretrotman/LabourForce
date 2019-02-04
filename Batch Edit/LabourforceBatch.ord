@@ -7,7 +7,7 @@ FieldEntryFont=0018 0000 0000 0000 0600 0000 0000 0000 0000 0000 0000 0000 0000 
 Type=OperatorControlled
   
 [Dictionaries]
-File=.\Labourforce.dcf
+File=..\Questionnaire\Labourforce.dcf
   
 [Form]
 Name=FORM000

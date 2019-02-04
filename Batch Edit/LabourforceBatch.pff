@@ -4,8 +4,8 @@ AppType=Batch
 
 [Files]
 Application=.\LabourforceBatch.bch
-InputData=..\Labourforce.csdb|CSPRODB
-OutputData=..\Labourforce-edited.csdb|CSPRODB
+InputData=.\Labourforce.csdb|CSPRODB
+OutputData=.\Labourforce-edited.csdb|CSPRODB
 Listing=.\LabourforceBatch.lst
 
 
