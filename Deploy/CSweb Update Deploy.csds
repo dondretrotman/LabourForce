@@ -1,7 +1,7 @@
 {
   "fileType": "Application Deployment Specification",
   "version": "7.1",
-  "name": "Menu",
+  "name": "CLFSS CAPI csweb",
   "description": "Continuous Labour Force Sample Survey ",
   "files": [
     {
