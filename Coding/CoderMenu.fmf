@@ -20,7 +20,6 @@ Item=USERID
 Item=CO_ED
 Item=MAIN_MENU
 Item=CHOOSE_QUESTIONNAIRE
-Item=CHOOSE_ROUND
 Item=HOUSEHOLD_COUNT
 Item=CO_ROUND
   
@@ -103,19 +102,6 @@ Form=1
 [Text]
 Position=50,142,120,158
 Text=Main Menu
- 
-  
-[Field]
-Name=CHOOSE_ROUND
-Position=212,168,227,188
-Item=CHOOSE_ROUND,CODERMENU_DICT
-FieldLabelType=DictionaryLabel
-DataCaptureType=RadioButton
-Form=1
-  
-[Text]
-Position=50,171,142,187
-Text=Choose Round
  
   
 [Field]

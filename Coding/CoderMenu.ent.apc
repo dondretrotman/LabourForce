@@ -7,6 +7,7 @@ TODO: Set data file as a central data file Look into programmatically changing t
 string	ftpip,			//Stores ftp address
 		ftpun,			//stores ftp username
 		ftppw,			//stores ftp password
+		cswebip,		//Stores csweb address
 		username,		//stores user name
 		status,			//stores current login status
 		round_ed,		//stores round and ed
@@ -62,7 +63,8 @@ end;
 //downloads Data based on ED
 function downloadData()
 	errflag = 0;
-	errmsg("Attempting to download all data from Round :%d, ED :%d",CO_ROUND,CO_ED);
+//start ftp download
+	{errmsg("Attempting to download all data from Round :%d, ED :%d",CO_ROUND,CO_ED);
 	//errmsg("Data dictionary value Round :%V, ED :%V", RNDNO,EDNO);
 	if syncconnect(FTP,ftpip,ftpun,ftppw) then		//connect to FTP when outside of the government WAN
 		if not syncdata(GET,LABOURFORCE_DICT,maketext("%2d%v",CO_ROUND,CO_ED)) then		//get labourforce data for round and ED
@@ -71,7 +73,20 @@ function downloadData()
 		syncdisconnect();		//disconnect
 	else
 		inc(errflag,2);
+	endif;}
+//end ftp download
+//start csweb download
+	errmsg("Attempting to download all data from Round :%d, ED :%d",CO_ROUND,CO_ED);
+	//errmsg("Data dictionary value Round :%V, ED :%V", RNDNO,EDNO);
+	if syncconnect(CSWeb,cswebip,ftpun,ftppw) then		//connect to FTP when outside of the government WAN
+		if not syncdata(GET,LABOURFORCE_DICT,maketext("%2d%v",CO_ROUND,CO_ED)) then		//get labourforce data for round and ED
+			inc(errflag);
+		endif;
+		syncdisconnect();		//disconnect
+	else
+		inc(errflag,2);
 	endif;
+//end csweb download
 	if errflag > 1 then
 		errmsg("Download of round %d, ED %d failed, Please try again. %d errors were found",CO_ROUND,CO_ED,errflag);
 	elseif errflag = 0 then
@@ -92,7 +107,18 @@ function saveWork()
 	errflag = 0;
 	//errmsg("Attempting to download all data from Round :%d, ED :%d",CHOOSE_ROUND,CO_ED);
 	//errmsg("Data dictionary value Round :%V, ED :%V", RNDNO,EDNO);
-	if syncconnect(FTP,ftpip,ftpun,ftppw) then		//connect to FTP when outside of the government WAN
+//start ftp upload
+	{if syncconnect(FTP,ftpip,ftpun,ftppw) then		//connect to FTP when outside of the government WAN
+		if not syncdata(PUT,LABOURFORCE_DICT,maketext("%5s",round_ed)) then		//upload labourforce data for round and ED
+			inc(errflag);
+		endif;
+		syncdisconnect();		//disconnect
+	else
+		inc(errflag,2);
+	endif;}
+//end ftp upload
+//start csweb upload
+	if syncconnect(CSWeb,cswebip,ftpun,ftppw) then		//connect to FTP when outside of the government WAN
 		if not syncdata(PUT,LABOURFORCE_DICT,maketext("%5s",round_ed)) then		//upload labourforce data for round and ED
 			inc(errflag);
 		endif;
@@ -100,6 +126,7 @@ function saveWork()
 	else
 		inc(errflag,2);
 	endif;
+//endcsweb upload
 	if errflag >= 1 then
 		errmsg("Upload of round %s, ED %s failed, Please try again. %d errors were found",round_ed[1:2],round_ed[3:5],errflag);
 	//elseif errflag = 0 then
@@ -152,7 +179,8 @@ preproc
 	//Initialize ftp variables
 	ftpip = "10.129.20.110";
 	ftpun = "Census";
-	ftppw = "Census2020ADM!N";
+	ftppw = "LabourFource2020ADM!N";
+	cswebip = "http://10.129.20.110:8082/csweb/api";
 	
 //-----------------------------------------------------------------------
 PROC UNAME
@@ -206,7 +234,7 @@ onfocus
 	
 postproc
 	if $ = 1 then
-		skip to CHOOSE_ROUND;
+		downloadData();
 	elseif $ = 2 then
 		skip to CHOOSE_QUESTIONNAIRE;
 	elseif $ = 3 then
@@ -218,12 +246,6 @@ postproc
 		stop(1);
 	endif;
 reenter;
-PROC CHOOSE_ROUND
-onfocus
-	//if MAIN_MENU = 1 then
-		downloadData();
-		move to CO_ED;
-	//endif;
 PROC CHOOSE_QUESTIONNAIRE
 onfocus
 	numeric nextEntry = 1;
