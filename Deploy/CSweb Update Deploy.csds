@@ -57,6 +57,6 @@
     "type": "LocalFolder",
     "cswebUrl": "http:\/\/172.28.10.220\/csweb\/api",
     "ftpUrl": "ftp:\/\/172.28.10.215",
-    "localFolderPath": "\\\\172.28.10.220\\c$\\wamp64\\www\\csweb\\files\\CSPro"
+    "localFolderPath": "\\\\172.28.10.220\\c$\\wamp64\\www\\csweb\\files\\CSPro\\Update"
   }
 }

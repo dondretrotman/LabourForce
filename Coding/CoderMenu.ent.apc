@@ -179,7 +179,7 @@ preproc
 	//Initialize ftp variables
 	ftpip = "10.129.20.110";
 	ftpun = "Census";
-	ftppw = "LabourFource2020ADM!N";
+	ftppw = "Census2020ADM!N";
 	cswebip = "http://10.129.20.110:8082/csweb/api";
 	
 //-----------------------------------------------------------------------
