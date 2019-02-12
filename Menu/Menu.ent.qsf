@@ -43,13 +43,13 @@ EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fchars
 EN={\colortbl ;\red0\green0\blue0;\red0\green0\blue255;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 Logged in as \b %username%\b0  (ADMIN) \par
+EN=The current Round is \b %ME_ROUND%\b0\par
 EN=Your Enumeration District is \b %ME_ED%\par
 EN=\cf2\b0 Version: %VERSION%\cf1\b\par
 EN=\par
 EN=\b0 Please choose an action\par
 EN=\cf2 Press the question mark symbol (?) for help\cf1\par
-EN=
-EN=\pard\par
+EN=\par
 EN=}
 
 [QUESTION]
@@ -59,6 +59,7 @@ EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fchars
 EN={\colortbl ;\red0\green0\blue0;\red0\green0\blue255;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 Logged in as \b %username%\b0  (Supervisor) \par
+EN=The current Round is \b %ME_ROUND%\b0\par
 EN=Your Enumeration District is \b %ME_ED%\par
 EN=\cf2\b0 Version: %VERSION%\cf1\par
 EN=\par
