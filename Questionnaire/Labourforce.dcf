@@ -964,6 +964,7 @@ Len=2
 Label=Form 2 completed by
 Name=LCOMPLETED_VS1
 Value=88;Proxy (Non-Household Member)
+Value=89;not applicable
 
 [Item]
 Label=Add another person?

@@ -189,7 +189,7 @@ postproc
 		if i = 1 then
 			getgps();		//get location
 		elseif i = 2 then
-			break;			//cancel the while loop
+			//break;			//cancel the while loop
 		endif;
 //	enddo;
 
@@ -245,6 +245,8 @@ postproc
 //		if EREND = notappl then
 			EREND = LENDDATE;
 //		endif;
+		ERHH_SIZE = totocc(LABOURFORCE_REC001);
+		ERROUND = RNDNO;
 //		if ERREMARKS = "" then
 			promptremarks = prompt("Do you have any remarks to be included in the Enumerator Report? Current remarks are:%s",strip(ERREMARKS));
 				if promptremarks <> "" then
@@ -590,10 +592,12 @@ preproc
 
 	//check that person is eligible to be interviewed
 	if LELIGIBLE <> 1 then		//if not eligible
+		$ = 89;
 		skip to next;
 	endif;
 	
 	if LPREVVISIT = 3 then		//if no longer a member of the household
+		$ = 89;
 		skip to next;
 	endif;
 	

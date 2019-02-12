@@ -790,6 +790,8 @@ end;
 
 //fills enumeration report and opens for Viewing
 function enumerationRpt()
+	//trace(on);
+	//set trace;
 	recode ME_ED	=>	parish;		//recode ed to parish
 		1-181	=>	201;	//St. Michael
 		182-295	=>	202;	//Christ Church
@@ -848,7 +850,8 @@ function enumerationRpt()
 	endif;
 	
 	//count the number of individuals if ERHH_SIZE has nothing
-	forcase LABOURFORCE_DICT where ERED_NO = ME_ED and RNDNO = ME_ROUND and LENDDATE <> notappl do
+	forcase LABOURFORCE_DICT where EDNO = ME_ED and RNDNO = ME_ROUND and LENDDATE <> notappl and VACANT = 2 do
+		//errmsg("num persons=%d, indiv count=%d",NUMBER_OF_PERSONS,indivcounttot);
 		indivcounttot = indivcounttot + NUMBER_OF_PERSONS;		//count all persons in completed cases
 	endfor;
 		
@@ -877,7 +880,7 @@ function enumerationRpt()
 	setreportdata("EDRPT", maketext("%d",ME_ED));
 	setreportdata(REPORTARRAY);
 	report("../Reports/enumeratorrpt.html");
-	
+//trace(off);	
 end;
 
 //displays the manual
