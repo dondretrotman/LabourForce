@@ -8,9 +8,14 @@ Version: 0.1
 Notes:
 
 Todo:
-	*Done* Need to allow enumerators/supervisors to review edit questionnaires
-	*Done* Need to make a check for head of household after entering all persons
-	*Done* Only the first enumerator report gets writtenz
+	Implement solution that can tell when an ed in completed
+		create a data dictionary that contains info on ED named audit
+		It contains logic that compared number of cases in control sheet with completed questinonaire cases 
+		When the numbers match, it sets a flag showing the ed is complete
+		
+	*done* Make GPS mandatory
+	Add a No change option that has to be confirmed by supervisors
+	Include household metadata
 }
 
 PROC GLOBAL
@@ -88,7 +93,7 @@ end;
 //Function uses device's GPS feature to get Location
 function getgps()
 	gps(open);
-	if gps(read,60,10,"Reading GPS, Please wait...") = 1 then	//read up to 60 seconds. if successful...
+	if gps(read,60,5,"Getting GPS location, Please wait...") = 1 then	//read up to 60 seconds. if successful...
 		//execsystem(maketext("gps:%f,%f", gps(latitude),gps(longitude)));
 		if accept(maketext("Save this location? %f, %f",gps(latitude),gps(longitude)),"Yes","No") = 1 then	//if yes
 			LATITUDE = gps(latitude);
@@ -170,29 +175,31 @@ onfocus
     //DEBUG: DO THIS IN THE CENSUS APP
 
 postproc
+	//Mandatory Longitude and latitude capture if not updated
+	if visualvalue(LATITUDE) in 0,notappl,default or visualvalue(LONGITUDE) in 0,notappl,default then
+		getgps();
+	endif;
+	
 	//if latitude or longitude are invalid, prompt to updatefield. If valid, ask if to leave coordinates or to update
-	while visualvalue(LATITUDE) in {15:90,0:12,}0,notappl,default or visualvalue(LONGITUDE) in {-58:180,-180:-61,}0,notappl,default do
+//	while visualvalue(LATITUDE) in {15:90,0:12,}0,notappl,default or visualvalue(LONGITUDE) in {-58:180,-180:-61,}0,notappl,default do		//taken out to make gps capture mandatory
 		i=0;
 		do until i in 1,2
-			i = accept(maketext("No location recorded. Please get current location before proceeding to the next dwelling unit (%f,%f)",LATITUDE,LONGITUDE),"Get current location","Get location later");
+			i = accept(maketext("Accept current location before proceeding to the next dwelling unit (%f,%f)?",LATITUDE,LONGITUDE),"Get current location again","Accept current location");
 		enddo;
 		if i = 1 then
 			getgps();		//get location
 		elseif i = 2 then
 			break;			//cancel the while loop
 		endif;
-		{errmsg("No coordinates recorded.")
-		select("Get new coordinates",continue,"Get coordinates later",next);
-		getgps();
-	else
-		errmsg("Current coordinates are %f,%f.",visualvalue(LATITUDE),visualvalue(LONGITUDE))
-		select("Get new coordinates",continue,"Keep coordinates",break);
-		getgps();}
-	enddo;
+//	enddo;
+
 	
 	//store the interview end date
 	if LENDDATE = notappl then
 		LENDDATE = sysdate("YYYYMMDD");
+	endif;
+	if LENDTIME = notappl then
+		LENDTIME = systime("HHMM");
 	endif;
 	
 	//load case from enumeration report with current ID info and write info to it if no case found, make a new one
@@ -252,10 +259,12 @@ postproc
 		loadcase(ENUMERATIONREPORT_DICT);
 		ERED_NO = EDNO;
 		ERPARISH = PARNO;
+		ERROUND = RNDNO;
 		ERFIELD_OFFICER = ENMRTR;
 		ERSERIAL_NO = HHNO;
 		ERUNIT_NO = cases + 1;
 		WEEK_ENDING = sysdate("YYYYMMDD");
+		ERHH_SIZE = totocc(LABOURFORCE_REC001);
 		
 		headindex = seek(LRTH = 0);		//find head of household
 		if headindex <> 0 then
@@ -365,6 +374,9 @@ postproc
 	//set interview date
 	if visualvalue(DATE) = notappl then
 		DATE = sysdate("YYYYMMDD");
+	endif;
+	if visualvalue(LSTARTTIME) = notappl then
+		LSTARTTIME = systime("HHMM");
 	endif;
 	
 	//TODO: DONE Move promt for gps to end of interview
@@ -559,6 +571,10 @@ PROC ADDPER
 	endif;
 
 //----------------------------------------------------------------------
+PROC LABOURFORCE_REC_FORM
+preproc
+	ELIGIBLE_PERSONS = count(LSEX where LELIGIBLE = 1);
+	NUMBER_OF_EARNERS = count(LSEX where LEARNER = 1);
 PROC LABOURFORCE_REC000
 postproc
 	//if partially responding and person has completed the questionnaire then change to fully responding

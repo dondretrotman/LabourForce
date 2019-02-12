@@ -97,7 +97,7 @@ Len=3
 Label=EnumerationReport record
 Name=ENUMERATIONREPORT_REC
 RecordTypeValue='1'
-RecordLen=299
+RecordLen=303
 
 [Item]
 Label=Sample Unit No.
@@ -489,3 +489,15 @@ Name=ERREMARKS
 Start=200
 Len=100
 DataType=Alpha
+
+[Item]
+Label=Round
+Name=ERROUND
+Start=300
+Len=2
+
+[Item]
+Label=Household Size
+Name=ERHH_SIZE
+Start=302
+Len=2

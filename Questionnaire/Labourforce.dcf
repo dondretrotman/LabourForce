@@ -110,7 +110,7 @@ Len=3
 Label=Household Listing
 Name=HOUSEHOLD_LISTING
 RecordTypeValue='1'
-RecordLen=272
+RecordLen=284
 
 [Item]
 Label=Latitude
@@ -477,6 +477,62 @@ Value=54;Karin Russell
 Value=58;Lisa Smith
 Value=65;Jean Johnson
 Value=66;Kellyanne Bonas
+
+[Item]
+Label=Eligible persons
+Name=ELIGIBLE_PERSONS
+Start=273
+Len=2
+
+[Item]
+Label=Number of earners
+Name=NUMBER_OF_EARNERS
+Start=275
+Len=2
+
+[Item]
+Label=Interview start time
+Name=LSTARTTIME
+Start=277
+Len=4
+
+[Item]
+Label=Interview start hour
+Name=LSTARTHOUR
+Start=277
+Len=2
+ItemType=SubItem
+ZeroFill=Yes
+
+[Item]
+Label=Interview start minute
+Name=LSTARTMIN
+Start=279
+Len=2
+ItemType=SubItem
+ZeroFill=Yes
+
+[Item]
+Label=Interview end time
+Name=LENDTIME
+Start=281
+Len=4
+
+[Item]
+Label=Interview end hour
+Name=LENDHOUR
+Start=281
+Len=2
+ItemType=SubItem
+ZeroFill=Yes
+
+[Item]
+Label=Interview end minute
+Name=LENDMINUTE
+Start=283
+Len=2
+ItemType=SubItem
+ZeroFill=Yes
 
 [Record]
 Label=Labourforce record
