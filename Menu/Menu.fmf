@@ -14,7 +14,7 @@ Name=FORM000
 Label=Menu questionnaire
 QuestionTextHeight=145
 Level=1
-Size=754,633
+Size=754,672
   
 Item=INTERVIEWER_MENU
 Item=SUPERVISOR_MENU
@@ -32,6 +32,7 @@ Item=ADMIN_MENU
 Item=ADMIN_DELETE_CONTROL_SHEET
 Item=ADMIN_DELETE_QUESTIONNAIRE
 Item=ME_ROUND
+Item=UNCHANGED_HOUSEHOLDS
   
 [EndForm]
   
@@ -261,6 +262,19 @@ Form=1
 [Text]
 Position=127,591,306,607
 Text=Admin Delete Questionnaire
+ 
+  
+[Field]
+Name=UNCHANGED_HOUSEHOLDS
+Position=319,627,488,647
+Item=UNCHANGED_HOUSEHOLDS,MENU_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
+Form=1
+  
+[Text]
+Position=127,630,276,646
+Text=Unchanged Households
  
 [EndGroup]
   

@@ -15,6 +15,7 @@ string	ftpip,			//Stores ftp address
 		
 numeric	errflag,		//sets error flag
 		roundnumber,	//saves round number
+		indivcounttot,	//counts individuals
 		;
 
 file	loginfile,		//saves login status in a file	
@@ -230,7 +231,14 @@ PROC MAIN_MENU
 onfocus
 	$ = notappl;
 	username = getlabel(UNAME_VS1,UNAME);
+	HOUSEHOLD_COUNT = 0;
+	indivcounttot = 0;
+	trace("INDIVIDUAL_COUNT=%v",INDIVIDUAL_COUNT);
 	HOUSEHOLD_COUNT = countcases(LABOURFORCE_DICT where EDNO = CO_ED and RNDNO = CO_ROUND);
+	forcase LABOURFORCE_DICT where EDNO = CO_ED and RNDNO = CO_ROUND and VACANT = 2 do
+		indivcounttot = indivcounttot + NUMBER_OF_PERSONS;		//count all persons in completed cases
+	endfor;
+	INDIVIDUAL_COUNT = indivcounttot;
 	
 postproc
 	if $ = 1 then

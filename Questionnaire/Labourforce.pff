@@ -2,35 +2,28 @@
 Version=CSPro 7.1
 AppType=Entry
 Description=Continuous Labourforce Sample Survey
-
 [DataEntryInit]
-OperatorID=WDAVIS
-StartMode=Add; 14352063  1
-Lock=CaseListing
+OperatorID=WDAVIS              
+StartMode=Add; 5 552011 95   
 ShowInApplicationListing=Hidden
-AutoAdd=NO
-Interactive=Ask
-
+AutoAdd=No
+Lock=CaseListing
 [Files]
-Application=.\Labourforce.ent
-InputData=..\Data\data.csdb|CSPRODB
+Application=./Labourforce.ent
+InputData=../Data/data.csdb|CSPRODB
 Paradata=../Data/Labourforce.cslog
-
 [ExternalFiles]
-ENUMERATIONREPORT_DICT=..\Data\enumrpt.csdb|CSPRODB
-LISTING_DICT=..\Data\Controlsheet.csdb|CSPRODB
-
+LISTING_DICT=../Data/Controlsheet.csdb|CSPRODB
+ENUMERATIONREPORT_DICT=../Data/enumrpt.csdb|CSPRODB
 [UserFiles]
 PFFFILE=
-
 [Parameters]
 OnExit=../Menu/Menu.pff
-ADDRESS=5TH FLOOR BABOBAB TOWER
-BLDGNO=1
-EDNO=435
+RNDNO= 5
+EDNO= 55
+PARNO=201
+STRATUM=1
+HHNO= 95
 ENMRTR=94
-HHNO=1
-PARNO=206
-RNDNO=1
-STRATUM=3
-
+ADDRESS=PERFECTION ROAD                                                                                     
+BLDGNO=127

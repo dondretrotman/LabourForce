@@ -42,6 +42,7 @@ array string	vsCode(99);		//valueset codes
 array string 	vsLabel(99);	//valueset labels
 array string 	address(99,3);	//stores addresses
 array string	REPORTARRAY(50,11);	//stores enumerator report data (50 = number of records, 10 = number of fields (ERFEILD_OFFICER, ERSERIAL_NO,ERUNIT_NO,ERHH_SIZE,WEEK_ENDING,ERLAST-NAME, ERFIRST_NAME, ERADDRESS, ERSTART, EREND,ERREMARKS))
+array string	nocid(100);		//no change ID numbers
 
 //--------------------------------Function declaration------------------------------------
 //Launches the Control sheet
@@ -697,6 +698,54 @@ function downloadcontrolsheets(string rnd_edno)
 	endif;
 end;
 
+//downloads unchanged households and then displays them
+function getunchanged()
+	errflag = 0;
+	i = 1;		//counot number to unchanged households
+	j = 1;		//count number of downloaded unchnaged households
+	while i <> 100 do		//reset array
+		nocid(i) = "";
+		inc(i);
+	enddo;
+	i = 1;
+	//get unchanged household ids
+	forcase LABOURFORCE_DICT where NO_CHANGE = 1 do
+		nocid(i) = maketext("%V%V%V%V%V",RNDNO-1,EDNO,PARNO,STRATUM,HHNO);
+		trace("i nocid(%d) = %s",i,nocid(i));
+		inc(i);
+	endfor;
+	if nocid(1) = "" then
+		break;
+	endif;
+	//download unchanged households
+	if syncconnect(CSWeb,cswebip1,ftpun,ftppw) then		//connect to FTP when within the Government WAN
+		while j < i do
+			if not syncdata(GET,LABOURFORCE_DICT,maketext("%12s",nocid(j))) then		//download Questionnaire from previous round
+				trace("j nocid(%d) = %s",j,nocid(j));
+				inc(j);
+				inc(errflag);
+			endif;
+		enddo;
+		syncdisconnect();		//disconnect
+	elseif syncconnect(CSWeb,cswebip2,ftpun,ftppw) then		//connect to FTP when within the Government WAN
+		while j < i do
+			if not syncdata(GET,LABOURFORCE_DICT,maketext("%12s",nocid(j))) then		//download Questionnaire from previous round
+				trace("j nocid(%d) = %s",j,nocid(j));
+				inc(j);
+				inc(errflag);
+			endif;
+		enddo;
+		syncdisconnect();		//disconnect
+	else
+		inc(errflag,2);
+	endif;
+	if errflag >= 1 then
+		errmsg("Data download failed, please try again. %d errors were found",errflag);
+	elseif errflag = 0 then
+		errmsg("Data download was successful");
+	endif;
+end;
+
 //deletes a questionnaire
 function deleteQuestionnaire()
 	deleteflag = 0;
@@ -1092,6 +1141,8 @@ reenter;		//don't leave the menu
 //---------------------------------------------------------
 PROC SUPERVISOR_MENU
 onfocus
+trace(on);
+set trace;
 	$ = notappl;		//don't show the last selection
 	if deleteflag = 0 then
 		loadcase(LABOURFORCE_DICT,CHOOSE_QUESTIONNAIRE);
@@ -1116,8 +1167,9 @@ postproc
 	elseif $ = 5 then		//view Enumerator report
 		enumerationRpt();
 		reenter;
-	elseif $ = 6 then		//view summary report
-		//TODO
+	elseif $ = 6 then		//review unchanged households (downloads households then displays them
+		getunchanged();
+		skip to UNCHANGED_HOUSEHOLDS;
 	elseif $ = 9 then		//back
 		move to LOGIN;
 	endif;
@@ -1408,5 +1460,34 @@ postproc
 	elseif LOGIN = 8 then
 		move to ADMIN_MENU;
 	endif;
+
+//---------------------------------------------------------
+PROC UNCHANGED_HOUSEHOLDS
+onfocus
+	numeric nextEntry = 1;
+	numeric headindex;
+	forcase LABOURFORCE_DICT where LSTED = ME_ED and LSTROUND = ME_ROUND do
+		loadcase(LABOURFORCE_DICT,RNDNO,EDNO,PARNO,STRATUM,HHNO);
+		if NO_CHANGE = 1 then		//if a no change, include name
+			headindex = seek(LRTH = 0);
+			vscode(nextEntry) = maketext("%V%V%V%V%V",RNDNO,EDNO,PARNO,STRATUM,HHNO);
+			vslabel(nextEntry) = maketext("%S-%02d-%03d-%03d-%d-%03d",strip(LLAST_NAME(headindex)),RNDNO,EDNO,PARNO,STRATUM,HHNO );
+			trace("nextEntry = %d",nextEntry);
+			trace("%S-%02d-%03d-%03d-%d-%03d",strip(LLAST_NAME(headindex)),RNDNO,EDNO,PARNO,STRATUM,HHNO);
+			inc(nextEntry);
+		endif;
+	endfor;
+	
+	vscode(nextEntry) = "";
+	setvalueset($,vsCode,vsLabel);
+	
+	{if vscode(1) = "" then		//if nothing is in the valueset
+		errmsg("There are no questionnaires available that fit this criteria.");
+		move to SUPERVISOR_MENU;
+	endif;}
+
+postproc
+	move to SUPERVISOR_MENU;
+
 
 //---------------------------------------------------------

@@ -27,7 +27,7 @@ Item=HHNO
 Name=FORM001
 Label=Household Listing
 Level=1
-Size=1078,596
+Size=1040,496
   
 Item=VISITNO
 Item=HH_TYP
@@ -37,6 +37,7 @@ Item=VACANT
 Item=VOCCUP
 Item=SUPERV
 Item=VACANT_OTHER
+Item=NO_CHANGE
   
 [EndForm]
   
@@ -201,6 +202,19 @@ Form=2
 [Text]
 Position=72,199,165,215
 Text=Rotation Order
+ 
+  
+[Field]
+Name=NO_CHANGE
+Position=254,284,269,304
+Item=NO_CHANGE,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
+Form=2
+  
+[Text]
+Position=72,287,240,303
+Text=No change from last round
  
   
 [Field]

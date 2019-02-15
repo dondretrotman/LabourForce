@@ -1,0 +1,15 @@
+﻿[Run Information]
+Version=CSPro 7.1
+AppType=Pack
+
+[Files]
+Application=.\Menu.ent
+ZipFile=..\LAbour force capi.zip
+Listing=.\CSPack.lst
+
+[Parameters]
+ViewListing=Always
+ViewResults=Yes
+PackInclude=VSImages,Resources,ExternalFiles,UserFiles
+Silent=No
+
