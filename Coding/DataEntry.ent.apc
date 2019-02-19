@@ -315,9 +315,9 @@ PROC AUXILKEY
 	if Sel = 1 then
 	
 		if AUXILTYPE = 1 then
-			AUXILCODE = LU_ISCO_CODE;
+			AUXILCODE = LU_BARSOC_CODE;
 			AUXILKEY = LU_OCCUPATION;
-			occupationcode = LU_ISCO_CODE;
+			occupationcode = LU_BARSOC_CODE;
 		else
 			AUXILCODE = ISIC_V4_CODE;
 			AUXILKEY = INDUSTRY;

@@ -50,7 +50,7 @@ function launchQuestionnaire()
 	filewrite(pffFile,"[ExternalFiles]");
 	filewrite(pffFile,"AUXIL_DICT=%s","../Data/auxil.csdb|CSPRODB");
 	filewrite(pffFile,"INDUSTRY_CODES_DICT=%s","../Data/IndustryCodes.csdb|CSPRODB");
-	filewrite(pffFile,"OCCUPATION_CODES_DICT=%s","../Data/Occupationcodes.csdb|CSPRODB");
+	filewrite(pffFile,"OCCUPATION_CODES_DICT=%s","../Data/OccupationCodesBARSOC.csdb|CSPRODB");
 	
 	filewrite(pffFile,"[Parameters]");
 	filewrite(pffFile,"CODER=%s",maketext("%v",visualvalue(USERID)));

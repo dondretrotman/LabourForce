@@ -22,11 +22,12 @@ string 	rnd_ed,		//round and ED number to be downloaded
 		ftppw,		//stores ftp password
 		convid,		//stores control sheet id that was converted to a questionnaire id
 		temparray,	//temporarily stores a string array value
+		parish,		//parish
+		//idno,		//ID for loading a case
 		;
 
 numeric deleteflag,		//stores flag for case deletion
 		errflag,		//sets error flag
-		parish,			//parish
 		version,		//version number
 		lastupdate,		//last update version day
 		updated,		//Last time the app was updated
@@ -34,14 +35,14 @@ numeric deleteflag,		//stores flag for case deletion
 		rndmonth,		//Current month for calculating round number
 		housecount,		//counts number of households
 		indivcounttot,	//counts total number of individuals in an ED
-		a,i,j,k,l,		//general counters and temp variables
+		a,i,j,k,l,m,n,		//general counters and temp variables
 		;
 
 //----------------------------------Array Declaration-------------------------------------
 array string	vsCode(99);		//valueset codes
 array string 	vsLabel(99);	//valueset labels
 array string 	address(99,3);	//stores addresses
-array string	REPORTARRAY(50,11);	//stores enumerator report data (50 = number of records, 10 = number of fields (ERFEILD_OFFICER, ERSERIAL_NO,ERUNIT_NO,ERHH_SIZE,WEEK_ENDING,ERLAST-NAME, ERFIRST_NAME, ERADDRESS, ERSTART, EREND,ERREMARKS))
+array string	REPORTARRAY(50,13);	//stores enumerator report data (50 = number of records, 13 = number of fields (ERFEILD_OFFICER, ERSERIAL_NO,ERUNIT_NO,ERHH_SIZE,ERMALES,ERFEMALES,WEEK_ENDING,ERLAST-NAME, ERFIRST_NAME, ERADDRESS, ERSTART, EREND,ERREMARKS))
 array string	nocid(100);		//no change ID numbers
 
 //--------------------------------Function declaration------------------------------------
@@ -839,48 +840,63 @@ end;
 
 //fills enumeration report and opens for Viewing
 function enumerationRpt()
-	//trace(on);
-	//set trace;
+	
+	
 	recode ME_ED	=>	parish;		//recode ed to parish
-		1-181	=>	201;	//St. Michael
-		182-295	=>	202;	//Christ Church
-		196-335	=>	203;	//St. George
-		336-397	=>	204;	//St. Philip
-		398-418	=>	205;	//St. John
-		419-479	=>	206;	//St. James
-		480-508	=>	207;	//St. Thomas
-		509-521 =>	208;	//St. Joseph
-		522-532	=>	209;	//St. Andrew
-		533-559	=>	210;	//St. Peter
-		560-583	=>	211;	//St. Lucy
+		1-181	=>	"St. Michael";	//St. Michael
+		182-295	=>	"Christ Church";	//Christ Church
+		196-335	=>	"St. George";	//St. George
+		336-397	=>	"St. Philip";	//St. Philip
+		398-418	=>	"St. John";	//St. John
+		419-479	=>	"St. James";	//St. James
+		480-508	=>	"St. Thomas";	//St. Thomas
+		509-521 =>	"St. Joseph";	//St. Joseph
+		522-532	=>	"St. Andrew";	//St. Andrew
+		533-559	=>	"St. Peter";	//St. Peter
+		560-583	=>	"St. Lucy";	//St. Lucy
 	endrecode;
+	
+	//initialize counters
 	i = 1;
 	j = 1;
+	m = 1;
+	n = 1;
 	indivcounttot = 0;
 	housecount = 0;
 	
-	//count the number of househoulds completed in an ED
-	housecount = countcases(ENUMERATIONREPORT_DICT where ERED_NO = ME_ED and ERROUND = ME_ROUND);
+	//initialize array
+	while m <= 50 do
+		while n <= 13 do
+			REPORTARRAY(m,n) = "";
+			inc(n);
+		enddo;
+		inc(m);
+	enddo;
 	
+	//count the number of househoulds completed in an ED
+	//housecount = countcases(ENUMERATIONREPORT_DICT where ERED_NO = ME_ED and ERROUND = ME_ROUND);
+	housecount = countcases(LABOURFORCE_DICT where EDNO = ME_ED and RNDNO = ME_ROUND and LENDDATE <> notappl);
 	//check number of cases using new criteria, if none found then use old criteria
-	if housecount <> 0 then
-		forcase ENUMERATIONREPORT_DICT where ERED_NO = ME_ED and ERROUND = ME_ROUND do		//for each case in enumeration report in the current ED
+	//if housecount <> 0 then
+		//TODO: REMEMBER TO UNCOMMENT ERROUND=ME_ROUND IN ROUND 6!
+		forcase ENUMERATIONREPORT_DICT where ERED_NO = ME_ED {and ERROUND = ME_ROUND} and datediff(WEEK_ENDING,sysdate("YYYYMMDD"),"m") <= 3 do		//for each case in enumeration report in the current ED
 			REPORTARRAY(i,1) = getlabel(ERFIELD_OFFICER_VS1,ERFIELD_OFFICER);	//field officer
 			REPORTARRAY(i,2) = maketext("%d",ERUNIT_NO);
 			REPORTARRAY(i,3) = maketext("%d",ERSERIAL_NO);
 			REPORTARRAY(i,4) = maketext("%d/%d/%d",ERWEEKYEAR,ERWEEKMONTH,ERWEEKDAY);						//week ending
 			REPORTARRAY(i,5) = maketext("%d",ERHH_SIZE);
-			REPORTARRAY(i,6) = ERLAST_NAME;
-			REPORTARRAY(i,7) = ERFIRST_NAME;
-			REPORTARRAY(i,8) = ERADDRESS;
-			REPORTARRAY(i,9) = maketext("%d/%d/%d",ERSTARTY,ERSTARTM,ERSTARTD);
-			REPORTARRAY(i,10) = maketext("%d/%d/%d",ERSTARTY,ERSTARTM,ERSTARTD);
-			REPORTARRAY(i,11) = ERREMARKS;
+			REPORTARRAY(i,6) = maketext("%d",ERMALES);
+			REPORTARRAY(i,7) = maketext("%d",ERFEMALES);
+			REPORTARRAY(i,8) = ERLAST_NAME;
+			REPORTARRAY(i,9) = ERFIRST_NAME;
+			REPORTARRAY(i,10) = ERADDRESS;
+			REPORTARRAY(i,11) = maketext("%d/%d/%d",ERSTARTY,ERSTARTM,ERSTARTD);
+			REPORTARRAY(i,12) = maketext("%d/%d/%d",ERSTARTY,ERSTARTM,ERSTARTD);
+			REPORTARRAY(i,13) = ERREMARKS;
 			
-			inc(indivcounttot,ERHH_SIZE);		//count all persons interviewed
 			inc(i);
 		endfor;
-	else
+	{else
 		housecount = countcases(ENUMERATIONREPORT_DICT where ERED_NO = ME_ED);
 		forcase ENUMERATIONREPORT_DICT where ERED_NO = ME_ED do		//for each case in enumeration report in the current ED
 			REPORTARRAY(i,1) = getlabel(ERFIELD_OFFICER_VS1,ERFIELD_OFFICER);	//field officer
@@ -888,15 +904,17 @@ function enumerationRpt()
 			REPORTARRAY(i,3) = maketext("%d",ERSERIAL_NO);
 			REPORTARRAY(i,4) = maketext("%d/%d/%d",ERWEEKYEAR,ERWEEKMONTH,ERWEEKDAY);						//week ending
 			REPORTARRAY(i,5) = maketext("%d",ERHH_SIZE);
-			REPORTARRAY(i,6) = ERLAST_NAME;
-			REPORTARRAY(i,7) = ERFIRST_NAME;
-			REPORTARRAY(i,8) = ERADDRESS;
-			REPORTARRAY(i,9) = maketext("%d/%d/%d",ERSTARTY,ERSTARTM,ERSTARTD);
-			REPORTARRAY(i,10) = maketext("%d/%d/%d",ERSTARTY,ERSTARTM,ERSTARTD);
-			REPORTARRAY(i,11) = ERREMARKS;
+			REPORTARRAY(i,6) = maketext("%d",ERMALES);
+			REPORTARRAY(i,7) = maketext("%d",ERFEMALES);
+			REPORTARRAY(i,8) = ERLAST_NAME;
+			REPORTARRAY(i,9) = ERFIRST_NAME;
+			REPORTARRAY(i,10) = ERADDRESS;
+			REPORTARRAY(i,11) = maketext("%d/%d/%d",ERSTARTY,ERSTARTM,ERSTARTD);
+			REPORTARRAY(i,12) = maketext("%d/%d/%d",ERSTARTY,ERSTARTM,ERSTARTD);
+			REPORTARRAY(i,13) = ERREMARKS;
 			inc(i);
-		endfor;
-	endif;
+		endfor;}
+	//endif;
 	
 	//count the number of individuals if ERHH_SIZE has nothing
 	forcase LABOURFORCE_DICT where EDNO = ME_ED and RNDNO = ME_ROUND and LENDDATE <> notappl and VACANT = 2 do
@@ -925,7 +943,7 @@ function enumerationRpt()
 	setreportdata("HOUSECOUNT", maketext("%d",housecount));
 	setreportdata("INDIVCOUNTTOT",maketext("%d",indivcounttot));
 	setreportdata("COUNTRPT",maketext("%d",i-1));
-	setreportdata("PARRPT",maketext("%d",parish));
+	setreportdata("PARRPT",parish);
 	setreportdata("EDRPT", maketext("%d",ME_ED));
 	setreportdata(REPORTARRAY);
 	report("../Reports/enumeratorrpt.html");
@@ -1141,8 +1159,8 @@ reenter;		//don't leave the menu
 //---------------------------------------------------------
 PROC SUPERVISOR_MENU
 onfocus
-trace(on);
-set trace;
+//trace(on);
+//set trace;
 	$ = notappl;		//don't show the last selection
 	if deleteflag = 0 then
 		loadcase(LABOURFORCE_DICT,CHOOSE_QUESTIONNAIRE);

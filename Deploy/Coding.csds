@@ -5,7 +5,7 @@
   "description": "Continuous Labour Force Sample Survey ",
   "files": [
     {
-      "path": "..\\Data\\OccupationCodes.csdb"
+      "path": "..\\Data\\OccupationCodesBARSOC.csdb"
     },
     {
       "path": "..\\Data\\IndustryCodes.csdb"

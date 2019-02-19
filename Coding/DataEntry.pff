@@ -1,19 +1,25 @@
 ﻿[Run Information]
 Version=CSPro 7.1
 AppType=Entry
+
 [DataEntryInit]
-OperatorID=KRUSSELL            
-StartMode=Modify; 4 172011  6
+OperatorID=KRUSSELL
+StartMode=Modify; 5 552011 97
 Lock=Add,Verify,Stats
-FullScreen=Yes
-AutoAdd=No
+FullScreen=YES
+AutoAdd=NO
+Interactive=Ask
+
 [Files]
-Application=./DataEntry.ent
-InputData=../Data/data.csdb|CSPRODB
+Application=.\DataEntry.ent
+InputData=..\Data\data.csdb|CSPRODB
+
 [ExternalFiles]
-AUXIL_DICT=../Data/auxil.csdb|CSPRODB
-INDUSTRY_CODES_DICT=../Data/IndustryCodes.csdb|CSPRODB
-OCCUPATION_CODES_DICT=../Data/Occupationcodes.csdb|CSPRODB
+AUXIL_DICT=..\Data\auxil.csdb|CSPRODB
+INDUSTRY_CODES_DICT=..\Data\IndustryCodes.csdb|CSPRODB
+OCCUPATION_CODES_DICT=..\Data\OccupationCodesBARSOC.csdb|CSPRODB
+
 [Parameters]
 CODER=54
-UNAME=KRUSSELL            
+UNAME=KRUSSELL
+
