@@ -2,35 +2,28 @@
 Version=CSPro 7.1
 AppType=Entry
 Description=Continuous Labourforce Sample Survey
-
 [DataEntryInit]
-OperatorID=WDAVIS
-StartMode=Add; 5 552011 95
-Lock=CaseListing
+OperatorID=WDAVIS              
+StartMode=Add; 4  42011  7   
 ShowInApplicationListing=Hidden
-AutoAdd=NO
-Interactive=Ask
-
+AutoAdd=No
+Lock=CaseListing
 [Files]
-Application=.\Labourforce.ent
-InputData=..\Data\data.csdb|CSPRODB
+Application=./Labourforce.ent
+InputData=../Data/data.csdb|CSPRODB
 Paradata=../Data/Labourforce.cslog
-
 [ExternalFiles]
-ENUMERATIONREPORT_DICT=..\Data\enumrpt.csdb|CSPRODB
-LISTING_DICT=..\Data\Controlsheet.csdb|CSPRODB
-
+LISTING_DICT=../Data/Controlsheet.csdb|CSPRODB
+ENUMERATIONREPORT_DICT=../Data/enumrpt.csdb|CSPRODB
 [UserFiles]
 PFFFILE=
-
 [Parameters]
 OnExit=../Menu/Menu.pff
-ADDRESS=PERFECTION ROAD
-BLDGNO=127
-EDNO=55
-ENMRTR=94
-HHNO=95
+RNDNO= 4
+EDNO=  4
 PARNO=201
-RNDNO=5
 STRATUM=1
-
+HHNO=  7
+ENMRTR=94
+ADDRESS=PASSAGE ROAD                                                                                        
+BLDGNO= 23

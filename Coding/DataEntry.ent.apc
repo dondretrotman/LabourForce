@@ -286,6 +286,8 @@ postproc
 //-----------------------------------------------------------------------------
 PROC AUXILTXT
 preproc
+	trace (on);
+	set trace;
 	{indicate type of listing}
 	if AUXILTYPE = 1 then
 		$ = "Occupation";
@@ -304,24 +306,28 @@ PROC AUXILKEY
 		{if length >= 3 and text for occupation (AUXILKEY) matches text in OCC.DAT}
 		Sel = selcase(OCCUPATION_CODES_DICT,"")
 			include(LU_OCCUPATION) where pos(strip($),LU_OCCUPATION);
+			trace("occupation=%s, CODE=%s, sel=%d",strip(LU_OCCUPATION),LU_BARSOC_CODE,sel);
 	endif;
 	if AUXILTYPE = 2 then
 			{if length >= 3 and text for industry (AUXILKEY) matches text in IND.DAT}
 		Sel = selcase(INDUSTRY_CODES_DICT,"")
 			include(INDUSTRY) where pos(strip($),INDUSTRY);
+			trace("Industry=%s, Code=%s",INDUSTRY,ISIC_V4_CODE);
 	endif;
 
 	{if selection is found, then assign code to occupation or industry field.}
 	if Sel = 1 then
-	
+		
 		if AUXILTYPE = 1 then
 			AUXILCODE = LU_BARSOC_CODE;
 			AUXILKEY = LU_OCCUPATION;
 			occupationcode = LU_BARSOC_CODE;
+			trace("Auxil code=%s, Auxil key=%s",AUXILCODE,AUXILKEY);
 		else
 			AUXILCODE = ISIC_V4_CODE;
 			AUXILKEY = INDUSTRY;
 			industrycode = ISIC_V4_CODE;
+			trace("Auxil code=%s, Auxil key=%s",AUXILCODE,AUXILKEY);
 		endif;
 	
 	else

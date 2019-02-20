@@ -25,11 +25,11 @@ DataType=Alpha
 Label=LU Record
 Name=LU_REC
 RecordTypeValue=''
-RecordLen=104
+RecordLen=54
 
 [Item]
 Label=LU_OCCUPATION
 Name=LU_OCCUPATION
 Start=5
-Len=100
+Len=50
 DataType=Alpha
