@@ -13,7 +13,7 @@ File=.\CoderMenu.dcf
 Name=FORM001
 Label=CoderMenu record
 Level=1
-Size=457,375
+Size=411,242
   
 Item=UNAME
 Item=USERID
@@ -22,7 +22,6 @@ Item=MAIN_MENU
 Item=CHOOSE_QUESTIONNAIRE
 Item=HOUSEHOLD_COUNT
 Item=CO_ROUND
-Item=INDIVIDUAL_COUNT
   
 [EndForm]
   
@@ -40,7 +39,7 @@ Max=1
   
 [Field]
 Name=UNAME
-Position=212,109,382,129
+Position=212,27,382,47
 Item=UNAME,CODERMENU_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
@@ -48,52 +47,52 @@ UseUnicodeTextBox=Yes
 Form=1
   
 [Text]
-Position=50,112,119,128
+Position=50,30,119,46
 Text=User Name
  
   
 [Field]
 Name=USERID
-Position=212,137,241,157
+Position=212,55,241,75
 Item=USERID,CODERMENU_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
 Form=1
   
 [Text]
-Position=50,140,95,156
+Position=50,58,95,74
 Text=User ID
  
   
 [Field]
 Name=CO_ROUND
-Position=212,165,241,185
+Position=212,83,241,103
 Item=CO_ROUND,CODERMENU_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
 Form=1
   
 [Text]
-Position=50,168,91,184
+Position=50,86,91,102
 Text=Round
  
   
 [Field]
 Name=CO_ED
-Position=212,193,255,213
+Position=212,111,255,131
 Item=CO_ED,CODERMENU_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
 Form=1
   
 [Text]
-Position=50,196,67,212
+Position=50,114,67,130
 Text=ED
  
   
 [Field]
 Name=MAIN_MENU
-Position=212,221,227,241
+Position=212,139,227,159
 Item=MAIN_MENU,CODERMENU_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
@@ -101,13 +100,13 @@ DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=50,224,120,240
+Position=50,142,120,158
 Text=Main Menu
  
   
 [Field]
 Name=CHOOSE_QUESTIONNAIRE
-Position=212,333,381,353
+Position=212,197,381,217
 Item=CHOOSE_QUESTIONNAIRE,CODERMENU_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
@@ -115,34 +114,21 @@ DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=50,336,190,352
+Position=50,200,190,216
 Text=Choose Questionnaire
  
   
 [Field]
 Name=HOUSEHOLD_COUNT
-Position=50,280,93,300
+Position=282,111,325,131
 Item=HOUSEHOLD_COUNT,CODERMENU_DICT
 Protected=Yes
 FieldLabelType=DictionaryLabel
 Form=1
   
 [Text]
-Position=50,255,156,271
+Position=280,86,386,102
 Text=Household count
- 
-  
-[Field]
-Name=INDIVIDUAL_COUNT
-Position=212,280,255,300
-Item=INDIVIDUAL_COUNT,CODERMENU_DICT
-Protected=Yes
-FieldLabelType=DictionaryLabel
-Form=1
-  
-[Text]
-Position=212,255,314,271
-Text=Individual count
  
 [EndGroup]
   

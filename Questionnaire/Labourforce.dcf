@@ -110,7 +110,7 @@ Len=3
 Label=Household Listing
 Name=HOUSEHOLD_LISTING
 RecordTypeValue='1'
-RecordLen=285
+RecordLen=284
 
 [Item]
 Label=Latitude
@@ -533,18 +533,6 @@ Start=283
 Len=2
 ItemType=SubItem
 ZeroFill=Yes
-
-[Item]
-Label=No change from last round
-Name=NO_CHANGE
-Start=285
-Len=1
-
-[ValueSet]
-Label=No change from last round
-Name=NO_CHANGE_VS1
-Value=1;Yes
-Value=2;No
 
 [Record]
 Label=Labourforce record

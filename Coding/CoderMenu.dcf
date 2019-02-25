@@ -24,7 +24,7 @@ Len=1
 Label=CoderMenu record
 Name=CODERMENU_REC
 RecordTypeValue='1'
-RecordLen=49
+RecordLen=46
 
 [Item]
 Label=User Name
@@ -158,10 +158,4 @@ DataType=Alpha
 Label=Household count
 Name=HOUSEHOLD_COUNT
 Start=44
-Len=3
-
-[Item]
-Label=Individual count
-Name=INDIVIDUAL_COUNT
-Start=47
 Len=3

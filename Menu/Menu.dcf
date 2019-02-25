@@ -24,7 +24,7 @@ Len=1
 Label=Menu record
 Name=MENU_REC
 RecordTypeValue='1'
-RecordLen=136
+RecordLen=124
 
 [Item]
 Label=User Name
@@ -222,7 +222,6 @@ Len=1
 Label=Supervisor Menu
 Name=SUPERVISOR_MENU_VS1
 Value=1;Download Data
-Value=0;Review Unchanged Households (Not implemented)
 Value=2;Open Control Sheet
 Value=3;Open Questionnaire
 Value=4;Delete Questionnaire
@@ -310,12 +309,5 @@ DataType=Alpha
 Label=Admin Delete Questionnaire
 Name=ADMIN_DELETE_QUESTIONNAIRE
 Start=113
-Len=12
-DataType=Alpha
-
-[Item]
-Label=Unchanged Households
-Name=UNCHANGED_HOUSEHOLDS
-Start=125
 Len=12
 DataType=Alpha

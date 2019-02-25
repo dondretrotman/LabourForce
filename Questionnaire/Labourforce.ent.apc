@@ -394,25 +394,6 @@ postproc
 	endif;}
 	
 //------------------------------------------------------------------------------
-PROC NO_CHANGE
-{TODO: Plan - Enumerator can select No_Change=1 and skip the questionnaire
-				Supervisor must then check and download missing cases from super menu
-}
-preproc
-	ask if RNDNO > 1;
-
-postproc
-	if $ = 1 then		//No change
-		errmsg("Are you sure that there has been no change from the last round? We can not guarrantee that the information from the last round will be available")
-			select("Yes",continue,"No",VACANT);
-		idno = maketext("%V%V%V%V%V%V",RNDNO,EDNO,PARNO,STRATUM,bldgno,HHNO);
-		loadcase(LISTING_DICT,idno);		//load corresponding case from control sheet linsting to get a name
-		caselabel = maketext("%V-%02d-%03d-%03d-%d-%03d",strip(LSTLNAME),RNDNO,EDNO,PARNO,STRATUM,HHNO);	//set case label for now
-		setcaselabel(LABOURFORCE_DICT,caselabel);
-		
-		endlevel;
-	endif;
-	
 PROC VACANT
 onfocus
 	idno = maketext("%V%V%V%V%3d%V",RNDNO,EDNO,PARNO,STRATUM,bldgno,HHNO);
