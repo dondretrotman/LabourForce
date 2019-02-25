@@ -130,13 +130,19 @@ end;
 
 //searches an array and returns the position (Originally written by Gregory Martin)
 function searchArray(array string arrayName(,),string findValue) 
+
     numeric foundPos,itr;
+    
     do itr = 1 while itr <= tblrow(arrayName) and not foundPos
+        
         if arrayName(itr,1) = findValue then
             foundPos = itr;
         endif;
+    
     enddo;
+    
     searchArray = foundPos;
+
 end;
 
 //Launches the Questionnaire
@@ -160,11 +166,11 @@ function LaunchQuestionnaire()
 	filewrite(pffFile,"[Files]");
 	filewrite(pffFile,"Application=%s","./Labourforce.ent");
 	filewrite(pffFile,"InputData=%s","../Data/data.csdb|CSPRODB");
-	filewrite(pffFile,"Paradata=%s","./Labourforce.cslog");
+	filewrite(pffFile,"Paradata=%s","../Data/Labourforce.cslog");
 	
 	filewrite(pffFile,"[ExternalFiles]");
-	filewrite(pffFile,"ENUMERATIONREPORT_DICT=%s","../Data/enumrpt.csdb|CSPRODB");
 	filewrite(pffFile,"LISTING_DICT=%s","../Data/Controlsheet.csdb|CSPRODB");
+	filewrite(pffFile,"ENUMERATIONREPORT_DICT=%s","../Data/enumrpt.csdb|CSPRODB");
 	
 	filewrite(pffFile,"[UserFiles]");
 	filewrite(pffFile,"PFFFILE=%s","");
@@ -1100,13 +1106,11 @@ postproc
 //---------------------------------------------------------
 PROC INTERVIEWER_MENU
 onfocus
-	//trace(on);
-	//set trace;
 	$ = notappl;
 	
 	//Show valueset based on OS
 	if getos() in 10,30 then		//if windows
-		setvalueset($,INTERVIEWER_MENU_VS1);
+		setvalueset($,INTERVIEWER_MENU_VS2);
 	elseif getos() = 20 then	//if android
 		setvalueset($,INTERVIEWER_MENU_VS1);
 	endif;
@@ -1265,7 +1269,6 @@ Postproc
 //---------------------------------------------------------
 }
 PROC CHOOSE_QUESTIONNAIRE
-//Marks Questionnaire for deletion 
 onfocus
 	numeric nextEntry = 1;
 	numeric headindex;
@@ -1305,7 +1308,6 @@ postproc
 
 //---------------------------------------------------------
 PROC CHOOSE_HOUSEHOLD
-//Launches questionnaire
 onfocus
 	numeric nextEntry = 1;
 	forcase LISTING_DICT where LSTED = ME_ED and LSTROUND = ME_ROUND do
@@ -1340,7 +1342,6 @@ postproc
 
 //--------------------------------------------------------------------------
 PROC CHOOSE_CONTROL_SHEET
-//Launches control cheet
 onfocus
 	numeric nextEntry = 1;
 	forcase LISTING_DICT where LSTED = ME_ED and LSTROUND = ME_ROUND do
@@ -1373,7 +1374,6 @@ postproc
 
 //--------------------------------------------------------------------------
 PROC DELETE_CONTROL_SHEET
-//MArks control sheet for deletion
 onfocus
 	numeric nextEntry = 1;
 	forcase LISTING_DICT where LSTED = ME_ED and LSTROUND = ME_ROUND do
@@ -1406,7 +1406,6 @@ postproc
 
 //--------------------------------------------------------------------------
 PROC ADMIN_DELETE_CONTROL_SHEET
-//deletes control sheet
 onfocus
 	numeric nextEntry = 1;
 	forcase LISTING_DICT where LSTED = ME_ED and LSTROUND = ME_ROUND do
@@ -1441,7 +1440,6 @@ postproc
 
 //--------------------------------------------------------------------------
 PROC ADMIN_DELETE_QUESTIONNAIRE
-//deletes questionnaire
 onfocus
 	numeric nextEntry = 1;
 	numeric headindex;
@@ -1483,7 +1481,6 @@ postproc
 
 //---------------------------------------------------------
 PROC UNCHANGED_HOUSEHOLDS
-//gets unchanged households
 onfocus
 	numeric nextEntry = 1;
 	numeric headindex;
