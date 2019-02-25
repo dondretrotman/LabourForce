@@ -110,7 +110,7 @@ Len=3
 Label=Household Listing
 Name=HOUSEHOLD_LISTING
 RecordTypeValue='1'
-RecordLen=284
+RecordLen=285
 
 [Item]
 Label=Latitude
@@ -381,16 +381,22 @@ Start=57
 Len=2
 
 [Item]
-Label=Vacant household
+Label=Person available?
 Name=VACANT
+Note=Changed question from "Is this a vacant household" to "Is there anyone available to complete the questionnaire"\r\n
+Note=\r\n
+Note=This neccesitates a change in the response from yes = 1, no = 2 to yes = 2, no = 1.\r\n
+Note=\r\n
+Note=This should not affect the questionnaire otherwise.
 Start=59
 Len=1
 
 [ValueSet]
-Label=Vacant household
+Label=Person available?
 Name=VACANT_VS1
-Value=1;Yes
-Value=2;No
+Note=Yes = 2 and no = 1 due to the change in question.
+Value=2;Yes
+Value=1;No
 
 [Item]
 Label=Vacant occupancy
@@ -405,6 +411,7 @@ Value=41;Vacant
 Value=44;Refusal
 Value=45;Non-Contact
 Value=46;Other
+Value=42;Listing error
 Value=9;Not Stated
 
 [Item]
@@ -533,6 +540,18 @@ Start=283
 Len=2
 ItemType=SubItem
 ZeroFill=Yes
+
+[Item]
+Label=No change from last round
+Name=NO_CHANGE
+Start=285
+Len=1
+
+[ValueSet]
+Label=No change from last round
+Name=NO_CHANGE_VS1
+Value=1;Yes
+Value=2;No
 
 [Record]
 Label=Labourforce record

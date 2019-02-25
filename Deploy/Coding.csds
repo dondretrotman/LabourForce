@@ -5,7 +5,7 @@
   "description": "Continuous Labour Force Sample Survey ",
   "files": [
     {
-      "path": "..\\Data\\OccupationCodes.csdb"
+      "path": "..\\Data\\OccupationCodesBARSOC.csdb"
     },
     {
       "path": "..\\Data\\IndustryCodes.csdb"
@@ -55,6 +55,6 @@
     "type": "LocalFolder",
     "cswebUrl": "http:\/\/csweb.teleyah.com\/api",
     "ftpUrl": "ftp:\/\/172.28.10.215",
-    "localFolderPath": "\\\\statserver.gov.bb\\training\\CLFSS\\CLFSS PC\\Coding"
+    "localFolderPath": "\\\\statserver.gov.bb\\censussurveys\\LBFORCE CAPI DATA\\Coding"
   }
 }

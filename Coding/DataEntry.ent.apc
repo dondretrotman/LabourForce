@@ -23,7 +23,7 @@ string	caselabel,		//sets label for the case
 //Function Looks for first 
 function lookupOccupation(string text)
 	lookupOccupation = selcase(OCCUPATION_CODES_DICT,"")
-		include(LU_OCCUPATION) where pos(strip(text[1:3]),LU_OCCUPATION);		//searches for the first 3 characters of the text
+		include(LU_OCCUPATION) where pos(toupper(strip(text[1:3])),toupper(LU_OCCUPATION));		//searches for the first 3 characters of the text
 end;
 
 PROC LABOURFORCE_FF
@@ -303,21 +303,21 @@ PROC AUXILKEY
 	if AUXILTYPE = 1 then
 		{if length >= 3 and text for occupation (AUXILKEY) matches text in OCC.DAT}
 		Sel = selcase(OCCUPATION_CODES_DICT,"")
-			include(LU_OCCUPATION) where pos(strip($),LU_OCCUPATION);
+			include(LU_OCCUPATION) where pos(toupper(strip($)),toupper(LU_OCCUPATION));
 	endif;
 	if AUXILTYPE = 2 then
 			{if length >= 3 and text for industry (AUXILKEY) matches text in IND.DAT}
 		Sel = selcase(INDUSTRY_CODES_DICT,"")
-			include(INDUSTRY) where pos(strip($),INDUSTRY);
+			include(INDUSTRY) where pos(toupper(strip($)),toupper(INDUSTRY));
 	endif;
 
 	{if selection is found, then assign code to occupation or industry field.}
 	if Sel = 1 then
 	
 		if AUXILTYPE = 1 then
-			AUXILCODE = LU_ISCO_CODE;
+			AUXILCODE = LU_BARSOC_CODE;
 			AUXILKEY = LU_OCCUPATION;
-			occupationcode = LU_ISCO_CODE;
+			occupationcode = LU_BARSOC_CODE;
 		else
 			AUXILCODE = ISIC_V4_CODE;
 			AUXILKEY = INDUSTRY;
