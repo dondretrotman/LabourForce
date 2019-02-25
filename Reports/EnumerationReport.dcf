@@ -97,7 +97,7 @@ Len=3
 Label=EnumerationReport record
 Name=ENUMERATIONREPORT_REC
 RecordTypeValue='1'
-RecordLen=307
+RecordLen=303
 
 [Item]
 Label=Sample Unit No.
@@ -500,16 +500,4 @@ Len=2
 Label=Household Size
 Name=ERHH_SIZE
 Start=302
-Len=2
-
-[Item]
-Label=Number of Males
-Name=ERMALES
-Start=304
-Len=2
-
-[Item]
-Label=Number of Females
-Name=ERFEMALES
-Start=306
 Len=2

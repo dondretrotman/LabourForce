@@ -228,14 +228,12 @@ postproc
 //			if ERFIRST_NAME = "" then
 				ERFIRST_NAME = strip(LFIRST_NAME(headindex));
 //			endif;	
-			ERMALES = MCHILDRN(headindex);
-			ERFEMALES = FCHILDRN(headindex);
 		elseif headindex = 0 or VACANT = 1 then
 //			if ERLAST_NAME = "" then
-				ERLAST_NAME = maketext("%s",getlabel(VOCCUP_VS1,VOCCUP));
+				ERLAST_NAME = "VACANT";
 //			endif;
 //			if ERFIRST_NAME = "" then
-				ERFIRST_NAME = maketext("%s",getlabel(VOCCUP_VS1,VOCCUP));
+				ERFIRST_NAME = "VACANT";
 //			endif;
 		endif;	
 //		if ERADDRESS = "" then
@@ -249,7 +247,6 @@ postproc
 //		endif;
 		ERHH_SIZE = totocc(LABOURFORCE_REC001);
 		ERROUND = RNDNO;
-		
 //		if ERREMARKS = "" then
 			promptremarks = prompt("Do you have any remarks to be included in the Enumerator Report? Current remarks are:%s",strip(ERREMARKS));
 				if promptremarks <> "" then
@@ -276,14 +273,12 @@ postproc
 			ERLAST_NAME = strip(LLAST_NAME(headindex));
 			ERFIRST_NAME = strip(LFIRST_NAME(headindex));
 		elseif headindex = 0 or VACANT = 1 then
-			ERLAST_NAME = maketext("%s",getlabel(VOCCUP_VS1,VOCCUP));
-			ERFIRST_NAME = maketext("%s",getlabel(VOCCUP_VS1,VOCCUP));
+			ERLAST_NAME = "VACANT";
+			ERFIRST_NAME = "VACANT";
 		endif;	
 		ERADDRESS = strip(ADDRES);
 		ERSTART = DATE;
 		EREND = LENDDATE;
-		ERMALES = MCHILDRN(headindex);
-		ERFEMALES = FCHILDRN(headindex);
 		ERREMARKS = prompt("Do you have any remarks to be included in the enumerator report?");
 		writecase(ENUMERATIONREPORT_DICT);		//write case
 		//clear(ENUMERATIONREPORT_DICT);			//clear external case from memory
@@ -298,7 +293,7 @@ postproc
 		if VACANT = 2 then
 			LSTREMARKS = LSTREMARKS+" | "+getlabel(INTRVW_VS1,INTRVW(1));		//set remark to value of first interview result DEBUG: need to fix so that it's more accurate
 		elseif VACANT = 1 then
-			LSTREMARKS = LSTREMARKS+" | "+getlabel(VOCCUP_VS1,VOCCUP);
+			LSTREMARKS = LSTREMARKS+" | VACANT";
 		endif;
 	endif;
 	setcaselabel(LISTING_DICT, maketext("%V-%V-%V: %s (%s)",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS)));
@@ -427,19 +422,17 @@ onfocus
 	endif;
 	writecase(LISTING_DICT);
 	
-
+Postproc
+	//set case labels for vacant houses
+	if $ = 1 then		//if vacant
+		caselabel = maketext("VACANT-%02d-%03d-%03d-%d-%03d",RNDNO,EDNO,PARNO,STRATUM,HHNO);
+		setcaselabel(LABOURFORCE_DICT,caselabel);
+	endif;
 PROC VOCCUP
 
 preproc
 	//only ask if vacant household
 	ask if VACANT = 1;
-
-Postproc
-	//set case labels for vacant houses
-	if $ = 1 then		//if vacant
-		caselabel = maketext("%s-%02d-%03d-%03d-%d-%03d",getlabel(VOCCUP_VS1,$),RNDNO,EDNO,PARNO,STRATUM,HHNO);
-		setcaselabel(LABOURFORCE_DICT,caselabel);
-	endif;
 	
 //---------------------------------------------------------------------
 PROC VACANT_OTHER
@@ -937,13 +930,10 @@ preproc
 PROC LSTINDUS_SECTOR
 Preproc
 	ask if length(strip(LSTINDUS_TEXT)) > 0;
-
-{onfocus
-	if $ in 1,2 then
+	
+	if $ = notappl then
 		$ = 9;
 	endif;
-}
-//------------------------------------------------------------------
 PROC U2EARNGS
 postproc
 	//end of Unemployed section
@@ -1022,12 +1012,10 @@ preproc
 PROC SINDUS_SECTOR
 Preproc
 	ask if length(strip(SINDUS_TEXT)) > 0;
-{onfocus	
+	
 	if $ = notappl then
 		$ = 9;
 	endif;
-}
-//---------------------------------------------------
 PROC EXPRNCE2
 
 preproc
@@ -1090,12 +1078,10 @@ PROC HPWORK
 PROC INCINDUS_SECTOR
 Preproc
 	ask if length(strip(INCINDUS_TEXT)) > 0;
-{onfocus	
+	
 	if $ = notappl then
 		$ = 9;
 	endif;
-}
-//----------------------------------------------------------
 PROC WORKBEFO
 
 	//if never worked before, skip to main sources of livelihood

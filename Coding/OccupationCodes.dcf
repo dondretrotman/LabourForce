@@ -15,21 +15,21 @@ Name=OCCUPATION_CODES_LEVEL
 [IdItems]
 
 [Item]
-Label=LU_BARSOC_CODE
-Name=LU_BARSOC_CODE
+Label=LU_ISCO_CODE
+Name=LU_ISCO_CODE
 Start=1
 Len=4
 DataType=Alpha
 
 [Record]
-Label=LU Record
-Name=LU_REC
+Label=OCCUPATION_CODES Record
+Name=OCCUPATION_CODES_REC
 RecordTypeValue=''
-RecordLen=104
+RecordLen=91
 
 [Item]
 Label=LU_OCCUPATION
 Name=LU_OCCUPATION
 Start=5
-Len=100
+Len=87
 DataType=Alpha
