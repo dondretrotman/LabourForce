@@ -381,7 +381,7 @@ Start=57
 Len=2
 
 [Item]
-Label=Person available?
+Label=Vacant household
 Name=VACANT
 Note=Changed question from "Is this a vacant household" to "Is there anyone available to complete the questionnaire"\r\n
 Note=\r\n
@@ -392,7 +392,7 @@ Start=59
 Len=1
 
 [ValueSet]
-Label=Person available?
+Label=Vacant household
 Name=VACANT_VS1
 Note=Yes = 2 and no = 1 due to the change in question.
 Value=2;Yes

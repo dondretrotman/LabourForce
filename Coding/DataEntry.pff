@@ -4,7 +4,7 @@ AppType=Entry
 
 [DataEntryInit]
 OperatorID=KRUSSELL
-StartMode=Modify; 4  42011  7
+StartMode=Modify; 5 552011 97
 Lock=Add,Verify,Stats
 FullScreen=YES
 AutoAdd=NO

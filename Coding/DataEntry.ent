@@ -7,8 +7,8 @@ OperatorID=No
 PartialSave=Yes
 CaseTree=Never
 [External Dictionaries]
-File=.\IndustryCodes.dcf
 File=.\OccupationCodes.dcf
+File=.\IndustryCodes.dcf
 [AppCode]
 File=.\DataEntry.ent.apc
 [Message]
