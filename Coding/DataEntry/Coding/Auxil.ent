@@ -1,0 +1,20 @@
+﻿[CSPro Application]
+Version=CSPro 7.1
+Label=AUXIL
+Name=AUXIL
+AppType=DataEntry
+[External Dictionaries]
+File=.\OccupationCodes.dcf
+File=.\IndustryCodes.dcf
+[AppCode]
+File=.\Auxil.ent.apc
+[Message]
+File=.\Auxil.ent.mgf
+[Help]
+File=.\Auxil.ent.qsf
+[Forms]
+File=.\Auxil.fmf
+[Dictionary Types]
+Dict-Type=.\OccupationCodes.dcf,External
+Dict-Type=.\Auxil.dcf,Input,.\Auxil.fmf
+Dict-Type=.\IndustryCodes.dcf,External

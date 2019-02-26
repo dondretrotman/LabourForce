@@ -1,0 +1,35 @@
+﻿[Dictionary]
+Version=CSPro 7.1
+Label=OCCUPATION_CODES Dictionary
+Name=OCCUPATION_CODES_DICT
+RecordTypeStart=0
+RecordTypeLen=0
+Positions=Relative
+ZeroFill=No
+DecimalChar=Yes
+
+[Level]
+Label=OCCUPATION_CODES Level
+Name=OCCUPATION_CODES_LEVEL
+
+[IdItems]
+
+[Item]
+Label=LU_BARSOC_CODE
+Name=LU_BARSOC_CODE
+Start=1
+Len=4
+DataType=Alpha
+
+[Record]
+Label=LU Record
+Name=LU_REC
+RecordTypeValue=''
+RecordLen=54
+
+[Item]
+Label=LU_OCCUPATION
+Name=LU_OCCUPATION
+Start=5
+Len=50
+DataType=Alpha

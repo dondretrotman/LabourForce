@@ -1,0 +1,25 @@
+﻿[CSPro Application]
+Version=CSPro 7.1
+Label=DATAENTRY
+Name=DATAENTRY
+AppType=DataEntry
+OperatorID=No
+PartialSave=Yes
+CaseTree=Never
+[External Dictionaries]
+File=.\IndustryCodes.dcf
+File=.\OccupationCodes.dcf
+[AppCode]
+File=.\DataEntry.ent.apc
+[Message]
+File=.\DataEntry.ent.mgf
+[Help]
+File=.\DataEntry.ent.qsf
+[Forms]
+File=.\DataEntry.fmf
+File=.\Auxil.fmf
+[Dictionary Types]
+Dict-Type=..\Questionnaire\Labourforce.dcf,Input,.\DataEntry.fmf
+Dict-Type=.\OccupationCodes.dcf,External
+Dict-Type=.\IndustryCodes.dcf,External
+Dict-Type=.\Auxil.dcf,External,.\Auxil.fmf
