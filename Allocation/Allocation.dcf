@@ -1,0 +1,27 @@
+﻿[Dictionary]
+Version=CSPro 7.1
+Label=Allocation
+Name=ALLOCATION_DICT
+RecordTypeStart=1
+RecordTypeLen=1
+Positions=Relative
+ZeroFill=No
+DecimalChar=Yes
+
+[Level]
+Label=Allocation questionnaire
+Name=ALLOCATION_QUEST
+
+[IdItems]
+
+[Item]
+Label=Allocation identification
+Name=ALLOCATION_ID
+Start=2
+Len=1
+
+[Record]
+Label=Allocation record
+Name=ALLOCATION_REC
+RecordTypeValue='1'
+RecordLen=1

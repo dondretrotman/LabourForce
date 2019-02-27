@@ -108,6 +108,24 @@ function getgps()
 	
 end;
 
+//function changes male(1) to female(2) and vice versa
+function changesex(n)
+	if n = 1 then 		//if male
+		changesex = 2;	//change to female
+	elseif n = 2 then	//elseif female
+		changesex = 1;	//change to male
+	endif;
+end;
+
+//function changes son(2) to daughter(3) and vice versa in relationship to head variable
+function changechild(nRTH)
+	if nRTH = 2 then		//if son
+		changechild = 3;	//change to daughter
+	elseif nRTH = 3 then	//elseif daughter
+		changechild = 2;	//change to son
+	endif;
+end;
+
 //Show menu after exiting
 function OnStop()
 	savepartial();		//save last position
@@ -524,6 +542,20 @@ PROC LRTH
 		select("Change previous spouse",LRTH(i), "Change current spouse",$);
 	endif;
 	
+	//check for correct sex of child
+	if ($ = 2 and LSEX(curocc()) = 2) or ($ = 3 and LSEX(curocc()) = 1) then		//if Son is female or daughter is male
+		i=0;
+		do until i in 1,2
+			i = accept(maketext("%s is %s",getlabel(LRTH_VS1,$),getlabel(LSEX_VS1,LSEX(curocc()))),
+				maketext("Change from %s to %s",getlabel(LSEX_VS1,LSEX(curocc())),getlabel(LSEX_VS1,changesex(LSEX(curocc())))),		//change sex
+				maketext("Change %s to %s",getlabel(LRTH_VS1,$),getlabel(LRTH_VS1,changechild($))));		//change RTH
+		enddo;
+		if i = 1 then		//if sex is to be changed
+			LSEX(curocc()) = changesex(LSEX(curocc()));		//change sex
+		elseif i = 2 then	//if relationship is to be changed
+			$ = changechild(LRTH(curocc()));		//change RTH
+		endif;
+	endif;
 	
 	
 //---------------------------------------------------------------------

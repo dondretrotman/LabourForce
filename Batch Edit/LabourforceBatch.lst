@@ -1,11 +1,11 @@
-﻿Application     C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Batch Edit\LabourforceBatch.bch
+﻿Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Batch Edit\LabourforceBatch.bch
 Type            BATCH
-Input Data      <<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Batch Edit\Labourforce.csdb                                                                                                                                                                                                               
-<Output>        <<CSPro DB>> C:\Users\dondr\OneDrive\Documents\GitHub\LabourForce\Batch Edit\Labourforce-edited.csdb                                                                                                                                                                                                        
+Input Data      <<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Batch Edit\Labourforce.csdb                                                                                                                                                                                                                 
+<Output>        <<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Batch Edit\Labourforce-edited.csdb                                                                                                                                                                                                          
 
-Date            Jan 26, 2019
-Start Time      00:09:20
-End Time        00:09:21
+Date            Feb 26, 2019
+Start Time      13:32:33
+End Time        13:32:36
 
 CSPRO Process Summary
           +-----------------------------------------------------+
@@ -27,10 +27,10 @@ User unnumbered messages:
 
    Line    Freq  Pct.  Message text                                        Denom
    ----    ----  ----  ------------                                        -----
-     24       6   0.3  ID fields are empty. Deleting case                   1933
-     36      28   1.5  Household fields are empty. Deleting case            1918
-     47     489  25.4  Person record inserted to vacnt household            1927
-     54       9   0.5  Delete flag is set. Deleting case                    1927
+     27       6   0.3  ID fields are empty. Deleting case                   1933
+     39      28   1.5  Household fields are empty. Deleting case            1918
+    107     489  25.4  Person record inserted to vacant household           1927
+    114       9   0.5  Delete flag is set. Deleting case                    1927
 
 CSPRO Executor Normal End
 --------------------------------------------------------------------------------

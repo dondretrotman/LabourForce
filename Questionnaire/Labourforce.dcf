@@ -410,8 +410,9 @@ Name=VOCCUP_VS1
 Value=41;Vacant
 Value=44;Refusal
 Value=45;Non-Contact
-Value=46;Other
+Value=43;Not at home
 Value=42;Listing error
+Value=46;Other
 Value=9;Not Stated
 
 [Item]
@@ -559,7 +560,7 @@ Name=LABOURFORCE_REC
 RecordTypeValue='2'
 Required=No
 MaxRecords=40
-RecordLen=1108
+RecordLen=1109
 
 [Item]
 Label=Individual Number
@@ -2750,6 +2751,7 @@ Len=1
 [ValueSet]
 Label=43b. Last looked for work
 Name=LASTLOOK_VS1
+Link=104201640
 Value=1;In the last week
 Value=2;More than a week ago but less than a month
 Value=3;A month to less than 3 months
@@ -2985,3 +2987,14 @@ Len=1
 Label=48. Private/Public
 Name=INCINDUS_SECTOR_VS1
 Link=114282216
+
+[Item]
+Label=43b. Last looked for work
+Name=SKADDWRK
+Start=1109
+Len=1
+
+[ValueSet]
+Label=43b. Last looked for work
+Name=SKADDWRK_VS1
+Link=104201640

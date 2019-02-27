@@ -47,7 +47,64 @@ postproc
 	inc(denomINSERT);
 	if $ = 1 and count(LABOURFORCE_REC_EDT) = 0 then		//if Vacant household and no person records found
 		insert(LABOURFORCE_REC_EDT(1));		//insert a person record
-		errmsg("Person record inserted to vacnt household") denom = denomINSERT summary;
+		
+		//fills vacant person record with data
+		LRTH(1) = 9;
+		LCOMPLETED(1) = 89;
+		INTRVW(1) = 4;
+		OCCPNCY(1) = 9;
+		LNDTNURE(1) = 9;
+		RELHD(1) = 9;
+		MARSTAT(1) = 9;
+		EDUCLEV(1) = 9;
+		QUALLEV(1) = 99;
+		PLACETR(1) = 99;
+		TRAINEDFOROCC(1) = 9;
+		PLACETRAINED(1) = 99;
+		WORKED(1) = 9;
+		REGJOB(1) = 9;
+		REASABS(1) = 9;
+		PAIDABS(1) = 9;
+		TIMEABS(1) = 9;
+		MAJACTV(1) = 9;
+		SEEKING(1) = 9;
+		METHOD(1) = 9;
+		REASNSK(1) = 9;
+		LSTLOOK(1) = 9;
+		WILLING(1) = 9;
+		ABLE(1) = 9;
+		WRKWNTD(1) = 9;
+		HRSWNTD(1) = 99;
+		EVERWKD(1) = 9;
+		LSTWRKD(1) = 9;
+		FRSTLOOK(1) = 9;
+		UNEMPLSA(1) = 9;
+		USINCOME(1) = 9;
+		U2SINCOM(1) = 9;
+		UEARNGS(1) = 99;
+		U2EARNGS(1) = 99;
+		RSNPART(1) = 9;
+		TWOJOBS(1) = 9;
+		RSN2JOBS(1) = 9;
+		EXPRNCE(1) = 9;
+		EXPRNCE2(1) = 9;
+		EARNGS(1) = 99;
+		EARNGS2(1) = 99;
+		AVGEARNS(1) = 99;
+		AVGEARNS2(1) = 99;
+		HRSWRKD(1) = 99;
+		NHRSWRKD(1) = 99;
+		RSNLESS(1) = 99;
+		ADDWRK(1) = 9;
+		KINDWRK(1) = 9;
+		HPWORK(1) = 9;
+		INACTWHN(1) = 9;
+		WORKBEFO(1) = 9;
+		SCINCOME(1) = 9;
+		IN2INCOM(1) = 9;
+		INEARNGS(1) = 99;
+		IN2EARNG(1) = 99;
+		errmsg("Person record inserted to vacant household") denom = denomINSERT summary;
 	endif;
 	
 //------------------------------------------------------
@@ -59,3 +116,9 @@ if $ = 1 then		//if delete flag is set
 endif;
 
 //------------------------------------------------------------
+PROC LASTLOOK
+postproc
+	//cheapest way to "rename" this variable. copy the value from this variable to one that has the required name.
+	SKADDWRK = $;
+
+//---------------------------------------------------------------

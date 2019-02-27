@@ -1,0 +1,13 @@
+﻿[CSPro Application]
+Version=CSPro 7.1
+Label=ALLOCATION
+Name=
+AppType=DataEntry
+[AppCode]
+File=.\Allocation.ent.apc
+[Message]
+File=.\Allocation.ent.mgf
+[Help]
+File=.\Allocation.ent.qsf
+[Forms]
+File=.\Allocation.fmf

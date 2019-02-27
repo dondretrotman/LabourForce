@@ -227,8 +227,8 @@ DataCaptureType=DropDown
 Form=2
   
 [Text]
-Position=72,343,186,359
-Text=Vacant household
+Position=72,343,187,359
+Text=Person available?
  
   
 [Field]

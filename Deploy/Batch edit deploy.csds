@@ -1,0 +1,36 @@
+{
+  "fileType": "Application Deployment Specification",
+  "version": "7.1",
+  "name": "deploy BatchEdit ",
+  "description": "",
+  "files": [
+    {
+      "path": "..\\Batch Edit\\LabourforceBatch.bch"
+    },
+    {
+      "path": "..\\Batch Edit\\LabourforceBatch.bch.apc"
+    },
+    {
+      "path": "..\\Batch Edit\\LabourforceBatch.bch.mgf"
+    },
+    {
+      "path": "..\\Batch Edit\\LabourforceBatch.lst"
+    },
+    {
+      "path": "..\\Batch Edit\\LabourforceBatch.ord"
+    },
+    {
+      "path": "..\\Batch Edit\\LabourforceBatch.pff"
+    },
+    {
+      "path": "..\\Questionnaire\\Labourforce.dcf"
+    }
+  ],
+  "dictionaries": [ ],
+  "deployment": {
+    "type": "LocalFolder",
+    "cswebUrl": "http:\/\/172.28.10.220\/csweb\/api",
+    "ftpUrl": "ftp:\/\/172.28.10.215",
+    "localFolderPath": "\\\\statserver.gov.bb\\FTP_DATA_WAREHOUSE\\Downloaded data"
+  }
+}

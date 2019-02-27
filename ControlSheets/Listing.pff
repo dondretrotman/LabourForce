@@ -4,9 +4,10 @@ AppType=Entry
 Description=CLFSS Control Sheet
 [DataEntryInit]
 OperatorID=WDAVIS              
-StartMode=Add
+StartMode=Add; 52922022167102
 ShowInApplicationListing=Hidden
-AutoAdd=Yes
+Lock=CaseListing
+AutoAdd=No
 [Files]
 Application=./Listing.ent
 InputData=../Data/Controlsheet.csdb|CSPRODB
@@ -15,6 +16,10 @@ Paradata=../Data/Controlsheet.cslog
 PFFFILE=
 [Parameters]
 OnExit=../Menu/Menu.pff
-MODE=DEFAULT
-LSTENUMCODE=94
-LSTED=435
+MODE=EDIT
+LSTROUND= 5
+LSTED=292
+LSTPARISH=202
+LSTSTRATUM=2
+LSTBUILDING=167
+LSTSAMPLE=102
