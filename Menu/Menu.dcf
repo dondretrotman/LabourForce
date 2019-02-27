@@ -1,5 +1,5 @@
 ﻿[Dictionary]
-Version=CSPro 7.1
+Version=CSPro 7.2
 Label=Menu
 Name=MENU_DICT
 RecordTypeStart=1
@@ -24,7 +24,7 @@ Len=1
 Label=Menu record
 Name=MENU_REC
 RecordTypeValue='1'
-RecordLen=124
+RecordLen=121
 
 [Item]
 Label=User Name
@@ -292,33 +292,33 @@ DataType=Alpha
 Label=Choose Household
 Name=CHOOSE_HOUSEHOLD
 Start=53
-Len=15
+Len=12
 DataType=Alpha
 
 [Item]
 Label=Choose Control Sheet
 Name=CHOOSE_CONTROL_SHEET
-Start=68
+Start=65
 Len=15
 DataType=Alpha
 
 [Item]
 Label=Delete Control Sheet
 Name=DELETE_CONTROL_SHEET
-Start=83
+Start=80
 Len=15
 DataType=Alpha
 
 [Item]
 Label=Admin Delete Control Sheet
 Name=ADMIN_DELETE_CONTROL_SHEET
-Start=98
+Start=95
 Len=15
 DataType=Alpha
 
 [Item]
 Label=Admin Delete Questionnaire
 Name=ADMIN_DELETE_QUESTIONNAIRE
-Start=113
+Start=110
 Len=12
 DataType=Alpha

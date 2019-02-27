@@ -979,7 +979,7 @@ preproc
 PROC USERID
 //code to make sure that the valueset label matches Username
 postproc
-	if getlabel(USERID_VS1,$) = strip(UNAME) then
+	if getlabel(USERID_VS1,$) = strip(toupper(UNAME)) then
 		writeLoginStatus(1);//success
 	else
 		errmsg("Username and ID don't match! Please try again");
@@ -1283,12 +1283,13 @@ onfocus
 	endif;
 
 postproc
-	errmsg("-%v-%v-%v-%v-%v-",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTSAMPLE);
+	errmsg("|%v-%v-%v-%v-%v|",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTSAMPLE);
+	errmsg("|%v|",CHOOSE_HOUSEHOLD);
 	errmsg("RNDNO=%v",CHOOSE_HOUSEHOLD[1:2]);
 	errmsg("EDNO=%s",CHOOSE_HOUSEHOLD[3:3]);
 	errmsg("PARNO=%s",CHOOSE_HOUSEHOLD[6:3]);
 	errmsg("STRATUM=%s",CHOOSE_HOUSEHOLD[9:1]);		//skip Building no (CHOOSE_HOUSEHOLD[10:3]) which is not included in Labourforce ID items
-	errmsg("HHNO=%s",CHOOSE_HOUSEHOLD[10:3]);	
+	errmsg("HHNO=%s|",CHOOSE_HOUSEHOLD[10:3]);	
 	launchQuestionnaire();
 	if LOGIN = 1 then 
 		move to INTERVIEWER_MENU;

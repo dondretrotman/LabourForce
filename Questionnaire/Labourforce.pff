@@ -4,7 +4,7 @@ AppType=Entry
 Description=Continuous Labourforce Sample Survey
 [DataEntryInit]
 OperatorID=WDAVIS              
-StartMode=Add;52922022102    
+StartMode=Add;52922022102 
 ShowInApplicationListing=Hidden
 AutoAdd=No
 Lock=CaseListing
