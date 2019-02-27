@@ -27,7 +27,7 @@ numeric i,				//general variable
 		headindex,		//index of head
 		cases,			//number of cases in ENUMERATIONREPORT
 		bldgno,			//Building number
-		vsindex,		//valueset index
+		vsindex			//valueset index
 		;
 		
 string 	caselabel,		//stores the label for the current case

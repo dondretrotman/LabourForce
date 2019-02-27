@@ -10,16 +10,16 @@ string	ftpip,			//Stores ftp address
 		cswebip,		//Stores csweb address
 		username,		//stores user name
 		status,			//stores current login status
-		round_ed,		//stores round and ed
+		round_ed		//stores round and ed
 		;
 		
 numeric	errflag,		//sets error flag
 		roundnumber,	//saves round number
-		indivcounttot,	//counts individuals
+		indivcounttot	//counts individuals
 		;
 
 file	loginfile,		//saves login status in a file	
-		pffFile,		//Creates a .pff file
+		pffFile		//Creates a .pff file
 		;
 		
 //-------------------------------Array Declaration------------------------------------------

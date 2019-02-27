@@ -1,5 +1,5 @@
 ﻿[FormFile]
-Version=CSPro 7.1
+Version=CSPro 7.2
 Name=MENU_FF
 Label=Menu
 DefaultTextFont=-013 0000 0000 0000 0700 0000 0000 0000 0000 0000 0000 0000 0000 Arial
@@ -23,8 +23,6 @@ Item=CHOOSE_ED
 Item=CHOOSE_ROUND
 Item=CHOOSE_QUESTIONNAIRE
 Item=CHOOSE_HOUSEHOLD
-Item=UNAME
-Item=USERID
 Item=ME_ED
 Item=CHOOSE_CONTROL_SHEET
 Item=DELETE_CONTROL_SHEET
@@ -32,6 +30,8 @@ Item=ADMIN_MENU
 Item=ADMIN_DELETE_CONTROL_SHEET
 Item=ADMIN_DELETE_QUESTIONNAIRE
 Item=ME_ROUND
+Item=USERID
+Item=UNAME
   
 [EndForm]
   
@@ -46,6 +46,7 @@ Label=Menu questionnaire
 Form=1
 LogicControl=No
 Max=1
+  
   
 [Field]
 Name=UNAME
@@ -262,5 +263,12 @@ Form=1
 Position=127,591,306,607
 Text=Admin Delete Questionnaire
  
+[Block]
+Name=BLOCK000
+Label=NameID
+DisplayTogether=No
+Position=0
+Length=2
+  
 [EndGroup]
   

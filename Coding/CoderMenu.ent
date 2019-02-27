@@ -1,5 +1,5 @@
 ﻿[CSPro Application]
-Version=CSPro 7.1
+Version=CSPro 7.2
 Label=CODERMENU
 Name=CODERMENU
 AppType=DataEntry
@@ -7,7 +7,6 @@ OperatorID=No
 ShowEndCaseDialog=No
 CenterForms=Yes
 AutoAdvanceOnSelection=Yes
-ShowErrorMessageNumbers=No
 [External Dictionaries]
 File=..\Questionnaire\Labourforce.dcf
 [AppCode]

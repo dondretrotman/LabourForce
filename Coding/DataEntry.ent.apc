@@ -11,12 +11,12 @@ numeric	len,		//Length of text
 		sel,		//select case
 		ok,
 		searchflag,		//if search was successful
-		headindex,		//finds head of household
+		headindex		//finds head of household
 		;
 
 string	caselabel,		//sets label for the case
 		industrycode,
-		occupationcode,
+		occupationcode
 		;
 
 //-------------------------Function Declaration------------------------------------------

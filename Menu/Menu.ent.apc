@@ -7,7 +7,7 @@ TODO: 	Allow supervisors to mark an ED as complete
 PROC GLOBAL
 //--------------------------------Variable Declaration------------------------------------
 file 	pffFile,		//Creates a .pff file
-		loginfile,		//saves login status in a file
+		loginfile		//saves login status in a file
 		;
 
 string 	rnd_ed,		//round and ED number to be downloaded
@@ -21,7 +21,7 @@ string 	rnd_ed,		//round and ED number to be downloaded
 		ftppw,		//stores ftp password
 		convid,		//stores control sheet id that was converted to a questionnaire id
 		temparray,	//temporarily stores a string array value
-		parish,		//parish
+		parish		//parish
 		//idno,		//ID for loading a case
 		;
 
@@ -34,7 +34,7 @@ numeric deleteflag,		//stores flag for case deletion
 		rndmonth,		//Current month for calculating round number
 		housecount,		//counts number of households
 		indivcounttot,	//counts total number of individuals in an ED
-		a,i,j,k,l,m,n,		//general counters and temp variables
+		a,i,j,k,l,m,n		//general counters and temp variables
 		;
 
 //----------------------------------Array Declaration-------------------------------------
@@ -1284,7 +1284,7 @@ onfocus
 
 postproc
 	errmsg("-%v-%v-%v-%v-%v-",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTSAMPLE);
-	errmsg("RNDNO=%2s",CHOOSE_HOUSEHOLD[1:2]);
+	errmsg("RNDNO=%v",CHOOSE_HOUSEHOLD[1:2]);
 	errmsg("EDNO=%s",CHOOSE_HOUSEHOLD[3:3]);
 	errmsg("PARNO=%s",CHOOSE_HOUSEHOLD[6:3]);
 	errmsg("STRATUM=%s",CHOOSE_HOUSEHOLD[9:1]);		//skip Building no (CHOOSE_HOUSEHOLD[10:3]) which is not included in Labourforce ID items

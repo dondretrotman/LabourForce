@@ -1,5 +1,5 @@
 ﻿[CSPro Application]
-Version=CSPro 7.1
+Version=CSPro 7.2
 Label=LABOURFORCE
 Name=LABOURFORCE
 AppType=DataEntry
@@ -13,7 +13,6 @@ CAPIFont2Color=16711680
 CaseTree=Always
 NotesDeleteOtherOperators=No
 NotesEditOtherOperators=No
-ShowErrorMessageNumbers=No
 ParadataCollection=AllEvents
 ParadataRecordCoordinates=Yes
 ParadataDeviceStateMinutes=5

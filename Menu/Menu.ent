@@ -1,5 +1,5 @@
 ﻿[CSPro Application]
-Version=CSPro 7.1
+Version=CSPro 7.2
 Label=MENU
 Name=MENU
 AppType=DataEntry
@@ -14,7 +14,6 @@ CenterForms=Yes
 CreateListing=No
 CreateLog=No
 AutoAdvanceOnSelection=Yes
-ShowErrorMessageNumbers=No
 ParadataCollection=AllEvents
 ParadataDeviceStateMinutes=5
 [External Dictionaries]
