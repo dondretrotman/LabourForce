@@ -1283,13 +1283,8 @@ onfocus
 	endif;
 
 postproc
-	errmsg("|%v-%v-%v-%v-%v|",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTSAMPLE);
-	errmsg("|%v|",CHOOSE_HOUSEHOLD);
-	errmsg("RNDNO=%v",CHOOSE_HOUSEHOLD[1:2]);
-	errmsg("EDNO=%s",CHOOSE_HOUSEHOLD[3:3]);
-	errmsg("PARNO=%s",CHOOSE_HOUSEHOLD[6:3]);
-	errmsg("STRATUM=%s",CHOOSE_HOUSEHOLD[9:1]);		//skip Building no (CHOOSE_HOUSEHOLD[10:3]) which is not included in Labourforce ID items
-	errmsg("HHNO=%s|",CHOOSE_HOUSEHOLD[10:3]);	
+	CHOOSE_HOUSEHOLD = maketext("%13.12s",CHOOSE_HOUSEHOLD);		//workaround to make this shit work I shouldn't have to hack this to make it work!
+
 	launchQuestionnaire();
 	if LOGIN = 1 then 
 		move to INTERVIEWER_MENU;
