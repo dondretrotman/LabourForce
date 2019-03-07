@@ -3,3 +3,5 @@ Data/Controlsheet.csdb
 Data/Controlsheet.csdb
 *.log
 Data/data.csdb.log
+*.cslog
+*.lst
