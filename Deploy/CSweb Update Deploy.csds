@@ -1,6 +1,6 @@
 {
   "fileType": "Application Deployment Specification",
-  "version": "7.1",
+  "version": "7.2",
   "name": "CLFSS CAPI csweb",
   "description": "Continuous Labour Force Sample Survey ",
   "files": [
@@ -33,6 +33,12 @@
     },
     {
       "path": "..\\Manual.pdf"
+    },
+    {
+      "path": "..\\Allocation\\Allocation.ent"
+    },
+    {
+      "path": "..\\Allocation\\Allocation.pff"
     }
   ],
   "dictionaries": [
@@ -51,6 +57,9 @@
     {
       "path": "..\\Reports\\EnumerationReport.dcf",
       "uploadForSync": true
+    },
+    {
+      "path": "..\\Allocation\\Allocation.dcf"
     }
   ],
   "deployment": {
