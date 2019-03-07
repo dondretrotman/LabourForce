@@ -48,7 +48,6 @@ Form=1
 LogicControl=No
 Max=1
   
-  
 [Field]
 Name=UNAME
 Position=319,3,729,23
@@ -278,12 +277,5 @@ Form=1
 Position=127,634,257,650
 Text=Allocate enumerator
  
-[Block]
-Name=BLOCK000
-Label=NameID
-DisplayTogether=No
-Position=0
-Length=2
-  
 [EndGroup]
   
