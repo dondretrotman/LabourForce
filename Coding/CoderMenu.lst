@@ -28,3 +28,25 @@ CSPRO Process Summary
 
 CSPRO Executor Normal End
 --------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Mar  7, 2019
+Start Time      12:25:59
+End Time        12:39:51
+
+CSPRO Process Summary
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+     80       1    -   Attempting to download all data from Round :%d, E       -
+     94       1    -   Download of round %d, ED %d was successful              -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------

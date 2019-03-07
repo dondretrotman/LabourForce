@@ -226,6 +226,7 @@ Value=2;Open Control Sheet
 Value=3;Open Questionnaire
 Value=4;Delete Questionnaire
 Value=5;View Enumerator Report
+Value=7;Mark ED as complete
 Value=9;Back
 
 [ValueSet]
@@ -237,6 +238,7 @@ Value=3;Open Questionnaire
 Value=4;Delete Questionnaire
 Value=5;View Enumerator Report
 Value=6;Allocate Officers
+Value=7;Mark ED as complete
 Value=9;Back
 
 [Item]
