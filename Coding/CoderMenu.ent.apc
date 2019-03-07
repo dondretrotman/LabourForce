@@ -277,6 +277,7 @@ onfocus
 	setvalueset($,vsCode,vsLabel);
 	
 postproc
+	CHOOSE_QUESTIONNAIRE = maketext("%12.11s",CHOOSE_QUESTIONNAIRE);		//workaround to make this shit work I shouldn't have to hack this to make it work!
 	launchQuestionnaire();
 	move to MAIN_MENU;
 	

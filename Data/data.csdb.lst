@@ -1,0 +1,15 @@
+﻿Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\DataEntry.ent
+Type            ENTRY
+Input Data      <<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data.csdb
+External        AUXIL_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\auxil.csdb
+External        OCCUPATION_CODES_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\OccupationCodesBARSOC.csdb
+External        INDUSTRY_CODES_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\IndustryCodes.csdb
+
+Date            Mar  4, 2019
+Start Time      13:02:55
+End Time        13:03:17
+
+CSPRO Process Summary
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------

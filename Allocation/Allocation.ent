@@ -1,8 +1,14 @@
 ﻿[CSPro Application]
-Version=CSPro 7.1
+Version=CSPro 7.2
 Label=ALLOCATION
-Name=
+Name=ALLOCATION
 AppType=DataEntry
+CAPI=Yes
+CAPIFont1=-016 0000 0000 0000 0400 0000 0000 0000 0000 0000 0000 0000 0000 Arial
+CAPIFont2=-016 0000 0000 0000 0400 0000 0000 0000 0000 0000 0000 0000 0000 Arial
+CAPIFont1Color=0
+CAPIFont2Color=16711680
+AutoAdvanceOnSelection=Yes
 [AppCode]
 File=.\Allocation.ent.apc
 [Message]
@@ -11,3 +17,5 @@ File=.\Allocation.ent.mgf
 File=.\Allocation.ent.qsf
 [Forms]
 File=.\Allocation.fmf
+[Dictionary Types]
+Dict-Type=.\Allocation.dcf,Input,.\Allocation.fmf

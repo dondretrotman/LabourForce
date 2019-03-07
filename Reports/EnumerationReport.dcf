@@ -1,5 +1,5 @@
 ﻿[Dictionary]
-Version=CSPro 7.1
+Version=CSPro 7.2
 Label=EnumerationReport
 Name=ENUMERATIONREPORT_DICT
 RecordTypeStart=1
@@ -97,7 +97,7 @@ Len=3
 Label=EnumerationReport record
 Name=ENUMERATIONREPORT_REC
 RecordTypeValue='1'
-RecordLen=307
+RecordLen=308
 
 [Item]
 Label=Sample Unit No.
@@ -513,3 +513,15 @@ Label=Number of Females
 Name=ERFEMALES
 Start=306
 Len=2
+
+[Item]
+Label=ED Completion Status
+Name=ERCOMPLETED
+Start=308
+Len=1
+
+[ValueSet]
+Label=ED Completion Status
+Name=ERCOMPLETED_VS1
+Value=1;Complete
+Value=2;Ongoing

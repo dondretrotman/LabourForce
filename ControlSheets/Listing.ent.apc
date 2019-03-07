@@ -51,6 +51,10 @@ preproc
 			setproperty(LSTENUMCODE,"PROTECTED","Yes");
 		endif;
 	elseif sysparm("MODE") = "DEFAULT" then			//if launching as an enumerator then just fill out enuerator code and ED
+		if visualvalue(LSTROUND) = notappl then		//if round is blank
+			LSTROUND = tonumber(sysparm("LSTROUND"));		//Go to the pff file and get the system parameter named rndno. Change it to number and assign to variable
+			setproperty(LSTROUND,"PROTECTED","Yes");	//and set the field to proctected
+		endif;
 		if visualvalue(LSTED) = notappl then
 			LSTED = tonumber(sysparm("LSTED"));
 			setproperty(LSTED,"PROTECTED","Yes");
@@ -60,12 +64,16 @@ preproc
 			setproperty(LSTENUMCODE,"PROTECTED","Yes");
 		endif;
 	endif;
+	noinput;
 
 
 postproc
 	setcaselabel(LISTING_DICT, maketext("%V-%V-%V: %s (%s)",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS)));
 
 //--------------------------------------------------------------------------------
+PROC LSTED
+onfocus
+	noinput;
 PROC LSTPARISH
 onfocus
 	recode LSTED	=>	$;
@@ -101,6 +109,9 @@ preproc
 	noinput;
 	
 //--------------------------------------------------------
+PROC LSTENUMCODE
+onfocus
+	noinput;
 PROC LSTTELEPHONE
 
 onfocus

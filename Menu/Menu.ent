@@ -14,12 +14,14 @@ CenterForms=Yes
 CreateListing=No
 CreateLog=No
 AutoAdvanceOnSelection=Yes
+ComboBoxShowOnlyDiscreteValues=Yes
 ParadataCollection=AllEvents
 ParadataDeviceStateMinutes=5
 [External Dictionaries]
 File=..\Questionnaire\Labourforce.dcf
 File=..\ControlSheets\Listing.dcf
 File=..\Reports\EnumerationReport.dcf
+File=..\Allocation\Allocation.dcf
 [AppCode]
 File=.\Menu.ent.apc
 [Message]
@@ -33,3 +35,4 @@ Dict-Type=.\Menu.dcf,Input,.\Menu.fmf
 Dict-Type=..\Questionnaire\Labourforce.dcf,External
 Dict-Type=..\ControlSheets\Listing.dcf,External
 Dict-Type=..\Reports\EnumerationReport.dcf,External
+Dict-Type=..\Allocation\Allocation.dcf,External

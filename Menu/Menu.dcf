@@ -24,7 +24,7 @@ Len=1
 Label=Menu record
 Name=MENU_REC
 RecordTypeValue='1'
-RecordLen=121
+RecordLen=123
 
 [Item]
 Label=User Name
@@ -322,3 +322,31 @@ Name=ADMIN_DELETE_QUESTIONNAIRE
 Start=110
 Len=12
 DataType=Alpha
+
+[Item]
+Label=Allocate enumerator
+Name=ALLOCATE_ENUMERATOR
+Start=122
+Len=2
+
+[ValueSet]
+Label=User ID
+Name=ALLOCATE_ENUMERATOR_VS1
+Value=1;MBEST
+Value=3;KRUSSELL
+Value=4;CSEALY
+Value=5;RMAYERS
+Value=6;SGRIFFITH
+Value=7;GHUSBANDS
+Value=8;AWALCOTT
+Value=9;JCUMBERBATCH
+Value=10;FAGARD
+Value=11;VTAYLOR
+Value=14;JWILLIAMS
+Value=15;LWILLIAMS
+Value=17;CQUINTYNE
+Value=20;KBONAS
+Value=22;SBLACKETT
+Value=25;JHUSBANDS
+Value=26;SHURDLE
+Value=30;GSHEPHERD

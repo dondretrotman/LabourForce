@@ -14,7 +14,7 @@ Name=FORM000
 Label=Menu questionnaire
 QuestionTextHeight=145
 Level=1
-Size=754,633
+Size=754,685
   
 Item=INTERVIEWER_MENU
 Item=SUPERVISOR_MENU
@@ -32,6 +32,7 @@ Item=ADMIN_DELETE_QUESTIONNAIRE
 Item=ME_ROUND
 Item=USERID
 Item=UNAME
+Item=ALLOCATE_ENUMERATOR
   
 [EndForm]
   
@@ -94,6 +95,7 @@ Position=319,120,362,140
 Item=ME_ED,MENU_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
 Form=1
   
 [Text]
@@ -199,7 +201,7 @@ Text=Delete Questionnaire
   
 [Field]
 Name=CHOOSE_HOUSEHOLD
-Position=319,432,530,452
+Position=319,432,488,452
 Item=CHOOSE_HOUSEHOLD,MENU_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
@@ -227,41 +229,54 @@ Text=Choose Control Sheet
   
 [Field]
 Name=DELETE_CONTROL_SHEET
-Position=319,510,530,530
+Position=319,511,530,531
 Item=DELETE_CONTROL_SHEET,MENU_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=127,513,259,529
+Position=127,514,259,530
 Text=Delete Control Sheet
  
   
 [Field]
 Name=ADMIN_DELETE_CONTROL_SHEET
-Position=319,549,530,569
+Position=319,551,530,571
 Item=ADMIN_DELETE_CONTROL_SHEET,MENU_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=127,552,304,568
+Position=127,554,304,570
 Text=Admin Delete Control Sheet
  
   
 [Field]
 Name=ADMIN_DELETE_QUESTIONNAIRE
-Position=319,588,488,608
+Position=319,591,488,611
 Item=ADMIN_DELETE_QUESTIONNAIRE,MENU_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=127,591,306,607
+Position=127,594,306,610
 Text=Admin Delete Questionnaire
+ 
+  
+[Field]
+Name=ALLOCATE_ENUMERATOR
+Position=319,631,348,651
+Item=ALLOCATE_ENUMERATOR,MENU_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
+Form=1
+  
+[Text]
+Position=127,634,257,650
+Text=Allocate enumerator
  
 [Block]
 Name=BLOCK000

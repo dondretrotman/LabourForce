@@ -6,6 +6,7 @@ Description=Continuous Labour Force Sample Survey
 [DataEntryInit]
 StartMode=Add
 Lock=CaseListing
+FullScreen=YES
 Interactive=Ask
 
 [Files]
@@ -14,6 +15,7 @@ InputData=|NONE
 Paradata=..\Data\Menu.cslog
 
 [ExternalFiles]
+ALLOCATION_DICT=..\Data\assignments.csdb|CSPRODB
 ENUMERATIONREPORT_DICT=..\Data\enumrpt.csdb|CSPRODB
 LABOURFORCE_DICT=..\Data\data.csdb|CSPRODB
 LISTING_DICT=..\Data\Controlsheet.csdb|CSPRODB

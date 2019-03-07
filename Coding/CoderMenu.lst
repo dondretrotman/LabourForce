@@ -1,0 +1,30 @@
+﻿Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Mar  4, 2019
+Start Time      13:02:25
+End Time        13:02:41
+
+CSPRO Process Summary
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Mar  4, 2019
+Start Time      13:02:50
+End Time        13:03:19
+
+CSPRO Process Summary
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------

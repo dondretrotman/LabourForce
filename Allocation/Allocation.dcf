@@ -1,5 +1,5 @@
 ﻿[Dictionary]
-Version=CSPro 7.1
+Version=CSPro 7.2
 Label=Allocation
 Name=ALLOCATION_DICT
 RecordTypeStart=1
@@ -15,13 +15,390 @@ Name=ALLOCATION_QUEST
 [IdItems]
 
 [Item]
-Label=Allocation identification
-Name=ALLOCATION_ID
+Label=User ID
+Name=AUSER_ID
 Start=2
+Len=2
+
+[ValueSet]
+Label=User ID
+Name=AUSER_ID_VS1
+Value=1;MBEST
+Value=3;KRUSSELL
+Value=4;CSEALY
+Value=5;RMAYERS
+Value=6;SGRIFFITH
+Value=7;GHUSBANDS
+Value=8;AWALCOTT
+Value=9;JCUMBERBATCH
+Value=10;FAGARD
+Value=11;VTAYLOR
+Value=14;JWILLIAMS
+Value=15;LWILLIAMS
+Value=17;CQUINTYNE
+Value=20;KBONAS
+Value=22;SBLACKETT
+Value=25;JHUSBANDS
+Value=26;SHURDLE
+Value=30;GSHEPHERD
+
+[Record]
+Label=Allocation Meta
+Name=ALLOCATION_META
+RecordTypeValue='2'
+RecordLen=48
+
+[Item]
+Label=Round
+Name=AROUND
+Start=4
+Len=2
+
+[ValueSet]
+Label=Round
+Name=AROUND_VS1
+Value=1;1
+Value=2;2
+Value=3;3
+Value=4;4
+Value=5;5
+Value=6;6
+Value=7;7
+Value=8;8
+Value=9;9
+Value=10;10
+
+[Item]
+Label=Enumerator Name
+Name=AUNAME
+Start=6
+Len=20
+DataType=Alpha
+
+[ValueSet]
+Label=Enumerator Name
+Name=AUNAME_VS1
+Value='MBEST               ';Marcia Best
+Value='KRUSSELL            ';Karin Russell
+Value='CSEALY              ';Carol-Ann Sealy
+Value='RMAYERS             ';Ryan Mayers
+Value='SGRIFFITH           ';Sylvia Griffith
+Value='GHUSBANDS           ';George Husbands
+Value='AWALCOTT            ';Antonia Walcott
+Value='JCUMBERBATCH        ';Jeffrey Cumberbatch
+Value='FAGARD              ';Fatuma Agard
+Value='VTAYLOR             ';Valerie Taylor
+Value='JWILLIAMS           ';Janet Williams
+Value='LWILLIAMS           ';Lynette Williams
+Value='CQUINTYNE           ';Charles Quintyne
+Value='KBONAS              ';Kelly-Anne Bonas
+Value='SBLACKETT           ';Sherry-Ann Blackett
+Value='JHUSBANDS           ';Juliette Husbands
+Value='SHURDLE             ';Stacia Hurdle
+Value='GSHEPHERD           ';Gladwyn Shepherd
+
+[Item]
+Label=Number of areas assigned
+Name=ANUMAREAS
+Start=26
+Len=2
+
+[ValueSet]
+Label=Number of areas assigned
+Name=ANUMAREAS_VS1
+Value=0;0
+Value=1;1
+Value=2;2
+Value=3;3
+Value=4;4
+Value=5;5
+Value=6;6
+Value=7;7
+Value=8;8
+Value=9;9
+Value=10;10
+
+[Item]
+Label=Supervisor Name
+Name=ASUPERVISORNAME
+Start=28
+Len=20
+DataType=Alpha
+
+[ValueSet]
+Label=Supervisor Name
+Name=ASUPERVISORNAME_VS1
+Value='HCHASE              ';Harold Chase
+Value='MSMALL              ';Mervin Small
+Value='WDAVIS              ';Wayne Davis
+
+[Item]
+Label=Supervisor ID
+Name=ASUPERVISOR_ID
+Start=48
 Len=1
+
+[ValueSet]
+Label=Supervisor ID
+Name=ASUPERVISOR_ID_VS1
+Value=5;HCHASE
+Value=3;MSMALL
+Value=4;WDAVIS
 
 [Record]
 Label=Allocation record
 Name=ALLOCATION_REC
 RecordTypeValue='1'
-RecordLen=1
+MaxRecords=10
+RecordLen=19
+
+[Item]
+Label=ED
+Name=AED
+Start=4
+Len=3
+
+[ValueSet]
+Label=ED Number
+Name=AED_VS1
+Value=1:181;St. Michael
+Value=182:295;Christ Church
+Value=296:335;St. George
+Value=336:397;St. Philip
+Value=398:418;St. John
+Value=419:479;St. James
+Value=480:508;St. Thomas
+Value=509:521;St. Joseph
+Value=522:532;St. Andrew
+Value=533:559;St. Peter
+Value=560:583;St. Lucy
+
+[Item]
+Label=Parish
+Name=APARISH
+Start=7
+Len=3
+
+[ValueSet]
+Label=Parish
+Name=APARISH_VS1
+Value=201;St Michael
+Value=202;Christ Church
+Value=203;St George
+Value=204;St Philip
+Value=205;St John
+Value=206;St James
+Value=207;St Thomas
+Value=208;St Joseph
+Value=209;St Andrew
+Value=210;St Peter
+Value=211;St Lucy
+
+[Item]
+Label=Stratum
+Name=ASTRATUM
+Start=10
+Len=1
+
+[ValueSet]
+Label=Stratum
+Name=ASTRATUM_VS1
+Value=1;Stratum 1
+Value=2;Stratum 2
+Value=3;Stratum 3
+Value=4;Stratum 4
+
+[Item]
+Label=Assignment Date
+Name=ASSIGNMENT_DATE
+Start=11
+Len=8
+
+[Item]
+Label=Assignment Year
+Name=ASSIGNMENT_YEAR
+Start=11
+Len=4
+ItemType=SubItem
+
+[ValueSet]
+Label=Assignment Year
+Name=ASSIGNMENT_YEAR_VS1
+Value=2019;2,019
+Value=2020;2,020
+Value=2021;2,021
+Value=2022;2,022
+Value=2023;2,023
+Value=2024;2,024
+Value=2025;2,025
+Value=2026;2,026
+Value=2027;2,027
+Value=2028;2,028
+Value=2029;2,029
+Value=2030;2,030
+Value=2031;2,031
+Value=2032;2,032
+Value=2033;2,033
+Value=2034;2,034
+Value=2035;2,035
+Value=2036;2,036
+Value=2037;2,037
+Value=2038;2,038
+Value=2039;2,039
+Value=2040;2,040
+Value=2041;2,041
+Value=2042;2,042
+Value=2043;2,043
+Value=2044;2,044
+Value=2045;2,045
+Value=2046;2,046
+Value=2047;2,047
+Value=2048;2,048
+Value=2049;2,049
+Value=2050;2,050
+Value=2051;2,051
+Value=2052;2,052
+Value=2053;2,053
+Value=2054;2,054
+Value=2055;2,055
+Value=2056;2,056
+Value=2057;2,057
+Value=2058;2,058
+Value=2059;2,059
+Value=2060;2,060
+Value=2061;2,061
+Value=2062;2,062
+Value=2063;2,063
+Value=2064;2,064
+Value=2065;2,065
+Value=2066;2,066
+Value=2067;2,067
+Value=2068;2,068
+Value=2069;2,069
+Value=2070;2,070
+Value=2071;2,071
+Value=2072;2,072
+Value=2073;2,073
+Value=2074;2,074
+Value=2075;2,075
+Value=2076;2,076
+Value=2077;2,077
+Value=2078;2,078
+Value=2079;2,079
+Value=2080;2,080
+Value=2081;2,081
+Value=2082;2,082
+Value=2083;2,083
+Value=2084;2,084
+Value=2085;2,085
+Value=2086;2,086
+Value=2087;2,087
+Value=2088;2,088
+Value=2089;2,089
+Value=2090;2,090
+Value=2091;2,091
+Value=2092;2,092
+Value=2093;2,093
+Value=2094;2,094
+Value=2095;2,095
+Value=2096;2,096
+Value=2097;2,097
+Value=2098;2,098
+Value=2099;2,099
+Value=2100;2,100
+Value=2101;2,101
+Value=2102;2,102
+Value=2103;2,103
+Value=2104;2,104
+Value=2105;2,105
+Value=2106;2,106
+Value=2107;2,107
+Value=2108;2,108
+Value=2109;2,109
+Value=2110;2,110
+Value=2111;2,111
+Value=2112;2,112
+Value=2113;2,113
+Value=2114;2,114
+Value=2115;2,115
+Value=2116;2,116
+Value=2117;2,117
+Value=2118;2,118
+Value=2119;2,119
+
+[Item]
+Label=Assignment Month
+Name=ASSIGNMENT_MONTH
+Start=15
+Len=2
+ItemType=SubItem
+
+[ValueSet]
+Label=Month
+Name=ASSIGNMENT_MONTH_VS1
+Value=1;January
+Value=2;February
+Value=3;March
+Value=4;April
+Value=5;May
+Value=6;June
+Value=7;July
+Value=8;August
+Value=9;September
+Value=10;October
+Value=11;November
+Value=12;December
+
+[Item]
+Label=Assignment Day
+Name=ASSIGNMENT_DAY
+Start=17
+Len=2
+ItemType=SubItem
+
+[ValueSet]
+Label=Day
+Name=ASSIGNMENT_DAY_VS1
+Value=1;1
+Value=2;2
+Value=3;3
+Value=4;4
+Value=5;5
+Value=6;6
+Value=7;7
+Value=8;8
+Value=9;9
+Value=10;10
+Value=11;11
+Value=12;12
+Value=13;13
+Value=14;14
+Value=15;15
+Value=16;16
+Value=17;17
+Value=18;18
+Value=19;19
+Value=20;20
+Value=21;21
+Value=22;22
+Value=23;23
+Value=24;24
+Value=25;25
+Value=26;26
+Value=27;27
+Value=28;28
+Value=29;29
+Value=30;30
+Value=31;31
+
+[Item]
+Label=Enter another assignment?
+Name=ADDASSIGNMENT
+Start=19
+Len=1
+
+[ValueSet]
+Label=Enter another assignment?
+Name=ADDASSIGNMENT_VS1
+Value=1;Yes
+Value=2;No

@@ -246,8 +246,8 @@ postproc
 //			if ERFIRST_NAME = "" then
 				ERFIRST_NAME = strip(LFIRST_NAME(headindex));
 //			endif;	
-			ERMALES = MCHILDRN(headindex);
-			ERFEMALES = FCHILDRN(headindex);
+			ERMALES = count(SEX where SEX=1);
+			ERFEMALES = count(SEX where SEX = 2);
 		elseif headindex = 0 or VACANT = 1 then
 //			if ERLAST_NAME = "" then
 				ERLAST_NAME = maketext("%s",getlabel(VOCCUP_VS1,VOCCUP));
@@ -300,8 +300,8 @@ postproc
 		ERADDRESS = strip(ADDRES);
 		ERSTART = DATE;
 		EREND = LENDDATE;
-		ERMALES = MCHILDRN(headindex);
-		ERFEMALES = FCHILDRN(headindex);
+		ERMALES = count(SEX where SEX = 1);
+		ERFEMALES = count(SEX where SEX = 2);
 		ERREMARKS = prompt("Do you have any remarks to be included in the enumerator report?");
 		writecase(ENUMERATIONREPORT_DICT);		//write case
 		//clear(ENUMERATIONREPORT_DICT);			//clear external case from memory
