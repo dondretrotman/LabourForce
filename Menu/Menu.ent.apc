@@ -219,7 +219,7 @@ function allocateenum()
 	filewrite(pffFile, "InputData=%v", "../Data/assignments.csdb|CSPRODB");
 	
 	filewrite(pffFile,"[Parameters]");
-	//filewrite(pffFile,"OnExit=../Menu/Menu.pff");
+	filewrite(pffFile,"OnExit=../Menu/Menu.pff");
 	
 	filewrite(pffFile,"AUSER_ID=%v",ALLOCATE_ENUMERATOR);
 	filewrite(pffFile,"AROUND=%v",ME_ROUND);

@@ -1,20 +1,19 @@
 ﻿[Run Information]
 Version=CSPro 7.2
 AppType=Entry
-
 [DataEntryInit]
-OperatorID=WDAVIS
-StartMode=Add; 1
+OperatorID=WDAVIS              
+StartMode=Add; 4
 ShowInApplicationListing=Hidden
 AutoAdd=No
-
+Lock=CaseListing
 [Files]
 Application=./Allocation.ent
 InputData=../Data/assignments.csdb|CSPRODB
-
 [Parameters]
-AUSER_ID=1
-AROUND=5
+OnExit=../Menu/Menu.pff
+AUSER_ID= 4
+AROUND= 5
 AED=292
-ASUPERVISORNAME=WDAVIS
+ASUPERVISORNAME=WDAVIS              
 ASUPERVISOR_ID=94
