@@ -434,9 +434,9 @@ postproc
 	if $ = 1 then		//No change
 		errmsg("Are you sure that there has been no change from the last round? We can not guarrantee that the information from the last round will be available")
 			select("Yes",continue,"No",VACANT);
-		idno = maketext("%V%V%V%V%V%V",RNDNO,EDNO,PARNO,STRATUM,bldgno,HHNO);
+		idno = maketext("%V%V%V%V%3d%V",RNDNO,EDNO,PARNO,STRATUM,bldgno,HHNO);
 		loadcase(LISTING_DICT,idno);		//load corresponding case from control sheet linsting to get a name
-		caselabel = maketext("%V-%02d-%03d-%03d-%d-%03d",strip(LSTLNAME),RNDNO,EDNO,PARNO,STRATUM,HHNO);	//set case label for now
+		caselabel = maketext("%V(nochange)-%02d-%03d-%03d-%d-%03d",strip(LSTLNAME),RNDNO,EDNO,PARNO,STRATUM,HHNO);	//set case label for now
 		setcaselabel(LABOURFORCE_DICT,caselabel);
 		
 		endlevel;
@@ -678,6 +678,42 @@ onfocus
 	
 	vsNumCodes(vsIndex) = notappl;
 	setvalueset($, vsNumCodes, vsLabels);
+	
+	//if new text fields are blank, copy old text fields to new fields
+	if length(strip(OCCUPTR_TEXT2)) = 0 and length(strip(OCCUPTR_TEXT)) > 0 then
+		OCCUPTR_TEXT2 = OCCUPTR_TEXT;
+	endif;
+	if length(strip(OCCTRAINED_TEXT2)) = 0 and length(strip(OCCTRAINED_TEXT)) > 0 then
+		OCCTRAINED_TEXT2 = OCCTRAINED_TEXT;
+	endif;
+	if length(strip(LSTOCCUP_TEXT2)) = 0 and length(strip(LSTOCCUP_TEXT)) > 0 then
+		LSTOCCUP_TEXT2 = LSTOCCUP_TEXT;
+	endif;
+	if length(strip(LSTINDUS_TEXT2)) = 0 and length(strip(LSTINDUS_TEXT)) > 0 then
+		LSTINDUS_TEXT2 = LSTINDUS_TEXT;
+	endif;
+	if length(strip(OCCUP_TEXT2)) = 0 and length(strip(OCCUP_TEXT)) > 0 then
+		OCCUP_TEXT2 = OCCUP_TEXT;
+	endif;
+	if length(strip(SOCCUP_TEXT2)) = 0 and length(strip(SOCCUP_TEXT)) > 0 then
+		SOCCUP_TEXT2 = SOCCUP_TEXT;
+	endif;
+	if length(strip(INDUS_TEXT2)) = 0 and length(strip(INDUS_TEXT)) > 0 then
+		INDUS_TEXT2 = INDUS_TEXT;
+	endif;
+	if length(strip(SINDUS_TEXT2)) = 0 and length(strip(SINDUS_TEXT)) > 0 then
+		SINDUS_TEXT2 = SINDUS_TEXT;
+	endif;
+	if length(strip(FOCCUP_TEXT2)) = 0 and length(strip(FOCCUP_TEXT)) > 0 then
+		FOCCUP_TEXT2 = FOCCUP_TEXT;
+	endif;
+	if length(strip(INCINDUS_TEXT2)) = 0 and length(strip(INCINDUS_TEXT)) > 0 then
+		INCINDUS_TEXT2 = INCINDUS_TEXT;
+	endif;
+	if length(strip(INCOCCUP_TEXT2)) = 0 and length(strip(INCOCCUP_TEXT)) > 0 then
+		INCOCCUP_TEXT2 = INCOCCUP_TEXT;
+	endif;
+	
 
 //--------------------------------------------
 PROC INTRVW
@@ -851,6 +887,13 @@ PROC CTRAINING
 	
 //---------------------------------------------------------------------------
 
+PROC OCCUPTR_TEXT2
+postproc
+	if length(strip($)) > 0 then
+		OCCUPTR_TEXT = $;
+	endif;
+	
+//------------------------------------------------
 PROC TRAINEDFOROCC
 
 	//if never trained, skip to Worked last week
@@ -860,6 +903,13 @@ PROC TRAINEDFOROCC
 	
 //---------------------------------------------------------------------------
 
+PROC OCCTRAINED_TEXT2
+postproc
+	if length(strip($)) > 0 then
+		OCCTRAINED_TEXT = $;
+	endif;
+	
+//------------------------------------------------
 PROC WORKED
 
 	//if worked, skip to full time or part time
@@ -960,7 +1010,7 @@ PROC EVERWKD
 PROC LSTWRKD
 postproc
 	if $ in 1:6,9 then
-		skip to LSTOCCUP_TEXT;
+		skip to LSTOCCUP_TEXT2;
 	endif;
 	
 //------------------------------------------------------------
@@ -972,9 +1022,23 @@ preproc
 	
 //-----------------------------------------------------
 
+PROC LSTOCCUP_TEXT2
+postproc
+	if length(strip($)) > 0 then
+		LSTOCCUP_TEXT = $;
+	endif;
+	
+//------------------------------------------------
+PROC LSTINDUS_TEXT2
+postproc
+	if length(strip($)) > 0 then
+		LSTINDUS_TEXT = $;
+	endif;
+	
+//------------------------------------------------
 PROC LSTINDUS_SECTOR
 Preproc
-	ask if length(strip(LSTINDUS_TEXT)) > 0;
+	ask if length(strip(LSTINDUS_TEXT2)) > 0;
 	
 {onfocus
 	if $ in 1,2 then
@@ -1036,30 +1100,54 @@ preproc
 	
 //-----------------------------------------------------
 
-PROC SOCCUP_TEXT
-
+PROC OCCUP_TEXT2
+postproc
+	if length(strip($)) > 0 then
+		OCCUP_TEXT = $;
+	endif;
+	
+//------------------------------------------------
+PROC SOCCUP_TEXT2
 preproc
 	//only ask if more than one job
-	ask if TWOJOBS = 1
+	ask if TWOJOBS = 1;
+	
+postproc
+	if length(strip($)) > 0 then
+		SOCCUP_TEXT = $;
+	endif;
+	
+//--------------------------------------------------------
+PROC INDUS_TEXT2
+postproc
+	if length(strip($)) > 0 then
+		INDUS_TEXT = $;
+	endif;
 	
 //--------------------------------------------------------
 PROC INDUS_SECTOR
 Preproc
-	ask if length(strip(INDUS_TEXT)) > 0;
+	ask if length(strip(INDUS_TEXT2)) > 0;
 	
 	if $ = notappl then
 		$ = 9;
 	endif;
-PROC SINDUS_TEXT
 
+//--------------------------------------------------
+PROC SINDUS_TEXT2
 preproc
 	//only ask if more than one job
-	ask if TWOJOBS = 1
+	ask if TWOJOBS = 1;
+	
+postproc
+	if length(strip($)) > 0 then
+		SINDUS_TEXT = $;
+	endif;
 	
 //--------------------------------------------------------
 PROC SINDUS_SECTOR
 Preproc
-	ask if length(strip(SINDUS_TEXT)) > 0;
+	ask if length(strip(SINDUS_TEXT2)) > 0;
 {onfocus		
 	if $ = notappl then
 		$ = 9;
@@ -1125,9 +1213,23 @@ PROC HPWORK
 	endif;
 	
 //-----------------------------------------------------------
+PROC FOCCUP_TEXT2
+postproc
+	if length(strip($)) > 0 then
+		FOCCUP_TEXT = $;
+	endif;
+	
+//--------------------------------------------------------
+PROC INCINDUS_TEXT2
+postproc
+	if length(strip($)) > 0 then
+		INCINDUS_TEXT = $;
+	endif;
+	
+//--------------------------------------------------------
 PROC INCINDUS_SECTOR
 Preproc
-	ask if length(strip(INCINDUS_TEXT)) > 0;
+	ask if length(strip(INCINDUS_TEXT2)) > 0;
 {onfocus	
 	if $ = notappl then
 		$ = 9;
@@ -1142,3 +1244,10 @@ PROC WORKBEFO
 	endif;
 	
 //---------------------------------------------------------------------
+PROC INCOCCUP_TEXT2
+postproc
+	if length(strip($)) > 0 then
+		INCOCCUP_TEXT = $;
+	endif;
+	
+//--------------------------------------------------------

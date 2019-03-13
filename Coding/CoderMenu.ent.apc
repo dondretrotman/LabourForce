@@ -15,7 +15,9 @@ string	ftpip,			//Stores ftp address
 		
 numeric	errflag,		//sets error flag
 		roundnumber,	//saves round number
-		indivcounttot	//counts individuals
+		indivcounttot,	//counts individuals
+		denominator,	//number of households (for calculating completed eds)
+		numerator		//number of completed households (for calculating completed eds)
 		;
 
 file	loginfile,		//saves login status in a file	
@@ -233,12 +235,21 @@ onfocus
 	username = getlabel(UNAME_VS1,UNAME);
 	HOUSEHOLD_COUNT = 0;
 	indivcounttot = 0;
-	trace("INDIVIDUAL_COUNT=%v",INDIVIDUAL_COUNT);
 	HOUSEHOLD_COUNT = countcases(LABOURFORCE_DICT where EDNO = CO_ED and RNDNO = CO_ROUND);
 	forcase LABOURFORCE_DICT where EDNO = CO_ED and RNDNO = CO_ROUND and VACANT = 2 do
 		indivcounttot = indivcounttot + NUMBER_OF_PERSONS;		//count all persons in completed cases
 	endfor;
 	INDIVIDUAL_COUNT = indivcounttot;
+	
+	{//determine if ED is completed 
+	denominator = countcases(ENUMERATIONREPORT_DICT where ERED_NO = CO_ED {and ERROUND = ME_ROUND} and datediff(WEEK_ENDING,sysdate("YYYYMMDD"),"m") <= 3);
+	numerator = countcases(ENUMERATIONREPORT_DICT where ERED_NO = CO_ED {and ERROUND = ME_ROUND} and ERCOMPLETED = 1 and datediff(WEEK_ENDING,sysdate("YYYYMMDD"),"m") <= 3);
+	//errmsg("numerator=%d, denominator=%d, %f",numerator,denominator,numerator/denominator);
+	if numerator/denominator >= 0.5 then		//if more than 50% of cases are marked as complete (Should always be either 0 or 1)
+		ED_STATUS = "COMPLETE";
+	elseif numerator/denominator < 0.5 then
+		ED_STATUS = "ONGOING";
+	endif;}
 	
 postproc
 	if $ = 1 then

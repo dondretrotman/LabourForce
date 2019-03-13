@@ -1,5 +1,5 @@
 ﻿[Dictionary]
-Version=CSPro 7.1
+Version=CSPro 7.2
 Label=CoderMenu
 Name=CODERMENU_DICT
 RecordTypeStart=1
@@ -24,7 +24,7 @@ Len=1
 Label=CoderMenu record
 Name=CODERMENU_REC
 RecordTypeValue='1'
-RecordLen=49
+RecordLen=58
 
 [Item]
 Label=User Name
@@ -165,3 +165,16 @@ Label=Individual count
 Name=INDIVIDUAL_COUNT
 Start=47
 Len=3
+
+[Item]
+Label=ED Status
+Name=ED_STATUS
+Start=50
+Len=9
+DataType=Alpha
+
+[ValueSet]
+Label=ED Status
+Name=ED_STATUS_VS1
+Value='Ongoing  ';Ongoing
+Value='Completed';Completed

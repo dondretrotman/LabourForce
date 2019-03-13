@@ -14,7 +14,7 @@ Name=FORM000
 Label=Menu questionnaire
 QuestionTextHeight=145
 Level=1
-Size=754,685
+Size=754,725
   
 Item=INTERVIEWER_MENU
 Item=SUPERVISOR_MENU
@@ -33,6 +33,7 @@ Item=ME_ROUND
 Item=USERID
 Item=UNAME
 Item=ALLOCATE_ENUMERATOR
+Item=MNO_CHANGE
   
 [EndForm]
   
@@ -64,33 +65,33 @@ Text=User Name
   
 [Field]
 Name=USERID
-Position=319,42,348,62
+Position=319,41,348,61
 Item=USERID,MENU_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
 Form=1
   
 [Text]
-Position=127,45,172,61
+Position=127,44,172,60
 Text=User ID
  
   
 [Field]
 Name=ME_ROUND
-Position=319,81,348,101
+Position=319,79,348,99
 Item=ME_ROUND,MENU_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
 Form=1
   
 [Text]
-Position=127,84,168,100
+Position=127,82,168,98
 Text=Round
  
   
 [Field]
 Name=ME_ED
-Position=319,120,362,140
+Position=319,117,362,137
 Item=ME_ED,MENU_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
@@ -98,13 +99,13 @@ DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=127,123,144,139
+Position=127,120,144,136
 Text=ED
  
   
 [Field]
 Name=LOGIN
-Position=319,159,334,179
+Position=319,155,334,175
 Item=LOGIN,MENU_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
@@ -112,13 +113,13 @@ DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=127,162,197,178
+Position=127,158,197,174
 Text=Main Menu
  
   
 [Field]
 Name=INTERVIEWER_MENU
-Position=319,198,348,218
+Position=319,193,348,213
 Item=INTERVIEWER_MENU,MENU_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
@@ -126,13 +127,13 @@ DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=127,201,238,217
+Position=127,196,238,212
 Text=Interviewer Menu
  
   
 [Field]
 Name=SUPERVISOR_MENU
-Position=319,237,334,257
+Position=319,231,334,251
 Item=SUPERVISOR_MENU,MENU_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
@@ -140,26 +141,26 @@ DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=127,240,234,256
+Position=127,234,234,250
 Text=Supervisor Menu
  
   
 [Field]
 Name=ADMIN_MENU
-Position=319,276,348,296
+Position=319,269,348,289
 Item=ADMIN_MENU,MENU_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=127,279,207,295
+Position=127,272,207,288
 Text=Admin Menu
  
   
 [Field]
 Name=CHOOSE_ROUND
-Position=319,315,348,335
+Position=319,307,348,327
 Item=CHOOSE_ROUND,MENU_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
@@ -167,26 +168,26 @@ DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=127,318,219,334
+Position=127,310,219,326
 Text=Choose Round
  
   
 [Field]
 Name=CHOOSE_ED
-Position=319,354,362,374
+Position=319,345,362,365
 Item=CHOOSE_ED,MENU_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
 Form=1
   
 [Text]
-Position=127,357,195,373
+Position=127,348,195,364
 Text=Choose ED
  
   
 [Field]
 Name=CHOOSE_QUESTIONNAIRE
-Position=319,393,488,413
+Position=319,383,488,403
 Item=CHOOSE_QUESTIONNAIRE,MENU_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
@@ -194,13 +195,13 @@ DataCaptureType=DropDown
 Form=1
   
 [Text]
-Position=127,396,261,412
+Position=127,386,261,402
 Text=Delete Questionnaire
  
   
 [Field]
 Name=CHOOSE_HOUSEHOLD
-Position=319,432,488,452
+Position=319,421,488,441
 Item=CHOOSE_HOUSEHOLD,MENU_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
@@ -208,13 +209,13 @@ DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=127,435,245,451
+Position=127,424,245,440
 Text=Choose Household
  
   
 [Field]
 Name=CHOOSE_CONTROL_SHEET
-Position=319,471,530,491
+Position=319,460,530,480
 Item=CHOOSE_CONTROL_SHEET,MENU_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
@@ -222,59 +223,72 @@ DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=127,474,265,490
+Position=127,463,265,479
 Text=Choose Control Sheet
  
   
 [Field]
 Name=DELETE_CONTROL_SHEET
-Position=319,511,530,531
+Position=319,499,530,519
 Item=DELETE_CONTROL_SHEET,MENU_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=127,514,259,530
+Position=127,502,259,518
 Text=Delete Control Sheet
  
   
 [Field]
 Name=ADMIN_DELETE_CONTROL_SHEET
-Position=319,551,530,571
+Position=319,538,530,558
 Item=ADMIN_DELETE_CONTROL_SHEET,MENU_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=127,554,304,570
+Position=127,541,304,557
 Text=Admin Delete Control Sheet
  
   
 [Field]
 Name=ADMIN_DELETE_QUESTIONNAIRE
-Position=319,591,488,611
+Position=319,577,488,597
 Item=ADMIN_DELETE_QUESTIONNAIRE,MENU_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=RadioButton
 Form=1
   
 [Text]
-Position=127,594,306,610
+Position=127,580,306,596
 Text=Admin Delete Questionnaire
  
   
 [Field]
+Name=MNO_CHANGE
+Position=319,616,488,636
+Item=MNO_CHANGE,MENU_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
+Form=1
+  
+[Text]
+Position=127,619,197,635
+Text=No Change
+ 
+  
+[Field]
 Name=ALLOCATE_ENUMERATOR
-Position=319,631,348,651
+Position=319,655,348,675
 Item=ALLOCATE_ENUMERATOR,MENU_DICT
 FieldLabelType=DictionaryLabel
 DataCaptureType=DropDown
 Form=1
   
 [Text]
-Position=127,634,257,650
+Position=127,658,257,674
 Text=Allocate enumerator
  
 [EndGroup]

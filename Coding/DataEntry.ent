@@ -6,6 +6,7 @@ AppType=DataEntry
 OperatorID=No
 PartialSave=Yes
 CaseTree=Never
+CenterForms=Yes
 [External Dictionaries]
 File=.\OccupationCodes.dcf
 File=.\IndustryCodes.dcf

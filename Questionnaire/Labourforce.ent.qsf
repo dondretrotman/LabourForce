@@ -1,5 +1,5 @@
 ﻿[CAPI QUESTIONS]
-Version=CSPro 7.1
+Version=CSPro 7.2
 
 [LANGUAGES]
 EN=English
@@ -204,8 +204,8 @@ EN=\pard\cf1\fs24 47. In what occupation does \b %LFIRST_NAME%\b0  hope to work?
 EN=}
 
 [QUESTION]
-Field=LABOURFORCE_DICT.FOCCUP_TEXT
-Occurrences=1:10
+Field=LABOURFORCE_DICT.FOCCUP_TEXT2
+Occurrences=1:40
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
@@ -342,6 +342,10 @@ EN=}
 [QUESTION]
 Field=LABOURFORCE_DICT.INCINDUS_TEXT
 Occurrences=1:10
+
+[QUESTION]
+Field=LABOURFORCE_DICT.INCINDUS_TEXT2
+Occurrences=1:40
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
@@ -358,8 +362,8 @@ EN=\pard\cf1\fs24 50. What was \b %LFIRST_NAME%'s\b0  last occupation?\par
 EN=}
 
 [QUESTION]
-Field=LABOURFORCE_DICT.INCOCCUP_TEXT
-Occurrences=1:10
+Field=LABOURFORCE_DICT.INCOCCUP_TEXT2
+Occurrences=1:40
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
@@ -396,6 +400,10 @@ EN=}
 [QUESTION]
 Field=LABOURFORCE_DICT.INDUS_TEXT
 Occurrences=1:10
+
+[QUESTION]
+Field=LABOURFORCE_DICT.INDUS_TEXT2
+Occurrences=1:40
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
@@ -615,6 +623,10 @@ EN=}
 [QUESTION]
 Field=LABOURFORCE_DICT.LSTINDUS_TEXT
 Occurrences=1:10
+
+[QUESTION]
+Field=LABOURFORCE_DICT.LSTINDUS_TEXT2
+Occurrences=1:40
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
@@ -640,8 +652,8 @@ EN=\pard\cf1\fs24 31. What is/was the occupation \b %LFIRST_NAME%\b0  is/was loo
 EN=}
 
 [QUESTION]
-Field=LABOURFORCE_DICT.LSTOCCUP_TEXT
-Occurrences=1:10
+Field=LABOURFORCE_DICT.LSTOCCUP_TEXT2
+Occurrences=1:40
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
@@ -757,8 +769,8 @@ EN=\pard\cf1\fs24 15. For what occupation was \b %LFIRST_NAME%\b0  trained?\par
 EN=}
 
 [QUESTION]
-Field=LABOURFORCE_DICT.OCCTRAINED_TEXT
-Occurrences=1:10
+Field=LABOURFORCE_DICT.OCCTRAINED_TEXT2
+Occurrences=1:40
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
@@ -775,8 +787,8 @@ EN=\pard\cf1\fs24 37. What is \b %LFIRST_NAME%'s\b0  \b main \b0 occupation?\par
 EN=}
 
 [QUESTION]
-Field=LABOURFORCE_DICT.OCCUP_TEXT
-Occurrences=1:10
+Field=LABOURFORCE_DICT.OCCUP_TEXT2
+Occurrences=1:40
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
@@ -793,8 +805,8 @@ EN=\pard\cf1\fs24 12. For what occupation is \b %LFIRST_NAME%\b0  being trained?
 EN=}
 
 [QUESTION]
-Field=LABOURFORCE_DICT.OCCUPTR_TEXT
-Occurrences=1:10
+Field=LABOURFORCE_DICT.OCCUPTR_TEXT2
+Occurrences=1:40
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
@@ -1009,8 +1021,8 @@ EN=\pard\cf1\fs24 37. What is \b %LFIRST_NAME%'s\b0  \b second \b0 occupation?\p
 EN=}
 
 [QUESTION]
-Field=LABOURFORCE_DICT.SOCCUP_TEXT
-Occurrences=1:10
+Field=LABOURFORCE_DICT.SOCCUP_TEXT2
+Occurrences=1:40
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1

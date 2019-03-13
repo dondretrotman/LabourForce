@@ -24,7 +24,7 @@ Len=1
 Label=Menu record
 Name=MENU_REC
 RecordTypeValue='1'
-RecordLen=123
+RecordLen=135
 
 [Item]
 Label=User Name
@@ -227,6 +227,7 @@ Value=3;Open Questionnaire
 Value=4;Delete Questionnaire
 Value=5;View Enumerator Report
 Value=7;Mark ED as complete
+Value=8;Process unchanged households
 Value=9;Back
 
 [ValueSet]
@@ -239,6 +240,7 @@ Value=4;Delete Questionnaire
 Value=5;View Enumerator Report
 Value=6;Allocate Officers
 Value=7;Mark ED as complete
+Value=8;Process unchanged households
 Value=9;Back
 
 [Item]
@@ -326,9 +328,16 @@ Len=12
 DataType=Alpha
 
 [Item]
+Label=No Change
+Name=MNO_CHANGE
+Start=122
+Len=12
+DataType=Alpha
+
+[Item]
 Label=Allocate enumerator
 Name=ALLOCATE_ENUMERATOR
-Start=122
+Start=134
 Len=2
 
 [ValueSet]

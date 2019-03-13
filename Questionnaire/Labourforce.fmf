@@ -1,5 +1,5 @@
 ﻿[FormFile]
-Version=CSPro 7.1
+Version=CSPro 7.2
 Name=LABOURFORCE_FF
 Label=Labourforce
 DefaultTextFont=-013 0000 0000 0000 0700 0000 0000 0000 0000 0000 0000 0000 0000 Arial
@@ -826,207 +826,207 @@ MaxField=NUMBER_OF_PERSONS
 DisplaySize=82,142,7293,538
 Orientation=Vertical
 ColumnWidth=0
-StubColumnWidth=0
+StubColumnWidth=104
 HeadingRowHeight=0
 FreeMovement=No
  
 [Text]
-Position=694,0,709,24
+Position=1394,0,1409,24
 Text=1
  
   
 [Text]
-Position=694,0,709,24
+Position=1394,0,1409,24
 Text=2
  
   
 [Text]
-Position=694,0,709,24
+Position=1394,0,1409,24
 Text=3
  
   
 [Text]
-Position=694,0,709,24
+Position=1394,0,1409,24
 Text=4
  
   
 [Text]
-Position=694,0,709,24
+Position=1394,0,1409,24
 Text=5
  
   
 [Text]
-Position=694,0,709,24
+Position=1394,0,1409,24
 Text=6
  
   
 [Text]
-Position=694,0,709,24
+Position=1394,0,1409,24
 Text=7
  
   
 [Text]
-Position=694,0,709,24
+Position=1394,0,1409,24
 Text=8
  
   
 [Text]
-Position=694,0,709,24
+Position=1394,0,1409,24
 Text=9
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=10
  
   
 [Text]
-Position=688,0,709,24
+Position=1388,0,1409,24
 Text=11
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=12
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=13
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=14
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=15
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=16
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=17
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=18
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=19
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=20
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=21
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=22
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=23
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=24
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=25
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=26
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=27
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=28
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=29
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=30
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=31
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=32
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=33
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=34
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=35
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=36
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=37
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=38
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=39
  
   
 [Text]
-Position=687,0,709,24
+Position=1387,0,1409,24
 Text=40
  
   
@@ -1572,10 +1572,9 @@ Position=1,0,104,40
 Text=12. Training for Occupation
  
 [Field]
-Name=OCCUPTR_TEXT
-Position=280,0,701,20
-Item=OCCUPTR_TEXT,LABOURFORCE_DICT
-UpperCase=Yes
+Name=OCCUPTR_TEXT2
+Position=0,0,1401,20
+Item=OCCUPTR_TEXT2,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -1629,14 +1628,13 @@ Text=14. Trained for occupation
 Width=40
   
 [HeaderText]
-Position=1,0,104,40
+Position=2,0,104,40
 Text=15. Occupation trained
  
 [Field]
-Name=OCCTRAINED_TEXT
-Position=280,0,701,20
-Item=OCCTRAINED_TEXT,LABOURFORCE_DICT
-UpperCase=Yes
+Name=OCCTRAINED_TEXT2
+Position=0,0,1401,20
+Item=OCCTRAINED_TEXT2,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -2114,10 +2112,9 @@ Position=24,0,104,40
 Text=31. Last Occupation
  
 [Field]
-Name=LSTOCCUP_TEXT
-Position=280,0,701,20
-Item=LSTOCCUP_TEXT,LABOURFORCE_DICT
-UpperCase=Yes
+Name=LSTOCCUP_TEXT2
+Position=0,0,1401,20
+Item=LSTOCCUP_TEXT2,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -2134,10 +2131,9 @@ Position=36,0,104,40
 Text=32a. Last Industry
  
 [Field]
-Name=LSTINDUS_TEXT
-Position=280,0,701,20
-Item=LSTINDUS_TEXT,LABOURFORCE_DICT
-UpperCase=Yes
+Name=LSTINDUS_TEXT2
+Position=0,0,1401,20
+Item=LSTINDUS_TEXT2,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -2473,10 +2469,9 @@ Position=26,0,104,40
 Text=37. Main occupation
  
 [Field]
-Name=OCCUP_TEXT
-Position=280,0,701,20
-Item=OCCUP_TEXT,LABOURFORCE_DICT
-UpperCase=Yes
+Name=OCCUP_TEXT2
+Position=0,0,1401,20
+Item=OCCUP_TEXT2,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -2493,10 +2488,9 @@ Position=22,0,104,40
 Text=37. Second occupation
  
 [Field]
-Name=SOCCUP_TEXT
-Position=280,0,701,20
-Item=SOCCUP_TEXT,LABOURFORCE_DICT
-UpperCase=Yes
+Name=SOCCUP_TEXT2
+Position=0,0,1401,20
+Item=SOCCUP_TEXT2,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -2513,10 +2507,9 @@ Position=39,0,104,40
 Text=38. Main industry
  
 [Field]
-Name=INDUS_TEXT
-Position=280,0,701,20
-Item=INDUS_TEXT,LABOURFORCE_DICT
-UpperCase=Yes
+Name=INDUS_TEXT2
+Position=0,0,1401,20
+Item=INDUS_TEXT2,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -2552,10 +2545,9 @@ Position=22,0,104,40
 Text=38. Second industry
  
 [Field]
-Name=SINDUS_TEXT
-Position=280,0,701,20
-Item=SINDUS_TEXT,LABOURFORCE_DICT
-UpperCase=Yes
+Name=SINDUS_TEXT2
+Position=0,0,1401,20
+Item=SINDUS_TEXT2,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -2891,10 +2883,9 @@ Position=2,0,104,40
 Text=47. Occupation wanted
  
 [Field]
-Name=FOCCUP_TEXT
-Position=280,0,701,20
-Item=FOCCUP_TEXT,LABOURFORCE_DICT
-UpperCase=Yes
+Name=FOCCUP_TEXT2
+Position=0,0,1401,20
+Item=FOCCUP_TEXT2,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -2911,10 +2902,9 @@ Position=20,0,104,40
 Text=48. Industry wanted
  
 [Field]
-Name=INCINDUS_TEXT
-Position=280,0,701,20
-Item=INCINDUS_TEXT,LABOURFORCE_DICT
-UpperCase=Yes
+Name=INCINDUS_TEXT2
+Position=0,0,1401,20
+Item=INCINDUS_TEXT2,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   
@@ -2970,10 +2960,9 @@ Position=26,0,104,40
 Text=50. Last occupation
  
 [Field]
-Name=INCOCCUP_TEXT
-Position=280,0,701,20
-Item=INCOCCUP_TEXT,LABOURFORCE_DICT
-UpperCase=Yes
+Name=INCOCCUP_TEXT2
+Position=0,0,1401,20
+Item=INCOCCUP_TEXT2,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
 UseUnicodeTextBox=Yes
   

@@ -9,6 +9,7 @@ CenterForms=Yes
 AutoAdvanceOnSelection=Yes
 [External Dictionaries]
 File=..\Questionnaire\Labourforce.dcf
+File=..\Reports\EnumerationReport.dcf
 [AppCode]
 File=.\CoderMenu.ent.apc
 [Message]
@@ -20,3 +21,4 @@ File=.\CoderMenu.fmf
 [Dictionary Types]
 Dict-Type=.\CoderMenu.dcf,Input,.\CoderMenu.fmf
 Dict-Type=..\Questionnaire\Labourforce.dcf,External
+Dict-Type=..\Reports\EnumerationReport.dcf,External

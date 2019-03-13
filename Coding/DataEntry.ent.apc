@@ -54,6 +54,41 @@ preproc
 		skip to next;
 	endif;
 	
+	//if new text fields are blank, copy old text fields to new fields
+	if length(strip(OCCUPTR_TEXT2)) = 0 and length(strip(OCCUPTR_TEXT)) > 0 then
+		OCCUPTR_TEXT2 = OCCUPTR_TEXT;
+	endif;
+	if length(strip(OCCTRAINED_TEXT2)) = 0 and length(strip(OCCTRAINED_TEXT)) > 0 then
+		OCCTRAINED_TEXT2 = OCCTRAINED_TEXT;
+	endif;
+	if length(strip(LSTOCCUP_TEXT2)) = 0 and length(strip(LSTOCCUP_TEXT)) > 0 then
+		LSTOCCUP_TEXT2 = LSTOCCUP_TEXT;
+	endif;
+	if length(strip(LSTINDUS_TEXT2)) = 0 and length(strip(LSTINDUS_TEXT)) > 0 then
+		LSTINDUS_TEXT2 = LSTINDUS_TEXT;
+	endif;
+	if length(strip(OCCUP_TEXT2)) = 0 and length(strip(OCCUP_TEXT)) > 0 then
+		OCCUP_TEXT2 = OCCUP_TEXT;
+	endif;
+	if length(strip(SOCCUP_TEXT2)) = 0 and length(strip(SOCCUP_TEXT)) > 0 then
+		SOCCUP_TEXT2 = SOCCUP_TEXT;
+	endif;
+	if length(strip(INDUS_TEXT2)) = 0 and length(strip(INDUS_TEXT)) > 0 then
+		INDUS_TEXT2 = INDUS_TEXT;
+	endif;
+	if length(strip(SINDUS_TEXT2)) = 0 and length(strip(SINDUS_TEXT)) > 0 then
+		SINDUS_TEXT2 = SINDUS_TEXT;
+	endif;
+	if length(strip(FOCCUP_TEXT2)) = 0 and length(strip(FOCCUP_TEXT)) > 0 then
+		FOCCUP_TEXT2 = FOCCUP_TEXT;
+	endif;
+	if length(strip(INCINDUS_TEXT2)) = 0 and length(strip(INCINDUS_TEXT)) > 0 then
+		INCINDUS_TEXT2 = INCINDUS_TEXT;
+	endif;
+	if length(strip(INCOCCUP_TEXT2)) = 0 and length(strip(INCOCCUP_TEXT)) > 0 then
+		INCOCCUP_TEXT2 = INCOCCUP_TEXT;
+	endif;
+	
 //---------------------------------------------------
 PROC OCCUPTR
 preproc

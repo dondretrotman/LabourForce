@@ -1,5 +1,5 @@
 ﻿[Dictionary]
-Version=CSPro 7.1
+Version=CSPro 7.2
 Label=Labourforce
 Name=LABOURFORCE_DICT
 RecordTypeStart=1
@@ -560,7 +560,7 @@ Name=LABOURFORCE_REC
 RecordTypeValue='2'
 Required=No
 MaxRecords=40
-RecordLen=1109
+RecordLen=1934
 
 [Item]
 Label=Individual Number
@@ -2998,3 +2998,91 @@ Len=1
 Label=43b. Last looked for work
 Name=SKADDWRK_VS1
 Link=104201640
+
+[Item]
+Label=12. Training for Occupation
+Name=OCCUPTR_TEXT2
+Note=Duplicate with longer text field
+Start=1110
+Len=75
+DataType=Alpha
+
+[Item]
+Label=15. Occupation trained
+Name=OCCTRAINED_TEXT2
+Note=Duplicate with longer text field
+Start=1185
+Len=75
+DataType=Alpha
+
+[Item]
+Label=31. Last Occupation
+Name=LSTOCCUP_TEXT2
+Note=Duplicate with longer text field
+Start=1260
+Len=75
+DataType=Alpha
+
+[Item]
+Label=32a. Last Industry
+Name=LSTINDUS_TEXT2
+Note=Duplicate with longer text field
+Start=1335
+Len=75
+DataType=Alpha
+
+[Item]
+Label=37. Main occupation
+Name=OCCUP_TEXT2
+Note=Duplicate with longer text field
+Start=1410
+Len=75
+DataType=Alpha
+
+[Item]
+Label=37. Second occupation
+Name=SOCCUP_TEXT2
+Note=Duplicate with longer text field
+Start=1485
+Len=75
+DataType=Alpha
+
+[Item]
+Label=38. Main industry
+Name=INDUS_TEXT2
+Note=Duplicate with longer text field
+Start=1560
+Len=75
+DataType=Alpha
+
+[Item]
+Label=38. Second industry
+Name=SINDUS_TEXT2
+Note=Duplicate with longer text field
+Start=1635
+Len=75
+DataType=Alpha
+
+[Item]
+Label=47. Occupation wanted
+Name=FOCCUP_TEXT2
+Note=Duplicate with longer text field
+Start=1710
+Len=75
+DataType=Alpha
+
+[Item]
+Label=48. Industry wanted
+Name=INCINDUS_TEXT2
+Note=Duplicate with longer text field
+Start=1785
+Len=75
+DataType=Alpha
+
+[Item]
+Label=50. Last occupation
+Name=INCOCCUP_TEXT2
+Note=Duplicate with longer text field
+Start=1860
+Len=75
+DataType=Alpha

@@ -50,3 +50,18 @@ User unnumbered messages:
 
 CSPRO Executor Normal End
 --------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Mar 13, 2019
+Start Time      15:52:21
+End Time        15:53:01
+
+CSPRO Process Summary
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
