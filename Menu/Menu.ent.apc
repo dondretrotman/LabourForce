@@ -7,8 +7,8 @@ TODO: 	Allow supervisors to mark an ED as complete
 PROC GLOBAL
 //--------------------------------Variable Declaration------------------------------------
 file 	pffFile,		//Creates a .pff file
-		loginfile		//saves login status in a file
-		;
+		loginfile;		//saves login status in a file
+		
 
 string 	rnd_ed,		//round and ED number to be downloaded
 		status,		//stores current login status
@@ -25,8 +25,12 @@ string 	rnd_ed,		//round and ED number to be downloaded
 		idno,		//ID for loading a case
 		uid,
 		edstatus,	//stores completion status for display on the report Completed\Ongoing
-		keyid
-		;
+		keyid,
+		prevround,	//stores house ID for previous round
+		curid,		//stores id for current case
+		caselabel,	//stroes caselabel for current case
+		newcaselabel;	//stores new case label for current case
+		
 
 numeric deleteflag,		//stores flag for case deletion
 		errflag,		//sets error flag
@@ -40,8 +44,9 @@ numeric deleteflag,		//stores flag for case deletion
 		numerator,		//number of completed households (for calculating completed eds)
 		denominator,	//number of households (for calculating completed eds)
 		allocationdate,	//last allocation date
-		a,i,j,k,l,m,n		//general counters and temp variables
-		;
+		tempround,		//calculates previous round
+		a,i,j,k,l,m,n;		//general counters and temp variables
+		
 
 //----------------------------------Array Declaration-------------------------------------
 array string	vsCode(99);		//valueset codes
@@ -50,6 +55,7 @@ array string 	address(99,3);	//stores addresses
 //array numeric	vsEDCode(10);	//stores ED
 //array string	vsEDLabel(10);	//Stores ED label
 array string	REPORTARRAY(50,13);	//stores enumerator report data (50 = number of records, 13 = number of fields (ERFEILD_OFFICER, ERSERIAL_NO,ERUNIT_NO,ERHH_SIZE,ERMALES,ERFEMALES,WEEK_ENDING,ERLAST-NAME, ERFIRST_NAME, ERADDRESS, ERSTART, EREND,ERREMARKS))
+array string	curcasearray(8);	//stores current case (VISITNO, ENMRTR, ROTATION, DATE, SUPERV, LENDDATE, LSTARTTIME, LENDTIME)
 
 //--------------------------------Function declaration------------------------------------
 //Launches the Control sheet
@@ -807,6 +813,72 @@ function edcomplete()
 	errmsg("ED %0d is now %s. Please select Upload Data in the main menu to save changes",ME_ED,edstatus);
 end;
 
+//process unchanged households
+function processnochange()
+	errmsg("Would you like to download the data from the previous round and insert it into this household?")
+		select("Yes",continue,"No",SUPERVISOR_MENU);
+	
+	//get previous round id
+	curid = MNO_CHANGE;
+	tempround = tonumber(curid[1:2]) - 1;
+	prevround = maketext("%2d%v",tempround,curid[3]);
+	
+	//download previous round
+	if connection(Mobile) and not getos() in 10,30 then
+		syncconnect(CSWeb, cswebip1,ftpun, ftppw);
+	elseif connection(WiFi) or getos() in 10,30 then
+		 if not syncconnect(CSWeb,cswebip2,ftpun,ftppw) then
+		 	syncconnect(CSWeb, cswebip1, ftpun, ftppw);
+		 endif;
+	endif;
+	syncdata(GET,LABOURFORCE_DICT,prevround);
+	syncdisconnect();
+	
+	if locate(LABOURFORCE_DICT,=,prevround) then
+		errmsg("case from previous round successfully downloaded (%V)",prevround);
+	else
+		errmsg("Case from previous round was NOT found");
+		reenter;
+	endif;
+	
+	if loadcase(LABOURFORCE_DICT,curid) then		//load current case and saves needed info in an array
+		curcasearray(1) = maketext("%V",VISITNO);
+		curcasearray(2) = maketext("%V",ENMRTR);
+		curcasearray(3) = ROTATION;
+		curcasearray(4) = maketext("%V",DATE);
+		curcasearray(5) = maketext("%V",SUPERV);
+		curcasearray(6) = maketext("%V",LENDDATE);
+		curcasearray(7) = maketext("%V",LSTARTTIME);
+		curcasearray(8) = maketext("%V",LENDTIME);
+		delcase(LABOURFORCE_DICT,curid);			//deletes the case
+	else
+		errmsg("cannot load case %v",curid);
+		reenter;
+	endif;
+	
+	if loadcase(LABOURFORCE_DICT,prevround) then		//load previous case and assign saved 
+		VISITNO = tonumber(curcasearray(1));
+		ENMRTR = tonumber(curcasearray(2));
+		ROTATION = curcasearray(3);
+		DATE = tonumber(curcasearray(4));
+		SUPERV = tonumber(curcasearray(5));
+		LENDDATE = tonumber(curcasearray(6));
+		LSTARTTIME = tonumber(curcasearray(7));
+		LENDTIME = tonumber(curcasearray(8));
+		RNDNO = 5;//tonumber(curid[1:2]);
+		NO_CHANGE = 2;
+		caselabel = getcaselabel(LABOURFORCE_DICT);
+		i = pos("-",caselabel);		//get position of first - in case label
+		newcaselabel = caselabel[1:i]+curid[1:2]+caselabel[i+2];  //TODO: GET THIS RIGHT!
+		errmsg("%V",newcaselabel);
+		setcaselabel(LABOURFORCE_DICT,newcaselabel);
+		writecase(LABOURFORCE_DICT);
+	else
+		errmsg("cannot write case %v",prevround);
+		reenter;
+	endif;
+end;
+
 //displays the manual
 function ViewManual()
 	execsystem("view:"+pathname(application)+"../Manual.pdf");
@@ -1418,13 +1490,27 @@ onfocus
 		if NO_CHANGE = 1 then		//if not a vacant household, include name
 			headindex = seek(LRTH = 0);
 			vscode(nextEntry) = maketext("%V%V%V%V%V",RNDNO,EDNO,PARNO,STRATUM,HHNO);
-			vslabel(nextEntry) = maketext("%S-%02d-%03d-%03d-%d-%03d",strip(LLAST_NAME(headindex)),RNDNO,EDNO,PARNO,STRATUM,HHNO);
+			vslabel(nextEntry) = maketext("%S-%02d-%03d-%03d-%d-%03d",strip(LSTLNAME),RNDNO,EDNO,PARNO,STRATUM,HHNO);
 			inc(nextEntry);
 		endif;
 	endfor;
 	
 	vscode(nextEntry) = "";
 	setvalueset($,vsCode,vsLabel);
+	
+	if vscode(1) = "" then		//if nothing is in the valueset
+		errmsg("There are no questionnaires available.");
+		if LOGIN = 1 then 
+			move to INTERVIEWER_MENU;
+		elseif LOGIN = 2 then
+			move to SUPERVISOR_MENU;
+		endif;
+	endif;
+
+postproc
+	MNO_CHANGE = maketext("%13.12s",MNO_CHANGE);
+	processnochange();
+	move to SUPERVISOR_MENU;
 PROC ALLOCATE_ENUMERATOR
 postproc
 	allocateenum();
