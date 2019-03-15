@@ -4,7 +4,7 @@ AppType=Entry
 Description=Continuous Labourforce Sample Survey
 [DataEntryInit]
 OperatorID=WDAVIS              
-StartMode=Add; 5 552011  4
+StartMode=Add; 4 172011254
 ShowInApplicationListing=Hidden
 AutoAdd=No
 Lock=CaseListing
@@ -19,11 +19,11 @@ ENUMERATIONREPORT_DICT=../Data/enumrpt.csdb|CSPRODB
 PFFFILE=
 [Parameters]
 OnExit=../Menu/Menu.pff
-RNDNO= 5
-EDNO= 55
+RNDNO= 4
+EDNO= 17
 PARNO=201
 STRATUM=1
-HHNO=  4
+HHNO=254
 ENMRTR=94
-ADDRESS=3RD AVE ALLEYNE LAND                                                                                
-BLDGNO=  4
+ADDRESS=
+BLDGNO=

@@ -815,8 +815,8 @@ end;
 
 //process unchanged households
 function processnochange()
-	errmsg("Would you like to download the data from the previous round and insert it into this household?")
-		select("Yes",continue,"No",SUPERVISOR_MENU);
+	//errmsg("Would you like to download the data from the previous round and insert it into this household?")
+	//	select("Yes",continue,"No",SUPERVISOR_MENU);
 	
 	//get previous round id
 	curid = MNO_CHANGE;
@@ -835,7 +835,20 @@ function processnochange()
 	syncdisconnect();
 	
 	if locate(LABOURFORCE_DICT,=,prevround) then
-		errmsg("case from previous round successfully downloaded (%V)",prevround);
+		//choose if to view the questionnaire or confirm no change
+		i=0;
+		do until i in 1,2,3
+			i = accept("case from previous round successfully downloaded.","View questionnaire","Confirm no change","Cancel");  //TODO: Would you like to view it?
+		enddo;
+		if i = 1 then
+			CHOOSE_HOUSEHOLD = prevround;
+			launchQuestionnaire();
+			reenter;
+		elseif i = 2 then
+		//continue
+		elseif i = 3 then
+			move to SUPERVISOR_MENU;
+		endif;
 	else
 		errmsg("Case from previous round was NOT found");
 		reenter;
@@ -869,8 +882,12 @@ function processnochange()
 		NO_CHANGE = 2;
 		caselabel = getcaselabel(LABOURFORCE_DICT);
 		i = pos("-",caselabel);		//get position of first - in case label
-		newcaselabel = caselabel[1:i]+curid[1:2]+caselabel[i+2];  //TODO: GET THIS RIGHT!
-		errmsg("%V",newcaselabel);
+		j = pos(":",caselabel);
+		if j = 0 then
+			j = 99;
+		endif;
+		newcaselabel = caselabel[1:i]+maketext("%02d",tonumber(curid[1:2]))+caselabel[i+3:j-11]; 
+		//errmsg("newcaselabel=%V, caselabel[1:i]=%v, curid[1:2]=%v, caselabel[i+2]=%v, j=%v",newcaselabel,caselabel[1:i],maketext("%02d",tonumber(curid[1:2])),caselabel[i+3:j-11],j);
 		setcaselabel(LABOURFORCE_DICT,newcaselabel);
 		writecase(LABOURFORCE_DICT);
 	else
