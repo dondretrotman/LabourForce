@@ -24,7 +24,7 @@ Len=1
 Label=Menu record
 Name=MENU_REC
 RecordTypeValue='1'
-RecordLen=135
+RecordLen=132
 
 [Item]
 Label=User Name
@@ -280,64 +280,58 @@ Value=8;8
 Value=9;9
 
 [Item]
-Label=Choose ED
-Name=CHOOSE_ED
-Start=38
-Len=3
-
-[Item]
 Label=Delete Questionnaire
 Name=CHOOSE_QUESTIONNAIRE
-Start=41
+Start=38
 Len=12
 DataType=Alpha
 
 [Item]
 Label=Choose Household
 Name=CHOOSE_HOUSEHOLD
-Start=53
+Start=50
 Len=12
 DataType=Alpha
 
 [Item]
 Label=Choose Control Sheet
 Name=CHOOSE_CONTROL_SHEET
-Start=65
+Start=62
 Len=15
 DataType=Alpha
 
 [Item]
 Label=Delete Control Sheet
 Name=DELETE_CONTROL_SHEET
-Start=80
+Start=77
 Len=15
 DataType=Alpha
 
 [Item]
 Label=Admin Delete Control Sheet
 Name=ADMIN_DELETE_CONTROL_SHEET
-Start=95
+Start=92
 Len=15
 DataType=Alpha
 
 [Item]
 Label=Admin Delete Questionnaire
 Name=ADMIN_DELETE_QUESTIONNAIRE
-Start=110
+Start=107
 Len=12
 DataType=Alpha
 
 [Item]
 Label=No Change
 Name=MNO_CHANGE
-Start=122
+Start=119
 Len=12
 DataType=Alpha
 
 [Item]
 Label=Allocate enumerator
 Name=ALLOCATE_ENUMERATOR
-Start=134
+Start=131
 Len=2
 
 [ValueSet]

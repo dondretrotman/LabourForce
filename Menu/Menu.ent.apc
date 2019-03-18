@@ -244,42 +244,8 @@ end;
 function uploadData()
 	errflag = 0;		//clears  flag
 //start csweb upload
-	if syncconnect(CSWeb,cswebip1,ftpun,ftppw) then		//connect to FTP when outside of the Government WAN
+	if syncconnect(CSWeb,cswebip1,ftpun,ftppw) or syncconnect(CSWeb,cswebip2,ftpun,ftppw)then		//connect to FTP when outside of the Government WAN
 		if not syncdata(PUT,LABOURFORCE_DICT,maketext("%5s",rnd_ED)) then		//Upload Labourforce data
-			inc(errflag);
-		endif;
-		if not syncdata(PUT,LISTING_DICT,maketext("%5s",rnd_ED)) then		//Upload Control Sheet
-			inc(errflag);
-		endif;
-		if not syncdata(PUT,ENUMERATIONREPORT_DICT,maketext("%v",ME_ED)) then	//upload enumeration report
-			inc(errflag);
-		endif;
-		if not syncfile(PUT,"../Data/Labourforce.cslog",maketext("LabourforceLogs/Labourforce%s.cslog",getdeviceid())) then		//Upload paradata logs
-			inc(errflag);
-		endif;
-		if not syncdata(GET, ALLOCATION_DICT) then		//get allocations
-			inc(errflag);
-		endif;
-		//syncfile(PUT,"../Photos/*.jpg", "/CSPro/Photos/");
-		if not syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen") then		//update questionnaire
-			inc(errflag);
-		endif;
-		if not syncfile(GET,"/CSPro/Update/ControlSheets/Listing.pen","../ControlSheets/Listing.pen") then		//update control sheet
-			inc(errflag);
-		endif;
-		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
-			inc(errflag);
-		endif;
-		if not syncfile(GET,"/CSPro/Update/Reports/EnumerationReport.pen","../Reports/EnumerationReport.pen") then		//update Enumeration Report
-			inc(errflag);
-		endif;
-		if not syncfile(GET,"/CSPro/Update/Reports/enumeratorrpt.html","../Reports/enumeratorrpt.html") then		//report template
-			inc(errflag);
-		endif;
-		syncdisconnect();		//disconnect
-
-	elseif syncconnect(CSWeb,cswebip2,ftpun,ftppw) then		//connect to FTP when within the Government WAN
-		if not syncdata(PUT,LABOURFORCE_DICT,maketext("%5s",rnd_ED)) then		//Upload Lacourforce data
 			inc(errflag);
 		endif;
 		if not syncdata(PUT,LISTING_DICT,maketext("%5s",rnd_ED)) then		//Upload Control Sheet
@@ -329,7 +295,7 @@ end;
 function updateApp()
 	errflag = 0;
 //start csweb update
-	if syncconnect(CSWeb,cswebip1,ftpun,ftppw) then		//connect to FTP when outside of the Government WAN
+	if syncconnect(CSWeb,cswebip1,ftpun,ftppw) or syncconnect(CSWeb,cswebip2,ftpun,ftppw) then		//connect to FTP when outside of the Government WAN
 		if not syncdata(GET, ALLOCATION_DICT) then		//get allocations
 			inc(errflag);
 		endif;
@@ -337,26 +303,6 @@ function updateApp()
 			inc(errflag);
 		endif;
 		if not syncfile(GET,"/CSPro/Update/ControlSheets/Listing.pen","../ControlSheets/Listing.pen") then		//update Control Sheets
-			inc(errflag);
-		endif;
-		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
-			inc(errflag);
-		endif;
-		if not syncfile(GET,"/CSPro/Update/Reports/EnumerationReport.pen","../Reports/EnumerationReport.pen") then		//update Enumeration Report
-			inc(errflag);
-		endif;
-		if not syncfile(GET,"/CSPro/Update/Reports/enumeratorrpt.html","../Reports/enumeratorrpt.html") then		//report template
-			inc(errflag);
-		endif;
-		syncdisconnect();		//disconnect
-	elseif syncconnect(CSWeb,cswebip2,ftpun,ftppw) then		//connect to FTP when within the Government WAN
-		if not syncdata(GET, ALLOCATION_DICT) then		//get allocations
-			inc(errflag);
-		endif;
-		if not syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen") then		//update questionnaire
-			inc(errflag);
-		endif;
-		if not syncfile(GET,"/CSPro/Update/ControlSheets/Listing.pen","../ControlSheets/Listing.pen") then		//update Control Sheet
 			inc(errflag);
 		endif;
 		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
@@ -390,38 +336,8 @@ function downloadData(string rnd_edno)
 //start csweb download
 	errmsg("Attempting to download all data from Round :%s, ED :%s",rnd_edno[1:2],rnd_edno[3:3]);
 	//errmsg("Data dictionary value Round :%V, ED :%V", RNDNO,EDNO);
-	if syncconnect(CSWeb,cswebip1,ftpun,ftppw) then		//connect to FTP when outside of the government WAN
+	if syncconnect(CSWeb,cswebip1,ftpun,ftppw) or syncconnect(CSWeb,cswebip2,ftpun,ftppw) then		//connect to FTP when outside of the government WAN
 		if not syncdata(GET,LABOURFORCE_DICT,maketext("%v%v",rnd_edno[1:2],rnd_edno[3:3])) then		//get labourforce data for round and ED
-			inc(errflag);
-		endif;
-		if not syncdata(GET,LISTING_DICT,maketext("%5s",rnd_edno)) then			//get control sheet data for round and ED
-			inc(errflag);
-		endif;
-		if not syncdata(get,ENUMERATIONREPORT_DICT,maketext("%v",ME_ED)) then	//get enumeration report for ED
-			inc(errflag);
-		endif;
-		if not syncdata(GET, ALLOCATION_DICT) then		//get allocations
-			inc(errflag);
-		endif;
-		//syncfile(GET,"CSPro/Photos/*.jpg","../Photos/");
-		if not syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen") then		//update questionnaire
-			inc(errflag);
-		endif;
-		if not syncfile(GET,"/CSPro/Update/ControlSheets/Listing.pen","../ControlSheets/Listing.pen") then		//update control sheet
-			inc(errflag);
-		endif;
-		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
-			inc(errflag);
-		endif;
-		if not syncfile(GET,"/CSPro/Update/Reports/EnumerationReport.pen","../Reports/EnumerationReport.pen") then		//update Enumeration Report
-			inc(errflag);
-		endif;
-		if not syncfile(GET,"/CSPro/Update/Reports/enumeratorrpt.html","../Reports/enumeratorrpt.html") then		//report template
-			inc(errflag);
-		endif;
-		syncdisconnect();		//disconnect
-	elseif syncconnect(CSWeb,cswebip2,ftpun,ftppw) then		//connect to FTP when outside of the government WAN
-		if not syncdata(GET,LABOURFORCE_DICT,maketext("%5s",rnd_edno)) then		//get labourforce data for round and ED
 			inc(errflag);
 		endif;
 		if not syncdata(GET,LISTING_DICT,maketext("%5s",rnd_edno)) then			//get control sheet data for round and ED
@@ -464,69 +380,11 @@ function downloadData(string rnd_edno)
 	endif;
 end;
 
-{function downloadNewRound(string rnd_edno)
-	errflag = 0;
-	errmsg("Attempting to download all data from Round :%s, ED :%s",rnd_edno[1:2],rnd_edno[3:3]);
-	//errmsg("Data dictionary value Round :%V, ED :%V", RNDNO,EDNO);
-	if syncconnect(FTP,ftpip1,ftpun,ftppw) then		//connect to FTP when outside of the government WAN
-		if not syncdata(GET,LABOURFORCE_DICT,maketext("%5s",rnd_edno)) then		//get labourforce data for round and ED
-			inc(errflag);
-		endif;
-		if not syncdata(GET,LISTING_DICT,maketext("%5s",rnd_edno)) then			//get control sheet data for round and ED
-			inc(errflag);
-		endif;
-		//syncfile(GET,"CSPro/Photos/*.jpg","../Photos/");
-		if not syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen") then		//update questionnaire
-			inc(errflag);
-		endif;
-		if not syncfile(GET,"/CSPro/Update/ControlSheets/Listing.pen","../ControlSheets/Listing.pen") then		//update control sheet
-			inc(errflag);
-		endif;
-		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
-			inc(errflag);
-		endif;
-		syncdisconnect();		//disconnect
-	elseif syncconnect(FTP,ftpip2,ftpun,ftppw) then		//connect to FTP when outside of the government WAN
-		if not syncdata(GET,LABOURFORCE_DICT,maketext("%5s",rnd_edno)) then		//get labourforce data for round and ED
-			inc(errflag);
-		endif;
-		if not syncdata(GET,LISTING_DICT,maketext("%5s",rnd_edno)) then			//get control sheet data for round and ED
-			inc(errflag);
-		endif;
-		//syncfile(GET,"CSPro/Photos/*.jpg","../Photos/");
-		if not syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen") then		//update questionnaire
-			inc(errflag);
-		endif;
-		if not syncfile(GET,"/CSPro/Update/ControlSheets/Listing.pen","../ControlSheets/Listing.pen") then		//update control sheet
-			inc(errflag);
-		endif;
-		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
-			inc(errflag);
-		endif;
-		syncdisconnect();		//disconnect
-	else
-		inc(errflag,2);
-	endif;
-	if errflag > 1 then
-		errmsg("Download of round %s, ED %s failed, Please try again. %d errors were found",rnd_edno[1:2],rnd_edno[3:3],errflag);
-	elseif errflag = 0 then
-		errmsg("Download of round %s, ED %s was successful",rnd_edno[1:2],rnd_edno[3:3]);
-		savesetting("Updated",maketext("%d",sysdate("YYYYMMDD")));
-	elseif errflag = 1 then
-		errmsg("Download of round %s, ED %s failed, Please try again",rnd_edno[1:2],rnd_edno[3:3]);
-	endif;
-end;}
-
 //function to upload control sheets from the computer to the server for use by the tablets
 function uploadcontrolsheets()
 	errflag = 0;
 //start csweb upload
-	if syncconnect(CSWeb,cswebip2,ftpun,ftppw) then		//connect to FTP when within the Government WAN
-		if not syncdata(PUT,LISTING_DICT,maketext("%5s",rnd_ed)) then		//Upload Control Sheet
-			inc(errflag);
-		endif;
-		syncdisconnect();		//disconnect
-	elseif syncconnect(CSWeb,cswebip1,ftpun,ftppw) then		//connect to FTP when within the Government WAN
+	if syncconnect(CSWeb,cswebip2,ftpun,ftppw) or syncconnect(CSWeb,cswebip1,ftpun,ftppw) then		//connect to FTP when within the Government WAN
 		if not syncdata(PUT,LISTING_DICT,maketext("%5s",rnd_ed)) then		//Upload Control Sheet
 			inc(errflag);
 		endif;
@@ -546,16 +404,8 @@ end;
 function downloadcontrolsheets(string rnd_edno)
 	errflag = 0;
 //start csweb download
-	if syncconnect(CSWeb,cswebip1,ftpun,ftppw) then		//connect to FTP when within the Government WAN
+	if syncconnect(CSWeb,cswebip1,ftpun,ftppw) or syncconnect(CSWeb,cswebip2,ftpun,ftppw) then		//connect to FTP when within the Government WAN
 		if not syncdata(GET,LISTING_DICT,maketext("%5s",rnd_edno)) then		//download Control Sheet
-			inc(errflag);
-		endif;
-		if not syncdata(GET, ALLOCATION_DICT) then		//get allocations
-			inc(errflag);
-		endif;
-		syncdisconnect();		//disconnect
-	elseif syncconnect(CSWeb,cswebip2,ftpun,ftppw) then		//connect to FTP when within the Government WAN
-		if not syncdata(GET,LISTING_DICT,maketext("%5s",rnd_edno)) then		//Download Control Sheet
 			inc(errflag);
 		endif;
 		if not syncdata(GET, ALLOCATION_DICT) then		//get allocations
@@ -927,16 +777,7 @@ preproc
 	ftppw = "Census2020ADM!N";
 	cswebip1 = "http://64.119.198.70:8082/csweb/api";
 	cswebip2 = "http://10.129.20.110:8082/csweb/api";
-	
-	//caculate current round
-	{rndmonth = sysdate("MM");
-	recode 	rndmonth => rnd;
-			1-3		=>	1;
-			4-6		=>	2;
-			7-9		=>	3;
-			10-12	=>	4;
-	endrecode;}
-	
+		
 //--------------------------------------------------------------
 PROC UNAME
 preproc
@@ -1245,20 +1086,14 @@ PROC CHOOSE_ROUND
 onfocus
 	//rnd_ed = maketext("%v%v", CHOOSE_ROUND,ME_ED);
 	if SUPERVISOR_MENU = 1 then		//if downloading questionnaires as Supervisor
-		//rnd_ed = maketext("%v%v", CHOOSE_ROUND,ME_ED);
-		//errmsg("%S",maketext("%v%v", CHOOSE_ROUND,ME_ED));
 		downloadData(rnd_ed);		//download questionnaires etc
 		move to SUPERVISOR_MENU;
 	elseif INTERVIEWER_MENU = 5 then		//if downloading control sheets as enumerator
-		//rnd_ed = maketext("%v%v", CHOOSE_ROUND,ME_ED);
 		downloadcontrolsheets(rnd_ed);		//download control sheets
 		move to INTERVIEWER_MENU;
 	elseif INTERVIEWER_MENU = 10 then
-		//rnd_ed = maketext("%v%v", CHOOSE_ROUND,ME_ED);
-		//downloadnewround(rnd_ed);
 		move to INTERVIEWER_MENU;
 	elseif ADMIN_MENU = 1 then
-		//rnd_ed = maketext("%v%v", CHOOSE_ROUND,ME_ED);
 		errmsg("%S",maketext("%v%v", CHOOSE_ROUND,ME_ED));
 		downloadData(rnd_ed);		//download questionnaires etc
 		move to ADMIN_MENU; 
@@ -1268,18 +1103,8 @@ onfocus
 	endif;
 
 //---------------------------------------------------------
-PROC CHOOSE_ED
-{TODO: DELETE THIS VARIABLE
-//DEBUG: Doesn't work, text formatting doesn't match data dictionary somehow
-Postproc
-	rnd_ed = maketext("%2d%3d", CHOOSE_ROUND,ME_ED);
-	downloadData(rnd_ed);
-	
-	move to LOGIN;
-
-//---------------------------------------------------------
-}
 PROC CHOOSE_QUESTIONNAIRE
+//Mark questionnaire for deletion
 onfocus
 	numeric nextEntry = 1;
 	numeric headindex;
@@ -1301,14 +1126,14 @@ onfocus
 	vscode(nextEntry) = "";
 	setvalueset($,vsCode,vsLabel);
 	
-	{if vscode(1) = "" then		//if nothing is in the valueset
+	if vscode(1) = "" then		//if nothing is in the valueset
 		errmsg("There are no questionnaires available for this ED (ED%d). Please fill out a control sheet first",ME_ED);
 		if LOGIN = 1 then 
 			move to INTERVIEWER_MENU;
 		elseif LOGIN = 2 then
 			move to SUPERVISOR_MENU;
 		endif;
-	endif;}
+	endif;
 
 postproc
 	deleteQuestionnaire();
@@ -1320,6 +1145,7 @@ postproc
 
 //---------------------------------------------------------
 PROC CHOOSE_HOUSEHOLD
+//open questionnaire
 onfocus
 	numeric nextEntry = 1;
 	forcase LISTING_DICT where LSTED = ME_ED and LSTROUND = ME_ROUND do
@@ -1356,6 +1182,7 @@ postproc
 
 //--------------------------------------------------------------------------
 PROC CHOOSE_CONTROL_SHEET
+//Open control sheet
 onfocus
 	numeric nextEntry = 1;
 	forcase LISTING_DICT where LSTED = ME_ED and LSTROUND = ME_ROUND do
@@ -1388,6 +1215,7 @@ postproc
 
 //--------------------------------------------------------------------------
 PROC DELETE_CONTROL_SHEET
+//mark control sheet for deletion
 onfocus
 	numeric nextEntry = 1;
 	forcase LISTING_DICT where LSTED = ME_ED and LSTROUND = ME_ROUND do
@@ -1420,6 +1248,7 @@ postproc
 
 //--------------------------------------------------------------------------
 PROC ADMIN_DELETE_CONTROL_SHEET
+//actually delete control sheet
 onfocus
 	numeric nextEntry = 1;
 	forcase LISTING_DICT where LSTED = ME_ED and LSTROUND = ME_ROUND do
@@ -1432,7 +1261,7 @@ onfocus
 	
 	setvalueset($, vsCode, vsLabel);
 	
-	{if vscode(1) = "" then		//if nothing is in the valueset
+	if vscode(1) = "" then		//if nothing is in the valueset
 		errmsg("There are no Control Sheets available for this ED (ED%d). Please fill out a control sheet first",ME_ED);
 		if LOGIN = 1 then 
 			move to INTERVIEWER_MENU;
@@ -1440,7 +1269,6 @@ onfocus
 			move to SUPERVISOR_MENU;
 		endif;
 	endif;
-}
 
 postproc
 	adminDeleteControlSheet();
@@ -1454,6 +1282,7 @@ postproc
 
 //--------------------------------------------------------------------------
 PROC ADMIN_DELETE_QUESTIONNAIRE
+//actually delete questionnaire
 onfocus
 	numeric nextEntry = 1;
 	numeric headindex;
@@ -1475,14 +1304,14 @@ onfocus
 	vscode(nextEntry) = "";
 	setvalueset($,vsCode,vsLabel);
 	
-	{if vscode(1) = "" then		//if nothing is in the valueset
+	if vscode(1) = "" then		//if nothing is in the valueset
 		errmsg("There are no questionnaires available for this ED (ED%d). Please fill out a control sheet first",ME_ED);
 		if LOGIN = 1 then 
 			move to INTERVIEWER_MENU;
 		elseif LOGIN = 2 then
 			move to SUPERVISOR_MENU;
 		endif;
-	endif;}
+	endif;
 
 postproc
 	adminDeleteQuestionnaire();
@@ -1496,8 +1325,7 @@ postproc
 
 //---------------------------------------------------------
 PROC MNO_CHANGE
-
-//TODO: TO BE COMPLETED!!!
+//choose unchanged questionnaires
 onfocus
 	numeric nextEntry = 1;
 	numeric headindex;
@@ -1532,3 +1360,5 @@ PROC ALLOCATE_ENUMERATOR
 postproc
 	allocateenum();
 	move to SUPERVISOR_MENU;
+
+//----------------------------------------------------

@@ -19,7 +19,6 @@ Size=754,725
 Item=INTERVIEWER_MENU
 Item=SUPERVISOR_MENU
 Item=LOGIN
-Item=CHOOSE_ED
 Item=CHOOSE_ROUND
 Item=CHOOSE_QUESTIONNAIRE
 Item=CHOOSE_HOUSEHOLD
@@ -170,19 +169,6 @@ Form=1
 [Text]
 Position=127,310,219,326
 Text=Choose Round
- 
-  
-[Field]
-Name=CHOOSE_ED
-Position=319,345,362,365
-Item=CHOOSE_ED,MENU_DICT
-UpperCase=Yes
-FieldLabelType=DictionaryLabel
-Form=1
-  
-[Text]
-Position=127,348,195,364
-Text=Choose ED
  
   
 [Field]

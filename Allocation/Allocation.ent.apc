@@ -7,7 +7,7 @@ PROC ALLOCATION_FF
 
 PROC ALLOCATION_QUEST
 postproc
-	errmsg("Please select Upload Data in the main menu to save changes tp the server");
+	errmsg("Please select 'Upload Data' in the main menu to save changes to the server");
 PROC AUSER_ID
 preproc
 	AUSER_ID = tonumber(sysparm("AUSER_ID"));
