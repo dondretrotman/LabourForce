@@ -4,7 +4,7 @@ AppType=Entry
 Description=Continuous Labourforce Sample Survey
 [DataEntryInit]
 OperatorID=WDAVIS              
-StartMode=Add; 4 172011254
+StartMode=Add; 53692042100
 ShowInApplicationListing=Hidden
 AutoAdd=No
 Lock=CaseListing
@@ -19,11 +19,11 @@ ENUMERATIONREPORT_DICT=../Data/enumrpt.csdb|CSPRODB
 PFFFILE=
 [Parameters]
 OnExit=../Menu/Menu.pff
-RNDNO= 4
-EDNO= 17
-PARNO=201
-STRATUM=1
-HHNO=254
+RNDNO= 5
+EDNO=369
+PARNO=204
+STRATUM=2
+HHNO=100
 ENMRTR=94
-ADDRESS=
-BLDGNO=
+ADDRESS=HEDDINGS NEW ROAD                                                                                   
+BLDGNO= 11

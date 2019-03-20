@@ -518,8 +518,7 @@ preproc
 	
 //-----------------------------------------------------
 PROC LRTH
-
-	
+postproc
 	//Set case labels in case listings to an easier to read format to include name of head
 	if $ = 0 then
 		caselabel = maketext("%s-%02d-%03d-%03d-%d-%03d",strip(LLAST_NAME),RNDNO,EDNO,PARNO,STRATUM,HHNO);
@@ -622,7 +621,7 @@ postproc
 	
 //----------------------------------------------------
 PROC ADDPER
-
+postproc
 	if $ = 2 then
 		//check that there's one head of household
 		numheads = count(LRTH where LRTH = 0);
