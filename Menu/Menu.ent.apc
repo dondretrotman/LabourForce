@@ -257,8 +257,14 @@ function uploadData()
 		if not syncfile(PUT,"../Data/Labourforce.cslog",maketext("LabourforceLogs/Labourforce%s.cslog",getdeviceid())) then		//Upload paradata logs
 			inc(errflag);
 		endif;
-		if not syncdata(GET, ALLOCATION_DICT) then		//get allocations
-			inc(errflag);
+		if USERID >= 90 then
+			if not syncdata(BOTH, ALLOCATION_DICT) then		//sync allocations if supervisor
+				inc(errflag);
+			endif;
+		else
+			if not syncdata(GET, ALLOCATION_DICT) then		//if enumerator get allocations only
+				inc(errflag);
+			endif;
 		endif;
 		//syncfile(PUT,"../Photos/*.jpg", "/CSPro/Photos/");
 		if not syncfile(GET,"/CSPro/Update/Questionnaire/Labourforce.pen","../Questionnaire/Labourforce.pen") then		//update questionnaire
@@ -268,6 +274,9 @@ function uploadData()
 			inc(errflag);
 		endif;
 		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
+			inc(errflag);
+		endif;
+		if not syncfile(GET,"/CSPro/Update/Allocation/Allocation.pen","../Allocation/Allocation.pen") then		//update Allocation form
 			inc(errflag);
 		endif;
 		if not syncfile(GET,"/CSPro/Update/Reports/EnumerationReport.pen","../Reports/EnumerationReport.pen") then		//update Enumeration Report
@@ -306,6 +315,9 @@ function updateApp()
 			inc(errflag);
 		endif;
 		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
+			inc(errflag);
+		endif;
+		if not syncfile(GET,"/CSPro/Update/Allocation/Allocation.pen","../Allocation/Allocation.pen") then		//update Allocation form
 			inc(errflag);
 		endif;
 		if not syncfile(GET,"/CSPro/Update/Reports/EnumerationReport.pen","../Reports/EnumerationReport.pen") then		//update Enumeration Report
@@ -357,6 +369,9 @@ function downloadData(string rnd_edno)
 			inc(errflag);
 		endif;
 		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
+			inc(errflag);
+		endif;
+		if not syncfile(GET,"/CSPro/Update/Allocation/Allocation.pen","../Allocation/Allocation.pen") then		//update Allocation form
 			inc(errflag);
 		endif;
 		if not syncfile(GET,"/CSPro/Update/Reports/EnumerationReport.pen","../Reports/EnumerationReport.pen") then		//update Enumeration Report
@@ -1206,6 +1221,7 @@ onfocus
 
 
 postproc
+	CHOOSE_CONTROL_SHEET = maketext("%16.15s",CHOOSE_CONTROL_SHEET);
 	launchSupervisorControlSheet();
 	if LOGIN = 1 then 
 		move to INTERVIEWER_MENU;
@@ -1239,6 +1255,7 @@ onfocus
 
 
 postproc
+	DELETE_CONTROL_SHEET = maketext("%16.15s",DELETE_CONTROL_SHEET);
 	deleteControlSheet();
 	if LOGIN = 1 then 
 		move to INTERVIEWER_MENU;
@@ -1271,6 +1288,7 @@ onfocus
 	endif;
 
 postproc
+	ADMIN_DELETE_CONTROL_SHEET = maketext("%16.15s",ADMIN_DELETE_CONTROL_SHEET);
 	adminDeleteControlSheet();
 	if LOGIN = 1 then 
 		move to INTERVIEWER_MENU;
@@ -1314,6 +1332,7 @@ onfocus
 	endif;
 
 postproc
+	ADMIN_DELETE_QUESTIONNAIRE = maketext("%13.12s",ADMIN_DELETE_QUESTIONNAIRE);
 	adminDeleteQuestionnaire();
 	if LOGIN = 1 then 
 		move to INTERVIEWER_MENU;

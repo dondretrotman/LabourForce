@@ -3,7 +3,7 @@ Version=CSPro 7.1
 AppType=Entry
 Description=CLFSS Control Sheet
 [DataEntryInit]
-OperatorID=MBEST               
+OperatorID=VTAYLOR             
 StartMode=Add
 ShowInApplicationListing=Hidden
 AutoAdd=Yes
@@ -16,6 +16,6 @@ PFFFILE=
 [Parameters]
 OnExit=../Menu/Menu.pff
 MODE=DEFAULT
-LSTENUMCODE=1
+LSTENUMCODE=11
 LSTROUND= 5
-LSTED=292
+LSTED=174

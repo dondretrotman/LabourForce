@@ -888,8 +888,8 @@ PROC CTRAINING
 
 PROC OCCUPTR_TEXT2
 postproc
-	if length(strip($)) > 0 then
-		OCCUPTR_TEXT = $;
+	if length(strip($(curocc()))) > 0 then
+		OCCUPTR_TEXT(curocc()) = $;
 	endif;
 	
 //------------------------------------------------
@@ -904,8 +904,8 @@ PROC TRAINEDFOROCC
 
 PROC OCCTRAINED_TEXT2
 postproc
-	if length(strip($)) > 0 then
-		OCCTRAINED_TEXT = $;
+	if length(strip($(curocc()))) > 0 then
+		OCCTRAINED_TEXT(curocc()) = $;
 	endif;
 	
 //------------------------------------------------
@@ -1023,15 +1023,15 @@ preproc
 
 PROC LSTOCCUP_TEXT2
 postproc
-	if length(strip($)) > 0 then
-		LSTOCCUP_TEXT = $;
+	if length(strip($(curocc()))) > 0 then
+		LSTOCCUP_TEXT(curocc()) = $;
 	endif;
 	
 //------------------------------------------------
 PROC LSTINDUS_TEXT2
 postproc
-	if length(strip($)) > 0 then
-		LSTINDUS_TEXT = $;
+	if length(strip($(curocc()))) > 0 then
+		LSTINDUS_TEXT(curocc()) = $;
 	endif;
 	
 //------------------------------------------------
@@ -1101,8 +1101,8 @@ preproc
 
 PROC OCCUP_TEXT2
 postproc
-	if length(strip($)) > 0 then
-		OCCUP_TEXT = $;
+	if length(strip($(curocc()))) > 0 then
+		OCCUP_TEXT(curocc()) = $;
 	endif;
 	
 //------------------------------------------------
@@ -1112,15 +1112,15 @@ preproc
 	ask if TWOJOBS = 1;
 	
 postproc
-	if length(strip($)) > 0 then
-		SOCCUP_TEXT = $;
+	if length(strip($(curocc()))) > 0 then
+		SOCCUP_TEXT(curocc()) = $;
 	endif;
 	
 //--------------------------------------------------------
 PROC INDUS_TEXT2
 postproc
-	if length(strip($)) > 0 then
-		INDUS_TEXT = $;
+	if length(strip($(curocc()))) > 0 then
+		INDUS_TEXT(curocc()) = $;
 	endif;
 	
 //--------------------------------------------------------
@@ -1139,8 +1139,8 @@ preproc
 	ask if TWOJOBS = 1;
 	
 postproc
-	if length(strip($)) > 0 then
-		SINDUS_TEXT = $;
+	if length(strip($(curocc()))) > 0 then
+		SINDUS_TEXT(curocc()) = $;
 	endif;
 	
 //--------------------------------------------------------
@@ -1214,15 +1214,15 @@ PROC HPWORK
 //-----------------------------------------------------------
 PROC FOCCUP_TEXT2
 postproc
-	if length(strip($)) > 0 then
-		FOCCUP_TEXT = $;
+	if length(strip($(curocc()))) > 0 then
+		FOCCUP_TEXT(curocc()) = $;
 	endif;
 	
 //--------------------------------------------------------
 PROC INCINDUS_TEXT2
 postproc
-	if length(strip($)) > 0 then
-		INCINDUS_TEXT = $;
+	if length(strip($(curocc()))) > 0 then
+		INCINDUS_TEXT(curocc()) = $;
 	endif;
 	
 //--------------------------------------------------------
@@ -1245,8 +1245,8 @@ PROC WORKBEFO
 //---------------------------------------------------------------------
 PROC INCOCCUP_TEXT2
 postproc
-	if length(strip($)) > 0 then
-		INCOCCUP_TEXT = $;
+	if length(strip($(curocc()))) > 0 then
+		INCOCCUP_TEXT(curocc()) = $;
 	endif;
 	
 //--------------------------------------------------------

@@ -73,7 +73,7 @@ postproc
 //--------------------------------------------------------------------------------
 PROC LSTED
 onfocus
-	noinput;
+//	noinput;
 PROC LSTPARISH
 onfocus
 	recode LSTED	=>	$;
