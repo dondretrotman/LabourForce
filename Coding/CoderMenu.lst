@@ -65,3 +65,32 @@ CSPRO Process Summary
 
 CSPRO Executor Normal End
 --------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data.csdb
+External        ENUMERATIONREPORT_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\enumrpt.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Mar 26, 2019
+Start Time      10:38:36
+End Time        12:09:43
+
+CSPRO Process Summary
+
+System messages:
+
+ Number    Frequency   Message text
+ ------    ---------   ------------
+  99990            1   Operator entered a value out of range            
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+     82       1    -   Attempting to download all data from Round :%d, E       -
+     96       1    -   Download of round %d, ED %d was successful              -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------

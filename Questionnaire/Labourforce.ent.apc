@@ -489,15 +489,21 @@ PROC LPREVVISIT
 preproc
 	ask if VISITNO > 1;
 	
-postproc
+{postproc
 	if $ = 2 then
 		advance to ADDPER;
 	endif;
-	
+}	
 //------------------------------------------------
 PROC LNEWMEM
 preproc
 	ask if VISITNO > 1;
+
+onfocus
+	if LPREVVISIT <> 2 then		//if not a member from previous visit
+	$ = 2;
+		advance to LREASON;
+	endif;
 	
 postproc
 	//if not a new member, don't ask why they joined
@@ -507,8 +513,10 @@ postproc
 	
 //---------------------------------------------------------------------
 PROC LREASON
-preproc
-	ask if VISITNO > 1;
+preproc	
+//only ask if not a member from a previous visit or a new member
+	ask if LPREVVISIT in 2:3 or LNEWMEM = 1;
+	//ask if VISITNO > 1;	//old code, not sure why it's doing that
 	
 //------------------------------------------------
 PROC LREASON_OTHER
@@ -755,12 +763,13 @@ onfocus
 		skip to INDIVNO;
 	endif;
 	
-{postproc	
-	//if not head of household, skip to individual details 
-	if $ = 2 then
-		skip to INDIVNO;
+postproc	
+	//if relationship to head and head of household don't agree
+	if ($ = 2 and LRTH = 0) or ($ = 1 and LRTH <> 0) then		
+		errmsg("%v is listed as %v, but head of household status is %v. Do you want to change the relationship to head?",strip(LFIRST_NAME(curocc())),LRTH(curocc()),HD_HH)
+		select("Yes, change relationship to head",LRTH(curocc()), "No, change this field",$);
 	endif;
-}
+
 //---------------------------------------------------------------------------
 PROC LNDTNURE
 onfocus

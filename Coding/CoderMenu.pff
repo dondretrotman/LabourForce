@@ -13,6 +13,7 @@ Application=.\CoderMenu.ent
 InputData=|NONE
 
 [ExternalFiles]
+ENUMERATIONREPORT_DICT=..\Data\enumrpt.csdb|CSPRODB
 LABOURFORCE_DICT=..\Data\data.csdb|CSPRODB
 
 [UserFiles]
