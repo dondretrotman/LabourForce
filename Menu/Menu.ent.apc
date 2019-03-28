@@ -81,7 +81,7 @@ function LaunchControlSheet()
 	filewrite(pffFile,"[Files]");
 	filewrite(pffFile,"Application=%s","./Listing.ent");
 	filewrite(pffFile,"InputData=%s","../Data/Controlsheet.csdb|CSPRODB");
-	filewrite(pffFile,"Paradata=%s","../Data/Controlsheet.cslog");
+	filewrite(pffFile,"Paradata=%s",maketext("../Data/Controlsheet%02d%03d.cslog",ME_ROUND,ME_ED));
 	
 	filewrite(pffFile,"[UserFiles]");
 	filewrite(pffFile,"PFFFILE=%s","");
@@ -119,7 +119,7 @@ function launchSupervisorControlSheet()
 	filewrite(pffFile,"[Files]");
 	filewrite(pffFile,"Application=%s","./Listing.ent");
 	filewrite(pffFile,"InputData=%s","../Data/Controlsheet.csdb|CSPRODB");
-	filewrite(pffFile,"Paradata=%s","../Data/Controlsheet.cslog");
+	//filewrite(pffFile,"Paradata=%s",maketext("../Data/Controlsheet%02d%03d.cslog",ME_ROUND,ME_ED));
 	
 	filewrite(pffFile,"[UserFiles]");
 	filewrite(pffFile,"PFFFILE=%s","");
@@ -178,7 +178,7 @@ function LaunchQuestionnaire()
 	filewrite(pffFile,"[Files]");
 	filewrite(pffFile,"Application=%s","./Labourforce.ent");
 	filewrite(pffFile,"InputData=%s","../Data/data.csdb|CSPRODB");
-	filewrite(pffFile,"Paradata=%s","../Data/Labourforce.cslog");
+	filewrite(pffFile,"Paradata=%s",maketext("../Data/Labourforce%02d%03d.cslog",ME_ROUND,ME_ED));
 	
 	filewrite(pffFile,"[ExternalFiles]");
 	filewrite(pffFile,"LISTING_DICT=%s","../Data/Controlsheet.csdb|CSPRODB");
@@ -243,7 +243,7 @@ end;
 //Uploads all data
 function uploadData()
 	errflag = 0;		//clears  flag
-//start csweb upload
+	//start csweb upload
 	if syncconnect(CSWeb,cswebip1,ftpun,ftppw) or syncconnect(CSWeb,cswebip2,ftpun,ftppw)then		//connect to FTP when outside of the Government WAN
 		if not syncdata(PUT,LABOURFORCE_DICT,maketext("%5s",rnd_ED)) then		//Upload Labourforce data
 			inc(errflag);
@@ -254,7 +254,7 @@ function uploadData()
 		if not syncdata(PUT,ENUMERATIONREPORT_DICT,maketext("%v",ME_ED)) then	//upload enumeration report
 			inc(errflag);
 		endif;
-		if not syncfile(PUT,"../Data/Labourforce.cslog",maketext("LabourforceLogs/Labourforce%s.cslog",getdeviceid())) then		//Upload paradata logs
+		if not syncfile(PUT,maketext("../Data/Labourforce%02d%03d.cslog",ME_ROUND,ME_ED),maketext("LabourforceLogs/Labourforce%02d%03d%s.cslog",ME_ROUND,ME_ED,getdeviceid())) then		//Upload paradata logs
 			inc(errflag);
 		endif;
 		if USERID >= 90 then
@@ -276,6 +276,9 @@ function uploadData()
 		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
 			inc(errflag);
 		endif;
+		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pff","../Menu/Menu.pff") then		//update Menu
+			inc(errflag);
+		endif;
 		if not syncfile(GET,"/CSPro/Update/Allocation/Allocation.pen","../Allocation/Allocation.pen") then		//update Allocation form
 			inc(errflag);
 		endif;
@@ -289,7 +292,7 @@ function uploadData()
 	else
 		inc(errflag,2);
 	endif;
-//end csweb upload
+	//end csweb upload
 	if errflag > 1 then
 		errmsg("Data upload failed, please try again. %d errors were found",errflag);
 	elseif errflag = 0 then
@@ -303,7 +306,7 @@ end;
 //update app only
 function updateApp()
 	errflag = 0;
-//start csweb update
+	//start csweb update
 	if syncconnect(CSWeb,cswebip1,ftpun,ftppw) or syncconnect(CSWeb,cswebip2,ftpun,ftppw) then		//connect to FTP when outside of the Government WAN
 		if not syncdata(GET, ALLOCATION_DICT) then		//get allocations
 			inc(errflag);
@@ -315,6 +318,9 @@ function updateApp()
 			inc(errflag);
 		endif;
 		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
+			inc(errflag);
+		endif;
+		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pff","../Menu/Menu.pff") then		//update Menu
 			inc(errflag);
 		endif;
 		if not syncfile(GET,"/CSPro/Update/Allocation/Allocation.pen","../Allocation/Allocation.pen") then		//update Allocation form
@@ -330,7 +336,7 @@ function updateApp()
 	else
 		inc(errflag,2);
 	endif;
-//end csweb update
+	//end csweb update
 	if errflag > 1 then
 		errmsg("App update failed, please try again. %d errors were found",errflag);
 	elseif errflag = 0 then
@@ -345,7 +351,7 @@ end;
 //downloads Data based on ED
 function downloadData(string rnd_edno)
 	errflag = 0;
-//start csweb download
+	//start csweb download
 	errmsg("Attempting to download all data from Round :%s, ED :%s",rnd_edno[1:2],rnd_edno[3:3]);
 	//errmsg("Data dictionary value Round :%V, ED :%V", RNDNO,EDNO);
 	if syncconnect(CSWeb,cswebip1,ftpun,ftppw) or syncconnect(CSWeb,cswebip2,ftpun,ftppw) then		//connect to FTP when outside of the government WAN
@@ -371,6 +377,9 @@ function downloadData(string rnd_edno)
 		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pen","../Menu/Menu.pen") then		//update Menu
 			inc(errflag);
 		endif;
+		if not syncfile(GET,"/CSPro/Update/Menu/Menu.pff","../Menu/Menu.pff") then		//update Menu
+			inc(errflag);
+		endif;
 		if not syncfile(GET,"/CSPro/Update/Allocation/Allocation.pen","../Allocation/Allocation.pen") then		//update Allocation form
 			inc(errflag);
 		endif;
@@ -384,7 +393,7 @@ function downloadData(string rnd_edno)
 	else
 		inc(errflag,2);
 	endif;
-//end csweb download
+	//end csweb download
 	if errflag > 1 then
 		errmsg("Download of round %s, ED %s failed, Please try again. %d errors were found",rnd_edno[1:2],rnd_edno[3:3],errflag);
 	elseif errflag = 0 then
@@ -398,7 +407,7 @@ end;
 //function to upload control sheets from the computer to the server for use by the tablets
 function uploadcontrolsheets()
 	errflag = 0;
-//start csweb upload
+	//start csweb upload
 	if syncconnect(CSWeb,cswebip2,ftpun,ftppw) or syncconnect(CSWeb,cswebip1,ftpun,ftppw) then		//connect to FTP when within the Government WAN
 		if not syncdata(PUT,LISTING_DICT,maketext("%5s",rnd_ed)) then		//Upload Control Sheet
 			inc(errflag);
@@ -407,7 +416,7 @@ function uploadcontrolsheets()
 	else
 		inc(errflag,2);
 	endif;
-//end csweb upload
+	//end csweb upload
 	if errflag >= 1 then
 		errmsg("Data upload failed, please try again. %d errors were found",errflag);
 	elseif errflag = 0 then
@@ -418,7 +427,7 @@ end;
 //function to download control sheets from the server to the tablets
 function downloadcontrolsheets(string rnd_edno)
 	errflag = 0;
-//start csweb download
+	//start csweb download
 	if syncconnect(CSWeb,cswebip1,ftpun,ftppw) or syncconnect(CSWeb,cswebip2,ftpun,ftppw) then		//connect to FTP when within the Government WAN
 		if not syncdata(GET,LISTING_DICT,maketext("%5s",rnd_edno)) then		//download Control Sheet
 			inc(errflag);
@@ -430,7 +439,7 @@ function downloadcontrolsheets(string rnd_edno)
 	else
 		inc(errflag,2);
 	endif;
-//end csweb download
+	//end csweb download
 	if errflag >= 1 then
 		errmsg("Data download failed, please try again. %d errors were found",errflag);
 	elseif errflag = 0 then

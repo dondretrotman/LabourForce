@@ -15,8 +15,6 @@ CreateListing=No
 CreateLog=No
 AutoAdvanceOnSelection=Yes
 ComboBoxShowOnlyDiscreteValues=Yes
-ParadataCollection=AllEvents
-ParadataDeviceStateMinutes=5
 [External Dictionaries]
 File=..\Questionnaire\Labourforce.dcf
 File=..\ControlSheets\Listing.dcf

@@ -12,7 +12,6 @@ Interactive=Ask
 [Files]
 Application=.\Menu.ent
 InputData=|NONE
-Paradata=..\Data\Menu.cslog
 
 [ExternalFiles]
 ALLOCATION_DICT=..\Data\assignments.csdb|CSPRODB

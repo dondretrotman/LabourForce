@@ -3,19 +3,19 @@ Version=CSPro 7.1
 AppType=Entry
 Description=CLFSS Control Sheet
 [DataEntryInit]
-OperatorID=VTAYLOR             
+OperatorID=WDAVIS              
 StartMode=Add
 ShowInApplicationListing=Hidden
 AutoAdd=Yes
 [Files]
 Application=./Listing.ent
 InputData=../Data/Controlsheet.csdb|CSPRODB
-Paradata=../Data/Controlsheet.cslog
+Paradata=../Data/Controlsheet05174.cslog
 [UserFiles]
 PFFFILE=
 [Parameters]
 OnExit=../Menu/Menu.pff
 MODE=DEFAULT
-LSTENUMCODE=11
+LSTENUMCODE=94
 LSTROUND= 5
 LSTED=174
