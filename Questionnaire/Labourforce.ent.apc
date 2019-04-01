@@ -82,7 +82,7 @@ function checkDate(CDYEAR, CDMONTH, CDDAY)
 		if CDMONTH = 2 then
 			if not CDDAY in 1:29,99 then
 				errmsg("%s does not have %d days. Please confirm.",getlabel(LDOB_MONTH_VS1,CDMONTH),DAY);
-				checkDate = 0
+				checkDate = 0;
 			endif;
 		endif;
 	else
