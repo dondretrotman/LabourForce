@@ -45,6 +45,8 @@ numeric deleteflag,		//stores flag for case deletion
 		denominator,	//number of households (for calculating completed eds)
 		allocationdate,	//last allocation date
 		tempround,		//calculates previous round
+		nextEntry,		//Keeps track of valueset array
+		headindex,		//person id of the head of household
 		a,i,j,k,l,m,n;		//general counters and temp variables
 		
 
@@ -67,12 +69,12 @@ function LaunchControlSheet()
 	filewrite(pffFile,"[Run Information]");
 	filewrite(pffFile,"Version=CSPro 7.1");
 	filewrite(pffFile,"AppType=Entry");
-	filewrite(pffFile,"Description=CLFSS Control Sheet");
+	filewrite(pffFile,"Description= ");
 
 	filewrite(pffFile,"[DataEntryInit]");
 	filewrite(pffFile,"OperatorID=%s",UNAME);
 	filewrite(pffFile,"StartMode=Add");
-	filewrite(pffFile,"ShowInApplicationListing=Hidden");
+	//filewrite(pffFile,"ShowInApplicationListing=Hidden");
 	if getos() = 20 then				//only include the following line if on an android tablet
 		filewrite(pffFile,"Lock=CaseListing");
 	endif;
@@ -85,7 +87,7 @@ function LaunchControlSheet()
 	
 	filewrite(pffFile,"[UserFiles]");
 	filewrite(pffFile,"PFFFILE=%s","");
-
+	
 	filewrite(pffFile,"[Parameters]");
 	filewrite(pffFile,"OnExit=../Menu/Menu.pff");
 	filewrite(pffFile,"MODE=DEFAULT");
@@ -107,26 +109,24 @@ function launchSupervisorControlSheet()
 	filewrite(pffFile,"[Run Information]");
 	filewrite(pffFile,"Version=CSPro 7.1");
 	filewrite(pffFile,"AppType=Entry");
-	filewrite(pffFile,"Description=CLFSS Control Sheet");
+	filewrite(pffFile,"Description= ");
 
 	filewrite(pffFile,"[DataEntryInit]");
 	filewrite(pffFile,"OperatorID=%s",UNAME);
 	filewrite(pffFile,"StartMode=Add;%s",CHOOSE_CONTROL_SHEET);
-	filewrite(pffFile,"ShowInApplicationListing=Hidden");
+	//filewrite(pffFile,"ShowInApplicationListing=Hidden");
 	filewrite(pffFile,"Lock=CaseListing");
 	filewrite(pffFile,"AutoAdd=No");
 
 	filewrite(pffFile,"[Files]");
 	filewrite(pffFile,"Application=%s","./Listing.ent");
 	filewrite(pffFile,"InputData=%s","../Data/Controlsheet.csdb|CSPRODB");
-	//filewrite(pffFile,"Paradata=%s",maketext("../Data/Controlsheet%02d%03d.cslog",ME_ROUND,ME_ED));
-	
+		
 	filewrite(pffFile,"[UserFiles]");
 	filewrite(pffFile,"PFFFILE=%s","");
-
+	
 	filewrite(pffFile,"[Parameters]");
 	filewrite(pffFile,"OnExit=../Menu/Menu.pff");
-	
 	filewrite(pffFile,"MODE=EDIT");
 	filewrite(pffFile,"LSTROUND=%s",CHOOSE_CONTROL_SHEET[1:2]);
 	filewrite(pffFile,"LSTED=%s",CHOOSE_CONTROL_SHEET[3:3]);
@@ -163,41 +163,40 @@ function LaunchQuestionnaire()
 	string pffFilename = Pathname(application) + "../Questionnaire/Labourforce.pff";
 	setfile(pffFile,pffFilename,create);
 
-	filewrite(pffFile,"[Run Information]");
-	filewrite(pffFile,"Version=CSPro 7.1");
-	filewrite(pffFile,"AppType=Entry");
-	filewrite(pffFile,"Description=Continuous Labourforce Sample Survey");
+	filewrite(pffFile, "[Run Information]");
+	filewrite(pffFile, "Version=CSPro 7.2");
+	filewrite(pffFile, "AppType=Entry");
+	filewrite(pffFile, "Description= ");
 
-	filewrite(pffFile,"[DataEntryInit]");
-	filewrite(pffFile,"OperatorID=%s",UNAME);
-	filewrite(pffFile,"StartMode=Add;%s",CHOOSE_HOUSEHOLD);
-	filewrite(pffFile,"ShowInApplicationListing=Hidden");
-	filewrite(pffFile,"AutoAdd=No");
-	filewrite(pffFile,"Lock=CaseListing");
+	filewrite(pffFile, "[DataEntryInit]");
+	filewrite(pffFile, "OperatorID=%v", UNAME);
+	filewrite(pffFile, "StartMode=Add;%v", CHOOSE_HOUSEHOLD);
+	filewrite(pffFile, "Lock=CaseListing");
+	//filewrite(pffFile, "ShowInApplicationListing=Hidden");
+	filewrite(pffFile, "AutoAdd=No");
 
-	filewrite(pffFile,"[Files]");
-	filewrite(pffFile,"Application=%s","./Labourforce.ent");
-	filewrite(pffFile,"InputData=%s","../Data/data.csdb|CSPRODB");
-	filewrite(pffFile,"Paradata=%s",maketext("../Data/Labourforce%02d%03d.cslog",ME_ROUND,ME_ED));
+	filewrite(pffFile, "[Files]");
+	filewrite(pffFile, "Application=%v","./Labourforce.ent");
+	filewrite(pffFile, "InputData=%v","../Data/data.csdb|CSPRODB");
+	filewrite(pffFile, "Paradata=%v",maketext("../Data/Labourforce%02d%03d.cslog",ME_ROUND,ME_ED));
 	
-	filewrite(pffFile,"[ExternalFiles]");
-	filewrite(pffFile,"LISTING_DICT=%s","../Data/Controlsheet.csdb|CSPRODB");
-	filewrite(pffFile,"ENUMERATIONREPORT_DICT=%s","../Data/enumrpt.csdb|CSPRODB");
+	filewrite(pffFile, "[ExternalFiles]");
+	filewrite(pffFile, "LISTING_DICT=%v", "../Data/Controlsheet.csdb|CSPRODB");
+	filewrite(pffFile, "ENUMERATIONREPORT_DICT=%v", "../Data/enumrpt.csdb|CSPRODB");
 	
-	filewrite(pffFile,"[UserFiles]");
-	filewrite(pffFile,"PFFFILE=%s","");
+	filewrite(pffFile, "[UserFiles]");
+	filewrite(pffFile, "PFFFILE=%v", "");
 
-	filewrite(pffFile,"[Parameters]");
-	filewrite(pffFile,"OnExit=../Menu/Menu.pff");
-	
-	filewrite(pffFile,"RNDNO=%s",CHOOSE_HOUSEHOLD[1:2]);
-	filewrite(pffFile,"EDNO=%s",CHOOSE_HOUSEHOLD[3:3]);
-	filewrite(pffFile,"PARNO=%s",CHOOSE_HOUSEHOLD[6:3]);
-	filewrite(pffFile,"STRATUM=%s",CHOOSE_HOUSEHOLD[9:1]);		//skip Building no (CHOOSE_HOUSEHOLD[10:3]) which is not included in Labourforce ID items
-	filewrite(pffFile,"HHNO=%s",CHOOSE_HOUSEHOLD[10:3]);		
-	filewrite(pffFile,"ENMRTR=%s",maketext("%v",visualvalue(USERID)));
-	filewrite(pffFile,"ADDRESS=%s",address(searchArray(address,CHOOSE_HOUSEHOLD),2));
-	filewrite(pffFile,"BLDGNO=%s",address(searchArray(address,CHOOSE_HOUSEHOLD),3));
+	filewrite(pffFile, "[Parameters]");
+	filewrite(pffFile, "OnExit=../Menu/Menu.pff");
+	filewrite(pffFile, "RNDNO=%v",CHOOSE_HOUSEHOLD[1:2]);
+	filewrite(pffFile, "EDNO=%v",CHOOSE_HOUSEHOLD[3:3]);
+	filewrite(pffFile, "PARNO=%v",CHOOSE_HOUSEHOLD[6:3]);
+	filewrite(pffFile, "STRATUM=%v",CHOOSE_HOUSEHOLD[9:1]);		//skip Building no (CHOOSE_HOUSEHOLD[10:3]) which is not included in Labourforce ID items
+	filewrite(pffFile, "HHNO=%v",CHOOSE_HOUSEHOLD[10:3]);		
+	filewrite(pffFile, "ENMRTR=%v",maketext("%v",visualvalue(USERID)));
+	filewrite(pffFile, "ADDRESS=%v",address(searchArray(address,CHOOSE_HOUSEHOLD),2));
+	filewrite(pffFile, "BLDGNO=%v",address(searchArray(address,CHOOSE_HOUSEHOLD),3));
 	
 	close(pffFile);
 
@@ -212,12 +211,12 @@ function allocateenum()
 
 	filewrite(pffFile, "[Run Information]");
 	filewrite(pffFile, "Version=CSPro 7.2");
-	filewrite(pffFile, "AppType=Entry");
+	filewrite(pffFile, "AppType= ");
 
 	filewrite(pffFile, "[DataEntryInit]");
 	filewrite(pffFile,"OperatorID=%s",UNAME);
 	filewrite(pffFile,"StartMode=Add;%v",ALLOCATE_ENUMERATOR);
-	filewrite(pffFile, "ShowInApplicationListing=Hidden");
+	//filewrite(pffFile, "ShowInApplicationListing=Hidden");
 	filewrite(pffFile, "AutoAdd=No");
 	filewrite(pffFile,"Lock=CaseListing");
 
@@ -227,7 +226,6 @@ function allocateenum()
 	
 	filewrite(pffFile,"[Parameters]");
 	filewrite(pffFile,"OnExit=../Menu/Menu.pff");
-	
 	filewrite(pffFile,"AUSER_ID=%v",ALLOCATE_ENUMERATOR);
 	filewrite(pffFile,"AROUND=%v",ME_ROUND);
 	filewrite(pffFile,"AED=%v",ME_ED);
@@ -892,7 +890,7 @@ onfocus
 	
 	if USERID < 90 then
 		//Load ED from lookup file
-		numeric nextEntry = 1;
+		nextEntry = 1;
 		uid = maketext("%V",USERID);
 		if loadcase(ALLOCATION_DICT,uid) then
 			while nextEntry <= count(AED) do
@@ -1130,8 +1128,8 @@ onfocus
 PROC CHOOSE_QUESTIONNAIRE
 //Mark questionnaire for deletion
 onfocus
-	numeric nextEntry = 1;
-	numeric headindex;
+	nextEntry = 1;
+	headindex = 0;
 	forcase LISTING_DICT where LSTED = ME_ED and LSTROUND = ME_ROUND do
 		idno = maketext("%V%V%V%V%V",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTSAMPLE);
 		loadcase(LABOURFORCE_DICT,idno);
@@ -1171,7 +1169,7 @@ postproc
 PROC CHOOSE_HOUSEHOLD
 //open questionnaire
 onfocus
-	numeric nextEntry = 1;
+	nextEntry = 1;
 	forcase LISTING_DICT where LSTED = ME_ED and LSTROUND = ME_ROUND do
 		vscode(nextEntry) = maketext("%v%v%v%v%v",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTSAMPLE);
 		vsLabel(nextEntry) = maketext("%03d-%03d-%03d: %V (%v)",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS));
@@ -1208,7 +1206,7 @@ postproc
 PROC CHOOSE_CONTROL_SHEET
 //Open control sheet
 onfocus
-	numeric nextEntry = 1;
+	nextEntry = 1;
 	forcase LISTING_DICT where LSTED = ME_ED and LSTROUND = ME_ROUND do
 		vscode(nextEntry) = maketext("%v%v%v%v%v%v",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTBUILDING,LSTSAMPLE);
 		vsLabel(nextEntry) = maketext("%03d-%03d-%03d: %V (%v)",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS));
@@ -1242,7 +1240,7 @@ postproc
 PROC DELETE_CONTROL_SHEET
 //mark control sheet for deletion
 onfocus
-	numeric nextEntry = 1;
+	nextEntry = 1;
 	forcase LISTING_DICT where LSTED = ME_ED and LSTROUND = ME_ROUND do
 		vscode(nextEntry) = maketext("%v%v%v%v%v%v",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTBUILDING,LSTSAMPLE);
 		vsLabel(nextEntry) = maketext("%03d-%03d-%03d: %V (%v) - %s",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS),getlabel(LSTDELETE_FLAG_VS1,LSTDELETE_FLAG));
@@ -1276,7 +1274,7 @@ postproc
 PROC ADMIN_DELETE_CONTROL_SHEET
 //actually delete control sheet
 onfocus
-	numeric nextEntry = 1;
+	nextEntry = 1;
 	forcase LISTING_DICT where LSTED = ME_ED and LSTROUND = ME_ROUND do
 		vscode(nextEntry) = maketext("%v%v%v%v%v%v",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTBUILDING,LSTSAMPLE);
 		vsLabel(nextEntry) = maketext("%03d-%03d-%03d: %V (%v) - %s",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS),getlabel(LSTDELETE_FLAG_VS1,LSTDELETE_FLAG));
@@ -1311,8 +1309,8 @@ postproc
 PROC ADMIN_DELETE_QUESTIONNAIRE
 //actually delete questionnaire
 onfocus
-	numeric nextEntry = 1;
-	numeric headindex;
+	nextEntry = 1;
+	headindex = 0;
 	forcase LISTING_DICT where LSTED = ME_ED and LSTROUND = ME_ROUND do
 		idno = maketext("%V%V%V%V%V",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTSAMPLE);
 		loadcase(LABOURFORCE_DICT,idno);
@@ -1355,8 +1353,8 @@ postproc
 PROC MNO_CHANGE
 //choose unchanged questionnaires
 onfocus
-	numeric nextEntry = 1;
-	numeric headindex;
+	nextEntry = 1;
+	headindex = 0;
 	forcase LISTING_DICT where LSTED = ME_ED and LSTROUND = ME_ROUND do
 		idno = maketext("%V%V%V%V%V",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTSAMPLE);
 		loadcase(LABOURFORCE_DICT,idno);
