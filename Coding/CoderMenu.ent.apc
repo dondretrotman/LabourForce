@@ -47,7 +47,7 @@ function launchQuestionnaire()
 
 	filewrite(pffFile,"[Files]");
 	filewrite(pffFile,"Application=%s","./DataEntry.ent");
-	filewrite(pffFile,"InputData=%s","../Data/data.csdb|CSPRODB");
+	filewrite(pffFile,"InputData=%s","../Data/data1.csdb|CSPRODB");
 
 	filewrite(pffFile,"[ExternalFiles]");
 	filewrite(pffFile,"AUXIL_DICT=%s","../Data/auxil.csdb|CSPRODB");

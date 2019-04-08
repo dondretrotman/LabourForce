@@ -109,7 +109,7 @@ function launchSupervisorControlSheet()
 	filewrite(pffFile,"[Run Information]");
 	filewrite(pffFile,"Version=CSPro 7.1");
 	filewrite(pffFile,"AppType=Entry");
-	filewrite(pffFile,"Description= ");
+	filewrite(pffFile,"Description=  ");
 
 	filewrite(pffFile,"[DataEntryInit]");
 	filewrite(pffFile,"OperatorID=%s",UNAME);
@@ -166,7 +166,7 @@ function LaunchQuestionnaire()
 	filewrite(pffFile, "[Run Information]");
 	filewrite(pffFile, "Version=CSPro 7.2");
 	filewrite(pffFile, "AppType=Entry");
-	filewrite(pffFile, "Description= ");
+	filewrite(pffFile, "Description=   ");
 
 	filewrite(pffFile, "[DataEntryInit]");
 	filewrite(pffFile, "OperatorID=%v", UNAME);
@@ -211,12 +211,13 @@ function allocateenum()
 
 	filewrite(pffFile, "[Run Information]");
 	filewrite(pffFile, "Version=CSPro 7.2");
-	filewrite(pffFile, "AppType= ");
+	filewrite(pffFile, "AppType=Entry");
+	filewrite(pffFile, "Description=    ");
 
 	filewrite(pffFile, "[DataEntryInit]");
 	filewrite(pffFile,"OperatorID=%s",UNAME);
 	filewrite(pffFile,"StartMode=Add;%v",ALLOCATE_ENUMERATOR);
-	//filewrite(pffFile, "ShowInApplicationListing=Hidden");
+	filewrite(pffFile, "ShowInApplicationListing=Hidden");
 	filewrite(pffFile, "AutoAdd=No");
 	filewrite(pffFile,"Lock=CaseListing");
 
