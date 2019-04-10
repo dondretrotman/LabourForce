@@ -1,6 +1,6 @@
 {
   "fileType": "Application Deployment Specification",
-  "version": "7.1",
+  "version": "7.2",
   "name": "Menu",
   "description": "Continuous Labour Force Sample Survey ",
   "files": [
@@ -48,6 +48,10 @@
     },
     {
       "path": "..\\Coding\\CoderMenu.dcf",
+      "uploadForSync": true
+    },
+    {
+      "path": "..\\Reports\\EnumerationReport.dcf",
       "uploadForSync": true
     }
   ],

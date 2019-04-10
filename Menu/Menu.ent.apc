@@ -340,9 +340,9 @@ function updateApp()
 	if errflag > 1 then
 		errmsg("App update failed, please try again. %d errors were found",errflag);
 	elseif errflag = 0 then
-		errmsg("App update was successful. Please restart the app to see any changes");
+		errmsg("App update was successful. App will now restart.");
 		savesetting("Updated",maketext("%d",sysdate("YYYYMMDD")));
-		stop(0);
+		execpff("Menu.pff",stop);
 	elseif errflag = 1 then
 		errmsg("App update was probably successful but there was an error, please restart the app and try again to make sure. If you keep getting this error please contact the IT dept"); 
 	endif;
@@ -1193,7 +1193,7 @@ onfocus
 			move to SUPERVISOR_MENU;
 		endif;
 	endif;
-
+	
 postproc
 	CHOOSE_HOUSEHOLD = maketext("%13.12s",CHOOSE_HOUSEHOLD);		//workaround to make this shit work I shouldn't have to hack this to make it work!
 

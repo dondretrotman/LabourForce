@@ -286,12 +286,22 @@ Start=38
 Len=12
 DataType=Alpha
 
+[ValueSet]
+Label=Delete Questionnaire
+Name=CHOOSE_QUESTIONNAIRE_VS1
+Value='null        ';null
+
 [Item]
 Label=Choose Household
 Name=CHOOSE_HOUSEHOLD
 Start=50
 Len=12
 DataType=Alpha
+
+[ValueSet]
+Label=Choose Household
+Name=CHOOSE_HOUSEHOLD_VS1
+Value='null        ';null
 
 [Item]
 Label=Choose Control Sheet
@@ -300,12 +310,22 @@ Start=62
 Len=15
 DataType=Alpha
 
+[ValueSet]
+Label=Choose Control Sheet
+Name=CHOOSE_CONTROL_SHEET_VS1
+Value='null           ';null
+
 [Item]
 Label=Delete Control Sheet
 Name=DELETE_CONTROL_SHEET
 Start=77
 Len=15
 DataType=Alpha
+
+[ValueSet]
+Label=Delete Control Sheet
+Name=DELETE_CONTROL_SHEET_VS1
+Value='null           ';null
 
 [Item]
 Label=Admin Delete Control Sheet
@@ -314,6 +334,11 @@ Start=92
 Len=15
 DataType=Alpha
 
+[ValueSet]
+Label=Admin Delete Control Sheet
+Name=ADMIN_DELETE_CONTROL_SHEET_VS1
+Value='null           ';null
+
 [Item]
 Label=Admin Delete Questionnaire
 Name=ADMIN_DELETE_QUESTIONNAIRE
@@ -321,12 +346,22 @@ Start=107
 Len=12
 DataType=Alpha
 
+[ValueSet]
+Label=Admin Delete Questionnaire
+Name=ADMIN_DELETE_QUESTIONNAIRE_VS1
+Value='null        ';null
+
 [Item]
 Label=No Change
 Name=MNO_CHANGE
 Start=119
 Len=12
 DataType=Alpha
+
+[ValueSet]
+Label=No Change
+Name=MNO_CHANGE_VS1
+Value='null        ';null
 
 [Item]
 Label=Allocate enumerator

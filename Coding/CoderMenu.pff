@@ -14,7 +14,7 @@ InputData=|NONE
 
 [ExternalFiles]
 ENUMERATIONREPORT_DICT=..\Data\enumrpt.csdb|CSPRODB
-LABOURFORCE_DICT=..\Data\data.csdb|CSPRODB
+LABOURFORCE_DICT=..\Data\data1.csdb|CSPRODB
 
 [UserFiles]
 LOGINFILE=
