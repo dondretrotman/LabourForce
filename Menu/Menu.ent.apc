@@ -67,12 +67,12 @@ function LaunchControlSheet()
 	setfile(pffFile,pffFilename,create);
 
 	filewrite(pffFile,"[Run Information]");
-	filewrite(pffFile,"Version=CSPro 7.1");
+	filewrite(pffFile,"Version=CSPro 7.2");
 	filewrite(pffFile,"AppType=Entry");
 	filewrite(pffFile,"Description= ");
 
 	filewrite(pffFile,"[DataEntryInit]");
-	filewrite(pffFile,"OperatorID=%s",UNAME);
+	filewrite(pffFile,"OperatorID=%v",UNAME);
 	filewrite(pffFile,"StartMode=Add");
 	//filewrite(pffFile,"ShowInApplicationListing=Hidden");
 	if getos() = 20 then				//only include the following line if on an android tablet
@@ -81,19 +81,19 @@ function LaunchControlSheet()
 	filewrite(pffFile,"AutoAdd=Yes");
 
 	filewrite(pffFile,"[Files]");
-	filewrite(pffFile,"Application=%s","./Listing.ent");
-	filewrite(pffFile,"InputData=%s","../Data/Controlsheet.csdb|CSPRODB");
-	filewrite(pffFile,"Paradata=%s",maketext("../Data/Controlsheet%02d%03d.cslog",ME_ROUND,ME_ED));
+	filewrite(pffFile,"Application=%v","./Listing.ent");
+	filewrite(pffFile,"InputData=%v","../Data/Controlsheet.csdb|CSPRODB");
+	filewrite(pffFile,"Paradata=%v",maketext("../Data/Controlsheet%02d%03d.cslog",ME_ROUND,ME_ED));
 	
 	filewrite(pffFile,"[UserFiles]");
-	filewrite(pffFile,"PFFFILE=%s","");
+	filewrite(pffFile,"PFFFILE=%v","");
 	
 	filewrite(pffFile,"[Parameters]");
-	filewrite(pffFile,"OnExit=../Menu/Menu.pff");
-	filewrite(pffFile,"MODE=DEFAULT");
-	filewrite(pffFile,"LSTENUMCODE=%s",maketext("%v",visualvalue(USERID)));
-	filewrite(pffFile,"LSTROUND=%s",maketext("%v",ME_ROUND));
-	filewrite(pffFile,"LSTED=%s",maketext("%v",ME_ED));
+	filewrite(pffFile,"OnExit=%v","../Menu/Menu.pff");
+	filewrite(pffFile,"MODE=%v","DEFAULT");
+	filewrite(pffFile,"LSTENUMCODE=%v",maketext("%v",visualvalue(USERID)));
+	filewrite(pffFile,"LSTROUND=%v",maketext("%v",ME_ROUND));
+	filewrite(pffFile,"LSTED=%v",maketext("%v",ME_ED));
 		
 	close(pffFile);
 	
@@ -107,33 +107,33 @@ function launchSupervisorControlSheet()
 	setfile(pffFile,pffFilename,create);
 
 	filewrite(pffFile,"[Run Information]");
-	filewrite(pffFile,"Version=CSPro 7.1");
+	filewrite(pffFile,"Version=CSPro 7.2");
 	filewrite(pffFile,"AppType=Entry");
 	filewrite(pffFile,"Description=  ");
 
 	filewrite(pffFile,"[DataEntryInit]");
-	filewrite(pffFile,"OperatorID=%s",UNAME);
-	filewrite(pffFile,"StartMode=Add;%s",CHOOSE_CONTROL_SHEET);
+	filewrite(pffFile,"OperatorID=%v",UNAME);
+	filewrite(pffFile,"StartMode=Add;%v",CHOOSE_CONTROL_SHEET);
 	//filewrite(pffFile,"ShowInApplicationListing=Hidden");
 	filewrite(pffFile,"Lock=CaseListing");
 	filewrite(pffFile,"AutoAdd=No");
 
 	filewrite(pffFile,"[Files]");
-	filewrite(pffFile,"Application=%s","./Listing.ent");
-	filewrite(pffFile,"InputData=%s","../Data/Controlsheet.csdb|CSPRODB");
+	filewrite(pffFile,"Application=%v","./Listing.ent");
+	filewrite(pffFile,"InputData=%v","../Data/Controlsheet.csdb|CSPRODB");
 		
 	filewrite(pffFile,"[UserFiles]");
-	filewrite(pffFile,"PFFFILE=%s","");
+	filewrite(pffFile,"PFFFILE=%v","");
 	
 	filewrite(pffFile,"[Parameters]");
-	filewrite(pffFile,"OnExit=../Menu/Menu.pff");
-	filewrite(pffFile,"MODE=EDIT");
-	filewrite(pffFile,"LSTROUND=%s",CHOOSE_CONTROL_SHEET[1:2]);
-	filewrite(pffFile,"LSTED=%s",CHOOSE_CONTROL_SHEET[3:3]);
-	filewrite(pffFile,"LSTPARISH=%s",CHOOSE_CONTROL_SHEET[6:3]);
-	filewrite(pffFile,"LSTSTRATUM=%s",CHOOSE_CONTROL_SHEET[9:1]);
-	filewrite(pffFile,"LSTBUILDING=%s",CHOOSE_CONTROL_SHEET[10:3]);
-	filewrite(pffFile,"LSTSAMPLE=%s",CHOOSE_CONTROL_SHEET[13:3]);
+	filewrite(pffFile,"OnExit=%v","../Menu/Menu.pff");
+	filewrite(pffFile,"MODE=%v","EDIT");
+	filewrite(pffFile,"LSTROUND=%v",CHOOSE_CONTROL_SHEET[1:2]);
+	filewrite(pffFile,"LSTED=%v",CHOOSE_CONTROL_SHEET[3:3]);
+	filewrite(pffFile,"LSTPARISH=%v",CHOOSE_CONTROL_SHEET[6:3]);
+	filewrite(pffFile,"LSTSTRATUM=%v",CHOOSE_CONTROL_SHEET[9:1]);
+	filewrite(pffFile,"LSTBUILDING=%v",CHOOSE_CONTROL_SHEET[10:3]);
+	filewrite(pffFile,"LSTSAMPLE=%v",CHOOSE_CONTROL_SHEET[13:3]);
 	
 	close(pffFile);
 
@@ -188,7 +188,7 @@ function LaunchQuestionnaire()
 	filewrite(pffFile, "PFFFILE=%v", "");
 
 	filewrite(pffFile, "[Parameters]");
-	filewrite(pffFile, "OnExit=../Menu/Menu.pff");
+	filewrite(pffFile,"OnExit=%v","../Menu/Menu.pff");
 	filewrite(pffFile, "RNDNO=%v",CHOOSE_HOUSEHOLD[1:2]);
 	filewrite(pffFile, "EDNO=%v",CHOOSE_HOUSEHOLD[3:3]);
 	filewrite(pffFile, "PARNO=%v",CHOOSE_HOUSEHOLD[6:3]);
@@ -201,6 +201,7 @@ function LaunchQuestionnaire()
 	close(pffFile);
 
 	execpff(filename(pffFile), stop);
+
 end;
 
 function allocateenum()
@@ -217,7 +218,7 @@ function allocateenum()
 	filewrite(pffFile, "[DataEntryInit]");
 	filewrite(pffFile,"OperatorID=%s",UNAME);
 	filewrite(pffFile,"StartMode=Add;%v",ALLOCATE_ENUMERATOR);
-	filewrite(pffFile, "ShowInApplicationListing=Hidden");
+	//filewrite(pffFile, "ShowInApplicationListing=Hidden");
 	filewrite(pffFile, "AutoAdd=No");
 	filewrite(pffFile,"Lock=CaseListing");
 
@@ -226,7 +227,7 @@ function allocateenum()
 	filewrite(pffFile, "InputData=%v", "../Data/assignments.csdb|CSPRODB");
 	
 	filewrite(pffFile,"[Parameters]");
-	filewrite(pffFile,"OnExit=../Menu/Menu.pff");
+	filewrite(pffFile,"OnExit=%v","../Menu/Menu.pff");
 	filewrite(pffFile,"AUSER_ID=%v",ALLOCATE_ENUMERATOR);
 	filewrite(pffFile,"AROUND=%v",ME_ROUND);
 	filewrite(pffFile,"AED=%v",ME_ED);

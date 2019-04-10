@@ -20,26 +20,26 @@ Todo:
 
 PROC GLOBAL
 //----------------------------VARIABLE DECLARATION---------------------------------------------
-numeric i,				//general variable
+numeric a,i,				//general variable
 		tempage,		//for calcuating age
 		numheads,		//number of heads of household
 		numspouses,		//number of spouses
 		headindex,		//index of head
 		cases,			//number of cases in ENUMERATIONREPORT
 		bldgno,			//Building number
-		vsindex			//valueset index
-		;
+		vsindex;			//valueset index
+		
 		
 string 	caselabel,		//stores the label for the current case
 		photoDir,		//Stores the location of the photos folder
 		photoFileName, 	//filename of photo
 		intenddate,		//end date of interview
 		idno,			//case id to be loaded
-		promptremarks	//stores remarks for report
-		;
+		promptremarks;	//stores remarks for report
+		
 		
 array string 	vsLabels(99);		//Stores valueset labels
-array numeric 	vsNumCodes(99);		//stores valueset codes
+array numeric 	vsNumCodes(99) = 0,...;		//stores valueset codes
 		
 //-----------------------------Function Declarations--------------------------------------------
 //Checks that date is valid. Returns 1 if valid. Returns 0 if invalid
@@ -157,21 +157,21 @@ function viewPhoto()
 end;
 }
 
-PROC DELETE_FLAG
+{PROC DELETE_FLAG
 
 onfocus
 	//if not set, then set to keep
 	if $ = notappl then
 		$ = 0;
 	endif;
-
+}
 	
 
 PROC LABOURFORCE_FF
 preproc
 //---------------------------Declare Variables-----------------------------------
-	photoFileName = pathname(CSEntry) + maketext("Menu/Photos/%03d-%03d-%03d-%d-%03d.jpg", visualvalue(RNDNO),visualvalue(EDNO),visualvalue(PARNO),visualvalue(STRATUM),visualvalue(HHNO)); 
-	photoDir = pathname(CSEntry) + "Menu/Photos";
+	//photoFileName = pathname(CSEntry) + maketext("Menu/Photos/%03d-%03d-%03d-%d-%03d.jpg", visualvalue(RNDNO),visualvalue(EDNO),visualvalue(PARNO),visualvalue(STRATUM),visualvalue(HHNO)); 
+	//photoDir = pathname(CSEntry) + "Menu/Photos";
 	
 //---------------------------Userbar definition------------------------------------
 	userbar(clear);
@@ -673,6 +673,13 @@ preproc
 	endif;
 	
 onfocus
+	a = 1;
+	while a <= 99 do 
+		vsLabels(a) = "";
+		vsNumCodes(a) = 0;
+		inc(a);
+	enddo;
+	
 	vsIndex = 1;		//initialise index
 	do i = 1 while i <= totocc(LABOURFORCE_REC001) //and LRTH(i) <> notappl
 		vsLabels(vsIndex) = maketext("%2d: %s, %s (%s)",LIDNO(i), strip(LLAST_NAME(i)), strip(LFIRST_NAME(i)), getlabel(LRTH_VS1,LRTH(i)));
