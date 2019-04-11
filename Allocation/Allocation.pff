@@ -4,8 +4,7 @@ AppType=Entry
 Description=    
 [DataEntryInit]
 OperatorID=WDAVIS              
-StartMode=Add;14
-ShowInApplicationListing=Hidden
+StartMode=Add; 7
 AutoAdd=No
 Lock=CaseListing
 [Files]
@@ -13,8 +12,8 @@ Application=./Allocation.ent
 InputData=../Data/assignments.csdb|CSPRODB
 [Parameters]
 OnExit=../Menu/Menu.pff
-AUSER_ID=14
-AROUND= 5
-AED= 17
+AUSER_ID= 7
+AROUND= 6
+AED=548
 ASUPERVISORNAME=WDAVIS              
 ASUPERVISOR_ID=94
