@@ -691,7 +691,7 @@ onfocus
 	inc(vsIndex);
 	
 	vsNumCodes(vsIndex) = notappl;
-	//setvalueset($, vsNumCodes, vsLabels);
+	setvalueset($, vsNumCodes, vsLabels);
 	
 	//if new text fields are blank, copy old text fields to new fields
 	if length(strip(OCCUPTR_TEXT2)) = 0 and length(strip(OCCUPTR_TEXT)) > 0 then
