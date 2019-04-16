@@ -39,6 +39,9 @@
     },
     {
       "path": "..\\Allocation\\Allocation.pff"
+    },
+    {
+      "path": "..\\Data\\assignments.csdb"
     }
   ],
   "dictionaries": [

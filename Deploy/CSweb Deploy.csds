@@ -39,6 +39,9 @@
     },
     {
       "path": "..\\Allocation\\Allocation.pff"
+    },
+    {
+      "path": "..\\Data\\assignments.csdb"
     }
   ],
   "dictionaries": [
@@ -59,7 +62,8 @@
       "uploadForSync": true
     },
     {
-      "path": "..\\Allocation\\Allocation.dcf"
+      "path": "..\\Allocation\\Allocation.dcf",
+      "uploadForSync": true
     }
   ],
   "deployment": {
