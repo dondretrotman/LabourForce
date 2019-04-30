@@ -10,8 +10,8 @@ PROC GLOBAL
 numeric	denomID = 0,
 		denomHHLIST = 0,
 		denomDELETE = 0,
-		denomINSERT = 0
-		;
+		denomINSERT = 0;
+		
 
 PROC LABOURFORCE_FF
 

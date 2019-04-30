@@ -97,6 +97,7 @@ EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fchars
 EN={\colortbl ;\red0\green0\blue0;\red0\green0\blue255;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 Welcome to the Continuous Labour Force Sample Survey. Please enter your username in the format FirstInitialLastName (e.g. John Doe types "JDOE")\par
+EN=Please tap the question mark symbol "(?)" to get help on any option\par
 EN=\par
 EN=\cf2 Version: %VERSION%\cf1\par
 EN=}
@@ -117,8 +118,9 @@ EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 Enumerator menu - Work as an interviewer\par
 EN=Change ED - Change from ED %ME_ED% to another ED\par
-EN=Update App - Get the latest updates\par
-EN=Upload Data - Upload tablet data\par
+EN=Change Round - Change from Round %ME_ROUND% to another round. Please note that only the current round is valid\par
+EN=Update App - Get the latest updates including your new assigned EDs and Round\par
+EN=Upload Data - Upload tablet data for the current ED\par
 EN=Logout - Logout and close the app\par
 EN=}
 
@@ -131,8 +133,9 @@ EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 Enumerator menu - Work as an interviewer\par
 EN=Supervisor menu - Work as a supervisor\par
 EN=Change ED - Change from ED %ME_ED% to another ED\par
-EN=Update App - Get the latest updates\par
-EN=Upload Data - Upload tablet data\par
+EN=Change Round - Change from Round %ME_ROUND% to another round. Please note that only the current round is valid\par
+EN=Update App - Get the latest updates including your new assigned EDs and Round\par
+EN=Upload Data - Upload tablet data for the current ED\par
 EN=Logout - Logout and close the app\par
 EN=\par
 EN=}
@@ -147,6 +150,9 @@ EN=Open Control Sheet - Opens a control sheet for ED %ME_ED%\par
 EN=Open Questionnaire - Opens a questionnaire for ED %ME_ED%\par
 EN=Delete Questionnaire - Flags a questionnaire for deletion. Please note that this does not actually delete the questionnaire\par
 EN=View Enumeration Report - View a summary of work done in ED %ME_ED%\par
+EN=Allocate Officers - Assign enumerators to the current round and up to five enumeration districts\par
+EN=Mark ED as complete - Mark ED %ME_ED% as completed and ready to be coded\par
+EN=Process unchanged households - View households that have been marked as unchanged\par
 EN=Back - Go back to Login Menu\par
 EN=}
 
@@ -168,12 +174,59 @@ Field=MENU_DICT.INTERVIEWER_MENU
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
-EN=\pard\cf1\fs24 View\\Fill Questionnaire - See a list of all available questionnaires and fill them out\par
-EN=Fill Control Sheet - Fill out a new control sheet\par
+EN=\pard\cf1\fs24 View\\Fill Questionnaire - See a list of all available questionnaires and fill them out. A control sheet \b must \b0 be created before a corresponding questionnaire can be filled out\par
+EN=Fill Control Sheet - Fill out a new control sheet for ED %ME_ED%. \par
 EN=View Control Sheet - View existing control sheets\par
 EN=Download Control Sheets - Download control sheets that were filled out and uploaded from a computer\par
-EN=View Enumeration Report - View a report on completed households\par
+EN=Delete Control Sheet - Marks Control Sheet and associated questionnaires for deletion. This does \b not \b0 actually delete the data from the tablet, but the data will be deleted at the editing stage.\par
+EN=View Enumeration Report - View a report on completed households. Please note that depending on if data has been edited/changed, it might not be completely accurate\par
 EN=Upload Data - Upload data to server. Please be sure to have internet access first\par
 EN=Back - Go back to the previous menu\par
 EN=}
+
+[HELP]
+Field=MENU_DICT.UNAME
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 This is the help text. You will find more information on what's on your screen here.\par
+EN=}
+
+[HELP]
+Field=MENU_DICT.USERID
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 The ID number is the two-digit number assigned to you. It it also know as your Enumerator ID or Supervisor ID.\par
+EN=}
+
+[HELP]
+Field=MENU_DICT.ME_ROUND
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Only the current round is valid at any time. Previous rounds are unavailable. If you cannot get past this screen, ask your supervisor to assign you to the correct ED and round\par
+EN=}
+
+[HELP]
+Field=MENU_DICT.ME_ED
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 Only the enumeration districts that you are assigned to will appear here (unless you are a supervisor). If you don't see the correct ED's listed, please contact your supervisor.\par
+EN=}
+
+[HELP]
+Field=MENU_DICT.CHOOSE_ROUND
+
+[HELP]
+Field=MENU_DICT.MNO_CHANGE
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN=\pard\cf1\fs24 This wil allow you to view households that have been marked as having no change since the last round. Once you approve it, the household data from the previous round will be applied to the current round.\par
+EN=}
+
+[HELP]
+Field=MENU_DICT.ALLOCATE_ENUMERATOR
 
