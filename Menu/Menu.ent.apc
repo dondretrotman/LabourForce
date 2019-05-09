@@ -581,7 +581,7 @@ function enumerationRpt()
 	//check number of cases using new criteria, if none found then use old criteria
 //if housecount <> 0 then
 		//TODO: REMEMBER TO UNCOMMENT ERROUND=ME_ROUND IN ROUND 6!
-		forcase ENUMERATIONREPORT_DICT where ERED_NO = ME_ED {and ERROUND = ME_ROUND} and datediff(WEEK_ENDING,sysdate("YYYYMMDD"),"m") <= 3 do		//for each case in enumeration report in the current ED
+		forcase ENUMERATIONREPORT_DICT where ERED_NO = ME_ED and ERROUND = ME_ROUND and datediff(WEEK_ENDING,sysdate("YYYYMMDD"),"m") <= 3 do		//for each case in enumeration report in the current ED
 			REPORTARRAY(i,1) = getlabel(ERFIELD_OFFICER_VS1,ERFIELD_OFFICER);	//field officer
 			REPORTARRAY(i,2) = maketext("%d",ERUNIT_NO);
 			REPORTARRAY(i,3) = maketext("%d",ERSERIAL_NO);
