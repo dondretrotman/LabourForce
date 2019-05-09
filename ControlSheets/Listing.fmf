@@ -31,6 +31,7 @@ Level=1
 Size=1028,312
   
 Item=LSTNO
+Item=LSTENUMCODE
 Item=LSTLNAME
 Item=LSTFNAME
 Item=LSTADDRESS
@@ -153,6 +154,20 @@ Form=2
 [Text]
 Position=50,30,71,46
 Text=No.
+ 
+  
+[Field]
+Name=LSTENUMCODE
+Position=193,57,222,77
+Item=LSTENUMCODE,LISTING_DICT
+UpperCase=Yes
+FieldLabelType=DictionaryLabel
+DataCaptureType=DropDown
+Form=2
+  
+[Text]
+Position=50,60,124,76
+Text=Enumerator
  
   
 [Field]

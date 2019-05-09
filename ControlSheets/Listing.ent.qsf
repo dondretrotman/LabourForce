@@ -1,23 +1,6 @@
 ﻿[CAPI QUESTIONS]
-Version=CSPro 7.2
+Version=CSPro 7.1
 
 [LANGUAGES]
 EN=English
-
-[HELP]
-Field=LISTING_DICT.LSTADDRESS
-EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
-EN={\colortbl ;\red0\green0\blue0;}
-EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
-EN=\pard\cf1\fs24 Address is not needed but recommended\par
-EN=}
-
-[HELP]
-Field=LISTING_DICT.LSTTELEPHONE
-EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
-EN={\colortbl ;\red0\green0\blue0;}
-EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
-EN=\pard\cf1\fs24 Telephone number must be composed of seven digits between 0 and 9. \par
-EN=It must only contain numbers and not include any dashes, spaces, brackets, or any other symbols\par
-EN=}
 

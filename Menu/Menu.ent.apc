@@ -51,12 +51,12 @@ numeric deleteflag,		//stores flag for case deletion
 		
 
 //----------------------------------Array Declaration-------------------------------------
-array string	vsCode(100);		//valueset codes
-array string 	vsLabel(100);		//valueset labels
-array string 	address(100,3);		//stores addresses
-array numeric	vsEDCode(10);		//stores ED
-//array string	vsEDLabel(10);		//Stores ED label
-array string	REPORTARRAY(100,13);	//stores enumerator report data (50 = number of records, 13 = number of fields (ERFEILD_OFFICER, ERSERIAL_NO,ERUNIT_NO,ERHH_SIZE,ERMALES,ERFEMALES,WEEK_ENDING,ERLAST-NAME, ERFIRST_NAME, ERADDRESS, ERSTART, EREND,ERREMARKS))
+array string	vsCode(50);		//valueset codes
+array string 	vsLabel(50);	//valueset labels
+array string 	address(50,3);	//stores addresses
+array numeric	vsEDCode(10);	//stores ED
+//array string	vsEDLabel(10);	//Stores ED label
+array string	REPORTARRAY(50,13);	//stores enumerator report data (50 = number of records, 13 = number of fields (ERFEILD_OFFICER, ERSERIAL_NO,ERUNIT_NO,ERHH_SIZE,ERMALES,ERFEMALES,WEEK_ENDING,ERLAST-NAME, ERFIRST_NAME, ERADDRESS, ERSTART, EREND,ERREMARKS))
 array string	curcasearray(8);	//stores current case (VISITNO, ENMRTR, ROTATION, DATE, SUPERV, LENDDATE, LSTARTTIME, LENDTIME)
 
 //--------------------------------Function declaration------------------------------------
@@ -83,7 +83,7 @@ function LaunchControlSheet()
 	filewrite(pffFile,"[Files]");
 	filewrite(pffFile,"Application=%v","./Listing.ent");
 	filewrite(pffFile,"InputData=%v","../Data/Controlsheet.csdb|CSPRODB");
-	filewrite(pffFile,"Paradata=%v",maketext("../Data/Controlsheet%02d%03d.cslog",ME_ROUND,ME_ED));	//creates a different log for each round and ed to cut down on log size
+	filewrite(pffFile,"Paradata=%v",maketext("../Data/Controlsheet%02d%03d.cslog",ME_ROUND,ME_ED));
 	
 	filewrite(pffFile,"[UserFiles]");
 	filewrite(pffFile,"PFFFILE=%v","");
@@ -178,7 +178,7 @@ function LaunchQuestionnaire()
 	filewrite(pffFile, "[Files]");
 	filewrite(pffFile, "Application=%v","./Labourforce.ent");
 	filewrite(pffFile, "InputData=%v","../Data/data.csdb|CSPRODB");
-	filewrite(pffFile, "Paradata=%v",maketext("../Data/Labourforce%02d%03d.cslog",ME_ROUND,ME_ED));	//creates a different log for each round and ed to cut down on log size
+	filewrite(pffFile, "Paradata=%v",maketext("../Data/Labourforce%02d%03d.cslog",ME_ROUND,ME_ED));
 	
 	filewrite(pffFile, "[ExternalFiles]");
 	filewrite(pffFile, "LISTING_DICT=%v", "../Data/Controlsheet.csdb|CSPRODB");
@@ -255,7 +255,7 @@ function uploadData()
 			inc(errflag);
 		endif;
 		if not syncfile(PUT,maketext("../Data/Labourforce%02d%03d.cslog",ME_ROUND,ME_ED),maketext("LabourforceLogs/Labourforce%02d%03d%s.cslog",ME_ROUND,ME_ED,getdeviceid())) then		//Upload paradata logs
-			//inc(errflag);		//Don't show an error for this in case no questionnaires have been filled out yet. This file only exists if questionnaires have been filled.
+			inc(errflag);
 		endif;
 		if USERID >= 90 then
 			if not syncdata(BOTH, ALLOCATION_DICT) then		//sync allocations if supervisor
@@ -581,7 +581,7 @@ function enumerationRpt()
 	//check number of cases using new criteria, if none found then use old criteria
 //if housecount <> 0 then
 		//TODO: REMEMBER TO UNCOMMENT ERROUND=ME_ROUND IN ROUND 6!
-		forcase ENUMERATIONREPORT_DICT where ERED_NO = ME_ED and ERROUND = ME_ROUND and datediff(WEEK_ENDING,sysdate("YYYYMMDD"),"m") <= 3 do		//for each case in enumeration report in the current ED
+		forcase ENUMERATIONREPORT_DICT where ERED_NO = ME_ED {and ERROUND = ME_ROUND} and datediff(WEEK_ENDING,sysdate("YYYYMMDD"),"m") <= 3 do		//for each case in enumeration report in the current ED
 			REPORTARRAY(i,1) = getlabel(ERFIELD_OFFICER_VS1,ERFIELD_OFFICER);	//field officer
 			REPORTARRAY(i,2) = maketext("%d",ERUNIT_NO);
 			REPORTARRAY(i,3) = maketext("%d",ERSERIAL_NO);
@@ -619,12 +619,11 @@ function enumerationRpt()
 		endfor;}
 	//endif;
 	
-	{//count the number of individuals if ERHH_SIZE has nothing
+	//count the number of individuals if ERHH_SIZE has nothing
 	forcase LABOURFORCE_DICT where EDNO = ME_ED and RNDNO = ME_ROUND and LENDDATE <> notappl and VACANT = 2 do
 		//errmsg("num persons=%d, indiv count=%d",NUMBER_OF_PERSONS,indivcounttot);
 		indivcounttot = indivcounttot + NUMBER_OF_PERSONS;		//count all persons in completed cases
 	endfor;
-	}
 		
 	//Sort the array
 	while j <= i-1 do			//while j = total items in the array
@@ -1029,6 +1028,8 @@ postproc
 		skip to DELETE_CONTROL_SHEET;
 	elseif $ = 9 then		//back
 		move to LOGIN;
+	elseif $ = 10 then		//download New round DEBUG:THIS WAS DELETED FROM THE MENU PERSONS SHOUL USE CHANGE ROUND INSTEAD
+		skip to CHOOSE_ROUND;
 	endif;
 reenter;		//don't leave the menu
 
@@ -1091,7 +1092,7 @@ onfocus
 postproc
 	if $ = 1 then		//download data
 		if connection() then
-			errmsg("%S",maketext("%v%v", ME_ROUND,ME_ED));
+			errmsg("%S",maketext("%v%v", CHOOSE_ROUND,ME_ED));
 			downloadData(rnd_ed);		//download questionnaires etc
 		else
 			errmsg("Please connect to the internet before downloading data");

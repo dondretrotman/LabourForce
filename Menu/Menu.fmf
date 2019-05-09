@@ -19,6 +19,7 @@ Size=754,725
 Item=INTERVIEWER_MENU
 Item=SUPERVISOR_MENU
 Item=LOGIN
+Item=CHOOSE_ROUND
 Item=CHOOSE_QUESTIONNAIRE
 Item=CHOOSE_HOUSEHOLD
 Item=ME_ED
@@ -154,6 +155,20 @@ Form=1
 [Text]
 Position=127,272,207,288
 Text=Admin Menu
+ 
+  
+[Field]
+Name=CHOOSE_ROUND
+Position=319,307,348,327
+Item=CHOOSE_ROUND,MENU_DICT
+UpperCase=Yes
+FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
+Form=1
+  
+[Text]
+Position=127,310,219,326
+Text=Choose Round
  
   
 [Field]

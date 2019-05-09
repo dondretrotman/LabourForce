@@ -109,26 +109,16 @@ preproc
 	noinput;
 	
 //--------------------------------------------------------
-PROC LSTLNAME
-postproc
-	if $ = "" then		//if no name
-		errmsg("Please enter a last name");
-		reenter;
-	endif;
-PROC LSTFNAME
-postproc
-	if $ = "" then		//if no name
-		errmsg("Please enter a first name");
-		reenter;
-	endif;
+PROC LSTENUMCODE
+onfocus
+	noinput;
 PROC LSTTELEPHONE
 
 onfocus
 	set behavior($) canenter(notappl) on (noconfirm);
 	
 postproc
-	string telnum = maketext("%V",$);		//convert to string to do regex
-	if regexmatch(telnum,"^([0-9])(7)$") = 0 and telnum <> "" then			//phone number must be in the format #######
+	if $ < 1000000 then
 		errmsg("Phone number must have 7 digits");
 		reenter;
 	endif;

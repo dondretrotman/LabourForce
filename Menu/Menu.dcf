@@ -24,7 +24,7 @@ Len=1
 Label=Menu record
 Name=MENU_REC
 RecordTypeValue='1'
-RecordLen=130
+RecordLen=132
 
 [Item]
 Label=User Name
@@ -261,9 +261,28 @@ Value=5;View Enumerator Report
 Value=9;Back
 
 [Item]
+Label=Choose Round
+Name=CHOOSE_ROUND
+Start=36
+Len=2
+
+[ValueSet]
+Label=Choose Round
+Name=CHOOSE_ROUND_VS1
+Value=1;1
+Value=2;2
+Value=3;3
+Value=4;4
+Value=5;5
+Value=6;6
+Value=7;7
+Value=8;8
+Value=9;9
+
+[Item]
 Label=Delete Questionnaire
 Name=CHOOSE_QUESTIONNAIRE
-Start=36
+Start=38
 Len=12
 DataType=Alpha
 
@@ -275,7 +294,7 @@ Value='null        ';null
 [Item]
 Label=Choose Household
 Name=CHOOSE_HOUSEHOLD
-Start=48
+Start=50
 Len=12
 DataType=Alpha
 
@@ -287,7 +306,7 @@ Value='null        ';null
 [Item]
 Label=Choose Control Sheet
 Name=CHOOSE_CONTROL_SHEET
-Start=60
+Start=62
 Len=15
 DataType=Alpha
 
@@ -299,7 +318,7 @@ Value='null           ';null
 [Item]
 Label=Delete Control Sheet
 Name=DELETE_CONTROL_SHEET
-Start=75
+Start=77
 Len=15
 DataType=Alpha
 
@@ -311,7 +330,7 @@ Value='null           ';null
 [Item]
 Label=Admin Delete Control Sheet
 Name=ADMIN_DELETE_CONTROL_SHEET
-Start=90
+Start=92
 Len=15
 DataType=Alpha
 
@@ -323,7 +342,7 @@ Value='null           ';null
 [Item]
 Label=Admin Delete Questionnaire
 Name=ADMIN_DELETE_QUESTIONNAIRE
-Start=105
+Start=107
 Len=12
 DataType=Alpha
 
@@ -335,7 +354,7 @@ Value='null        ';null
 [Item]
 Label=No Change
 Name=MNO_CHANGE
-Start=117
+Start=119
 Len=12
 DataType=Alpha
 
@@ -347,27 +366,27 @@ Value='null        ';null
 [Item]
 Label=Allocate enumerator
 Name=ALLOCATE_ENUMERATOR
-Start=129
+Start=131
 Len=2
 
 [ValueSet]
 Label=User ID
 Name=ALLOCATE_ENUMERATOR_VS1
-Value=1;(01) MBEST
-Value=3;(03) KRUSSELL
-Value=4;(04) CSEALY
-Value=5;(05) RMAYERS
-Value=6;(06) SGRIFFITH
-Value=7;(07) GHUSBANDS
-Value=8;(08) AWALCOTT
-Value=9;(09) JCUMBERBATCH
-Value=10;(10) FAGARD
-Value=11;(11) VTAYLOR
-Value=14;(14) JWILLIAMS
-Value=15;(15) LWILLIAMS
-Value=17;(17) CQUINTYNE
-Value=20;(20) KBONAS
-Value=22;(22) SBLACKETT
-Value=25;(25) JHUSBANDS
-Value=26;(26) SHURDLE
-Value=30;(30) GSHEPHERD
+Value=1;MBEST
+Value=3;KRUSSELL
+Value=4;CSEALY
+Value=5;RMAYERS
+Value=6;SGRIFFITH
+Value=7;GHUSBANDS
+Value=8;AWALCOTT
+Value=9;JCUMBERBATCH
+Value=10;FAGARD
+Value=11;VTAYLOR
+Value=14;JWILLIAMS
+Value=15;LWILLIAMS
+Value=17;CQUINTYNE
+Value=20;KBONAS
+Value=22;SBLACKETT
+Value=25;JHUSBANDS
+Value=26;SHURDLE
+Value=30;GSHEPHERD
