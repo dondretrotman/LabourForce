@@ -8,16 +8,20 @@ PROC GLOBAL
 file 	pffFile,		//Creates a .pff file
 		loginfile;		//saves login status in a file
 		
+config	cswebip1,		//Stores CSWeb address
+		cswebip2,		//Stores CSWeb secondary address
+		ftpun, 			//stores ftp username
+		ftppw;			//stores ftp password		
 
 string 	rnd_ed,		//round and ED number to be downloaded
 		status,		//stores current login status
 		username,		//stores user name
-		ftpip1,		//Stores ftp address
-		ftpip2,		//stores ftp secondary address
-		cswebip1,	//Stores CSWeb address
-		cswebip2,	//Stores CSWeb secondary address
-		ftpun, 		//stores ftp username
-		ftppw,		//stores ftp password
+//		ftpip1,		//Stores ftp address
+//		ftpip2,		//stores ftp secondary address
+//		cswebip1,	//Stores CSWeb address
+//		cswebip2,	//Stores CSWeb secondary address
+//		ftpun, 		//stores ftp username
+//		ftppw,		//stores ftp password
 		convid,		//stores control sheet id that was converted to a questionnaire id
 		temparray,	//temporarily stores a string array value
 		parish,		//parish
@@ -797,11 +801,11 @@ preproc
 	//Initialize ftp variables
 	//ftpip1 = "64.119.198.70";
 	//ftpip2 = "10.129.20.110";
-	ftpun = "Census";
+	{ftpun = "Census";
 	ftppw = "Census2020ADM!N";
 	cswebip1 = "http://64.119.198.70:8082/csweb/api";
 	cswebip2 = "http://10.129.20.110:8082/csweb/api";
-		
+	}	
 //--------------------------------------------------------------
 PROC UNAME
 preproc
