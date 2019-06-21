@@ -899,7 +899,7 @@ onfocus
 		inc(nextEntry);
 	enddo;
 	
-	if USERID < 90 then
+	if USERID < 90  and USERID <> 11 then		//If not a supervisor (or valerie taylor who is now a supervisor)
 		//Load ED from lookup file
 		nextEntry = 1;
 		uid = maketext("%V",USERID);
@@ -944,7 +944,7 @@ onfocus
 	$ = notappl;
 	username = getlabel(UNAME_VS1,UNAME);
 	
-	if visualvalue(USERID) in 90:98 then		//Supervisor
+	if visualvalue(USERID) in 11,90:98 then		//Supervisor (including valerie taylor)
 		setvalueset(LOGIN,LOGIN_VS1);
 	elseif visualvalue(USERID) < 90 then	//enumerator
 		setvalueset(LOGIN,LOGIN_VS2);

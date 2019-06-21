@@ -149,7 +149,7 @@ Value=4;WDAVIS
 Label=Allocation record
 Name=ALLOCATION_REC
 RecordTypeValue='1'
-MaxRecords=5
+MaxRecords=10
 RecordLen=19
 
 [Item]

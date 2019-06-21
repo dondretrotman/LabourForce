@@ -117,7 +117,7 @@ Form=2
 Required=Yes
 Type=Record
 TypeName=ALLOCATION_REC
-Max=5
+Max=10
 DisplaySize=40,149,441,469
 Orientation=Horizontal
 FieldRowHeight=0
@@ -148,6 +148,26 @@ Text=4
 [Text]
 Position=0,4,15,28
 Text=5
+ 
+  
+[Text]
+Text=6
+ 
+  
+[Text]
+Text=7
+ 
+  
+[Text]
+Text=8
+ 
+  
+[Text]
+Text=9
+ 
+  
+[Text]
+Text=10
  
   
 [Column]
