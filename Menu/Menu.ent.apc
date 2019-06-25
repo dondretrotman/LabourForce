@@ -261,7 +261,7 @@ function uploadData()
 		if not syncfile(PUT,maketext("../Data/Labourforce%02d%03d.cslog",ME_ROUND,ME_ED),maketext("LabourforceLogs/Labourforce%02d%03d%s.cslog",ME_ROUND,ME_ED,getdeviceid())) then		//Upload paradata logs
 			inc(errflag);
 		endif;
-		if USERID >= 90 then
+		if USERID >= 90 or USERID = 1 then
 			if not syncdata(BOTH, ALLOCATION_DICT) then		//sync allocations if supervisor
 				inc(errflag);
 			endif;
@@ -867,7 +867,7 @@ postproc
 
 	//get allocations
 	uid = maketext("%v",USERID);
-	if loadcase(ALLOCATION_DICT,uid) = 0 and USERID < 90 then		//if no allocations found
+	if loadcase(ALLOCATION_DICT,uid) = 0 and USERID in 2:90 then		//if no allocations found	(excluding marcia best)
 		if connection() then		//if on the internet
 			if syncconnect(CSWeb,cswebip1,ftpun,ftppw) then		//connect to csweb when outside of the Government WAN
 				syncdata(GET, ALLOCATION_DICT);		//get allocations
@@ -888,9 +888,9 @@ postproc
 PROC ME_ED
 onfocus
 	//displays saved ED  number
-	
+	//errmsg("onfocus");
 	$ = tonumber(loadsetting("ED"));
-	
+	//errmsg("loadsetting");
 	//reset arrays
 	nextEntry = 1;
 	while nextEntry <= 10 do
@@ -898,8 +898,8 @@ onfocus
 		vsLabel(nextEntry) = "";
 		inc(nextEntry);
 	enddo;
-	
-	if USERID < 90  and USERID <> 11 then		//If not a supervisor (or valerie taylor who is now a supervisor)
+	//errmsg("reset arrays");
+	if USERID < 90  or USERID <> 1 then		//If not a supervisor (or Marcia Best who is now a supervisor)
 		//Load ED from lookup file
 		nextEntry = 1;
 		uid = maketext("%V",USERID);
@@ -926,7 +926,7 @@ onfocus
 		if vsEDcode(1) in notappl,0 then		//if nothing is in the valueset
 			errmsg("There are no allocations available. Are you in the correct round?");
 		endif;
-	elseif USERID >= 90 then
+	elseif USERID >= 90 or USERID = 1 then
 		setvalueset(ME_ED,ME_ED_VS1);
 	endif;
 	
@@ -944,7 +944,7 @@ onfocus
 	$ = notappl;
 	username = getlabel(UNAME_VS1,UNAME);
 	
-	if visualvalue(USERID) in 11,90:98 then		//Supervisor (including valerie taylor)
+	if visualvalue(USERID) in 1,90:98 then		//Supervisor (including MArcia Best)
 		setvalueset(LOGIN,LOGIN_VS1);
 	elseif visualvalue(USERID) < 90 then	//enumerator
 		setvalueset(LOGIN,LOGIN_VS2);
