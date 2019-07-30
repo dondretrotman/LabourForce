@@ -101,37 +101,27 @@ Value=3;Stratum 3
 Value=4;Stratum 4
 
 [Item]
+Label=Building
+Name=BUILDING
+Start=11
+Len=3
+
+[Item]
 Label=Sample Number
 Name=HHNO
-Start=11
+Start=14
 Len=3
 
 [Record]
 Label=Household Listing
 Name=HOUSEHOLD_LISTING
 RecordTypeValue='1'
-RecordLen=285
-
-[Item]
-Label=Latitude
-Name=LATITUDE
-Start=14
-Len=13
-Decimal=9
-DecimalChar=Yes
-
-[Item]
-Label=Longitude
-Name=LONGITUDE
-Start=27
-Len=14
-Decimal=9
-DecimalChar=Yes
+RecordLen=130
 
 [Item]
 Label=Visit Number
 Name=VISITNO
-Start=41
+Start=17
 Len=1
 
 [ValueSet]
@@ -146,7 +136,7 @@ Value=4;Fourth
 Label=Household Type
 Name=HH_TYP
 Note=Asked in Vacant Form
-Start=42
+Start=18
 Len=1
 
 [ValueSet]
@@ -159,226 +149,16 @@ Value=4;High class
 Value=9;Not stated
 
 [Item]
-Label=Enumerator
-Name=ENMRTR
-Start=43
-Len=2
-
-[ValueSet]
-Label=Enumerator
-Name=ENMRTR_VS1
-Value=1;Best M
-Value=3;Russell K
-Value=4;Sealy C
-Value=5;Mayers R
-Value=6;Griffith S
-Value=7;Husbands G
-Value=8;Walcott A
-Value=9;Cumberbatch J
-Value=10;Agard F
-Value=11;Taylor V
-Value=14;Williams J
-Value=15;Williams L
-Value=17;Quintyne C
-Value=20;Bonas K
-Value=22;Blackett S
-Value=25;Husbands J
-Value=26;Hurdle S
-Value=30;Shepherd G
-Value=95;Chase H
-Value=93;Small M
-Value=94;Davis W
-
-[Item]
 Label=Rotation Order
 Name=ROTATION
-Start=45
+Start=19
 Len=2
 DataType=Alpha
 
 [Item]
-Label=Date
-Name=DATE
-Start=47
-Len=8
-
-[Item]
-Label=Year
-Name=YEAR
-Start=47
-Len=4
-ItemType=SubItem
-
-[ValueSet]
-Label=Year
-Name=YEAR_VS1
-Value=2018;2,018
-Value=2019;2,019
-Value=2020;2,020
-Value=2021;2,021
-Value=2022;2,022
-Value=2023;2,023
-Value=2024;2,024
-Value=2025;2,025
-Value=2026;2,026
-Value=2027;2,027
-Value=2028;2,028
-Value=2029;2,029
-Value=2030;2,030
-Value=2031;2,031
-Value=2032;2,032
-Value=2033;2,033
-Value=2034;2,034
-Value=2035;2,035
-Value=2036;2,036
-Value=2037;2,037
-Value=2038;2,038
-Value=2039;2,039
-Value=2040;2,040
-Value=2041;2,041
-Value=2042;2,042
-Value=2043;2,043
-Value=2044;2,044
-Value=2045;2,045
-Value=2046;2,046
-Value=2047;2,047
-Value=2048;2,048
-Value=2049;2,049
-Value=2050;2,050
-Value=2051;2,051
-Value=2052;2,052
-Value=2053;2,053
-Value=2054;2,054
-Value=2055;2,055
-Value=2056;2,056
-Value=2057;2,057
-Value=2058;2,058
-Value=2059;2,059
-Value=2060;2,060
-Value=2061;2,061
-Value=2062;2,062
-Value=2063;2,063
-Value=2064;2,064
-Value=2065;2,065
-Value=2066;2,066
-Value=2067;2,067
-Value=2068;2,068
-Value=2069;2,069
-Value=2070;2,070
-Value=2071;2,071
-Value=2072;2,072
-Value=2073;2,073
-Value=2074;2,074
-Value=2075;2,075
-Value=2076;2,076
-Value=2077;2,077
-Value=2078;2,078
-Value=2079;2,079
-Value=2080;2,080
-Value=2081;2,081
-Value=2082;2,082
-Value=2083;2,083
-Value=2084;2,084
-Value=2085;2,085
-Value=2086;2,086
-Value=2087;2,087
-Value=2088;2,088
-Value=2089;2,089
-Value=2090;2,090
-Value=2091;2,091
-Value=2092;2,092
-Value=2093;2,093
-Value=2094;2,094
-Value=2095;2,095
-Value=2096;2,096
-Value=2097;2,097
-Value=2098;2,098
-Value=2099;2,099
-Value=2100;2,100
-
-[Item]
-Label=Month
-Name=MONTH
-Start=51
-Len=2
-ItemType=SubItem
-
-[ValueSet]
-Label=Month
-Name=MONTH_VS1
-Value=1;January
-Value=2;February
-Value=3;March
-Value=4;April
-Value=5;May
-Value=6;June
-Value=7;July
-Value=8;August
-Value=9;September
-Value=10;October
-Value=11;November
-Value=12;December
-
-[Item]
-Label=Day
-Name=DAY
-Start=53
-Len=2
-ItemType=SubItem
-
-[ValueSet]
-Label=Day
-Name=DAY_VS1
-Value=1;1
-Value=2;2
-Value=3;3
-Value=4;4
-Value=5;5
-Value=6;6
-Value=7;7
-Value=8;8
-Value=9;9
-Value=10;10
-Value=11;11
-Value=12;12
-Value=13;13
-Value=14;14
-Value=15;15
-Value=16;16
-Value=17;17
-Value=18;18
-Value=19;19
-Value=20;20
-Value=21;21
-Value=22;22
-Value=23;23
-Value=24;24
-Value=25;25
-Value=26;26
-Value=27;27
-Value=28;28
-Value=29;29
-Value=30;30
-Value=31;31
-
-[Item]
-Label=Supervisor
-Name=SUPERV
-Start=55
-Len=2
-
-[ValueSet]
-Label=Supervisor
-Name=SUPERV_VS1
-Value=95;Harold Chase
-Value=93;Mervin Small
-Value=94;Wayne Davis
-Value=1;Marcia Best
-
-[Item]
 Label=Number of persons
 Name=NUMBER_OF_PERSONS
-Start=57
+Start=21
 Len=2
 
 [Item]
@@ -389,7 +169,7 @@ Note=\r\n
 Note=This neccesitates a change in the response from yes = 1, no = 2 to yes = 2, no = 1.\r\n
 Note=\r\n
 Note=This should not affect the questionnaire otherwise.
-Start=59
+Start=23
 Len=1
 
 [ValueSet]
@@ -402,7 +182,7 @@ Value=1;No
 [Item]
 Label=Vacant occupancy
 Name=VOCCUP
-Start=60
+Start=24
 Len=2
 
 [ValueSet]
@@ -417,136 +197,28 @@ Value=46;Other
 Value=9;Not Stated
 
 [Item]
-Label=Delete flag
-Name=DELETE_FLAG
-Start=62
-Len=1
-
-[ValueSet]
-Label=Delete flag
-Name=DELETE_FLAG_VS1
-Value=1;Delete case
-Value=0;Keep case
-
-[Item]
-Label=Interview end date
-Name=LENDDATE
-Start=63
-Len=8
-
-[Item]
-Label=Year
-Name=LENDY
-Start=63
-Len=4
-ItemType=SubItem
-
-[Item]
-Label=Month
-Name=LENDM
-Start=67
-Len=2
-ItemType=SubItem
-
-[Item]
-Label=Day
-Name=LENDD
-Start=69
-Len=2
-ItemType=SubItem
-
-[Item]
-Label=Address
-Name=ADDRES
-Start=71
-Len=100
-DataType=Alpha
-
-[Item]
 Label=Other
 Name=VACANT_OTHER
-Start=171
+Start=26
 Len=100
 DataType=Alpha
-
-[Item]
-Label=Coder
-Name=CODER
-Start=271
-Len=2
-
-[ValueSet]
-Label=Coder
-Name=CODER_VS1
-Value=16;Lorna Brathwaite
-Value=41;Keann Butcher-Lewis
-Value=51;Roger Blades
-Value=52;Michelle Brathwaite
-Value=54;Karin Russell
-Value=58;Lisa Smith
-Value=65;Jean Johnson
-Value=66;Kellyanne Bonas
 
 [Item]
 Label=Eligible persons
 Name=ELIGIBLE_PERSONS
-Start=273
+Start=126
 Len=2
 
 [Item]
 Label=Number of earners
 Name=NUMBER_OF_EARNERS
-Start=275
+Start=128
 Len=2
-
-[Item]
-Label=Interview start time
-Name=LSTARTTIME
-Start=277
-Len=4
-
-[Item]
-Label=Interview start hour
-Name=LSTARTHOUR
-Start=277
-Len=2
-ItemType=SubItem
-ZeroFill=Yes
-
-[Item]
-Label=Interview start minute
-Name=LSTARTMIN
-Start=279
-Len=2
-ItemType=SubItem
-ZeroFill=Yes
-
-[Item]
-Label=Interview end time
-Name=LENDTIME
-Start=281
-Len=4
-
-[Item]
-Label=Interview end hour
-Name=LENDHOUR
-Start=281
-Len=2
-ItemType=SubItem
-ZeroFill=Yes
-
-[Item]
-Label=Interview end minute
-Name=LENDMINUTE
-Start=283
-Len=2
-ItemType=SubItem
-ZeroFill=Yes
 
 [Item]
 Label=No change from last round
 Name=NO_CHANGE
-Start=285
+Start=130
 Len=1
 
 [ValueSet]
@@ -561,12 +233,12 @@ Name=LABOURFORCE_REC
 RecordTypeValue='2'
 Required=No
 MaxRecords=40
-RecordLen=1934
+RecordLen=1924
 
 [Item]
 Label=Individual Number
 Name=LIDNO
-Start=14
+Start=17
 Len=2
 
 [ValueSet]
@@ -616,21 +288,21 @@ Value=40;40
 [Item]
 Label=Last Name
 Name=LLAST_NAME
-Start=16
+Start=19
 Len=50
 DataType=Alpha
 
 [Item]
 Label=First Name
 Name=LFIRST_NAME
-Start=66
+Start=69
 Len=50
 DataType=Alpha
 
 [Item]
 Label=Sex
 Name=LSEX
-Start=116
+Start=119
 Len=1
 
 [ValueSet]
@@ -642,7 +314,7 @@ Value=2;Female
 [Item]
 Label=Member from previous visit
 Name=LPREVVISIT
-Start=117
+Start=120
 Len=1
 
 [ValueSet]
@@ -655,7 +327,7 @@ Value=3;No longer living in household
 [Item]
 Label=New Member
 Name=LNEWMEM
-Start=118
+Start=121
 Len=1
 
 [ValueSet]
@@ -667,7 +339,7 @@ Value=2;No
 [Item]
 Label=Reason for leaving or joining the household
 Name=LREASON
-Start=119
+Start=122
 Len=1
 
 [ValueSet]
@@ -682,14 +354,14 @@ Value=5;Other
 [Item]
 Label=Other
 Name=LREASON_OTHER
-Start=120
+Start=123
 Len=30
 DataType=Alpha
 
 [Item]
 Label=Relationship to head
 Name=LRTH
-Start=150
+Start=153
 Len=1
 
 [ValueSet]
@@ -709,7 +381,7 @@ Value=9;Not Stated
 [Item]
 Label=Usual Residence
 Name=LUR
-Start=151
+Start=154
 Len=1
 
 [ValueSet]
@@ -721,13 +393,13 @@ Value=2;No
 [Item]
 Label=DOB
 Name=LDOB
-Start=152
+Start=155
 Len=8
 
 [Item]
 Label=DOB_Year
 Name=LDOB_YEAR
-Start=152
+Start=155
 Len=4
 ItemType=SubItem
 
@@ -859,7 +531,7 @@ Value=9999;Don't Know
 [Item]
 Label=DOB_Month
 Name=LDOB_MONTH
-Start=156
+Start=159
 Len=2
 ItemType=SubItem
 
@@ -883,7 +555,7 @@ Value=99;Don't know
 [Item]
 Label=DOB_Day
 Name=LDOB_DAY
-Start=158
+Start=161
 Len=2
 ItemType=SubItem
 
@@ -926,7 +598,7 @@ Value=99;Don't know
 [Item]
 Label=Age
 Name=LAGE
-Start=160
+Start=163
 Len=3
 
 [ValueSet]
@@ -954,7 +626,7 @@ Value=120;120 - 120
 [Item]
 Label=Eligible
 Name=LELIGIBLE
-Start=163
+Start=166
 Len=1
 
 [ValueSet]
@@ -966,7 +638,7 @@ Value=2;No
 [Item]
 Label=Earner
 Name=LEARNER
-Start=164
+Start=167
 Len=1
 
 [ValueSet]
@@ -978,13 +650,13 @@ Value=2;No
 [Item]
 Label=Form 2 completed by
 Name=LCOMPLETED
-Start=165
+Start=168
 Len=2
 
 [Item]
 Label=Add another person?
 Name=ADDPER
-Start=167
+Start=170
 Len=1
 
 [ValueSet]
@@ -994,257 +666,9 @@ Value=1;Yes
 Value=2;No
 
 [Item]
-Label=DataEntryID
-Name=DATAENID
-Start=168
-Len=2
-
-[ValueSet]
-Label=DataEntryID
-Name=DATAENID_VS1
-Value=41;Butcher-Lewis K.
-Value=51;Blades R.
-Value=54;Russell K.
-Value=52;Brathwaite M.
-Value=58;Smith L.
-Value=65;Watson P.
-Value=66;Bonas K.
-Value=91;Browne A
-Value=92;Parris C
-Value=93;Small M.
-Value=94;Davis W.
-Value=95;Chase H.
-Value=97;Codrington M.
-
-[Item]
-Label=Interview Results
-Name=INTRVW
-Start=170
-Len=1
-
-[ValueSet]
-Label=Interview Results
-Name=INTRVW_VS1
-Value=1;Fully responding
-Value=3;Part responding
-Value=2;Listing error
-Value=4;No respondent/informant or refusal
-
-[Item]
-Label=Coderold
-Name=BLANK
-Start=171
-Len=2
-
-[Item]
-Label=Interview Date
-Name=INTD
-Start=173
-Len=8
-
-[Item]
-Label=Interview Date Year
-Name=DYR
-Start=173
-Len=4
-ItemType=SubItem
-
-[ValueSet]
-Label=Interview Date Year
-Name=DYR_VS1
-Value=1900;1,900
-Value=1901;1,901
-Value=1902;1,902
-Value=1903;1,903
-Value=1904;1,904
-Value=1905;1,905
-Value=1906;1,906
-Value=1907;1,907
-Value=1908;1,908
-Value=1909;1,909
-Value=1910;1,910
-Value=1911;1,911
-Value=1912;1,912
-Value=1913;1,913
-Value=1914;1,914
-Value=1915;1,915
-Value=1916;1,916
-Value=1917;1,917
-Value=1918;1,918
-Value=1919;1,919
-Value=1920;1,920
-Value=1921;1,921
-Value=1922;1,922
-Value=1923;1,923
-Value=1924;1,924
-Value=1925;1,925
-Value=1926;1,926
-Value=1927;1,927
-Value=1928;1,928
-Value=1929;1,929
-Value=1930;1,930
-Value=1931;1,931
-Value=1932;1,932
-Value=1933;1,933
-Value=1934;1,934
-Value=1935;1,935
-Value=1936;1,936
-Value=1937;1,937
-Value=1938;1,938
-Value=1939;1,939
-Value=1940;1,940
-Value=1941;1,941
-Value=1942;1,942
-Value=1943;1,943
-Value=1944;1,944
-Value=1945;1,945
-Value=1946;1,946
-Value=1947;1,947
-Value=1948;1,948
-Value=1949;1,949
-Value=1950;1,950
-Value=1951;1,951
-Value=1952;1,952
-Value=1953;1,953
-Value=1954;1,954
-Value=1955;1,955
-Value=1956;1,956
-Value=1957;1,957
-Value=1958;1,958
-Value=1959;1,959
-Value=1960;1,960
-Value=1961;1,961
-Value=1962;1,962
-Value=1963;1,963
-Value=1964;1,964
-Value=1965;1,965
-Value=1966;1,966
-Value=1967;1,967
-Value=1968;1,968
-Value=1969;1,969
-Value=1970;1,970
-Value=1971;1,971
-Value=1972;1,972
-Value=1973;1,973
-Value=1974;1,974
-Value=1975;1,975
-Value=1976;1,976
-Value=1977;1,977
-Value=1978;1,978
-Value=1979;1,979
-Value=1980;1,980
-Value=1981;1,981
-Value=1982;1,982
-Value=1983;1,983
-Value=1984;1,984
-Value=1985;1,985
-Value=1986;1,986
-Value=1987;1,987
-Value=1988;1,988
-Value=1989;1,989
-Value=1990;1,990
-Value=1991;1,991
-Value=1992;1,992
-Value=1993;1,993
-Value=1994;1,994
-Value=1995;1,995
-Value=1996;1,996
-Value=1997;1,997
-Value=1998;1,998
-Value=1999;1,999
-Value=2000;2,000
-Value=2001;2,001
-Value=2002;2,002
-Value=2003;2,003
-Value=2004;2,004
-Value=2005;2,005
-Value=2006;2,006
-Value=2007;2,007
-Value=2008;2,008
-Value=2009;2,009
-Value=2010;2,010
-Value=2011;2,011
-Value=2012;2,012
-Value=2013;2,013
-Value=2014;2,014
-Value=2015;2,015
-Value=2016;2,016
-Value=2017;2,017
-Value=2018;2,018
-
-[Item]
-Label=Interview Date Month
-Name=DMO
-Start=177
-Len=2
-ItemType=SubItem
-
-[ValueSet]
-Label=Interview Date Month
-Name=DMO_VS1
-Link=49194168
-Value=1;January
-Value=2;February
-Value=3;March
-Value=4;April
-Value=5;May
-Value=6;June
-Value=7;July
-Value=8;August
-Value=9;September
-Value=10;October
-Value=11;November
-Value=12;December
-Value=99;Don't know
-
-[Item]
-Label=Interview Date Day
-Name=DDY
-Start=179
-Len=2
-ItemType=SubItem
-
-[ValueSet]
-Label=Interview Date Day
-Name=DDY_VS1
-Link=49198656
-Value=1;1
-Value=2;2
-Value=3;3
-Value=4;4
-Value=5;5
-Value=6;6
-Value=7;7
-Value=8;8
-Value=9;9
-Value=10;10
-Value=11;11
-Value=12;12
-Value=13;13
-Value=14;14
-Value=15;15
-Value=16;16
-Value=17;17
-Value=18;18
-Value=19;19
-Value=20;20
-Value=21;21
-Value=22;22
-Value=23;23
-Value=24;24
-Value=25;25
-Value=26;26
-Value=27;27
-Value=28;28
-Value=29;29
-Value=30;30
-Value=31;31
-Value=99;Don't know
-
-[Item]
 Label=HHead
 Name=HD_HH
-Start=181
+Start=171
 Len=1
 
 [ValueSet]
@@ -1257,7 +681,7 @@ Value=2;No
 Label=Occupancy
 Name=OCCPNCY
 Note=Asked in Vacant form
-Start=182
+Start=172
 Len=2
 
 [ValueSet]
@@ -1272,7 +696,7 @@ Value=9;Not stated
 [Item]
 Label=Land Tenure
 Name=LNDTNURE
-Start=184
+Start=174
 Len=1
 
 [ValueSet]
@@ -1288,14 +712,14 @@ Value=9;Don't Know
 [Item]
 Label=Other
 Name=LNDTNURE_OTHER
-Start=185
+Start=175
 Len=30
 DataType=Alpha
 
 [Item]
 Label=HHsize
 Name=HH_SZ
-Start=215
+Start=205
 Len=2
 
 [ValueSet]
@@ -1306,7 +730,7 @@ Value=1:40;Valid
 [Item]
 Label=Earners
 Name=EARNERS
-Start=217
+Start=207
 Len=2
 
 [ValueSet]
@@ -1317,7 +741,7 @@ Value=0:40;valid
 [Item]
 Label=Head Earner
 Name=HD_ERNR
-Start=219
+Start=209
 Len=1
 
 [ValueSet]
@@ -1329,7 +753,7 @@ Value=2;No
 [Item]
 Label=No of Male Children
 Name=MCHILDRN
-Start=220
+Start=210
 Len=2
 
 [ValueSet]
@@ -1340,7 +764,7 @@ Value=0:40;Valid
 [Item]
 Label=No of Female Children
 Name=FCHILDRN
-Start=222
+Start=212
 Len=2
 
 [ValueSet]
@@ -1351,7 +775,7 @@ Value=0:40;Valid
 [Item]
 Label=1. Individual No
 Name=INDIVNO
-Start=224
+Start=214
 Len=2
 
 [ValueSet]
@@ -1362,7 +786,7 @@ Value=1:40;Valid
 [Item]
 Label=3. Sex
 Name=SEX
-Start=226
+Start=216
 Len=1
 
 [ValueSet]
@@ -1374,7 +798,7 @@ Value=2;Female
 [Item]
 Label=4. Relation to Head
 Name=RELHD
-Start=227
+Start=217
 Len=1
 
 [ValueSet]
@@ -1394,20 +818,20 @@ Value=9;Not Stated
 [Item]
 Label=4. Other
 Name=RELHD_OTHER
-Start=228
+Start=218
 Len=30
 DataType=Alpha
 
 [Item]
 Label=5. Birth Date
 Name=BIRTHD
-Start=258
+Start=248
 Len=8
 
 [Item]
 Label=Birth Date Year
 Name=BYR
-Start=258
+Start=248
 Len=4
 ItemType=SubItem
 
@@ -1538,31 +962,74 @@ Value=9999;Don't know
 [Item]
 Label=Birth Date Month
 Name=BMO
-Start=262
+Start=252
 Len=2
 ItemType=SubItem
 
 [ValueSet]
 Label=Birth Date Month
 Name=BMO_VS1
-Link=49194168
+Value=1;January
+Value=2;February
+Value=3;March
+Value=4;April
+Value=5;May
+Value=6;June
+Value=7;July
+Value=8;August
+Value=9;September
+Value=10;October
+Value=11;November
+Value=12;December
+Value=99;Don't know
 
 [Item]
 Label=Birth Date Day
 Name=BDY
-Start=264
+Start=254
 Len=2
 ItemType=SubItem
 
 [ValueSet]
 Label=Birth Date Day
 Name=BDY_VS1
-Link=49198656
+Value=1;1
+Value=2;2
+Value=3;3
+Value=4;4
+Value=5;5
+Value=6;6
+Value=7;7
+Value=8;8
+Value=9;9
+Value=10;10
+Value=11;11
+Value=12;12
+Value=13;13
+Value=14;14
+Value=15;15
+Value=16;16
+Value=17;17
+Value=18;18
+Value=19;19
+Value=20;20
+Value=21;21
+Value=22;22
+Value=23;23
+Value=24;24
+Value=25;25
+Value=26;26
+Value=27;27
+Value=28;28
+Value=29;29
+Value=30;30
+Value=31;31
+Value=99;Don't know
 
 [Item]
 Label=6. Age
 Name=AGE
-Start=266
+Start=256
 Len=3
 
 [ValueSet]
@@ -1573,7 +1040,7 @@ Value=0:120;Valid
 [Item]
 Label=7. Nationality
 Name=CNTRY_CD
-Start=269
+Start=259
 Len=3
 
 [ValueSet]
@@ -1802,14 +1269,14 @@ Value=52;Zimbawe
 [Item]
 Label=7. Other
 Name=CNTRY_CD_OTHER
-Start=272
+Start=262
 Len=30
 DataType=Alpha
 
 [Item]
 Label=8. Marital Status
 Name=MARSTAT
-Start=302
+Start=292
 Len=1
 
 [ValueSet]
@@ -1825,7 +1292,7 @@ Value=9;Not stated
 [Item]
 Label=9. Education Level
 Name=EDUCLEV
-Start=303
+Start=293
 Len=1
 
 [ValueSet]
@@ -1842,14 +1309,14 @@ Value=9;Not Stated
 [Item]
 Label=9. Other
 Name=EDUCLEV_OTHER
-Start=304
+Start=294
 Len=30
 DataType=Alpha
 
 [Item]
 Label=10. Highest qualification
 Name=QUALLEV
-Start=334
+Start=324
 Len=2
 
 [ValueSet]
@@ -1870,14 +1337,14 @@ Value=99;Not stated
 [Item]
 Label=10. Other
 Name=QUALLEV_OTHER
-Start=336
+Start=326
 Len=30
 DataType=Alpha
 
 [Item]
 Label=11. Currently Training
 Name=CTRAINING
-Start=366
+Start=356
 Len=1
 
 [ValueSet]
@@ -1889,21 +1356,21 @@ Value=2;No
 [Item]
 Label=12. Training for Occupation
 Name=OCCUPTR_TEXT
-Start=367
+Start=357
 Len=30
 DataType=Alpha
 
 [Item]
 Label=12. Training for Occupation
 Name=OCCUPTR
-Start=397
+Start=387
 Len=4
 DataType=Alpha
 
 [Item]
 Label=13. Place currently training
 Name=PLACETR
-Start=401
+Start=391
 Len=2
 
 [ValueSet]
@@ -1931,7 +1398,7 @@ Value=99;Not Stated
 [Item]
 Label=14. Trained for occupation
 Name=TRAINEDFOROCC
-Start=403
+Start=393
 Len=1
 
 [ValueSet]
@@ -1944,21 +1411,21 @@ Value=9;Not Stated
 [Item]
 Label=15. Occupation trained
 Name=OCCTRAINED_TEXT
-Start=404
+Start=394
 Len=30
 DataType=Alpha
 
 [Item]
 Label=15. Occupation trained
 Name=OCCTRAINED
-Start=434
+Start=424
 Len=4
 DataType=Alpha
 
 [Item]
 Label=16. Place trained
 Name=PLACETRAINED
-Start=438
+Start=428
 Len=2
 
 [ValueSet]
@@ -1986,7 +1453,7 @@ Value=99;Not Stated
 [Item]
 Label=17. Worked Last Week
 Name=WORKED
-Start=440
+Start=430
 Len=1
 
 [ValueSet]
@@ -1999,7 +1466,7 @@ Value=9;Not stated
 [Item]
 Label=18. Regular Job
 Name=REGJOB
-Start=441
+Start=431
 Len=1
 
 [ValueSet]
@@ -2012,7 +1479,7 @@ Value=9;Not stated
 [Item]
 Label=19a. Reason for Absence
 Name=REASABS
-Start=442
+Start=432
 Len=1
 
 [ValueSet]
@@ -2030,14 +1497,14 @@ Value=9;Not stated
 [Item]
 Label=19a. Other
 Name=REASABS_OTHER
-Start=443
+Start=433
 Len=30
 DataType=Alpha
 
 [Item]
 Label=19b. Paid Absence
 Name=PAIDABS
-Start=473
+Start=463
 Len=1
 
 [ValueSet]
@@ -2050,7 +1517,7 @@ Value=9;Not stated
 [Item]
 Label=19c. Length of Absence
 Name=TIMEABS
-Start=474
+Start=464
 Len=1
 
 [ValueSet]
@@ -2064,7 +1531,7 @@ Value=9;Not stated
 [Item]
 Label=20. Major Activity
 Name=MAJACTV
-Start=475
+Start=465
 Len=1
 
 [ValueSet]
@@ -2081,14 +1548,14 @@ Value=9;Not Stated
 [Item]
 Label=20. Other
 Name=MAJACTV_OTHER
-Start=476
+Start=466
 Len=30
 DataType=Alpha
 
 [Item]
 Label=21. Seeking Work
 Name=SEEKING
-Start=506
+Start=496
 Len=1
 
 [ValueSet]
@@ -2101,7 +1568,7 @@ Value=9;Not stated
 [Item]
 Label=22. Method of seeking work
 Name=METHOD
-Start=507
+Start=497
 Len=1
 
 [ValueSet]
@@ -2118,14 +1585,14 @@ Value=9;Not stated
 [Item]
 Label=22. Other
 Name=METHOD_OTHER
-Start=508
+Start=498
 Len=30
 DataType=Alpha
 
 [Item]
 Label=23. Reason for not seeking work
 Name=REASNSK
-Start=538
+Start=528
 Len=1
 
 [ValueSet]
@@ -2144,14 +1611,14 @@ Value=9;Not stated
 [Item]
 Label=23. Other
 Name=REASNSK_OTHER
-Start=539
+Start=529
 Len=30
 DataType=Alpha
 
 [Item]
 Label=24. Last looked for work
 Name=LSTLOOK
-Start=569
+Start=559
 Len=1
 
 [ValueSet]
@@ -2166,7 +1633,7 @@ Value=9;Not stated
 [Item]
 Label=25a. Willing to work
 Name=WILLING
-Start=570
+Start=560
 Len=1
 
 [ValueSet]
@@ -2179,7 +1646,7 @@ Value=9;Not stated
 [Item]
 Label=25b. Able to work
 Name=ABLE
-Start=571
+Start=561
 Len=1
 
 [ValueSet]
@@ -2192,7 +1659,7 @@ Value=9;Not stated
 [Item]
 Label=26. Type of work Wanted
 Name=WRKWNTD
-Start=572
+Start=562
 Len=1
 
 [ValueSet]
@@ -2206,7 +1673,7 @@ Value=9;Not Stated
 [Item]
 Label=27. Hours of work wanted
 Name=HRSWNTD
-Start=573
+Start=563
 Len=2
 
 [ValueSet]
@@ -2227,7 +1694,7 @@ Value=99;Not stated
 [Item]
 Label=28. Ever worked before
 Name=EVERWKD
-Start=575
+Start=565
 Len=1
 
 [ValueSet]
@@ -2240,7 +1707,7 @@ Value=9;Not stated
 [Item]
 Label=29. Last worked
 Name=LSTWRKD
-Start=576
+Start=566
 Len=1
 
 [ValueSet]
@@ -2257,14 +1724,14 @@ Value=9;Not stated
 [Item]
 Label=29. Other
 Name=LSTWRKD_OTHER
-Start=577
+Start=567
 Len=30
 DataType=Alpha
 
 [Item]
 Label=30. First looked for work
 Name=FRSTLOOK
-Start=607
+Start=597
 Len=1
 
 [ValueSet]
@@ -2281,35 +1748,35 @@ Value=9;Not stated
 [Item]
 Label=31. Last Occupation
 Name=LSTOCCUP_TEXT
-Start=608
+Start=598
 Len=30
 DataType=Alpha
 
 [Item]
 Label=31. Last Occupation
 Name=LSTOCCUP
-Start=638
+Start=628
 Len=4
 DataType=Alpha
 
 [Item]
 Label=32a. Last Industry
 Name=LSTINDUS_TEXT
-Start=642
+Start=632
 Len=30
 DataType=Alpha
 
 [Item]
 Label=32a. Last industry
 Name=LSTINDUS
-Start=672
+Start=662
 Len=4
 DataType=Alpha
 
 [Item]
 Label=32b. Last unemployment status
 Name=UNEMPLSA
-Start=676
+Start=666
 Len=1
 
 [ValueSet]
@@ -2326,7 +1793,7 @@ Value=9;Not stated
 [Item]
 Label=32c. Main source of livelihood
 Name=USINCOME
-Start=677
+Start=667
 Len=1
 
 [ValueSet]
@@ -2344,7 +1811,7 @@ Value=9;Not Stated
 [Item]
 Label=32c. Second source of income
 Name=U2SINCOM
-Start=678
+Start=668
 Len=1
 
 [ValueSet]
@@ -2363,7 +1830,7 @@ Value=9;Not Stated
 [Item]
 Label=32d. Main livelihood earning
 Name=UEARNGS
-Start=679
+Start=669
 Len=2
 
 [ValueSet]
@@ -2385,7 +1852,7 @@ Value=99;Not stated
 [Item]
 Label=32d. Second livelihood earnings
 Name=U2EARNGS
-Start=681
+Start=671
 Len=2
 
 [ValueSet]
@@ -2408,7 +1875,7 @@ Value=99;Not stated
 [Item]
 Label=33. Full-time or part-time worker
 Name=FULLPART
-Start=683
+Start=673
 Len=1
 
 [ValueSet]
@@ -2420,7 +1887,7 @@ Value=2;Part-Time
 [Item]
 Label=34. Reason for working part-time
 Name=RSNPART
-Start=684
+Start=674
 Len=1
 
 [ValueSet]
@@ -2437,14 +1904,14 @@ Value=9;Not Stated
 [Item]
 Label=34. Other
 Name=RSNPART_OTHER
-Start=685
+Start=675
 Len=30
 DataType=Alpha
 
 [Item]
 Label=35a. Do you have more than 1 job?
 Name=TWOJOBS
-Start=715
+Start=705
 Len=1
 
 [ValueSet]
@@ -2457,7 +1924,7 @@ Value=9;Not Stated
 [Item]
 Label=35b. Reason for other jobs?
 Name=RSN2JOBS
-Start=716
+Start=706
 Len=1
 
 [ValueSet]
@@ -2472,14 +1939,14 @@ Value=9;Not Stated
 [Item]
 Label=35b. Other
 Name=RSN2JOBS_OTHER
-Start=717
+Start=707
 Len=30
 DataType=Alpha
 
 [Item]
 Label=36a. Main employment status
 Name=EMPLSTAT
-Start=747
+Start=737
 Len=1
 
 [ValueSet]
@@ -2497,14 +1964,14 @@ Value=7;Other
 [Item]
 Label=36a. Main employment status
 Name=EMPLSTAT_OTHER
-Start=748
+Start=738
 Len=30
 DataType=Alpha
 
 [Item]
 Label=36b. Secondary Employment Status
 Name=EMPL2STAT
-Start=778
+Start=768
 Len=1
 
 [ValueSet]
@@ -2515,70 +1982,70 @@ Link=126995960
 [Item]
 Label=36b. Secondary Employment Status
 Name=EMPL2STAT_OTHER
-Start=779
+Start=769
 Len=30
 DataType=Alpha
 
 [Item]
 Label=37. Main occupation
 Name=OCCUP_TEXT
-Start=809
+Start=799
 Len=30
 DataType=Alpha
 
 [Item]
 Label=37. Main occupation
 Name=OCCUP
-Start=839
+Start=829
 Len=4
 DataType=Alpha
 
 [Item]
 Label=37. Second occupation
 Name=SOCCUP_TEXT
-Start=843
+Start=833
 Len=30
 DataType=Alpha
 
 [Item]
 Label=37. Second occupation
 Name=SOCCUP
-Start=873
+Start=863
 Len=4
 DataType=Alpha
 
 [Item]
 Label=38. Main industry
 Name=INDUS_TEXT
-Start=877
+Start=867
 Len=30
 DataType=Alpha
 
 [Item]
 Label=38. Main industry
 Name=INDUS
-Start=907
+Start=897
 Len=4
 DataType=Alpha
 
 [Item]
 Label=38. Second industry
 Name=SINDUS_TEXT
-Start=911
+Start=901
 Len=30
 DataType=Alpha
 
 [Item]
 Label=38. Second industry
 Name=SINDUS
-Start=941
+Start=931
 Len=4
 DataType=Alpha
 
 [Item]
 Label=39. Work Experience
 Name=EXPRNCE
-Start=945
+Start=935
 Len=1
 
 [ValueSet]
@@ -2596,7 +2063,7 @@ Value=9;Not Stated
 [Item]
 Label=39. Secondary Work Experience
 Name=EXPRNCE2
-Start=946
+Start=936
 Len=1
 
 [ValueSet]
@@ -2607,7 +2074,7 @@ Link=126998424
 [Item]
 Label=40a. Earnings last week
 Name=EARNGS
-Start=947
+Start=937
 Len=2
 
 [ValueSet]
@@ -2630,7 +2097,7 @@ Value=99;Not stated
 [Item]
 Label=40a. Secondary earnings last week
 Name=EARNGS2
-Start=949
+Start=939
 Len=2
 
 [ValueSet]
@@ -2641,7 +2108,7 @@ Link=126998864
 [Item]
 Label=40b. Main average earnings
 Name=AVGEARNS
-Start=951
+Start=941
 Len=2
 
 [ValueSet]
@@ -2652,7 +2119,7 @@ Link=126998864
 [Item]
 Label=40b. Secondary average earnings
 Name=AVGEARNS2
-Start=953
+Start=943
 Len=2
 
 [ValueSet]
@@ -2663,7 +2130,7 @@ Link=126998864
 [Item]
 Label=41a. Hours actually worked
 Name=HRSWRKD
-Start=955
+Start=945
 Len=2
 
 [ValueSet]
@@ -2686,7 +2153,7 @@ Value=99;Not stated
 [Item]
 Label=41b. Hours normally worked
 Name=NHRSWRKD
-Start=957
+Start=947
 Len=2
 
 [ValueSet]
@@ -2697,7 +2164,7 @@ Link=127005640
 [Item]
 Label=42. Reason for working less than 40 hours
 Name=RSNLESS
-Start=959
+Start=949
 Len=2
 
 [ValueSet]
@@ -2720,14 +2187,14 @@ Value=99;Not Stated
 [Item]
 Label=42. Other
 Name=RSNLESS_OTHER
-Start=961
+Start=951
 Len=30
 DataType=Alpha
 
 [Item]
 Label=43a. Willing to do additional work
 Name=ADDWRK
-Start=991
+Start=981
 Len=1
 
 [ValueSet]
@@ -2740,7 +2207,7 @@ Value=9;Not stated
 [Item]
 Label=43b. Last looked for work
 Name=LASTLOOK
-Start=992
+Start=982
 Len=1
 
 [ValueSet]
@@ -2757,7 +2224,7 @@ Value=6;Never looked for work
 [Item]
 Label=44. Kind of additional work
 Name=KINDWRK
-Start=993
+Start=983
 Len=1
 
 [ValueSet]
@@ -2771,7 +2238,7 @@ Value=9;Not stated
 [Item]
 Label=45. Hoping for job
 Name=HPWORK
-Start=994
+Start=984
 Len=1
 
 [ValueSet]
@@ -2784,7 +2251,7 @@ Value=9;Not Stated
 [Item]
 Label=46. When to take job
 Name=INACTWHN
-Start=995
+Start=985
 Len=1
 
 [ValueSet]
@@ -2802,35 +2269,35 @@ Value=9;Not stated
 [Item]
 Label=47. Occupation wanted
 Name=FOCCUP_TEXT
-Start=996
+Start=986
 Len=30
 DataType=Alpha
 
 [Item]
 Label=47. Occupation wanted
 Name=FOCCUP
-Start=1026
+Start=1016
 Len=4
 DataType=Alpha
 
 [Item]
 Label=48. Industry wanted
 Name=INCINDUS_TEXT
-Start=1030
+Start=1020
 Len=30
 DataType=Alpha
 
 [Item]
 Label=48. Industry wanted
 Name=INCINDUS
-Start=1060
+Start=1050
 Len=4
 DataType=Alpha
 
 [Item]
 Label=49. Ever worked before
 Name=WORKBEFO
-Start=1064
+Start=1054
 Len=1
 
 [ValueSet]
@@ -2843,21 +2310,21 @@ Value=9;Not Stated
 [Item]
 Label=50. Last occupation
 Name=INCOCCUP_TEXT
-Start=1065
+Start=1055
 Len=30
 DataType=Alpha
 
 [Item]
 Label=50. Last occupation
 Name=INCOCCUP
-Start=1095
+Start=1085
 Len=4
 DataType=Alpha
 
 [Item]
 Label=51a. Main sources of livelihood
 Name=SCINCOME
-Start=1099
+Start=1089
 Len=1
 
 [ValueSet]
@@ -2875,7 +2342,7 @@ Value=9;Not Stated
 [Item]
 Label=51a. Secondary scources of livelihood
 Name=IN2INCOM
-Start=1100
+Start=1090
 Len=1
 
 [ValueSet]
@@ -2894,7 +2361,7 @@ Value=9;Not Stated
 [Item]
 Label=51b. Main source amount
 Name=INEARNGS
-Start=1101
+Start=1091
 Len=2
 
 [ValueSet]
@@ -2916,7 +2383,7 @@ Value=99;Not stated
 [Item]
 Label=51b. Secondary source amount
 Name=IN2EARNG
-Start=1103
+Start=1093
 Len=2
 
 [ValueSet]
@@ -2939,7 +2406,7 @@ Value=99;Not stated
 [Item]
 Label=32a. Private/Public
 Name=LSTINDUS_SECTOR
-Start=1105
+Start=1095
 Len=1
 
 [ValueSet]
@@ -2953,7 +2420,7 @@ Value=9;Unknown
 [Item]
 Label=38. Private/Public
 Name=INDUS_SECTOR
-Start=1106
+Start=1096
 Len=1
 
 [ValueSet]
@@ -2964,7 +2431,7 @@ Link=114282216
 [Item]
 Label=38. Private/Public
 Name=SINDUS_SECTOR
-Start=1107
+Start=1097
 Len=1
 
 [ValueSet]
@@ -2975,7 +2442,7 @@ Link=114282216
 [Item]
 Label=48. Private/Public
 Name=INCINDUS_SECTOR
-Start=1108
+Start=1098
 Len=1
 
 [ValueSet]
@@ -2986,7 +2453,7 @@ Link=114282216
 [Item]
 Label=43b. Last looked for work
 Name=SKADDWRK
-Start=1109
+Start=1099
 Len=1
 
 [ValueSet]
@@ -2998,7 +2465,7 @@ Link=104201640
 Label=12. Training for Occupation
 Name=OCCUPTR_TEXT2
 Note=Duplicate with longer text field
-Start=1110
+Start=1100
 Len=75
 DataType=Alpha
 
@@ -3006,7 +2473,7 @@ DataType=Alpha
 Label=15. Occupation trained
 Name=OCCTRAINED_TEXT2
 Note=Duplicate with longer text field
-Start=1185
+Start=1175
 Len=75
 DataType=Alpha
 
@@ -3014,7 +2481,7 @@ DataType=Alpha
 Label=31. Last Occupation
 Name=LSTOCCUP_TEXT2
 Note=Duplicate with longer text field
-Start=1260
+Start=1250
 Len=75
 DataType=Alpha
 
@@ -3022,7 +2489,7 @@ DataType=Alpha
 Label=32a. Last Industry
 Name=LSTINDUS_TEXT2
 Note=Duplicate with longer text field
-Start=1335
+Start=1325
 Len=75
 DataType=Alpha
 
@@ -3030,7 +2497,7 @@ DataType=Alpha
 Label=37. Main occupation
 Name=OCCUP_TEXT2
 Note=Duplicate with longer text field
-Start=1410
+Start=1400
 Len=75
 DataType=Alpha
 
@@ -3038,7 +2505,7 @@ DataType=Alpha
 Label=37. Second occupation
 Name=SOCCUP_TEXT2
 Note=Duplicate with longer text field
-Start=1485
+Start=1475
 Len=75
 DataType=Alpha
 
@@ -3046,7 +2513,7 @@ DataType=Alpha
 Label=38. Main industry
 Name=INDUS_TEXT2
 Note=Duplicate with longer text field
-Start=1560
+Start=1550
 Len=75
 DataType=Alpha
 
@@ -3054,7 +2521,7 @@ DataType=Alpha
 Label=38. Second industry
 Name=SINDUS_TEXT2
 Note=Duplicate with longer text field
-Start=1635
+Start=1625
 Len=75
 DataType=Alpha
 
@@ -3062,7 +2529,7 @@ DataType=Alpha
 Label=47. Occupation wanted
 Name=FOCCUP_TEXT2
 Note=Duplicate with longer text field
-Start=1710
+Start=1700
 Len=75
 DataType=Alpha
 
@@ -3070,7 +2537,7 @@ DataType=Alpha
 Label=48. Industry wanted
 Name=INCINDUS_TEXT2
 Note=Duplicate with longer text field
-Start=1785
+Start=1775
 Len=75
 DataType=Alpha
 
@@ -3078,6 +2545,586 @@ DataType=Alpha
 Label=50. Last occupation
 Name=INCOCCUP_TEXT2
 Note=Duplicate with longer text field
-Start=1860
+Start=1850
 Len=75
 DataType=Alpha
+
+[Record]
+Label=Metadata
+Name=METADATA
+RecordTypeValue='3'
+RecordLen=185
+
+[Item]
+Label=Interview Date
+Name=INTD
+Start=17
+Len=8
+
+[Item]
+Label=Interview Date Year
+Name=DYR
+Start=17
+Len=4
+ItemType=SubItem
+
+[ValueSet]
+Label=Interview Date Year
+Name=DYR_VS1
+Value=1900;1,900
+Value=1901;1,901
+Value=1902;1,902
+Value=1903;1,903
+Value=1904;1,904
+Value=1905;1,905
+Value=1906;1,906
+Value=1907;1,907
+Value=1908;1,908
+Value=1909;1,909
+Value=1910;1,910
+Value=1911;1,911
+Value=1912;1,912
+Value=1913;1,913
+Value=1914;1,914
+Value=1915;1,915
+Value=1916;1,916
+Value=1917;1,917
+Value=1918;1,918
+Value=1919;1,919
+Value=1920;1,920
+Value=1921;1,921
+Value=1922;1,922
+Value=1923;1,923
+Value=1924;1,924
+Value=1925;1,925
+Value=1926;1,926
+Value=1927;1,927
+Value=1928;1,928
+Value=1929;1,929
+Value=1930;1,930
+Value=1931;1,931
+Value=1932;1,932
+Value=1933;1,933
+Value=1934;1,934
+Value=1935;1,935
+Value=1936;1,936
+Value=1937;1,937
+Value=1938;1,938
+Value=1939;1,939
+Value=1940;1,940
+Value=1941;1,941
+Value=1942;1,942
+Value=1943;1,943
+Value=1944;1,944
+Value=1945;1,945
+Value=1946;1,946
+Value=1947;1,947
+Value=1948;1,948
+Value=1949;1,949
+Value=1950;1,950
+Value=1951;1,951
+Value=1952;1,952
+Value=1953;1,953
+Value=1954;1,954
+Value=1955;1,955
+Value=1956;1,956
+Value=1957;1,957
+Value=1958;1,958
+Value=1959;1,959
+Value=1960;1,960
+Value=1961;1,961
+Value=1962;1,962
+Value=1963;1,963
+Value=1964;1,964
+Value=1965;1,965
+Value=1966;1,966
+Value=1967;1,967
+Value=1968;1,968
+Value=1969;1,969
+Value=1970;1,970
+Value=1971;1,971
+Value=1972;1,972
+Value=1973;1,973
+Value=1974;1,974
+Value=1975;1,975
+Value=1976;1,976
+Value=1977;1,977
+Value=1978;1,978
+Value=1979;1,979
+Value=1980;1,980
+Value=1981;1,981
+Value=1982;1,982
+Value=1983;1,983
+Value=1984;1,984
+Value=1985;1,985
+Value=1986;1,986
+Value=1987;1,987
+Value=1988;1,988
+Value=1989;1,989
+Value=1990;1,990
+Value=1991;1,991
+Value=1992;1,992
+Value=1993;1,993
+Value=1994;1,994
+Value=1995;1,995
+Value=1996;1,996
+Value=1997;1,997
+Value=1998;1,998
+Value=1999;1,999
+Value=2000;2,000
+Value=2001;2,001
+Value=2002;2,002
+Value=2003;2,003
+Value=2004;2,004
+Value=2005;2,005
+Value=2006;2,006
+Value=2007;2,007
+Value=2008;2,008
+Value=2009;2,009
+Value=2010;2,010
+Value=2011;2,011
+Value=2012;2,012
+Value=2013;2,013
+Value=2014;2,014
+Value=2015;2,015
+Value=2016;2,016
+Value=2017;2,017
+Value=2018;2,018
+
+[Item]
+Label=Interview Date Month
+Name=DMO
+Start=21
+Len=2
+ItemType=SubItem
+
+[ValueSet]
+Label=Interview Date Month
+Name=DMO_VS1
+Value=1;January
+Value=2;February
+Value=3;March
+Value=4;April
+Value=5;May
+Value=6;June
+Value=7;July
+Value=8;August
+Value=9;September
+Value=10;October
+Value=11;November
+Value=12;December
+Value=99;Don't know
+
+[Item]
+Label=Interview Date Day
+Name=DDY
+Start=23
+Len=2
+ItemType=SubItem
+
+[ValueSet]
+Label=Interview Date Day
+Name=DDY_VS1
+Value=1;1
+Value=2;2
+Value=3;3
+Value=4;4
+Value=5;5
+Value=6;6
+Value=7;7
+Value=8;8
+Value=9;9
+Value=10;10
+Value=11;11
+Value=12;12
+Value=13;13
+Value=14;14
+Value=15;15
+Value=16;16
+Value=17;17
+Value=18;18
+Value=19;19
+Value=20;20
+Value=21;21
+Value=22;22
+Value=23;23
+Value=24;24
+Value=25;25
+Value=26;26
+Value=27;27
+Value=28;28
+Value=29;29
+Value=30;30
+Value=31;31
+Value=99;Don't know
+
+[Item]
+Label=Interview start time
+Name=LSTARTTIME
+Start=25
+Len=4
+
+[Item]
+Label=Interview start hour
+Name=LSTARTHOUR
+Start=25
+Len=2
+ItemType=SubItem
+ZeroFill=Yes
+
+[Item]
+Label=Interview start minute
+Name=LSTARTMIN
+Start=27
+Len=2
+ItemType=SubItem
+ZeroFill=Yes
+
+[Item]
+Label=Interview end date
+Name=LENDDATE
+Start=29
+Len=8
+
+[Item]
+Label=Year
+Name=LENDY
+Start=29
+Len=4
+ItemType=SubItem
+
+[Item]
+Label=Month
+Name=LENDM
+Start=33
+Len=2
+ItemType=SubItem
+
+[Item]
+Label=Day
+Name=LENDD
+Start=35
+Len=2
+ItemType=SubItem
+
+[Item]
+Label=Interview end time
+Name=LENDTIME
+Start=37
+Len=4
+
+[Item]
+Label=Interview end hour
+Name=LENDHOUR
+Start=37
+Len=2
+ItemType=SubItem
+ZeroFill=Yes
+
+[Item]
+Label=Interview end minute
+Name=LENDMINUTE
+Start=39
+Len=2
+ItemType=SubItem
+ZeroFill=Yes
+
+[Item]
+Label=Latitude
+Name=LATITUDE
+Start=41
+Len=13
+Decimal=9
+DecimalChar=Yes
+
+[Item]
+Label=Longitude
+Name=LONGITUDE
+Start=54
+Len=14
+Decimal=9
+DecimalChar=Yes
+
+[Item]
+Label=Address
+Name=ADDRES
+Start=68
+Len=100
+DataType=Alpha
+
+[Item]
+Label=DataEntryID
+Name=DATAENID
+Start=168
+Len=2
+
+[ValueSet]
+Label=DataEntryID
+Name=DATAENID_VS1
+Value=41;Butcher-Lewis K.
+Value=51;Blades R.
+Value=54;Russell K.
+Value=52;Brathwaite M.
+Value=58;Smith L.
+Value=65;Watson P.
+Value=66;Bonas K.
+Value=91;Browne A
+Value=92;Parris C
+Value=93;Small M.
+Value=94;Davis W.
+Value=95;Chase H.
+Value=97;Codrington M.
+
+[Item]
+Label=Enumerator
+Name=ENMRTR
+Start=170
+Len=2
+
+[ValueSet]
+Label=Enumerator
+Name=ENMRTR_VS1
+Value=1;Best M
+Value=3;Russell K
+Value=4;Sealy C
+Value=5;Mayers R
+Value=6;Griffith S
+Value=7;Husbands G
+Value=8;Walcott A
+Value=9;Cumberbatch J
+Value=10;Agard F
+Value=11;Taylor V
+Value=14;Williams J
+Value=15;Williams L
+Value=17;Quintyne C
+Value=20;Bonas K
+Value=22;Blackett S
+Value=25;Husbands J
+Value=26;Hurdle S
+Value=30;Shepherd G
+Value=95;Chase H
+Value=93;Small M
+Value=94;Davis W
+
+[Item]
+Label=Supervisor
+Name=SUPERV
+Start=172
+Len=2
+
+[ValueSet]
+Label=Supervisor
+Name=SUPERV_VS1
+Value=95;Harold Chase
+Value=93;Mervin Small
+Value=94;Wayne Davis
+Value=1;Marcia Best
+
+[Item]
+Label=Coder
+Name=CODER
+Start=174
+Len=2
+
+[ValueSet]
+Label=Coder
+Name=CODER_VS1
+Value=16;Lorna Brathwaite
+Value=41;Keann Butcher-Lewis
+Value=51;Roger Blades
+Value=52;Michelle Brathwaite
+Value=54;Karin Russell
+Value=58;Lisa Smith
+Value=65;Jean Johnson
+Value=66;Kellyanne Bonas
+
+[Item]
+Label=Interview Results
+Name=INTRVW
+Start=176
+Len=1
+
+[ValueSet]
+Label=Interview Results
+Name=INTRVW_VS1
+Value=1;Fully responding
+Value=3;Part responding
+Value=2;Listing error
+Value=4;No respondent/informant or refusal
+
+[Item]
+Label=Date
+Name=DATE
+Start=177
+Len=8
+
+[Item]
+Label=Year
+Name=YEAR
+Start=177
+Len=4
+ItemType=SubItem
+
+[ValueSet]
+Label=Year
+Name=YEAR_VS1
+Value=2018;2,018
+Value=2019;2,019
+Value=2020;2,020
+Value=2021;2,021
+Value=2022;2,022
+Value=2023;2,023
+Value=2024;2,024
+Value=2025;2,025
+Value=2026;2,026
+Value=2027;2,027
+Value=2028;2,028
+Value=2029;2,029
+Value=2030;2,030
+Value=2031;2,031
+Value=2032;2,032
+Value=2033;2,033
+Value=2034;2,034
+Value=2035;2,035
+Value=2036;2,036
+Value=2037;2,037
+Value=2038;2,038
+Value=2039;2,039
+Value=2040;2,040
+Value=2041;2,041
+Value=2042;2,042
+Value=2043;2,043
+Value=2044;2,044
+Value=2045;2,045
+Value=2046;2,046
+Value=2047;2,047
+Value=2048;2,048
+Value=2049;2,049
+Value=2050;2,050
+Value=2051;2,051
+Value=2052;2,052
+Value=2053;2,053
+Value=2054;2,054
+Value=2055;2,055
+Value=2056;2,056
+Value=2057;2,057
+Value=2058;2,058
+Value=2059;2,059
+Value=2060;2,060
+Value=2061;2,061
+Value=2062;2,062
+Value=2063;2,063
+Value=2064;2,064
+Value=2065;2,065
+Value=2066;2,066
+Value=2067;2,067
+Value=2068;2,068
+Value=2069;2,069
+Value=2070;2,070
+Value=2071;2,071
+Value=2072;2,072
+Value=2073;2,073
+Value=2074;2,074
+Value=2075;2,075
+Value=2076;2,076
+Value=2077;2,077
+Value=2078;2,078
+Value=2079;2,079
+Value=2080;2,080
+Value=2081;2,081
+Value=2082;2,082
+Value=2083;2,083
+Value=2084;2,084
+Value=2085;2,085
+Value=2086;2,086
+Value=2087;2,087
+Value=2088;2,088
+Value=2089;2,089
+Value=2090;2,090
+Value=2091;2,091
+Value=2092;2,092
+Value=2093;2,093
+Value=2094;2,094
+Value=2095;2,095
+Value=2096;2,096
+Value=2097;2,097
+Value=2098;2,098
+Value=2099;2,099
+Value=2100;2,100
+
+[Item]
+Label=Month
+Name=MONTH
+Start=181
+Len=2
+ItemType=SubItem
+
+[ValueSet]
+Label=Month
+Name=MONTH_VS1
+Value=1;January
+Value=2;February
+Value=3;March
+Value=4;April
+Value=5;May
+Value=6;June
+Value=7;July
+Value=8;August
+Value=9;September
+Value=10;October
+Value=11;November
+Value=12;December
+
+[Item]
+Label=Day
+Name=DAY
+Start=183
+Len=2
+ItemType=SubItem
+
+[ValueSet]
+Label=Day
+Name=DAY_VS1
+Value=1;1
+Value=2;2
+Value=3;3
+Value=4;4
+Value=5;5
+Value=6;6
+Value=7;7
+Value=8;8
+Value=9;9
+Value=10;10
+Value=11;11
+Value=12;12
+Value=13;13
+Value=14;14
+Value=15;15
+Value=16;16
+Value=17;17
+Value=18;18
+Value=19;19
+Value=20;20
+Value=21;21
+Value=22;22
+Value=23;23
+Value=24;24
+Value=25;25
+Value=26;26
+Value=27;27
+Value=28;28
+Value=29;29
+Value=30;30
+Value=31;31
+
+[Item]
+Label=Delete flag
+Name=DELETE_FLAG
+Start=185
+Len=1
+
+[ValueSet]
+Label=Delete flag
+Name=DELETE_FLAG_VS1
+Value=1;Delete case
+Value=0;Keep case

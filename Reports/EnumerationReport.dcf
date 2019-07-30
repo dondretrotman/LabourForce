@@ -15,9 +15,15 @@ Name=ENUMERATIONREPORT_QUEST
 [IdItems]
 
 [Item]
+Label=Round
+Name=ERROUND
+Start=2
+Len=2
+
+[Item]
 Label=ED No
 Name=ERED_NO
-Start=2
+Start=4
 Len=3
 
 [ValueSet]
@@ -38,7 +44,7 @@ Value=560:583;St. Lucy
 [Item]
 Label=Parish
 Name=ERPARISH
-Start=5
+Start=7
 Len=3
 
 [ValueSet]
@@ -57,9 +63,27 @@ Value=210;St Peter
 Value=211;St Lucy
 
 [Item]
+Label=Stratum
+Name=ERSTRATUM
+Start=10
+Len=1
+
+[Item]
+Label=Building
+Name=ERBUILDING
+Start=11
+Len=3
+
+[Item]
+Label=Sample Serial No.
+Name=ERSERIAL_NO
+Start=14
+Len=3
+
+[Item]
 Label=Field Officer
 Name=ERFIELD_OFFICER
-Start=8
+Start=17
 Len=2
 
 [ValueSet]
@@ -87,82 +111,76 @@ Value=95;Chase H
 Value=93;Small M
 Value=94;Davis W
 
-[Item]
-Label=Sample Serial No.
-Name=ERSERIAL_NO
-Start=10
-Len=3
-
 [Record]
 Label=EnumerationReport record
 Name=ENUMERATIONREPORT_REC
 RecordTypeValue='1'
-RecordLen=308
+RecordLen=312
 
 [Item]
 Label=Sample Unit No.
 Name=ERUNIT_NO
-Start=13
+Start=19
 Len=3
 
 [Item]
 Label=Week Ending
 Name=WEEK_ENDING
-Start=16
+Start=22
 Len=8
 
 [Item]
 Label=WeekYear
 Name=ERWEEKYEAR
-Start=16
+Start=22
 Len=4
 ItemType=SubItem
 
 [Item]
 Label=WeekMonth
 Name=ERWEEKMONTH
-Start=20
+Start=26
 Len=2
 ItemType=SubItem
 
 [Item]
 Label=WeekDay
 Name=ERWEEKDAY
-Start=22
+Start=28
 Len=2
 ItemType=SubItem
 
 [Item]
 Label=Household Head Last Name
 Name=ERLAST_NAME
-Start=24
+Start=30
 Len=30
 DataType=Alpha
 
 [Item]
 Label=Household Head First Name
 Name=ERFIRST_NAME
-Start=54
+Start=60
 Len=30
 DataType=Alpha
 
 [Item]
 Label=Address
 Name=ERADDRESS
-Start=84
+Start=90
 Len=100
 DataType=Alpha
 
 [Item]
 Label=Date Started
 Name=ERSTART
-Start=184
+Start=190
 Len=8
 
 [Item]
 Label=Year
 Name=ERSTARTY
-Start=184
+Start=190
 Len=4
 ItemType=SubItem
 
@@ -256,7 +274,7 @@ Value=2100;2,100
 [Item]
 Label=Month
 Name=ERSTARTM
-Start=188
+Start=194
 Len=2
 ItemType=SubItem
 
@@ -279,7 +297,7 @@ Value=12;December
 [Item]
 Label=Day
 Name=ERSTARTD
-Start=190
+Start=196
 Len=2
 ItemType=SubItem
 
@@ -321,13 +339,13 @@ Value=31;31
 [Item]
 Label=Date Completed
 Name=EREND
-Start=192
+Start=198
 Len=8
 
 [Item]
 Label=Year
 Name=ERENDY
-Start=192
+Start=198
 Len=4
 ItemType=SubItem
 
@@ -421,7 +439,7 @@ Value=2100;2,100
 [Item]
 Label=Month
 Name=ERENDM
-Start=196
+Start=202
 Len=2
 ItemType=SubItem
 
@@ -444,7 +462,7 @@ Value=12;December
 [Item]
 Label=Day
 Name=ERENDD
-Start=198
+Start=204
 Len=2
 ItemType=SubItem
 
@@ -486,38 +504,32 @@ Value=31;31
 [Item]
 Label=Remarks
 Name=ERREMARKS
-Start=200
+Start=206
 Len=100
 DataType=Alpha
 
 [Item]
-Label=Round
-Name=ERROUND
-Start=300
-Len=2
-
-[Item]
 Label=Household Size
 Name=ERHH_SIZE
-Start=302
+Start=306
 Len=2
 
 [Item]
 Label=Number of Males
 Name=ERMALES
-Start=304
+Start=308
 Len=2
 
 [Item]
 Label=Number of Females
 Name=ERFEMALES
-Start=306
+Start=310
 Len=2
 
 [Item]
 Label=ED Completion Status
 Name=ERCOMPLETED
-Start=308
+Start=312
 Len=1
 
 [ValueSet]
