@@ -314,7 +314,7 @@ postproc
 	endif;
 	if LSTREMARKS = "" then
 		if VACANT = 2 then
-			LSTREMARKS = LSTREMARKS+" | "+getlabel(INTRVW_VS1,INTRVW(1));		//set remark to value of first interview result DEBUG: need to fix so that it's more accurate
+			LSTREMARKS = LSTREMARKS+" | "+getlabel(INTRVW_VS1,INTRVW);		//set remark to value of first interview result DEBUG: need to fix so that it's more accurate
 		elseif VACANT = 1 then
 			LSTREMARKS = LSTREMARKS+" | "+getlabel(VOCCUP_VS1,VOCCUP);
 		endif;
