@@ -878,7 +878,8 @@ PROC AGE
 //---------------------------------------------------------------------------
 PROC CNTRY_CD_OTHER
 preproc
-	ask if CNTRY_CD = 999;
+	//only ask if country (Nationality) is Other Country
+	ask if CNTRY_CD = 900;
 	
 //---------------------------------------
 PROC EDUCLEV_OTHER
