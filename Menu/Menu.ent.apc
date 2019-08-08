@@ -899,7 +899,7 @@ onfocus
 		inc(nextEntry);
 	enddo;
 	//errmsg("reset arrays");
-	if USERID < 90  or USERID <> 1 then		//If not a supervisor (or Marcia Best who is now a supervisor)
+	if USERID < 90  and USERID <> 1 then		//If not a supervisor (or Marcia Best who is now a supervisor)
 		//Load ED from lookup file
 		nextEntry = 1;
 		uid = maketext("%V",USERID);
