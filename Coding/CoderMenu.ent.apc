@@ -269,23 +269,42 @@ PROC CHOOSE_QUESTIONNAIRE
 onfocus
 	numeric nextEntry = 1;
 	numeric headindex;
+	numeric nohead = 0;		//flagged when no head is found in the household when there should be. 0 = false, 1 = true
 	forcase LABOURFORCE_DICT where EDNO = CO_ED and VACANT = 2 and RNDNO = CO_ROUND do
 		loadcase(LABOURFORCE_DICT,RNDNO,EDNO,PARNO,STRATUM,HHNO);
 		if CODER = notappl then		//and was not coded
 			headindex = seek(LRTH = 0);
-			vscode(nextEntry) = maketext("%V%V%V%V%V",RNDNO,EDNO,PARNO,STRATUM,HHNO);
-			vslabel(nextEntry) = maketext("%S-%02d-%03d-%03d-%d-%03d",strip(LLAST_NAME(headindex)),RNDNO,EDNO,PARNO,STRATUM,HHNO );
-			inc(nextEntry);
-		else						//was coded
-			headindex = seek(LRTH = 0);
-			vscode(nextEntry) = maketext("%V%V%V%V%V",RNDNO,EDNO,PARNO,STRATUM,HHNO);
-			vslabel(nextEntry) = maketext("%S-%02d-%03d-%03d-%d-%03d: Coded (%v)",strip(LLAST_NAME(headindex)),RNDNO,EDNO,PARNO,STRATUM,HHNO, getlabel(CODER_VS1, CODER) );
-			inc(nextEntry);
+			if headindex = 0 then	//if no head was found
+				nohead = 1;		//no head found = true
+				vscode(nextEntry) = maketext("%V%V%V%V%V",RNDNO,EDNO,PARNO,STRATUM,HHNO);
+				vslabel(nextEntry) = maketext("No person found-%02d-%03d-%03d-%d-%03d",RNDNO,EDNO,PARNO,STRATUM,HHNO );
+				inc(nextEntry);
+			else
+				vscode(nextEntry) = maketext("%V%V%V%V%V",RNDNO,EDNO,PARNO,STRATUM,HHNO);
+				vslabel(nextEntry) = maketext("%S-%02d-%03d-%03d-%d-%03d",strip(LLAST_NAME(headindex)),RNDNO,EDNO,PARNO,STRATUM,HHNO );
+				inc(nextEntry);
+			endif;
+		else	
+			headindex = seek(LRTH = 0);					//was coded
+			if headindex = 0 then	//if no head was found
+				nohead = 1;		//no head found = true
+				vscode(nextEntry) = maketext("%V%V%V%V%V",RNDNO,EDNO,PARNO,STRATUM,HHNO);
+				vslabel(nextEntry) = maketext("No person found-%02d-%03d-%03d-%d-%03d",RNDNO,EDNO,PARNO,STRATUM,HHNO );
+				inc(nextEntry);
+			else
+				vscode(nextEntry) = maketext("%V%V%V%V%V",RNDNO,EDNO,PARNO,STRATUM,HHNO);
+				vslabel(nextEntry) = maketext("%S-%02d-%03d-%03d-%d-%03d: Coded (%v)",strip(LLAST_NAME(headindex)),RNDNO,EDNO,PARNO,STRATUM,HHNO, getlabel(CODER_VS1, CODER) );
+				inc(nextEntry);
+			endif
 		endif;
 	endfor;
 	
 	vscode(nextEntry) = "";
 	setvalueset($,vsCode,vsLabel);
+	
+	if nohead = 1 then		//if a household was found with no head
+		errmsg("Households were found with missing person records. Please confirm with %V that the ED was completed", strip(getlabel(ENMRTR_VS1,ENMRTR)));
+	endif;
 	
 postproc
 	CHOOSE_QUESTIONNAIRE = maketext("%12.11s",CHOOSE_QUESTIONNAIRE);		//workaround to make this shit work I shouldn't have to hack this to make it work!
