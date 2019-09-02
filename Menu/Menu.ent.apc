@@ -89,6 +89,9 @@ function LaunchControlSheet()
 	filewrite(pffFile,"InputData=%v","../Data/Controlsheet.csdb|CSPRODB");
 	filewrite(pffFile,"Paradata=%v",maketext("../Data/Controlsheet%02d%03d.cslog",ME_ROUND,ME_ED));
 	
+	filewrite(pffFile, "[ExternalFiles]");
+	filewrite(pffFile, "LABOURFORCE_DICT=%v", "../Data/data.csdb|CSPRODB");
+	
 	filewrite(pffFile,"[UserFiles]");
 	filewrite(pffFile,"PFFFILE=%v","");
 	
@@ -125,6 +128,9 @@ function launchSupervisorControlSheet()
 	filewrite(pffFile,"[Files]");
 	filewrite(pffFile,"Application=%v","./Listing.ent");
 	filewrite(pffFile,"InputData=%v","../Data/Controlsheet.csdb|CSPRODB");
+	
+	filewrite(pffFile, "[ExternalFiles]");
+	filewrite(pffFile, "LABOURFORCE_DICT=%v", "../Data/data.csdb|CSPRODB");
 		
 	filewrite(pffFile,"[UserFiles]");
 	filewrite(pffFile,"PFFFILE=%v","");

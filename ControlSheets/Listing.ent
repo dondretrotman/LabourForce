@@ -15,6 +15,8 @@ CreateListing=No
 CreateLog=No
 ParadataCollection=AllEvents
 ParadataDeviceStateMinutes=5
+[External Dictionaries]
+File=..\Questionnaire\Labourforce.dcf
 [AppCode]
 File=.\Listing.ent.apc
 [Message]
@@ -25,3 +27,4 @@ File=.\Listing.ent.qsf
 File=.\Listing.fmf
 [Dictionary Types]
 Dict-Type=.\Listing.dcf,Input,.\Listing.fmf
+Dict-Type=..\Questionnaire\Labourforce.dcf,External

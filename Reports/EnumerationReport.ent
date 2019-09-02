@@ -1,5 +1,5 @@
 ﻿[CSPro Application]
-Version=CSPro 7.1
+Version=CSPro 7.2
 Label=ENUMERATIONREPORT
 Name=ENUMERATIONREPORT
 AppType=DataEntry
@@ -11,7 +11,6 @@ CAPIFont1Color=0
 CAPIFont2Color=16711680
 CreateListing=No
 CreateLog=No
-ShowErrorMessageNumbers=No
 ParadataCollection=AllEvents
 ParadataDeviceStateMinutes=5
 [AppCode]

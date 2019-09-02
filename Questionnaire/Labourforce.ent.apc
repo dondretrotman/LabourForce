@@ -27,7 +27,12 @@ numeric a,i,				//general variable
 		headindex,		//index of head
 		cases,			//number of cases in ENUMERATIONREPORT
 		bldgno,			//Building number
-		vsindex;			//valueset index
+		vsindex,			//valueset index
+		roundtemp,		//temp round - household
+		edtemp,
+		parishtemp,
+		stratumtemp,
+		hhtemp;
 		
 		
 string 	caselabel,		//stores the label for the current case
@@ -325,6 +330,26 @@ postproc
 	execpff("../Menu/Menu.pff");		//start menu app as soon as questionnaire exits
 	
 //----------------------------------------------------------------------------
+PROC IDS0_FORM
+postproc
+	//check if ID fields were changed, if they were, then show warning
+	if roundtemp <> RNDNO or edtemp <> EDNO or parishtemp <> PARNO or stratumtemp <> STRATUM or hhtemp <> HHNO then
+		i = 0;
+		do until i in 1,2
+			i = accept("If you want to change the ID fields, change them in the control form first to prevent possible data loss!",maketext("Don't change ID and keep it as %v-%v-%v-%v-%v",roundtemp,edtemp,parishtemp,stratumtemp,hhtemp),maketext("Change ID to %v-%v-%v-%v-%v (I know what I'm doing)",RNDNO,EDNO,PARNO,STRATUM,HHNO))
+		enddo;
+		if i = 1 then
+			RNDNO = roundtemp;
+			EDNO = edtemp;
+			PARNO = parishtemp;
+			STRATUM = stratumtemp;
+			HHNO = hhtemp;
+			errmsg("ID was not changed");
+		elseif i = 2 then
+			errmsg("ID was changed to%v-%v-%v-%v-%v",RNDNO,EDNO,PARNO,STRATUM,HHNO);
+		endif
+
+	endif;
 PROC RNDNO
 preproc
 	if visualvalue(RNDNO) = notappl then		//if round is blank
@@ -355,7 +380,17 @@ preproc
 		ADDRES = sysparm("ADDRESS");	
 	endif;
 	bldgno = tonumber(sysparm("BLDGNO"));
-
+	
+	//check if the ID fields have been changed
+	if visualvalue(RNDNO) <> notappl or visualvalue(EDNO) <> notappl or visualvalue(PARNO) <> notappl or visualvalue(STRATUM) <> notappl or visualvalue(HHNO) <> notappl then		//if any ID fields are filled
+		//store temp variables
+		roundtemp = visualvalue(RNDNO);
+		edtemp = visualvalue(EDNO);
+		parishtemp = visualvalue(PARNO);
+		stratumtemp = visualvalue(STRATUM);
+		hhtemp = visualvalue(HHNO);
+		//errmsg("begin rnd=|%V|%V|, ed=|%V|%V|, par=|%V|%V|, str=|%V|%V|, bui=|%V|%V|, sam=|%V|%V|",roundtemp,visualvalue(LSTROUND),edtemp,visualvalue(LSTED),parishtemp,visualvalue(LSTPARISH),stratumtemp,visualvalue(LSTSTRATUM),buildingtemp,visualvalue(LSTBUILDING),sampletemp,visualvalue(LSTSAMPLE));
+	endif;
 
 //--------------------------------------------------------------------------------
 PROC PARNO
