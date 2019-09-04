@@ -921,10 +921,10 @@ onfocus
 		//The following code displays a message only if starting the menu on the old tablets (which are running android 5.1.1). 
 		//This code is needed to avoid the tablet crashing whenever changing an ED or opening a questionnaire
 		//I HAVE NO IDEA WHY THIS WORKS!!!
-		getos(osname);
+		{getos(osname);
 		if visualvalue(LOGIN) <> 4 and pos("5.1",osname) then
 			errmsg("Welcome back %V", getlabel(UNAME_VS1,UNAME));
-		endif;
+		endif;}
 		//vsEDCode(nextEntry) = notappl;		//not needed since it's initialised to notappl
 
 		setvalueset(ME_ED, vsEDCode, vsLabel);

@@ -21,38 +21,40 @@ preproc
 postproc
 	//check and resolve mismatched IDs
 	if roundtemp <> LSTROUND or edtemp <> LSTED or parishtemp <> LSTPARISH or stratumtemp <> LSTSTRATUM or buildingtemp <> LSTBUILDING or sampletemp <> LSTSAMPLE then
-		idno = maketext("%2d%3d%3d%1d%3d", roundtemp,edtemp,parishtemp,stratumtemp,sampletemp);
-		if loadcase(LABOURFORCE_DICT,idno) then		//if a case exists with the old IDs then load that case and update
-			//errmsg("begin rnd=|%V|%V|, ed=|%V|%V|, par=|%V|%V|, str=|%V|%V|, sam=|%V|%V|",roundtemp,RNDNO,edtemp,EDNO,parishtemp,PARNO,stratumtemp,STRATUM,sampletemp,HHNO);
-			//set new case IDs
-			RNDNO = LSTROUND;
-			EDNO = LSTED;
-			PARNO = LSTPARISH;
-			STRATUM = LSTSTRATUM;
-			HHNO = LSTSAMPLE;
-			
-			//set new case label based on new case ID
-			caselabel = getcaselabel(LABOURFORCE_DICT);
-			i = pos("-",caselabel);
-			j = pos(":",caselabel);		//set j to the last character of the caselabel, I do this by searching for a character that is not in the caselabel
-			if j = 0 then 
-				j = 99;		//failing that I just set it to 99, not elegant lol
-			endif;
-			newcaselabel = caselabel[1:i]+maketext("%2d-%3d-%3d-%1d-%3d",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTSAMPLE);
-			setcaselabel(LABOURFORCE_DICT,newcaselabel);
-			
-			if not writecase(LABOURFORCE_DICT) then		//write new case with new ID
-				errmsg("cannot write case, case ID's probably don't match now!");
+		if  roundtemp <> notappl and edtemp <> notappl and parishtemp <> notappl and stratumtemp <> notappl and sampletemp <> notappl then		//if temp variables are valid
+			idno = maketext("%2d%3d%3d%1d%3d", roundtemp,edtemp,parishtemp,stratumtemp,sampletemp);
+			if loadcase(LABOURFORCE_DICT,idno) then		//if a case exists with the old IDs then load that case and update
+				//errmsg("begin rnd=|%V|%V|, ed=|%V|%V|, par=|%V|%V|, str=|%V|%V|, sam=|%V|%V|",roundtemp,RNDNO,edtemp,EDNO,parishtemp,PARNO,stratumtemp,STRATUM,sampletemp,HHNO);
+				//set new case IDs
+				RNDNO = LSTROUND;
+				EDNO = LSTED;
+				PARNO = LSTPARISH;
+				STRATUM = LSTSTRATUM;
+				HHNO = LSTSAMPLE;
+				
+				//set new case label based on new case ID
+				caselabel = getcaselabel(LABOURFORCE_DICT);
+				i = pos("-",caselabel);
+				j = pos(":",caselabel);		//set j to the last character of the caselabel, I do this by searching for a character that is not in the caselabel
+				if j = 0 then 
+					j = 99;		//failing that I just set it to 99, not elegant lol
+				endif;
+				newcaselabel = caselabel[1:i]+maketext("%2d-%3d-%3d-%1d-%3d",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTSAMPLE);
+				setcaselabel(LABOURFORCE_DICT,newcaselabel);
+				
+				if not writecase(LABOURFORCE_DICT) then		//write new case with new ID
+					errmsg("cannot write case, case ID's probably don't match now!");
+				else
+					delcase(LABOURFORCE_DICT,idno);		//delete old case with old ID only if new case was written
+					errmsg("Successfully changed questionnaire ID");
+				endif;
+				//errmsg("begin rnd=|%V|%V|, ed=|%V|%V|, par=|%V|%V|, str=|%V|%V|, sam=|%V|%V|",roundtemp,RNDNO,edtemp,EDNO,parishtemp,PARNO,stratumtemp,STRATUM,sampletemp,HHNO);
 			else
-				delcase(LABOURFORCE_DICT,idno);		//delete old case with old ID only if new case was written
-				errmsg("Successfully changed questionnaire ID");
+				errmsg("cannot load case %v",idno);
 			endif;
-			//errmsg("begin rnd=|%V|%V|, ed=|%V|%V|, par=|%V|%V|, str=|%V|%V|, sam=|%V|%V|",roundtemp,RNDNO,edtemp,EDNO,parishtemp,PARNO,stratumtemp,STRATUM,sampletemp,HHNO);
-		else
-			errmsg("cannot load case %v",idno);
 		endif;
 	endif;
-	
+		
 	if getos() = 20 then		//if windows then don't immediately run menu program
 		execpff("../Menu/Menu.pff");
 	endif;
