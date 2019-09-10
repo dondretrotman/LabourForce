@@ -347,9 +347,10 @@ postproc
 			errmsg("ID was not changed");
 		elseif i = 2 then
 			errmsg("ID was changed to%v-%v-%v-%v-%v",RNDNO,EDNO,PARNO,STRATUM,HHNO);
-		endif
-
+		endif;
 	endif;
+
+//-------------------------------------------------------------------------------------
 PROC RNDNO
 preproc
 	if visualvalue(RNDNO) = notappl then		//if round is blank

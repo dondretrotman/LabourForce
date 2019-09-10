@@ -15,7 +15,7 @@ config	cswebip1,		//Stores CSWeb address
 
 string 	rnd_ed,		//round and ED number to be downloaded
 		status,		//stores current login status
-		username,		//stores user name
+		username,	//stores user name
 //		ftpip1,		//Stores ftp address
 //		ftpip2,		//stores ftp secondary address
 //		cswebip1,	//Stores CSWeb address
