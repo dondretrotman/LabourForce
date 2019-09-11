@@ -1195,7 +1195,9 @@ onfocus
 	endif;
 	
 postproc
-	CHOOSE_HOUSEHOLD = maketext("%13.12s",CHOOSE_HOUSEHOLD);		//workaround to make this shit work I shouldn't have to hack this to make it work!
+	if datediff(tonumber(diagnostics("releasedate")),20190910) > 0 then		//developers fixed the bug so this only runs my workaround if the app has not been updated to the latest bugfree version
+		CHOOSE_HOUSEHOLD = maketext("%13.12s",CHOOSE_HOUSEHOLD);		//workaround to make this shit work I shouldn't have to hack this to make it work!
+	endif;
 
 	launchQuestionnaire();
 	if LOGIN = 1 then 
@@ -1230,7 +1232,10 @@ onfocus
 
 
 postproc
-	CHOOSE_CONTROL_SHEET = maketext("%16.15s",CHOOSE_CONTROL_SHEET);
+	if datediff(tonumber(diagnostics("releasedate")),20190910) > 0 then		//developers fixed the bug so this only runs my workaround if the app has not been updated to the latest bugfree version
+		CHOOSE_CONTROL_SHEET = maketext("%16.15s",CHOOSE_CONTROL_SHEET);
+	endif;
+	
 	launchSupervisorControlSheet();
 	if LOGIN = 1 then 
 		move to INTERVIEWER_MENU;
@@ -1264,7 +1269,10 @@ onfocus
 
 
 postproc
-	DELETE_CONTROL_SHEET = maketext("%16.15s",DELETE_CONTROL_SHEET);
+	if datediff(tonumber(diagnostics("releasedate")),20190910) > 0 then		//developers fixed the bug so this only runs my workaround if the app has not been updated to the latest bugfree version
+		DELETE_CONTROL_SHEET = maketext("%16.15s",DELETE_CONTROL_SHEET);
+	endif;
+	
 	deleteControlSheet();
 	if LOGIN = 1 then 
 		move to INTERVIEWER_MENU;
@@ -1297,7 +1305,10 @@ onfocus
 	endif;
 
 postproc
-	ADMIN_DELETE_CONTROL_SHEET = maketext("%16.15s",ADMIN_DELETE_CONTROL_SHEET);
+	if datediff(tonumber(diagnostics("releasedate")),20190910) > 0 then		//developers fixed the bug so this only runs my workaround if the app has not been updated to the latest bugfree version
+		ADMIN_DELETE_CONTROL_SHEET = maketext("%16.15s",ADMIN_DELETE_CONTROL_SHEET);
+	endif;
+	
 	adminDeleteControlSheet();
 	if LOGIN = 1 then 
 		move to INTERVIEWER_MENU;
@@ -1341,7 +1352,10 @@ onfocus
 	endif;
 
 postproc
-	ADMIN_DELETE_QUESTIONNAIRE = maketext("%13.12s",ADMIN_DELETE_QUESTIONNAIRE);
+	if datediff(tonumber(diagnostics("releasedate")),20190910) > 0 then		//developers fixed the bug so this only runs my workaround if the app has not been updated to the latest bugfree version
+		ADMIN_DELETE_QUESTIONNAIRE = maketext("%13.12s",ADMIN_DELETE_QUESTIONNAIRE);
+	endif;
+	
 	adminDeleteQuestionnaire();
 	if LOGIN = 1 then 
 		move to INTERVIEWER_MENU;
@@ -1381,7 +1395,10 @@ onfocus
 	endif;
 
 postproc
-	MNO_CHANGE = maketext("%13.12s",MNO_CHANGE);
+	if datediff(tonumber(diagnostics("releasedate")),20190910) > 0 then		//developers fixed the bug so this only runs my workaround if the app has not been updated to the latest bugfree version
+		MNO_CHANGE = maketext("%13.12s",MNO_CHANGE);
+	endif;
+	
 	processnochange();
 	move to SUPERVISOR_MENU;
 PROC ALLOCATE_ENUMERATOR
