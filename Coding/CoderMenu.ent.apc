@@ -307,7 +307,9 @@ onfocus
 	endif;
 	
 postproc
-	CHOOSE_QUESTIONNAIRE = maketext("%12.11s",CHOOSE_QUESTIONNAIRE);		//workaround to make this shit work I shouldn't have to hack this to make it work!
+	if datediff(tonumber(diagnostics("releasedate")),20190910) > 0 then		//developers fixed the bug so this only runs my workaround if the app has not been updated to the latest bugfree version
+		CHOOSE_QUESTIONNAIRE = maketext("%12.11s",CHOOSE_QUESTIONNAIRE);		//workaround to make this shit work I shouldn't have to hack this to make it work!
+	endif;
 	launchQuestionnaire();
 	move to MAIN_MENU;
 	
