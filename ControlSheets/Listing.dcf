@@ -1,5 +1,5 @@
 ﻿[Dictionary]
-Version=CSPro 7.1
+Version=CSPro 7.3
 Label=Listing
 Name=LISTING_DICT
 RecordTypeStart=1
@@ -133,7 +133,7 @@ Len=2
 [ValueSet]
 Label=Enumerator
 Name=LSTENUMCODE_VS1
-Value=1;Best M
+Value=96;Best M
 Value=3;Russell K
 Value=4;Sealy C
 Value=5;Mayers R

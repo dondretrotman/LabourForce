@@ -1,5 +1,5 @@
 ﻿[Dictionary]
-Version=CSPro 7.2
+Version=CSPro 7.3
 Label=Labourforce
 Name=LABOURFORCE_DICT
 RecordTypeStart=1
@@ -373,7 +373,7 @@ Name=SUPERV_VS1
 Value=95;Harold Chase
 Value=93;Mervin Small
 Value=94;Wayne Davis
-Value=1;Marcia Best
+Value=96;Marcia Best
 
 [Item]
 Label=Number of persons

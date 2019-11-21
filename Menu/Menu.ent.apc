@@ -905,7 +905,7 @@ onfocus
 		inc(nextEntry);
 	enddo;
 	//errmsg("reset arrays");
-	if USERID < 90  and USERID <> 1 then		//If not a supervisor (or Marcia Best who is now a supervisor)
+	if USERID < 90  then		//If not a supervisor 
 		//Load ED from lookup file
 		nextEntry = 1;
 		uid = maketext("%V",USERID);
@@ -932,7 +932,7 @@ onfocus
 		if vsEDcode(1) in notappl,0 then		//if nothing is in the valueset
 			errmsg("There are no allocations available. Are you in the correct round?");
 		endif;
-	elseif USERID >= 90 or USERID = 1 then
+	elseif USERID >= 90 then
 		setvalueset(ME_ED,ME_ED_VS1);
 	endif;
 	
@@ -950,7 +950,7 @@ onfocus
 	$ = notappl;
 	username = getlabel(UNAME_VS1,UNAME);
 	
-	if visualvalue(USERID) in 1,90:98 then		//Supervisor (including MArcia Best)
+	if visualvalue(USERID) in 90:98 then		//Supervisor
 		setvalueset(LOGIN,LOGIN_VS1);
 	elseif visualvalue(USERID) < 90 then	//enumerator
 		setvalueset(LOGIN,LOGIN_VS2);

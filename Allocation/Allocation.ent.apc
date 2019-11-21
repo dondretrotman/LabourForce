@@ -14,7 +14,7 @@ preproc
 	setproperty(AUSER_ID,"PROTECTED","Yes");
 	
 postproc
-	if $ = 1 then
+	if $ = 96 then
 		AUNAME = "MBEST";
 	elseif $ = 3 then
 		AUNAME = "KRUSSELL";

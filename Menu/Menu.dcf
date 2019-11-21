@@ -1,5 +1,5 @@
 ﻿[Dictionary]
-Version=CSPro 7.2
+Version=CSPro 7.3
 Label=Menu
 Name=MENU_DICT
 RecordTypeStart=1
@@ -68,7 +68,6 @@ Len=2
 [ValueSet]
 Label=User ID
 Name=USERID_VS1
-Value=1;MBEST
 Value=3;KRUSSELL
 Value=4;CSEALY
 Value=5;RMAYERS
@@ -89,6 +88,7 @@ Value=30;GSHEPHERD
 Value=95;HCHASE
 Value=93;MSMALL
 Value=94;WDAVIS
+Value=96;MBEST
 Value=99;C3N5U5ADM1N
 
 [Item]
