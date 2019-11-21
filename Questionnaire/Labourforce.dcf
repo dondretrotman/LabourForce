@@ -167,7 +167,7 @@ Len=2
 [ValueSet]
 Label=Enumerator
 Name=ENMRTR_VS1
-Value=1;Best M
+Value=96;Best M
 Value=3;Russell K
 Value=4;Sealy C
 Value=5;Mayers R
