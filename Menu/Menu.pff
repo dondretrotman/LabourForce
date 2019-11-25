@@ -1,27 +1,23 @@
 ﻿[Run Information]
-Version=CSPro 7.2
+Version=CSPro 7.3
 AppType=Entry
 Description=Continuous Labour Force Sample Survey
 
 [DataEntryInit]
 StartMode=Add
 Lock=CaseListing
-FullScreen=YES
-Interactive=Ask
+FullScreen=Yes
 
 [Files]
 Application=.\Menu.ent
-InputData=|NONE
+InputData=|type=None
 
 [ExternalFiles]
-ALLOCATION_DICT=..\Data\assignments.csdb|CSPRODB
-ENUMERATIONREPORT_DICT=..\Data\enumrpt.csdb|CSPRODB
-LABOURFORCE_DICT=..\Data\data.csdb|CSPRODB
-LISTING_DICT=..\Data\Controlsheet.csdb|CSPRODB
+ALLOCATION_DICT=..\Data\assignments.csdb
+ENUMERATIONREPORT_DICT=..\Data\enumrpt.csdb
+LABOURFORCE_DICT=..\Data\data.csdb
+LISTING_DICT=..\Data\Controlsheet.csdb
 
 [UserFiles]
-LOGINFILE=
-PFFFILE=
-
-[Parameters]
-
+loginfile=
+pffFile=

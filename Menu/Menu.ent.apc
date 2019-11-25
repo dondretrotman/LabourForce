@@ -549,9 +549,7 @@ function readloginstatus()
 end;
 
 //fills enumeration report and opens for Viewing
-function enumerationRpt()
-	//trace(on);
-	//set trace;
+function enumerationRpt();
 	recode ME_ED	=>	parish;		//recode ed to parish
 		1-181	=>	"St. Michael";	//St. Michael
 		182-295	=>	"Christ Church";	//Christ Church
@@ -671,7 +669,6 @@ function enumerationRpt()
 	setreportdata("EDCOMPLETE", edstatus);
 	setreportdata(REPORTARRAY);
 	report("../Reports/enumeratorrpt.html");
-//trace(off);	
 end;
 
 //function to mark ed as complete or ongoing
@@ -1054,13 +1051,14 @@ onfocus
 	endif;
 	
 	//Show valueset based on OS
-	if getos() in 10,30,20 then		//if windows
+	//if getos() in 10,30,20 then		//if windows
 		setvalueset($,SUPERVISOR_MENU_VS2);
 	{elseif getos() = 20 then	//if android
 		setvalueset($,SUPERVISOR_MENU_VS1);
-	}endif;
-	
+	}//endif;
+	errmsg("press ok");
 postproc
+	//errmsg("start supervisor menu postproc");
 	if $ = 1 then		//download data
 		if connection() then
 			downloadData(rnd_ed);		//download questionnaires etc
@@ -1076,6 +1074,7 @@ postproc
 		skip to CHOOSE_QUESTIONNAIRE;
 	elseif $ = 5 then		//view Enumerator report
 		enumerationRpt();
+		errmsg("press ok");
 		reenter;
 	elseif $ = 6 then		//allocate officers
 		skip to ALLOCATE_ENUMERATOR;
