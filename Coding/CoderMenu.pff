@@ -1,24 +1,20 @@
 ﻿[Run Information]
-Version=CSPro 7.2
+Version=CSPro 7.3
 AppType=Entry
 
 [DataEntryInit]
 StartMode=Add
 Lock=Stats,CaseListing
-FullScreen=YES
-Interactive=Ask
+FullScreen=Yes
 
 [Files]
 Application=.\CoderMenu.ent
-InputData=|NONE
+InputData=|type=None
 
 [ExternalFiles]
-ENUMERATIONREPORT_DICT=..\Data\enumrpt.csdb|CSPRODB
-LABOURFORCE_DICT=..\Data\data1.csdb|CSPRODB
+ENUMERATIONREPORT_DICT=..\Data\enumrpt.csdb
+LABOURFORCE_DICT=..\Data\data1.csdb
 
 [UserFiles]
-LOGINFILE=
-PFFFILE=
-
-[Parameters]
-
+loginfile=
+pffFile=
