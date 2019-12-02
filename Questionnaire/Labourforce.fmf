@@ -1,5 +1,5 @@
 ﻿[FormFile]
-Version=CSPro 7.2
+Version=CSPro 7.3
 Name=LABOURFORCE_FF
 Label=Labourforce
 DefaultTextFont=-013 0000 0000 0000 0700 0000 0000 0000 0000 0000 0000 0000 0000 Arial
@@ -1374,8 +1374,6 @@ Item=BIRTHD,LABOURFORCE_DICT
 HideInCaseTree=Yes
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
-DataCaptureType=Date
-CaptureDateFormat=YYYYMMDD
   
 [Text]
 Position=0,0,81,16

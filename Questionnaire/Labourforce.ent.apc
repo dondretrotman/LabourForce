@@ -898,6 +898,13 @@ preproc
 	ask if RELHD = 8;
 	
 //-----------------------------------------------------
+PROC BIRTHD
+postproc
+	if checkdate(LDOB_YEAR,LDOB_MONTH,LDOB_DAY) = 0 then
+		reenter;
+	endif;
+
+//---------------------------------------------------------
 PROC AGE
 
 	//check that age corresponds to date of birth
