@@ -32,6 +32,7 @@ numeric a,i,				//general variable
 		edtemp,
 		parishtemp,
 		stratumtemp,
+		markerID,		//marks location on map
 		hhtemp;
 		
 		
@@ -42,6 +43,7 @@ string 	caselabel,		//stores the label for the current case
 		idno,			//case id to be loaded
 		promptremarks;	//stores remarks for report
 		
+map		newmap;			//defines a map		
 		
 array string 	vsLabels(99);		//Stores valueset labels
 array numeric 	vsNumCodes(99) = 0,...;		//stores valueset codes
@@ -113,6 +115,21 @@ function getgps()
 	
 end;
 
+function closemap(map m)
+	m.hide();
+end;
+
+//function displays a map of the current location
+function LFSmap()
+	if not LATITUDE in 0,default,notappl,missing and not LONGITUDE in 0,default,notappl,missing then
+		markerID = newmap.addmarker(LATITUDE,LONGITUDE);
+		newmap.setMarkerdescription(markerID,maketext("%V", getcaselabel(LABOURFORCE_DICT)));
+	endif;
+	newmap.addtextbutton("close", closemap(newmap));
+	
+	newmap.show();
+end;
+
 //function changes male(1) to female(2) and vice versa
 function changesex(n)
 	if n = 1 then 		//if male
@@ -181,6 +198,7 @@ preproc
 //---------------------------Userbar definition------------------------------------
 	userbar(clear);
 	userbar(add button, "Get Location", getgps());		//adds a "Get location" button to get coordinates
+	userbar(add button, "Show Map", LFSmap());		//shows a map with the current household
 	{userbar(add button, "Take a photo for the current case", takePhoto());		//adds a button to take a photo of current case. 
 	userbar(add button, "View photo of current case", viewPhoto());}		//adds a button to view photo of current case
 	userbar(show);

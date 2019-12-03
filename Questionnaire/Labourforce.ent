@@ -32,3 +32,6 @@ File=.\Labourforce.fmf
 Dict-Type=.\Labourforce.dcf,Input,.\Labourforce.fmf
 Dict-Type=..\Reports\EnumerationReport.dcf,External
 Dict-Type=..\ControlSheets\Listing.dcf,External
+[Mapping]
+LatitudeItem=LATITUDE
+LongitudeItem=LONGITUDE

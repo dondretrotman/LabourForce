@@ -1,5 +1,5 @@
 ﻿[CAPI QUESTIONS]
-Version=CSPro 7.2
+Version=CSPro 7.3
 
 [LANGUAGES]
 EN=English
@@ -144,11 +144,12 @@ EN=}
 Field=MENU_DICT.SUPERVISOR_MENU
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
-EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
 EN=\pard\cf1\fs24 Download Data - Download data for ED %ME_ED%\par
 EN=Open Control Sheet - Opens a control sheet for ED %ME_ED%\par
 EN=Open Questionnaire - Opens a questionnaire for ED %ME_ED%\par
 EN=Delete Questionnaire - Flags a questionnaire for deletion. Please note that this does not actually delete the questionnaire\par
+EN=View Map - Opens a map showing all visited households. \par
 EN=View Enumeration Report - View a summary of work done in ED %ME_ED%\par
 EN=Allocate Officers - Assign enumerators to the current round and up to five enumeration districts\par
 EN=Mark ED as complete - Mark ED %ME_ED% as completed and ready to be coded\par
@@ -173,11 +174,12 @@ EN=}
 Field=MENU_DICT.INTERVIEWER_MENU
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
-EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
 EN=\pard\cf1\fs24 View\\Fill Questionnaire - See a list of all available questionnaires and fill them out. A control sheet \b must \b0 be created before a corresponding questionnaire can be filled out\par
 EN=Fill Control Sheet - Fill out a new control sheet for ED %ME_ED%. \par
 EN=View Control Sheet - View existing control sheets\par
 EN=Download Control Sheets - Download control sheets that were filled out and uploaded from a computer\par
+EN=View Map - Opens a map showing all visited households. \par
 EN=Delete Control Sheet - Marks Control Sheet and associated questionnaires for deletion. This does \b not \b0 actually delete the data from the tablet, but the data will be deleted at the editing stage.\par
 EN=View Enumeration Report - View a report on completed households. Please note that depending on if data has been edited/changed, it might not be completely accurate\par
 EN=Upload Data - Upload data to server. Please be sure to have internet access first\par
@@ -217,16 +219,10 @@ EN=\pard\cf1\fs24 Only the enumeration districts that you are assigned to will a
 EN=}
 
 [HELP]
-Field=MENU_DICT.CHOOSE_ROUND
-
-[HELP]
 Field=MENU_DICT.MNO_CHANGE
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 This wil allow you to view households that have been marked as having no change since the last round. Once you approve it, the household data from the previous round will be applied to the current round.\par
 EN=}
-
-[HELP]
-Field=MENU_DICT.ALLOCATE_ENUMERATOR
 

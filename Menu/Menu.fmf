@@ -1,5 +1,5 @@
 ﻿[FormFile]
-Version=CSPro 7.2
+Version=CSPro 7.3
 Name=MENU_FF
 Label=Menu
 DefaultTextFont=-013 0000 0000 0000 0700 0000 0000 0000 0000 0000 0000 0000 0000 Arial
@@ -14,7 +14,7 @@ Name=FORM000
 Label=Menu questionnaire
 QuestionTextHeight=145
 Level=1
-Size=754,725
+Size=754,748
   
 Item=INTERVIEWER_MENU
 Item=SUPERVISOR_MENU
@@ -33,6 +33,7 @@ Item=USERID
 Item=UNAME
 Item=ALLOCATE_ENUMERATOR
 Item=MNO_CHANGE
+Item=VIEW_MAP
   
 [EndForm]
   
@@ -132,7 +133,7 @@ Text=Interviewer Menu
   
 [Field]
 Name=SUPERVISOR_MENU
-Position=319,231,334,251
+Position=319,231,348,251
 Item=SUPERVISOR_MENU,MENU_DICT
 UpperCase=Yes
 FieldLabelType=DictionaryLabel
@@ -276,6 +277,19 @@ Form=1
 [Text]
 Position=127,658,257,674
 Text=Allocate enumerator
+ 
+  
+[Field]
+Name=VIEW_MAP
+Position=319,703,488,723
+Item=VIEW_MAP,MENU_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
+Form=1
+  
+[Text]
+Position=127,704,190,720
+Text=View Map
  
 [EndGroup]
   

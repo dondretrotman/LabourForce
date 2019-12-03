@@ -33,7 +33,8 @@ string 	rnd_ed,		//round and ED number to be downloaded
 		curid,		//stores id for current case
 		caselabel,	//stroes caselabel for current case
 		newcaselabel,	//stores new case label for current case
-		osname;		//stores name and version of OS
+		osname,		//stores name and version of OS
+		location;	//stores lattitude\longitude of questionnaire.
 		
 
 numeric deleteflag,		//stores flag for case deletion
@@ -53,6 +54,7 @@ numeric deleteflag,		//stores flag for case deletion
 		headindex,		//person id of the head of household
 		a,i,j,k,l,m,n;		//general counters and temp variables
 		
+map		enummap;		//displays a map		
 
 //----------------------------------Array Declaration-------------------------------------
 array string	vsCode(50);		//valueset codes
@@ -62,6 +64,7 @@ array numeric	vsEDCode(10);	//stores ED
 //array string	vsEDLabel(10);	//Stores ED label
 array string	REPORTARRAY(50,13);	//stores enumerator report data (50 = number of records, 13 = number of fields (ERFEILD_OFFICER, ERSERIAL_NO,ERUNIT_NO,ERHH_SIZE,ERMALES,ERFEMALES,WEEK_ENDING,ERLAST-NAME, ERFIRST_NAME, ERADDRESS, ERSTART, EREND,ERREMARKS))
 array string	curcasearray(8);	//stores current case (VISITNO, ENMRTR, ROTATION, DATE, SUPERV, LENDDATE, LSTARTTIME, LENDTIME)
+array string	markerID(3, 50);		//stores map markers
 
 //--------------------------------Function declaration------------------------------------
 //Launches the Control sheet
@@ -168,7 +171,7 @@ function searchArray(array string arrayName(,),string findValue)
 end;
 
 //Launches the Questionnaire
-function LaunchQuestionnaire()
+function LaunchQuestionnaire(string qchoosehh);
 
 	string pffFilename = Pathname(application) + "../Questionnaire/Labourforce.pff";
 	setfile(pffFile,pffFilename,create);
@@ -180,7 +183,7 @@ function LaunchQuestionnaire()
 
 	filewrite(pffFile, "[DataEntryInit]");
 	filewrite(pffFile, "OperatorID=%v", UNAME);
-	filewrite(pffFile, "StartMode=Add;%v", CHOOSE_HOUSEHOLD);
+	filewrite(pffFile, "StartMode=Add;%v", qchoosehh);
 	filewrite(pffFile, "Lock=CaseListing");
 	//filewrite(pffFile, "ShowInApplicationListing=Hidden");
 	filewrite(pffFile, "AutoAdd=No");
@@ -199,14 +202,14 @@ function LaunchQuestionnaire()
 
 	filewrite(pffFile, "[Parameters]");
 	filewrite(pffFile,"OnExit=%v","../Menu/Menu.pff");
-	filewrite(pffFile, "RNDNO=%v",CHOOSE_HOUSEHOLD[1:2]);
-	filewrite(pffFile, "EDNO=%v",CHOOSE_HOUSEHOLD[3:3]);
-	filewrite(pffFile, "PARNO=%v",CHOOSE_HOUSEHOLD[6:3]);
-	filewrite(pffFile, "STRATUM=%v",CHOOSE_HOUSEHOLD[9:1]);		//skip Building no (CHOOSE_HOUSEHOLD[10:3]) which is not included in Labourforce ID items
-	filewrite(pffFile, "HHNO=%v",CHOOSE_HOUSEHOLD[10:3]);		
+	filewrite(pffFile, "RNDNO=%v",qchoosehh[1:2]);
+	filewrite(pffFile, "EDNO=%v",qchoosehh[3:3]);
+	filewrite(pffFile, "PARNO=%v",qchoosehh[6:3]);
+	filewrite(pffFile, "STRATUM=%v",qchoosehh[9:1]);		//skip Building no (CHOOSE_HOUSEHOLD[10:3]) which is not included in Labourforce ID items
+	filewrite(pffFile, "HHNO=%v",qchoosehh[10:3]);		
 	filewrite(pffFile, "ENMRTR=%v",maketext("%v",visualvalue(USERID)));
-	filewrite(pffFile, "ADDRESS=%v",address(searchArray(address,CHOOSE_HOUSEHOLD),2));
-	filewrite(pffFile, "BLDGNO=%v",address(searchArray(address,CHOOSE_HOUSEHOLD),3));
+	filewrite(pffFile, "ADDRESS=%v",address(searchArray(address,qchoosehh),2));
+	filewrite(pffFile, "BLDGNO=%v",address(searchArray(address,qchoosehh),3));
 	
 	close(pffFile);
 
@@ -723,7 +726,7 @@ function processnochange()
 		enddo;
 		if i = 1 then
 			CHOOSE_HOUSEHOLD = prevround;
-			launchQuestionnaire();
+			launchQuestionnaire(CHOOSE_HOUSEHOLD);
 			reenter;
 		elseif i = 2 then
 		//continue
@@ -776,6 +779,35 @@ function processnochange()
 		reenter;
 	endif;
 end;
+
+//closes the map
+function closemap(map mp)
+	mp.hide();
+end;
+
+//displays a map of all enumerated households in the current ED
+{function viewenummap()
+	nextEntry = 1;
+	forcase LISTING_DICT where LSTED = ME_ED and LSTROUND = ME_ROUND do
+		idno = maketext("%V%V%V%V%V",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTSAMPLE);
+		if loadcase(LABOURFORCE_DICT, idno) then
+			markerID(1,nextEntry) = maketext("%V%V%V%V%V",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTSAMPLE);	//valueset code
+			markerID(2,nextEntry) = maketext("%03d-%03d-%03d: %V (%v)",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS));	//valueset label
+			location = maketext("%V", enummap.addmarker(LATITUDE,LONGITUDE));		//location
+			markerID(3, nextEntry) = location;
+			enummap.setMarkerDescription(tonumber(markerID(3, nextEntry)),markerID(2, nextEntry));
+			enummap.setMarkerImage(tonumber(markerID(3, nextEntry)), "home-7-16.png");
+			enummap.setMarkerOnClickInfoWindow(tonumber(markerID(3, nextEntry)), LaunchQuestionnaire());
+			enummap.setTitle("Tap on a house to view a household");
+			enummap.showCurrentLocation(1);
+			
+			inc(nextentry);
+		endif;
+	endfor;
+	CHOOSE_HOUSEHOLD = markerID(1, 
+	enummap.zoomTo(LATITUDE,LONGITUDE);
+	enummap.show();
+end;}
 
 //displays the manual
 function ViewManual()
@@ -1035,8 +1067,8 @@ postproc
 		skip to DELETE_CONTROL_SHEET;
 	elseif $ = 9 then		//back
 		move to LOGIN;
-	elseif $ = 10 then		//download New round DEBUG:THIS WAS DELETED FROM THE MENU PERSONS SHOUL USE CHANGE ROUND INSTEAD
-		skip to CHOOSE_ROUND;
+	elseif $ = 10 then		//view visited households on map
+		skip to VIEW_MAP;
 	endif;
 reenter;		//don't leave the menu
 
@@ -1083,6 +1115,9 @@ postproc
 		reenter;
 	elseif $ = 8 then
 		skip to MNO_CHANGE;
+	elseif $ = 10 then
+		skip to VIEW_MAP;
+		reenter;
 	elseif $ = 9 then		//back
 		move to LOGIN;
 	endif;
@@ -1198,7 +1233,7 @@ postproc
 		CHOOSE_HOUSEHOLD = maketext("%13.12s",CHOOSE_HOUSEHOLD);		//workaround to make this shit work I shouldn't have to hack this to make it work!
 	endif;
 
-	launchQuestionnaire();
+	launchQuestionnaire(CHOOSE_HOUSEHOLD);
 	if LOGIN = 1 then 
 		move to INTERVIEWER_MENU;
 	elseif LOGIN = 2 then
@@ -1405,4 +1440,35 @@ postproc
 	allocateenum();
 	move to SUPERVISOR_MENU;
 
+//----------------------------------------------------
+PROC VIEW_MAP
+onfocus
+	nextEntry = 1;
+	forcase LISTING_DICT where LSTED = ME_ED and LSTROUND = ME_ROUND do
+		idno = maketext("%V%V%V%V%V",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTSAMPLE);
+		if loadcase(LABOURFORCE_DICT, idno) then
+			markerID(1,nextEntry) = maketext("%V%V%V%V%V",LSTROUND,LSTED,LSTPARISH,LSTSTRATUM,LSTSAMPLE);	//valueset code
+			markerID(2,nextEntry) = maketext("%03d-%03d-%03d: %V (%v)",LSTED,LSTBUILDING,LSTSAMPLE,strip(LSTLNAME),strip(LSTREMARKS));	//valueset label
+			location = maketext("%V", enummap.addmarker(LATITUDE,LONGITUDE));		//location
+			markerID(3, nextEntry) = location;
+			enummap.setMarkerDescription(tonumber(markerID(3, nextEntry)),markerID(2, nextEntry));
+			enummap.setMarkerImage(tonumber(markerID(3, nextEntry)), "home-7-32.png");
+			enummap.setMarkerOnClickInfoWindow(tonumber(markerID(3, nextEntry)), LaunchQuestionnaire(markerID(1,nextEntry)));
+			enummap.setTitle("Tap on a house to view a household");
+			enummap.showCurrentLocation(0);
+			
+			inc(nextentry);
+		endif;
+	endfor;
+
+	enummap.addtextbutton("close", closemap(enummap));
+	enummap.zoomTo(LATITUDE,LONGITUDE,15);
+	enummap.show();
+
+	if LOGIN = 1 then 
+		move to INTERVIEWER_MENU;
+	elseif LOGIN = 2 then
+		move to SUPERVISOR_MENU;
+	endif;
+	
 //----------------------------------------------------

@@ -24,7 +24,7 @@ Len=1
 Label=Menu record
 Name=MENU_REC
 RecordTypeValue='1'
-RecordLen=132
+RecordLen=145
 
 [Item]
 Label=User Name
@@ -205,6 +205,7 @@ Value=1;View\Fill Questionnaire
 Value=2;Fill Control Sheet
 Value=6;View Control Sheet
 Value=5;Download Control Sheets
+Value=10;View Map
 Value=0;---------------------------------------
 Value=8;Delete Control Sheet
 Value=0;---------------------------------------
@@ -216,7 +217,7 @@ Value=9;Back
 Label=Supervisor Menu
 Name=SUPERVISOR_MENU
 Start=33
-Len=1
+Len=2
 
 [ValueSet]
 Label=Supervisor Menu
@@ -238,6 +239,7 @@ Value=2;Open Control Sheet
 Value=3;Open Questionnaire
 Value=4;Delete Questionnaire
 Value=5;View Enumerator Report
+Value=10;View Map
 Value=6;Allocate Officers
 Value=7;Mark ED as complete
 Value=8;Process unchanged households
@@ -246,7 +248,7 @@ Value=9;Back
 [Item]
 Label=Admin Menu
 Name=ADMIN_MENU
-Start=34
+Start=35
 Len=2
 
 [ValueSet]
@@ -263,7 +265,7 @@ Value=9;Back
 [Item]
 Label=Choose Round
 Name=CHOOSE_ROUND
-Start=36
+Start=37
 Len=2
 
 [ValueSet]
@@ -282,7 +284,7 @@ Value=9;9
 [Item]
 Label=Delete Questionnaire
 Name=CHOOSE_QUESTIONNAIRE
-Start=38
+Start=39
 Len=12
 DataType=Alpha
 
@@ -294,7 +296,7 @@ Value='null        ';null
 [Item]
 Label=Choose Household
 Name=CHOOSE_HOUSEHOLD
-Start=50
+Start=51
 Len=12
 DataType=Alpha
 
@@ -306,7 +308,7 @@ Value='null        ';null
 [Item]
 Label=Choose Control Sheet
 Name=CHOOSE_CONTROL_SHEET
-Start=62
+Start=63
 Len=15
 DataType=Alpha
 
@@ -318,7 +320,7 @@ Value='null           ';null
 [Item]
 Label=Delete Control Sheet
 Name=DELETE_CONTROL_SHEET
-Start=77
+Start=78
 Len=15
 DataType=Alpha
 
@@ -330,7 +332,7 @@ Value='null           ';null
 [Item]
 Label=Admin Delete Control Sheet
 Name=ADMIN_DELETE_CONTROL_SHEET
-Start=92
+Start=93
 Len=15
 DataType=Alpha
 
@@ -342,7 +344,7 @@ Value='null           ';null
 [Item]
 Label=Admin Delete Questionnaire
 Name=ADMIN_DELETE_QUESTIONNAIRE
-Start=107
+Start=108
 Len=12
 DataType=Alpha
 
@@ -354,7 +356,7 @@ Value='null        ';null
 [Item]
 Label=No Change
 Name=MNO_CHANGE
-Start=119
+Start=120
 Len=12
 DataType=Alpha
 
@@ -366,7 +368,7 @@ Value='null        ';null
 [Item]
 Label=Allocate enumerator
 Name=ALLOCATE_ENUMERATOR
-Start=131
+Start=132
 Len=2
 
 [ValueSet]
@@ -390,3 +392,10 @@ Value=22;SBLACKETT
 Value=25;JHUSBANDS
 Value=26;SHURDLE
 Value=30;GSHEPHERD
+
+[Item]
+Label=View Map
+Name=VIEW_MAP
+Start=134
+Len=12
+DataType=Alpha
