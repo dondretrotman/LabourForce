@@ -52,6 +52,7 @@ numeric deleteflag,		//stores flag for case deletion
 		tempround,		//calculates previous round
 		nextEntry,		//Keeps track of valueset array
 		headindex,		//person id of the head of household
+		erpt,
 		a,i,j,k,l,m,n;		//general counters and temp variables
 		
 map		enummap;		//displays a map		
@@ -1039,6 +1040,9 @@ postproc
 		reenter;
 	elseif $ = 3 then		//enumeration report
 		enumerationRpt();
+		errmsg("before enumerationrpt()");
+		execpff("Menu.pff",stop);
+		errmsg("please ignore me too");
 		reenter;
 	elseif $ = 4 then		//upload control sheets only
 		if connection() then
@@ -1088,7 +1092,10 @@ onfocus
 	{elseif getos() = 20 then	//if android
 		setvalueset($,SUPERVISOR_MENU_VS1);
 	}//endif;
-	errmsg("press ok");
+	{if erpt = 1 then
+		errmsg("press ok");
+		erpt = 0;
+	endif;}
 postproc
 	//errmsg("start supervisor menu postproc");
 	if $ = 1 then		//download data
@@ -1105,8 +1112,11 @@ postproc
 	elseif $ = 4 then		//delete questionnaire
 		skip to CHOOSE_QUESTIONNAIRE;
 	elseif $ = 5 then		//view Enumerator report
+		//erpt = 1;
 		enumerationRpt();
-		errmsg("press ok");
+		errmsg("please ignore me");
+		execpff("Menu.pff",stop);
+		errmsg("please ignore me too");
 		reenter;
 	elseif $ = 6 then		//allocate officers
 		skip to ALLOCATE_ENUMERATOR;
