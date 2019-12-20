@@ -41,6 +41,7 @@ Value=22;SBLACKETT
 Value=25;JHUSBANDS
 Value=26;SHURDLE
 Value=30;GSHEPHERD
+Value=31;ANURSE
 Value=1;MBEST
 
 [Record]
@@ -97,6 +98,7 @@ Value='SBLACKETT           ';Sherry-Ann Blackett
 Value='JHUSBANDS           ';Juliette Husbands
 Value='SHURDLE             ';Stacia Hurdle
 Value='GSHEPHERD           ';Gladwyn Shepherd
+Value='ANURSE              ';Adrian Nurse
 
 [Item]
 Label=Number of areas assigned
