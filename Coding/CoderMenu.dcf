@@ -1,5 +1,5 @@
 ﻿[Dictionary]
-Version=CSPro 7.2
+Version=CSPro 7.3
 Label=CoderMenu
 Name=CODERMENU_DICT
 RecordTypeStart=1
@@ -44,6 +44,8 @@ Value='KRUSSELL            ';Karin Russell
 Value='LSMITH              ';Lisa Smith
 Value='JJOHNSON            ';Jean Johnson
 Value='KBONAS              ';Kellyeanne Bonas
+Value='NPARRIS             ';Natalia Parris
+Value='NSKEETE             ';Nadia Skeete
 
 [Item]
 Label=User ID
@@ -62,6 +64,8 @@ Value=54;KRUSSELL
 Value=58;LSMITH
 Value=65;JJOHNSON
 Value=66;KBONAS
+Value=67;NPARRIS
+Value=68;NSKEETE
 
 [Item]
 Label=Round
