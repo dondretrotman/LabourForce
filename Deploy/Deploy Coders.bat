@@ -34,4 +34,21 @@ copy "\\statserver.gov.bb\censussurveys\LBFORCE CAPI DATA\Coding\Coding\DataEntr
 copy "\\statserver.gov.bb\censussurveys\LBFORCE CAPI DATA\Coding\Data\OccupationcodesBARSOC.csdb" "\\172.28.10.215\d$\Users\Desktop\twhite\Desktop\Coding\Data\OccupationCodesBARSOC.csdb"
 copy "\\statserver.gov.bb\censussurveys\LBFORCE CAPI DATA\Coding\Data\IndustryCodes.csdb" "\\172.28.10.215\d$\Users\Desktop\twhite\Desktop\Coding\Data\IndustryCodes.csdb"
 echo Copied to Twhite
+
+rem Natalia
+copy "\\statserver.gov.bb\censussurveys\LBFORCE CAPI DATA\Coding\Coding\Auxil.pen" "\\172.28.10.215\d$\Users\Desktop\nparris\Desktop\Coding\Coding\Auxil.pen"
+copy "\\statserver.gov.bb\censussurveys\LBFORCE CAPI DATA\Coding\Coding\CoderMenu.pen" "\\172.28.10.215\d$\Users\Desktop\nparris\Desktop\Coding\Coding\CoderMenu.pen"
+copy "\\statserver.gov.bb\censussurveys\LBFORCE CAPI DATA\Coding\Coding\DataEntry.pen" "\\172.28.10.215\d$\Users\Desktop\nparris\Desktop\Coding\Coding\DataEntry.pen"
+copy "\\statserver.gov.bb\censussurveys\LBFORCE CAPI DATA\Coding\Data\OccupationcodesBARSOC.csdb" "\\172.28.10.215\d$\Users\Desktop\nparris\Desktop\Coding\Data\OccupationCodesBARSOC.csdb"
+copy "\\statserver.gov.bb\censussurveys\LBFORCE CAPI DATA\Coding\Data\IndustryCodes.csdb" "\\172.28.10.215\d$\Users\Desktop\nparris\Desktop\Coding\Data\IndustryCodes.csdb"
+echo Copied to Twhite
+
+rem Nadia
+copy "\\statserver.gov.bb\censussurveys\LBFORCE CAPI DATA\Coding\Coding\Auxil.pen" "\\172.28.10.215\d$\Users\Desktop\nskeete\Desktop\Coding\Coding\Auxil.pen"
+copy "\\statserver.gov.bb\censussurveys\LBFORCE CAPI DATA\Coding\Coding\CoderMenu.pen" "\\172.28.10.215\d$\Users\Desktop\nskeete\Desktop\Coding\Coding\CoderMenu.pen"
+copy "\\statserver.gov.bb\censussurveys\LBFORCE CAPI DATA\Coding\Coding\DataEntry.pen" "\\172.28.10.215\d$\Users\Desktop\nskeete\Desktop\Coding\Coding\DataEntry.pen"
+copy "\\statserver.gov.bb\censussurveys\LBFORCE CAPI DATA\Coding\Data\OccupationcodesBARSOC.csdb" "\\172.28.10.215\d$\Users\Desktop\nskeete\Desktop\Coding\Data\OccupationCodesBARSOC.csdb"
+copy "\\statserver.gov.bb\censussurveys\LBFORCE CAPI DATA\Coding\Data\IndustryCodes.csdb" "\\172.28.10.215\d$\Users\Desktop\nskeete\Desktop\Coding\Data\IndustryCodes.csdb"
+echo Copied to Twhite
+
 pause

@@ -6,3 +6,8 @@ Data/data.csdb.log
 *.cslog
 *.lst
 Thumbs.db
+*.csdb
+*.pen
+*.csdb-journal
+*.pen
+*.lst

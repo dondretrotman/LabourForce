@@ -163,3 +163,566 @@ User unnumbered messages:
 
 CSPRO Executor Normal End
 --------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data1.csdb
+External        ENUMERATIONREPORT_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\enumrpt.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Aug 20, 2019
+Start Time      12:19:16
+End Time        12:20:52
+
+CSPRO Process Summary
+
+System messages:
+
+ Number    Frequency   Message text
+ ------    ---------   ------------
+  99990            1   Operator entered a value out of range            
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+     82       1    -   Attempting to download all data from Round :%d, E       -
+     96       1    -   Download of round %d, ED %d was successful              -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data1.csdb
+External        ENUMERATIONREPORT_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\enumrpt.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Aug 29, 2019
+Start Time      13:13:59
+End Time        13:15:24
+
+CSPRO Process Summary
+
+System messages:
+
+ Number    Frequency   Message text
+ ------    ---------   ------------
+   1008           24   Invalid subscript: %n(%d) -- %p                  
+  99990            1   Operator entered a value out of range            
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+     82       1    -   Attempting to download all data from Round :%d, E       -
+     96       1    -   Download of round %d, ED %d was successful              -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data1.csdb
+External        ENUMERATIONREPORT_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\enumrpt.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Aug 29, 2019
+Start Time      13:16:28
+End Time        13:34:59
+
+CSPRO Process Summary
+
+System messages:
+
+ Number    Frequency   Message text
+ ------    ---------   ------------
+   1008           24   Invalid subscript: %n(%d) -- %p                  
+  99990            1   Operator entered a value out of range            
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data1.csdb
+External        ENUMERATIONREPORT_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\enumrpt.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Aug 29, 2019
+Start Time      13:35:04
+End Time        13:35:38
+
+CSPRO Process Summary
+
+System messages:
+
+ Number    Frequency   Message text
+ ------    ---------   ------------
+   1008            8   Invalid subscript: %n(%d) -- %p                  
+  99990            2   Operator entered a value out of range            
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+    298       1    -   Households were found with missing person records       -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data1.csdb
+External        ENUMERATIONREPORT_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\enumrpt.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Aug 29, 2019
+Start Time      13:39:09
+End Time        13:39:33
+
+CSPRO Process Summary
+
+System messages:
+
+ Number    Frequency   Message text
+ ------    ---------   ------------
+   1008            6   Invalid subscript: %n(%d) -- %p                  
+  99990            1   Operator entered a value out of range            
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+    299       1    -   Households were found with missing person records       -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data1.csdb
+External        ENUMERATIONREPORT_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\enumrpt.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Aug 29, 2019
+Start Time      13:40:49
+End Time        13:41:14
+
+CSPRO Process Summary
+
+System messages:
+
+ Number    Frequency   Message text
+ ------    ---------   ------------
+   1008            6   Invalid subscript: %n(%d) -- %p                  
+  99990            1   Operator entered a value out of range            
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+    299       1    -   Households were found with missing person records       -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data1.csdb
+External        ENUMERATIONREPORT_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\enumrpt.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Aug 29, 2019
+Start Time      13:44:53
+End Time        13:45:11
+
+CSPRO Process Summary
+
+System messages:
+
+ Number    Frequency   Message text
+ ------    ---------   ------------
+   1008            6   Invalid subscript: %n(%d) -- %p                  
+  99990            1   Operator entered a value out of range            
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+    299       1    -   Households were found with missing person records       -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data1.csdb
+External        ENUMERATIONREPORT_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\enumrpt.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Aug 29, 2019
+Start Time      13:52:41
+End Time        13:56:58
+
+CSPRO Process Summary
+
+System messages:
+
+ Number    Frequency   Message text
+ ------    ---------   ------------
+   1008            6   Invalid subscript: %n(%d) -- %p                  
+  99990            1   Operator entered a value out of range            
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+    299       1    -   Households were found with missing person records       -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data1.csdb
+External        ENUMERATIONREPORT_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\enumrpt.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Aug 29, 2019
+Start Time      13:57:31
+End Time        13:59:42
+
+CSPRO Process Summary
+
+System messages:
+
+ Number    Frequency   Message text
+ ------    ---------   ------------
+   1008            6   Invalid subscript: %n(%d) -- %p                  
+  99990            1   Operator entered a value out of range            
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+    299       1    -   Households were found with missing person records       -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data1.csdb
+External        ENUMERATIONREPORT_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\enumrpt.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Aug 29, 2019
+Start Time      13:59:50
+End Time        14:00:45
+
+CSPRO Process Summary
+
+System messages:
+
+ Number    Frequency   Message text
+ ------    ---------   ------------
+   1008            6   Invalid subscript: %n(%d) -- %p                  
+  99990            1   Operator entered a value out of range            
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+    299       1    -   Households were found with missing person records       -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data1.csdb
+External        ENUMERATIONREPORT_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\enumrpt.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Aug 29, 2019
+Start Time      14:01:25
+End Time        14:03:58
+
+CSPRO Process Summary
+
+System messages:
+
+ Number    Frequency   Message text
+ ------    ---------   ------------
+  99990            1   Operator entered a value out of range            
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+    306       1    -   Households were found with missing person records       -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data1.csdb
+External        ENUMERATIONREPORT_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\enumrpt.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Aug 29, 2019
+Start Time      14:04:04
+End Time        14:04:55
+
+CSPRO Process Summary
+
+System messages:
+
+ Number    Frequency   Message text
+ ------    ---------   ------------
+   1008            8   Invalid subscript: %n(%d) -- %p                  
+  99990            1   Operator entered a value out of range            
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data1.csdb
+External        ENUMERATIONREPORT_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\enumrpt.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Aug 29, 2019
+Start Time      14:05:02
+End Time        14:06:24
+
+CSPRO Process Summary
+
+System messages:
+
+ Number    Frequency   Message text
+ ------    ---------   ------------
+   1008            2   Invalid subscript: %n(%d) -- %p                  
+  99990            1   Operator entered a value out of range            
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+    306       1    -   Households were found with missing person records       -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data1.csdb
+External        ENUMERATIONREPORT_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\enumrpt.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Aug 29, 2019
+Start Time      14:06:29
+End Time        14:06:58
+
+CSPRO Process Summary
+
+System messages:
+
+ Number    Frequency   Message text
+ ------    ---------   ------------
+  99990            1   Operator entered a value out of range            
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+    306       1    -   Households were found with missing person records       -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data1.csdb
+External        ENUMERATIONREPORT_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\enumrpt.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Aug 29, 2019
+Start Time      14:11:58
+End Time        14:22:44
+
+CSPRO Process Summary
+
+System messages:
+
+ Number    Frequency   Message text
+ ------    ---------   ------------
+  99990            1   Operator entered a value out of range            
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+     82       1    -   Attempting to download all data from Round :%d, E       -
+     96       1    -   Download of round %d, ED %d was successful              -
+    306       1    -   Households were found with missing person records       -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data1.csdb
+External        ENUMERATIONREPORT_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\enumrpt.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Oct 14, 2019
+Start Time      14:41:08
+End Time        14:51:35
+
+CSPRO Process Summary
+
+System messages:
+
+ Number    Frequency   Message text
+ ------    ---------   ------------
+  99990            1   Operator entered a value out of range            
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                        Denom
+   ----    ----  ----  ------------                                        -----
+     82       3    -   Attempting to download all data from Round :%d, E       -
+     96       3    -   Download of round %d, ED %d was successful              -
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data1.csdb
+External        ENUMERATIONREPORT_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\enumrpt.csdb
+<File>          LOGINFILE=
+<File>          PFFFILE=
+
+Date            Oct 14, 2019
+Start Time      14:51:43
+End Time        14:52:27
+
+CSPRO Process Summary
+
+System messages:
+
+ Number    Frequency   Message text
+ ------    ---------   ------------
+  99990            2   Operator entered a value out of range            
+
+CSPRO Executor Normal End
+--------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data1.csdb
+External        ENUMERATIONREPORT_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\enumrpt.csdb
+<File>          loginfile=
+<File>          pffFile=
+
+Date            Nov 26, 2019
+Start Time      15:28:25
+End Time        15:28:55
+
+CSPRO Process Summary
+
+System messages:
+
+ Number    Frequency   Message text
+ ------    ---------   ------------
+  99990            1   Operator entered a value out of range                                                 
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                                                                Denom
+   ----    ----  ----  ------------                                                                                -----
+     82       1    -   Attempting to download all data from Round :%d, ED :%d                                          -
+     96       1    -   Download of round %d, ED %d was successful                                                      -
+
+CSPRO Executor Normal End
+------------------------------------------------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data1.csdb
+External        ENUMERATIONREPORT_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\enumrpt.csdb
+<File>          loginfile=
+<File>          pffFile=
+
+Date            Nov 26, 2019
+Start Time      15:31:44
+End Time        16:22:12
+
+CSPRO Process Summary
+
+System messages:
+
+ Number    Frequency   Message text
+ ------    ---------   ------------
+  99990            1   Operator entered a value out of range                                                 
+ 100119            2   Error connecting to sync server: %s.                                                  
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                                                                Denom
+   ----    ----  ----  ------------                                                                                -----
+     82       2    -   Attempting to download all data from Round :%d, ED :%d                                          -
+     94       2    -   Download of round %d, ED %d failed, Please try again. %d errors were found                      -
+
+CSPRO Executor Normal End
+------------------------------------------------------------------------------------------------------------------------
+Application     I:\Dondre\Projects2\Labour force CSPro\LabourForce\Coding\CoderMenu.ent
+Type            ENTRY
+Input Data      <<Empty>>
+External        LABOURFORCE_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\data1.csdb
+External        ENUMERATIONREPORT_DICT=<<CSPro DB>> I:\Dondre\Projects2\Labour force CSPro\LabourForce\Data\enumrpt.csdb
+<File>          loginfile=
+<File>          pffFile=
+
+Date            Nov 28, 2019
+Start Time      12:16:42
+End Time        12:31:03
+
+CSPRO Process Summary
+
+System messages:
+
+ Number    Frequency   Message text
+ ------    ---------   ------------
+  99990            1   Operator entered a value out of range                                                 
+
+User unnumbered messages:
+
+   Line    Freq  Pct.  Message text                                                                                Denom
+   ----    ----  ----  ------------                                                                                -----
+     82       3    -   Attempting to download all data from Round :%d, ED :%d                                          -
+     96       3    -   Download of round %d, ED %d was successful                                                      -
+    306       1    -   Households were found with missing person records. Please confirm with %V that the ED           -
+
+CSPRO Executor Normal End
+------------------------------------------------------------------------------------------------------------------------

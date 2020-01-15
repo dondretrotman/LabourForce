@@ -50,6 +50,8 @@ postproc
 		AUNAME = "SHURDLE";
 	elseif $ = 30 then
 		AUNAME = "GSHEPHERD";
+	elseif $ = 31 then
+		AUNAME = "ANURSE";
 	endif;
 
 {	recode 	$ 	=>	AUNAME;
