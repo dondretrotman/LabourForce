@@ -830,6 +830,7 @@ Orientation=Vertical
 ColumnWidth=0
 StubColumnWidth=104
 HeadingRowHeight=0
+UseOccurrenceLabels=Yes
 FreeMovement=No
  
 [Text]
@@ -3066,6 +3067,394 @@ DataCaptureType=DropDown
 Text=51b. Secondary source amount
  
 [EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=31,0,104,40
+Text=52a. Main Activity
+ 
+[Field]
+Name=COV_MAINACT
+Position=1386,0,1401,20
+Item=COV_MAINACT,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+  
+[Text]
+Text=52a. Main Activity
+ 
+[EndColumn]
+  
+[Column]
+Width=28
+  
+[HeaderText]
+Position=31,4,104,28
+Text=52a. Other
+ 
+[Field]
+Name=COV_MAINACTOTHER
+Position=980,0,1401,20
+Item=COV_MAINACTOTHER,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=52a. Other
+ 
+[EndColumn]
+  
+[Column]
+Width=28
+  
+[HeaderText]
+Position=8,4,104,28
+Text=52b. Main Job
+ 
+[Field]
+Name=COV_MAINJOB
+Position=1386,0,1401,20
+Item=COV_MAINJOB,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
+  
+[Text]
+Text=52b. Main Job
+ 
+[EndColumn]
+  
+[Column]
+Width=28
+  
+[HeaderText]
+Position=31,4,104,28
+Text=52b. Other
+ 
+[Field]
+Name=COV_MAINJOBOTHER
+Position=980,0,1401,20
+Item=COV_MAINJOBOTHER,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=52b. Other
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=24,0,104,40
+Text=52c. Main Occupation
+ 
+[Field]
+Name=COV_MAINOCCUPT
+Position=350,0,1401,20
+Item=COV_MAINOCCUPT,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=52c. Main Occupation
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=31,0,104,40
+Text=52d. Main Industry
+ 
+[Field]
+Name=COV_INDUST
+Position=350,0,1401,20
+Item=COV_INDUST,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=52d. Main Industry
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=15,0,104,40
+Text=52e. Weekly Wage
+ 
+[Field]
+Name=COV_WAGE
+Position=1372,0,1401,20
+Item=COV_WAGE,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
+  
+[Text]
+Text=52e. Weekly Wage
+ 
+[EndColumn]
+  
+[Column]
+Width=56
+  
+[HeaderText]
+Position=13,0,104,56
+Text=52f. Employment status
+ 
+[Field]
+Name=COV_EMPLSTAT
+Position=1386,0,1401,20
+Item=COV_EMPLSTAT,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
+  
+[Text]
+Text=52f. Employment status
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=1,0,104,40
+Text=53a. Change in Major Activity
+ 
+[Field]
+Name=COV2_ACTIVCHANGE
+Position=1386,0,1401,20
+Item=COV2_ACTIVCHANGE,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
+  
+[Text]
+Text=53a. Change in Major Activity
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=10,0,104,40
+Text=53b. New Major Activity
+ 
+[Field]
+Name=COV2_NEWACTIV
+Position=1372,0,1401,20
+Item=COV2_NEWACTIV,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
+  
+[Text]
+Text=53b. New Major Activity
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=24,0,104,40
+Text=53c. Main Occupation
+ 
+[Field]
+Name=COV2_MAINOCCUPT
+Position=350,0,1401,20
+Item=COV2_MAINOCCUPT,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=53c. Main Occupation
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=31,0,104,40
+Text=53d. Main Industry
+ 
+[Field]
+Name=COV2_MAININDUST
+Position=350,0,1401,20
+Item=COV2_MAININDUST,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=53d. Main Industry
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=15,0,104,40
+Text=53e. Weekly Wage
+ 
+[Field]
+Name=COV2_WAGE
+Position=1372,0,1401,20
+Item=COV2_WAGE,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
+  
+[Text]
+Text=53e. Weekly Wage
+ 
+[EndColumn]
+  
+[Column]
+Width=56
+  
+[HeaderText]
+Position=13,0,104,56
+Text=53f. Employment Status
+ 
+[Field]
+Name=COV2_EMPLSTAT
+Position=1386,0,1401,20
+Item=COV2_EMPLSTAT,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
+  
+[Text]
+Text=53f. Employment Status
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=15,0,104,40
+Text=54a. Reason for Change
+ 
+[Field]
+Name=COV_REASON
+Position=1372,0,1401,20
+Item=COV_REASON,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
+  
+[Text]
+Text=54a. Reason for Change
+ 
+[EndColumn]
+  
+[Column]
+Width=28
+  
+[HeaderText]
+Position=31,4,104,28
+Text=54a. Other
+ 
+[Field]
+Name=COV_REASONOTHER
+Position=980,0,1401,20
+Item=COV_REASONOTHER,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=54a. Other
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=3,0,104,40
+Text=54b. COVID-19 Reason
+ 
+[Field]
+Name=COV_COVREASON
+Position=1386,0,1401,20
+Item=COV_COVREASON,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
+  
+[Text]
+Text=54b. COVID-19 Reason
+ 
+[EndColumn]
+  
+[Column]
+Width=40
+  
+[HeaderText]
+Position=3,0,104,40
+Text=55. Sources of Livelihood
+ 
+[Field]
+Name=COV_INCOME
+Position=1260,0,1401,20
+Item=COV_INCOME,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=CheckBox
+  
+[Text]
+Text=55. Sources of Livelihood
+ 
+[EndColumn]
+  
+[Column]
+Width=28
+  
+[HeaderText]
+Position=39,4,104,28
+Text=55. Other
+ 
+[Field]
+Name=COV_INCOMEOTHER
+Position=980,0,1401,20
+Item=COV_INCOMEOTHER,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+  
+[Text]
+Text=55. Other
+ 
+[EndColumn]
+  
+[Block]
+Name=UNEMPLOYEDBLOCK
+Label=Unemployed
+DisplayTogether=Yes
+Position=39
+Length=0
+  
+[Block]
+Name=EMPLOYEDBLOCK
+Label=Employed
+DisplayTogether=Yes
+Position=62
+Length=0
+  
+[Block]
+Name=INACTIVEBLOCK
+Label=Inactive
+DisplayTogether=Yes
+Position=92
+Length=0
+  
+[Block]
+Name=COV
+Label=Covid19 questions
+DisplayTogether=Yes
+Position=104
+Length=0
   
 [EndGrid]
  

@@ -1328,3 +1328,51 @@ postproc
 	endif;
 	
 //--------------------------------------------------------
+PROC COV_MAINACT
+postproc
+	//if main activity is in 3 - 9 then end there
+	if $ in 3:9 then
+		endgroup;
+	endif;
+	
+//-------------------------------------------------------	
+PROC COV_MAINACTOTHER
+preproc
+	//only ask if other is selected
+	ask if COV_MAINACT = 8;
+	
+//-----------------------------------------------------
+PROC COV_MAINJOBOTHER
+preproc
+	//only ask if other is selected
+	ask if COV_MAINJOB = 6;
+	
+//-----------------------------------------------------
+PROC COV2_ACTIVCHANGE
+postproc
+	//if no then end there
+	if $ = 2 then
+		endgroup;
+	endif;
+	
+//----------------------------------------------------------
+PROC COV_REASONOTHER
+preproc
+	//only ask if other is selected
+	ask if COV_REASON = 9;
+	
+//-----------------------------------------------------
+PROC COV_INCOME
+postproc
+	if pos("J",$) > 0 and length(strip($)) > 1 then		//If not stated selected with another option
+		errmsg("cannot be Not Stated and another option");
+		reenter;
+	endif;
+	
+//------------------------------------------------------------------
+PROC COV_INCOMEOTHER
+preproc
+	//only ask if other is selected
+	ask if pos("I",COV_INCOME) > 0;
+	
+//-----------------------------------------------------

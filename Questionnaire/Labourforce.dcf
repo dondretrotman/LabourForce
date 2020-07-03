@@ -564,7 +564,7 @@ Name=LABOURFORCE_REC
 RecordTypeValue='2'
 Required=No
 MaxRecords=40
-RecordLen=1934
+RecordLen=2394
 
 [Item]
 Label=Individual Number
@@ -2649,7 +2649,7 @@ Len=2
 [ValueSet]
 Label=40a. Earnings last week
 Name=EARNGS_VS1
-Link=126998864
+Link=280708312
 Value=1;Under $200
 Value=2;$200 - $299
 Value=3;$300 - $399
@@ -2672,7 +2672,7 @@ Len=2
 [ValueSet]
 Label=40a. Secondary earnings last week
 Name=EARNGS2_VS1
-Link=126998864
+Link=280708312
 
 [Item]
 Label=40b. Main average earnings
@@ -2683,7 +2683,7 @@ Len=2
 [ValueSet]
 Label=40b. Main average earnings
 Name=AVGEARNS_VS1
-Link=126998864
+Link=280708312
 
 [Item]
 Label=40b. Secondary average earnings
@@ -2694,7 +2694,7 @@ Len=2
 [ValueSet]
 Label=40b. Secondary average earnings
 Name=AVGEARNS2_VS1
-Link=126998864
+Link=280708312
 
 [Item]
 Label=41a. Hours actually worked
@@ -3116,4 +3116,255 @@ Name=INCOCCUP_TEXT2
 Note=Duplicate with longer text field
 Start=1860
 Len=75
+DataType=Alpha
+
+[Item]
+Label=52a. Main Activity
+Name=COV_MAINACT
+Start=1935
+Len=1
+
+[ValueSet]
+Label=52a. Main Activity
+Name=COV_MAINACT_VS1
+Value=1;Worked
+Value=2;With job not working
+Value=3;Looked for work
+Value=4;Home Duties
+Value=5;Student
+Value=6;Retired
+Value=7;Incapacitated
+Value=8;Other (Please Specify)
+Value=9;Not Stated
+
+[Item]
+Label=52a. Other
+Name=COV_MAINACTOTHER
+Start=1936
+Len=30
+DataType=Alpha
+
+[Item]
+Label=52b. Main Job
+Name=COV_MAINJOB
+Start=1966
+Len=1
+
+[ValueSet]
+Label=52b. Main Job
+Name=COV_MAINJOB_VS1
+Value=1;An Employer 
+Value=2;An Employee in the Government Service
+Value=3;An Employee in Private Sector
+Value=4;Self-Employed (Own-account worker)
+Value=5;An Apprentice
+Value=6;Other (Please Specify)
+Value=9;Not Stated
+
+[Item]
+Label=52b. Other
+Name=COV_MAINJOBOTHER
+Start=1967
+Len=30
+DataType=Alpha
+
+[Item]
+Label=52c. Main Occupation
+Name=COV_MAINOCCUPT
+Start=1997
+Len=75
+DataType=Alpha
+
+[Item]
+Label=52c. Main Occupation
+Name=COV_MAINOCCUP
+Start=2072
+Len=4
+DataType=Alpha
+
+[Item]
+Label=52d. Main Industry
+Name=COV_INDUST
+Start=2076
+Len=75
+DataType=Alpha
+
+[Item]
+Label=52d. Main industry
+Name=COV_INDUS
+Start=2151
+Len=4
+DataType=Alpha
+
+[Item]
+Label=52e. Weekly Wage
+Name=COV_WAGE
+Start=2155
+Len=2
+
+[ValueSet]
+Label=52e. Weekly Wage
+Name=COV_WAGE_VS1
+Link=280708312
+
+[Item]
+Label=52f. Employment status
+Name=COV_EMPLSTAT
+Start=2157
+Len=1
+
+[ValueSet]
+Label=52f. Employment status
+Name=COV_EMPLSTAT_VS1
+Value=1;Full Time
+Value=2;Part Time
+
+[Item]
+Label=53a. Change in Major Activity
+Name=COV2_ACTIVCHANGE
+Start=2158
+Len=1
+
+[ValueSet]
+Label=53a. Change in Major Activity
+Name=COV2_ACTIVCHANGE_VS1
+Value=1;Yes
+Value=2;No
+
+[Item]
+Label=53b. New Major Activity
+Name=COV2_NEWACTIV
+Start=2159
+Len=2
+
+[ValueSet]
+Label=53b. New Major Activity
+Name=COV2_NEWACTIV_VS1
+Value=1;Worked same job but reduced hours
+Value=2;With job not working
+Value=3;With different job
+Value=4;Looked for work
+Value=5;Home duties
+Value=6;Student
+Value=7;Retired
+Value=8;Incapacitated
+Value=9;Other (Please Specify)
+Value=99;Not Stated
+
+[Item]
+Label=53c. Main Occupation
+Name=COV2_MAINOCCUPT
+Start=2161
+Len=75
+DataType=Alpha
+
+[Item]
+Label=53c. Main Occupation
+Name=COV2_MAINOCCUP
+Start=2236
+Len=4
+DataType=Alpha
+
+[Item]
+Label=53d. Main Industry
+Name=COV2_MAININDUST
+Start=2240
+Len=75
+DataType=Alpha
+
+[Item]
+Label=53d. Main Industry
+Name=COV2_MAININDUS
+Start=2315
+Len=4
+DataType=Alpha
+
+[Item]
+Label=53e. Weekly Wage
+Name=COV2_WAGE
+Start=2319
+Len=2
+
+[ValueSet]
+Label=53e. Weekly Wage
+Name=COV2_WAGE_VS1
+Link=280708312
+
+[Item]
+Label=53f. Employment Status
+Name=COV2_EMPLSTAT
+Start=2321
+Len=1
+
+[ValueSet]
+Label=53f. Employment Status
+Name=COV2_EMPLSTAT_VS1
+Value=1;Full Time
+Value=2;Part Time
+
+[Item]
+Label=54a. Reason for Change
+Name=COV_REASON
+Start=2322
+Len=2
+
+[ValueSet]
+Label=54a. Reason for Change
+Name=COV_REASON_VS1
+Value=1;Illness. Maternity, Injury
+Value=2;Vacation, leave (with pay)
+Value=3;Vacation, leave (without pay)
+Value=4;Study, training
+Value=5;Industrial dispute
+Value=6;Temporary lay-off
+Value=7;Temporary closure of business
+Value=8;Reduced business hours due to lack of demand
+Value=9;Necessary to care for infants and school-aged children
+Value=99;Other (Please specify)
+
+[Item]
+Label=54a. Other
+Name=COV_REASONOTHER
+Start=2324
+Len=30
+DataType=Alpha
+
+[Item]
+Label=54b. COVID-19 Reason
+Name=COV_COVREASON
+Start=2354
+Len=1
+
+[ValueSet]
+Label=54b. COVID-19 Reason
+Name=COV_COVREASON_VS1
+Value=1;Yes
+Value=2;No
+
+[Item]
+Label=55. Sources of Livelihood
+Name=COV_INCOME
+Start=2355
+Len=10
+DataType=Alpha
+
+[ValueSet]
+Label=55. Sources of Livelihood
+Name=COV_INCOME_VS1
+Value='A         ';Pension
+Value='B         ';Income from investment
+Value='C         ';Remittance
+Value='D         ';Disability
+Value='E         ';Unemployment benefits
+Value='F         ';Other public assistance
+Value='G         ';Monetary assistance from relatives/friends
+Value='H         ';Loans from financial institutions
+Value='I         ';Other (Please Specify)
+Value='J         ';Not Stated
+
+[Item]
+Label=55. Other
+Name=COV_INCOMEOTHER
+Start=2365
+Len=30
 DataType=Alpha

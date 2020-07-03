@@ -1,5 +1,5 @@
 ﻿[CAPI QUESTIONS]
-Version=CSPro 7.2
+Version=CSPro 7.3
 
 [LANGUAGES]
 EN=English
@@ -66,6 +66,187 @@ EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fchars
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 Please specify...\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.COV2_ACTIVCHANGE
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}{\f1\fswiss\fprq2\fcharset0 Arial;}{\f2\froman\fprq2\fcharset0 Times New Roman;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
+EN=\pard\widctlpar\cf1\fs24 53a. \f1 Was there any change to the activity identified at question 52a. during the period April - June 2020.\cf0\f2\par
+EN=
+EN=\pard\cf1\f0\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.COV2_EMPLSTAT
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}{\f1\fswiss\fprq2\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
+EN=\pard\widctlpar\cf1\fs24 53f. \f1 Was \b %LFIRST_NAME% \b0 employed full time or part time?\f0\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.COV2_MAININDUST
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}{\f1\fswiss\fprq2\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
+EN=\pard\widctlpar\cf1\fs24 53d. \f1 In what industry was this occupation?\f0\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.COV2_MAINOCCUPT
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}{\f1\fswiss\fprq2\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
+EN=\pard\widctlpar\cf1\fs24 53c. \f1 What was \b %LFIRST_NAME%'s \b0 main occupation?\f0\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.COV2_NEWACTIV
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}{\f1\fswiss\fprq2\fcharset0 Arial;}{\f2\froman\fprq2\fcharset0 Times New Roman;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
+EN=\pard\widctlpar\cf1\fs24 53b. \f1 If Yes, what did \b %LFIRST_NAME%'s \b0 activity change to?\cf0\f2\par
+EN=
+EN=\pard\cf1\f0\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.COV2_WAGE
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}{\f1\fswiss\fprq2\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
+EN=\pard\widctlpar\cf1\fs24 53e. \f1 What was \b %LFIRST_NAME%'s\b0  weekly wage?\f0\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.COV_COVREASON
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}{\f1\fswiss\fprq2\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
+EN=\pard\widctlpar\cf1\fs24 54b. \f1 Was this change directly caused by the COVID-19 pandemic in Barbados?\f0\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.COV_EMPLSTAT
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}{\f1\fswiss\fprq2\fcharset0 Arial;}{\f2\fswiss\fprq2\fcharset0 Calibri;}{\f3\froman\fprq2\fcharset0 Times New Roman;}}
+EN={\colortbl ;\red0\green0\blue0;\red33\green33\blue33;}
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
+EN=\pard\widctlpar\sb240\cf1\fs24 52f. \f1 Was \b %LFIRST_NAME%\b0  employed full time or part time?\cf2\f2\par
+EN=
+EN=\pard\widctlpar\cf0\f3\par
+EN=
+EN=\pard\cf1\f0\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.COV_INCOME
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}{\f1\fswiss\fprq2\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
+EN=\pard\widctlpar\cf1\fs24 55. \f1 What was (were) \b %LFIRST_NAME%'s\b0  source(s) of livelihood? (Select all that apply)\f0\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.COV_INCOMEOTHER
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please Specify...\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.COV_INDUST
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}{\f1\fswiss\fprq2\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
+EN=\pard\widctlpar\cf1\fs24 52d. \f1 In what industry was this occupation?\f0\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.COV_MAINACT
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
+EN=\pard\cf1\fs24 52a. Before the 1st case of the new Corona Virus in Barbados (i.e. 17th March 2020), what \b %LFIRST_NAME%'s\b0  main activity?\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.COV_MAINACTOTHER
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please Specify...\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.COV_MAINJOB
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
+EN=\pard\cf1\fs24 52b. Was \b %LFIRST_NAME%\b0 :\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.COV_MAINJOBOTHER
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please Specify...\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.COV_MAINOCCUPT
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}{\f1\fswiss\fprq2\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
+EN=\pard\widctlpar\cf1\fs24 52c. \f1 What was \b %LFIRST_NAME%'s\b0  main occupation?\f0\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.COV_REASON
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}{\f1\fswiss\fprq2\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
+EN=\pard\widctlpar\cf1\fs24 54a. \f1 What was the reason for this change?\f0\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.COV_REASONOTHER
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
+EN=\pard\cf1\fs24 Please Specify...\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.COV_WAGE
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}{\f1\fswiss\fprq2\fcharset0 Arial;}{\f2\froman\fprq2\fcharset0 Times New Roman;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
+EN=\pard\widctlpar\cf1\fs24 52e. \f1 What was \b %LFIRST_NAME%'s \b0 weekly wage?\cf0\f2\par
+EN=
+EN=\pard\cf1\f0\par
 EN=}
 
 [QUESTION]
@@ -1347,5 +1528,17 @@ EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fchars
 EN={\colortbl ;\red0\green0\blue0;\red0\green0\blue255;}
 EN={\*\generator Riched20 10.0.14393}\viewkind4\uc1
 EN=\pard\cf1\fs24 Choose the number of times that this household has been visited\cf2\par
+EN=}
+
+[HELP]
+Field=LABOURFORCE_DICT.COV2_ACTIVCHANGE
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fswiss\fprq2\fcharset0 Arial;}{\f1\froman\fprq2\fcharset0 Times New Roman;}{\f2\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
+EN=\pard\widctlpar\cf1\f0\fs24 The text of Question 52a is:\par
+EN=Before the 1st case of corona virus in Barbados (i.e. 17th March, 2020), what was \b %LFIRST_NAME%'s\b0  main activity?\cf0\f1\par
+EN=
+EN=\pard\cf1\f2\par
 EN=}
 
