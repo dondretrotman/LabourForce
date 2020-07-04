@@ -3080,8 +3080,10 @@ Name=COV_MAINACT
 Position=1386,0,1401,20
 Item=COV_MAINACT,LABOURFORCE_DICT
 FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
   
 [Text]
+Position=0,0,137,20
 Text=52a. Main Activity
  
 [EndColumn]

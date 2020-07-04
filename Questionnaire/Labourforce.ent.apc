@@ -1126,7 +1126,8 @@ Preproc
 PROC U2EARNGS
 postproc
 	//end of Unemployed section
-	skip to next;
+	//skip to next;
+	skip to COV; //go to covid questions
 
 //--------------------------------------------------------
 PROC FULLPART
@@ -1257,7 +1258,8 @@ PROC NHRSWRKD
 postproc
 	//end if worked 40 or more hours
 	if HRSWRKD in 10,11 then
-		skip to next;
+		//skip to next;
+		skip to COV;
 	endif;
 
 //-----------------------------------------------------------------------
@@ -1272,14 +1274,16 @@ PROC ADDWRK
 postproc
 	//if not willling to do additional work, end interview
 	if $ = 2 then
-		skip to next;
+		//skip to next;
+		skip to COV;
 	endif;
 
 //-----------------------------------------------------------------------
 PROC KINDWRK
 postproc
 	//end of employed section
-	skip to next;
+	//skip to next;
+	skip to COV;
 	
 //--------------------------------------------------------
 PROC HPWORK
@@ -1332,7 +1336,7 @@ PROC COV_MAINACT
 postproc
 	//if main activity is in 3 - 9 then end there
 	if $ in 3:9 then
-		endgroup;
+		skip to next;
 	endif;
 	
 //-------------------------------------------------------	
@@ -1352,7 +1356,7 @@ PROC COV2_ACTIVCHANGE
 postproc
 	//if no then end there
 	if $ = 2 then
-		endgroup;
+		skip to next;
 	endif;
 	
 //----------------------------------------------------------

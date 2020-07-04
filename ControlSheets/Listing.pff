@@ -1,25 +1,22 @@
 ﻿[Run Information]
 Version=CSPro 7.2
 AppType=Entry
-Description=  
+Description= 
 [DataEntryInit]
 OperatorID=WDAVIS              
-StartMode=Add; 7 402011 79 47
-Lock=CaseListing
-AutoAdd=No
+StartMode=Add
+AutoAdd=Yes
 [Files]
 Application=./Listing.ent
 InputData=../Data/Controlsheet.csdb|CSPRODB
+Paradata=../Data/Controlsheet05017.cslog
 [ExternalFiles]
 LABOURFORCE_DICT=../Data/data.csdb|CSPRODB
 [UserFiles]
 PFFFILE=
 [Parameters]
 OnExit=../Menu/Menu.pff
-MODE=EDIT
-LSTROUND= 7
-LSTED= 40
-LSTPARISH=201
-LSTSTRATUM=1
-LSTBUILDING= 79
-LSTSAMPLE= 47
+MODE=DEFAULT
+LSTENUMCODE=94
+LSTROUND= 5
+LSTED= 17

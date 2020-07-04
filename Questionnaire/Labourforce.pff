@@ -4,13 +4,13 @@ AppType=Entry
 Description=   
 [DataEntryInit]
 OperatorID=WDAVIS              
-StartMode=Add; 71852022  8
+StartMode=Add; 5 172011  1
 Lock=CaseListing
 AutoAdd=No
 [Files]
 Application=./Labourforce.ent
 InputData=../Data/data.csdb|CSPRODB
-Paradata=../Data/Labourforce07185.cslog
+Paradata=../Data/Labourforce05017.cslog
 [ExternalFiles]
 LISTING_DICT=../Data/Controlsheet.csdb|CSPRODB
 ENUMERATIONREPORT_DICT=../Data/enumrpt.csdb|CSPRODB
@@ -18,11 +18,11 @@ ENUMERATIONREPORT_DICT=../Data/enumrpt.csdb|CSPRODB
 PFFFILE=
 [Parameters]
 OnExit=../Menu/Menu.pff
-RNDNO= 7
-EDNO=185
-PARNO=202
-STRATUM=2
-HHNO=  8
+RNDNO= 5
+EDNO= 17
+PARNO=201
+STRATUM=1
+HHNO=  1
 ENMRTR=94
-ADDRESS=1ST AVENUE ST.MATTHIAS                                                                              
-BLDGNO= 12
+ADDRESS=                                                                                                    
+BLDGNO=  1
