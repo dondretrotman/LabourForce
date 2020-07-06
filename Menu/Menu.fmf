@@ -271,7 +271,7 @@ Name=ALLOCATE_ENUMERATOR
 Position=319,655,348,675
 Item=ALLOCATE_ENUMERATOR,MENU_DICT
 FieldLabelType=DictionaryLabel
-DataCaptureType=DropDown
+DataCaptureType=RadioButton
 Form=1
   
 [Text]

@@ -1,0 +1,124 @@
+﻿[Dictionary]
+Version=CSPro 7.3
+Label=LFSUsers
+Name=LFSUSERS_DICT
+RecordTypeStart=1
+RecordTypeLen=1
+Positions=Relative
+ZeroFill=No
+DecimalChar=Yes
+
+[Level]
+Label=LFSUsers Level
+Name=LFSUSERS_LEVEL
+
+[IdItems]
+
+[Item]
+Label=ID
+Name=USR_ID
+Start=2
+Len=2
+
+[Record]
+Label=LFSUsers Record
+Name=LFSUSERS_REC
+RecordTypeValue='1'
+RecordLen=130
+
+[Item]
+Label=Round
+Name=USR_ROUND
+Start=4
+Len=2
+
+[Item]
+Label=Name
+Name=USR_NAME
+Start=6
+Len=50
+DataType=Alpha
+
+[Item]
+Label=Username
+Name=USR_USERNAME
+Start=56
+Len=20
+DataType=Alpha
+
+[Item]
+Label=Role
+Name=USR_ROLE
+Start=76
+Len=1
+
+[Item]
+Label=Number of areas assigned
+Name=USR_AREAS_ASSIGNED
+Start=77
+Len=2
+
+[Item]
+Label=Supervisor Name
+Name=USR_SUPERVISOR_NAME
+Start=79
+Len=50
+DataType=Alpha
+
+[Item]
+Label=Supervisor ID
+Name=USR_SUPERVISOR
+Start=129
+Len=2
+
+[Record]
+Label=Assignments Record
+Name=LFSASSIGNMENTS
+RecordTypeValue='2'
+MaxRecords=10
+RecordLen=17
+
+[Item]
+Label=ED
+Name=USR_ED
+Start=4
+Len=3
+
+[Item]
+Label=Parish
+Name=USR_PARISH
+Start=7
+Len=2
+
+[Item]
+Label=Stratum
+Name=USR_STRATUM
+Start=9
+Len=1
+
+[Item]
+Label=Assignment Date
+Name=USR_ASSIGNMENT_DATE
+Start=10
+Len=8
+
+[Item]
+Label=Assignment Year
+Name=USR_ASSIGNMENT_YEAR
+Start=10
+Len=4
+ItemType=SubItem
+
+[Item]
+Label=Assignment Month
+Name=USR_ASSIGNMENT_MONTH
+Start=14
+Len=2
+ItemType=SubItem
+
+[Item]
+Label=Assignment Day
+Name=USR_ASSIGNMENT_DAY
+Start=16
+Len=2
+ItemType=SubItem

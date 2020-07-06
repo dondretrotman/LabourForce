@@ -53,12 +53,14 @@ numeric deleteflag,		//stores flag for case deletion
 		nextEntry,		//Keeps track of valueset array
 		headindex,		//person id of the head of household
 		erpt,
+		role,			//stores user role (1=enumerator, 2=supervisor, 3=admin)
 		a,i,j,k,l,m,n;		//general counters and temp variables
 		
 map		enummap;		//displays a map		
 
 //----------------------------------Array Declaration-------------------------------------
 array string	vsCode(50);		//valueset codes
+array numeric	vsEnumCode(50);	//valuset for enumerators
 array string 	vsLabel(50);	//valueset labels
 array string 	address(50,3);	//stores addresses
 array numeric	vsEDCode(10);	//stores ED
@@ -247,7 +249,7 @@ function allocateenum()
 	filewrite(pffFile,"AED=%v",ME_ED);
 	filewrite(pffFile,"ASUPERVISORNAME=%v",UNAME);
 	filewrite(pffFile,"ASUPERVISOR_ID=%v",USERID);
-
+	
 	close(pffFile);
 
 	execpff(filename(pffFile),stop);
@@ -850,8 +852,6 @@ preproc
 	lastupdate = int(publishdate() / 1000000);		//yearmonthdate of last version number
 	
 	updated = tonumber(loadsetting("Updated"));		//Last date app was updated
-	//errmsg("sysdate(%d)-lastupdate(%d)=%d",sysdate("YYYYMMDD"),lastupdate,datediff(sysdate("YYYYMMDD"),lastupdate));
-	//errmsg("updated(%d)-lastupdate(%d)=%d",updated,lastupdate,datediff(updated,lastupdate));
 	if (datediff(sysdate("YYYYMMDD"),lastupdate) >= 1) and (datediff(updated,lastupdate) >= 1) and (getos() = 20) then		//if more than one day since last update and on android
 		if connection() then		//check for internet connection
 			i = 0;
@@ -878,13 +878,28 @@ preproc
 PROC USERID
 //code to make sure that the valueset label matches Username
 postproc
-	if getlabel(USERID_VS1,$) = strip(toupper(UNAME)) then
+	//Before redoing login process
+	{if getlabel(USERID_VS1,$) = strip(toupper(UNAME)) then
 		writeLoginStatus(1);//success
 	else
 		errmsg("Username and ID don't match! Please try again");
 		move to UNAME;
-	endif;
-
+	endif;}
+	
+	uid = maketext("%2d",$);
+	if loadcase(ALLOCATION_DICT,uid) then
+		if compare(strip(toupper(AUSERNAME)),strip(toupper(UNAME))) = 0 then
+			writeLoginStatus(1);
+			username = strip(AUNAME);
+			role = AROLE;
+		else
+			errmsg("Username and ID don't match! Please try again");
+			move to UNAME;
+		endif;
+	else
+		errmsg("No user with the username %v was found",strip(UNAME));
+		move to UNAME;
+	endif; 
 
 //---------------------------------------------------------------
 PROC ME_ROUND
@@ -935,7 +950,8 @@ onfocus
 		inc(nextEntry);
 	enddo;
 	//errmsg("reset arrays");
-	if USERID < 90  then		//If not a supervisor 
+	//if USERID < 90  then		//If not a supervisor 
+	if role = 1 then
 		//Load ED from lookup file
 		nextEntry = 1;
 		uid = maketext("%V",USERID);
@@ -962,7 +978,7 @@ onfocus
 		if vsEDcode(1) in notappl,0 then		//if nothing is in the valueset
 			errmsg("There are no allocations available. Are you in the correct round?");
 		endif;
-	elseif USERID >= 90 then
+	elseif role >= 2 then
 		setvalueset(ME_ED,ME_ED_VS1);
 	endif;
 	
@@ -978,13 +994,13 @@ postproc
 PROC LOGIN
 onfocus
 	$ = notappl;
-	username = getlabel(UNAME_VS1,UNAME);
+	//username = getlabel(UNAME_VS1,UNAME);
 	
-	if visualvalue(USERID) in 90:98 then		//Supervisor
+	if role = 2 then		//Supervisor
 		setvalueset(LOGIN,LOGIN_VS1);
-	elseif visualvalue(USERID) < 90 then	//enumerator
+	elseif role = 1 then	//enumerator
 		setvalueset(LOGIN,LOGIN_VS2);
-	elseif visualvalue(USERID) = 99 then	//admin
+	elseif role = 3 then	//admin
 		setvalueset(LOGIN,LOGIN_VS3);
 	endif;
 	
@@ -1446,7 +1462,19 @@ postproc
 	processnochange();
 	move to SUPERVISOR_MENU;
 PROC ALLOCATE_ENUMERATOR
+onfocus 
+	//list allocations and store in an array
+	nextEntry = 1;
+	forcase ALLOCATION_DICT where AROLE = 1 do
+		vsEnumCode(nextEntry) = AUSER_ID;
+		vslabel(nextEntry) = maketext("%V - %V", AUSER_ID,AUNAME);
+		inc(nextEntry);
+	endfor;
+	vsEnumCode(nextEntry) = notappl;
+	setvalueset($, vsEnumCode, vsLabel);
+	
 postproc
+
 	allocateenum();
 	move to SUPERVISOR_MENU;
 
