@@ -6,16 +6,10 @@ numeric i;			//counter
 PROC ALLOCATION_FF
 
 PROC ALLOCATION_QUEST
-preproc
-errmsg("preproc");
 postproc
 	errmsg("Please select 'Upload Data' in the main menu to save changes to the server");
-PROC IDS0_FORM
-preproc
-	errmsg("record start");
 PROC AUSER_ID
 preproc
-	errmsg("start auser_ID");
 	AUSER_ID = tonumber(sysparm("AUSER_ID"));
 	setproperty(AUSER_ID,"PROTECTED","Yes");
 	
