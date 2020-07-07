@@ -233,7 +233,7 @@ function allocateenum()
 
 	filewrite(pffFile, "[DataEntryInit]");
 	filewrite(pffFile,"OperatorID=%s",UNAME);
-	filewrite(pffFile,"StartMode=Add;%v",ALLOCATE_ENUMERATOR);
+	filewrite(pffFile,"StartMode=Modify;%v",maketext("%V",ALLOCATE_ENUMERATOR));
 	//filewrite(pffFile, "ShowInApplicationListing=Hidden");
 	filewrite(pffFile, "AutoAdd=No");
 	filewrite(pffFile,"Lock=CaseListing");
@@ -244,15 +244,16 @@ function allocateenum()
 	
 	filewrite(pffFile,"[Parameters]");
 	filewrite(pffFile,"OnExit=%v","../Menu/Menu.pff");
-	filewrite(pffFile,"AUSER_ID=%v",ALLOCATE_ENUMERATOR);
-	filewrite(pffFile,"AROUND=%v",ME_ROUND);
-	filewrite(pffFile,"AED=%v",ME_ED);
+	filewrite(pffFile,"AUSER_ID=%v",maketext("%V",ALLOCATE_ENUMERATOR));
+	filewrite(pffFile,"AROUND=%v",maketext("%V",ME_ROUND));
+	filewrite(pffFile,"AED=%v",maketext("%V",ME_ED));
 	filewrite(pffFile,"ASUPERVISORNAME=%v",UNAME);
-	filewrite(pffFile,"ASUPERVISOR_ID=%v",USERID);
+	filewrite(pffFile,"ASUPERVISOR_ID=%v",maketext("%V",USERID));
 	
 	close(pffFile);
-
+	
 	execpff(filename(pffFile),stop);
+	errmsg("end function");
 end;
 
 
@@ -909,11 +910,11 @@ onfocus
 	allocationdate = tonumber(loadsetting("ALLOCATIONDATE"));
 	
 	//Load round from lookup file
-	uid = maketext("%v",USERID);
-	if loadcase(ALLOCATION_DICT,USERID) then
+	{uid = maketext("%v",USERID);
+	if loadcase(ALLOCATION_DICT,uid) then
 		$ = AROUND;
-	endif;
-
+	endif;}
+	
 postproc
 
 	//get allocations
@@ -1474,7 +1475,6 @@ onfocus
 	setvalueset($, vsEnumCode, vsLabel);
 	
 postproc
-
 	allocateenum();
 	move to SUPERVISOR_MENU;
 
