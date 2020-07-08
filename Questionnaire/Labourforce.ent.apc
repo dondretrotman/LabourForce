@@ -1364,7 +1364,7 @@ PROC COV2_NEWACTIV
 postproc
 	if $ in 1:2 then		//if working same job then don't ask about occupation\industry
 		skip to COV2_WAGE;
-	elseif $ in 5:99 then	//if not working then don't ask about work
+	elseif $ in 3,5:99 then	//if not working then don't ask about work
 		skip to COV_REASON;
 	endif;
 	
