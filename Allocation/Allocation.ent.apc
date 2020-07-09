@@ -15,7 +15,7 @@ preproc
 	
 postproc
 
-	if $ = 96 then
+	{if $ = 96 then
 		AUNAME = "MBEST";
 	elseif $ = 3 then
 		AUNAME = "KRUSSELL";
@@ -53,7 +53,7 @@ postproc
 		AUNAME = "GSHEPHERD";
 	elseif $ = 31 then
 		AUNAME = "ANURSE";
-	endif;
+	endif;}
 
 {	recode 	$ 	=>	AUNAME;
 			1	=>	"MBEST";

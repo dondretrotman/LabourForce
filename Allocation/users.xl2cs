@@ -2,7 +2,7 @@
 InputDict=..\Allocation\Allocation.dcf
 OutputData=..\Data\assignments.csdb
 StartingRow=2
-CaseManagement=CreateNewFile
+CaseManagement=ModifyAddDeleteCases
 RunOnlyIfNewer=No
 
 Mapping=ALLOCATION_META;@2;Users
@@ -13,10 +13,3 @@ Mapping=AUSERNAME;@4
 Mapping=AROLE;@5
 Mapping=ASUPERVISORNAME;@7
 Mapping=ASUPERVISOR_ID;@6
-
-Mapping=ALLOCATION_REC;@3;Assignments
-Mapping=ALLOCATION_REC.AUSER_ID;@1
-Mapping=AED;@2
-Mapping=APARISH;@3
-Mapping=ASTRATUM;@4
-Mapping=ASSIGNMENT_DATE;@5

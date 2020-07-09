@@ -233,7 +233,7 @@ function allocateenum()
 
 	filewrite(pffFile, "[DataEntryInit]");
 	filewrite(pffFile,"OperatorID=%s",UNAME);
-	filewrite(pffFile,"StartMode=Modify;%v",maketext("%V",ALLOCATE_ENUMERATOR));
+	filewrite(pffFile,"StartMode=Add;%v",maketext("%V",ALLOCATE_ENUMERATOR));
 	//filewrite(pffFile, "ShowInApplicationListing=Hidden");
 	filewrite(pffFile, "AutoAdd=No");
 	filewrite(pffFile,"Lock=CaseListing");
@@ -887,9 +887,25 @@ postproc
 		move to UNAME;
 	endif;}
 	
+	//get allocations
 	uid = maketext("%2d",$);
+	if loadcase(ALLOCATION_DICT,uid) = 0 and USERID in 2:90 then		//if no allocations found	(excluding marcia best)
+		if connection() then		//if on the internet
+			if syncconnect(CSWeb,cswebip1,ftpun,ftppw) then		//connect to csweb when outside of the Government WAN
+				syncdata(GET, ALLOCATION_DICT);		//get allocations
+				allocationdate = sysdate("YYYYMMDD");
+				savesetting("ALLOCATIONDATE",maketext("%d",allocationdate));		//saves so that it's persistent between sessions
+			elseif syncconnect(CSWeb,cswebip2,ftpun,ftppw) then	
+				syncdata(GET, ALLOCATION_DICT);		//get allocations
+				allocationdate = sysdate("YYYYMMDD");
+				savesetting("ALLOCATIONDATE",maketext("%d",allocationdate));		//saves so that it's persistent between sessions
+			endif;
+		endif;
+	endif;
+	
+	//uid = maketext("%2d",$);
 	if loadcase(ALLOCATION_DICT,uid) then
-		if compare(strip(toupper(AUSERNAME)),strip(toupper(UNAME))) = 0 then
+		if compare(AUSERNAME,strip(toupper(UNAME))) = 0 then
 			writeLoginStatus(1);
 			username = strip(AUNAME);
 			role = AROLE;
@@ -916,7 +932,7 @@ onfocus
 	endif;}
 	
 postproc
-
+{moved to the beginning of the login process
 	//get allocations
 	uid = maketext("%v",USERID);
 	if loadcase(ALLOCATION_DICT,uid) = 0 and USERID in 2:90 then		//if no allocations found	(excluding marcia best)
@@ -932,7 +948,7 @@ postproc
 			endif;
 		endif;
 	endif;
-	
+}	
 	//saves the Round number as a setting
 	savesetting("ROUND",maketext("%d",$));
 
