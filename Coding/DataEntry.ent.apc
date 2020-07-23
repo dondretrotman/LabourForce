@@ -319,6 +319,82 @@ postproc
 	endif;
 
 //-----------------------------------------------------------------------------
+PROC COV_MAINOCCUP
+preproc
+	ask if length(strip(COV_MAINOCCUPT)) > 0;
+
+postproc
+	if length(strip($)) = 0 then
+		clear(AUXIL_DICT);
+		AUXILTYPE = 1;
+		AUXILKEY = COV_MAINOCCUPT;
+		enter AUXIL_FF;
+		$ = occupationcode;
+	else
+		ok = loadcase(OCCUPATION_CODES_DICT,$);
+		if ok <> 1 then
+			reenter;
+		endif;
+	endif;
+
+//-----------------------------------------------------------------------------
+PROC COV_INDUS
+preproc
+	ask if length(strip(COV_INDUST)) > 0;
+
+postproc
+	if length(strip($)) = 0 then
+		clear(AUXIL_DICT);
+		AUXILTYPE = 2;
+		AUXILKEY = COV_INDUST;
+		enter AUXIL_FF;
+		$ = industrycode;
+	else
+		ok = loadcase(INDUSTRY_CODES_DICT,$);
+		if ok <> 1 then
+			reenter;
+		endif;
+	endif;
+
+//-----------------------------------------------------------------------------
+PROC COV2_MAINOCCUP
+preproc
+	ask if length(strip(COV2_MAINOCCUPT)) > 0;
+
+postproc
+	if length(strip($)) = 0 then
+		clear(AUXIL_DICT);
+		AUXILTYPE = 1;
+		AUXILKEY = COV2_MAINOCCUPT;
+		enter AUXIL_FF;
+		$ = occupationcode;
+	else
+		ok = loadcase(OCCUPATION_CODES_DICT,$);
+		if ok <> 1 then
+			reenter;
+		endif;
+	endif;
+
+//-----------------------------------------------------------------------------
+PROC COV2_MAININDUS
+preproc
+	ask if length(strip(COV2_MAININDUST)) > 0;
+
+postproc
+	if length(strip($)) = 0 then
+		clear(AUXIL_DICT);
+		AUXILTYPE = 2;
+		AUXILKEY = COV2_MAININDUST;
+		enter AUXIL_FF;
+		$ = industrycode;
+	else
+		ok = loadcase(INDUSTRY_CODES_DICT,$);
+		if ok <> 1 then
+			reenter;
+		endif;
+	endif;
+
+//-----------------------------------------------------------------------------
 PROC AUXILTXT
 preproc
 	{indicate type of listing}

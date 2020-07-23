@@ -3,7 +3,7 @@ Version=CSPro 7.1
 AppType=Entry
 [DataEntryInit]
 OperatorID=LSMITH              
-StartMode=Modify; 84352063166
+StartMode=Modify; 91002011  3
 Lock=Add,Verify,Stats
 FullScreen=Yes
 AutoAdd=No

@@ -1,5 +1,5 @@
 ﻿[FormFile]
-Version=CSPro 7.2
+Version=CSPro 7.3
 Name=LABOURFORCE_FF
 Label=DataEntry
 DefaultTextFont=-013 0000 0000 0000 0700 0000 0000 0000 0000 0000 0000 0000 0000 Arial
@@ -28,7 +28,7 @@ Name=FORM001
 Label=Occupation/Industry codes
 Level=1
 Repeat=LABOURFORCE_REC
-Size=924,1307
+Size=974,2348
   
 Item=OCCUPTR
 Item=OCCTRAINED
@@ -62,11 +62,20 @@ Item=SINDUS_TEXT2
 Item=FOCCUP_TEXT2
 Item=INCINDUS_TEXT2
 Item=INCOCCUP_TEXT2
+Item=COV_MAINOCCUPT
+Item=COV_MAINOCCUP
+Item=COV_INDUST
+Item=COV_INDUS
+Item=COV2_MAINOCCUPT
+Item=COV2_MAINOCCUP
+Item=COV2_MAININDUST
+Item=COV2_MAININDUS
   
-Box=46,110,898,1282,Thick
+Box=46,110,898,1654,Thick
 Box=46,1165,898,1281,Thin
 Box=45,696,899,925,Thin
 Box=46,283,898,532,Thin
+Box=46,1280,898,1468,Thin
   
 [Text]
 Name=TEXT1
@@ -128,6 +137,34 @@ Form=2
 Name=TEXT9
 Position=65,1182,267,1198
 Text=What was your last occupation?
+Form=2
+ 
+  
+[Text]
+Name=TEXT10
+Position=65,1285,277,1301
+Text=What was your main occupation?
+Form=2
+ 
+  
+[Text]
+Name=TEXT11
+Position=65,1375,303,1391
+Text=In what industry was this occupation?
+Form=2
+ 
+  
+[Text]
+Name=TEXT12
+Position=65,1478,277,1494
+Text=What was your main occupation?
+Form=2
+ 
+  
+[Text]
+Name=TEXT13
+Position=65,1560,303,1576
+Text=In what industry was this occupation?
 Form=2
  
 [EndForm]
@@ -666,6 +703,110 @@ Form=2
 [Text]
 Position=65,1244,187,1260
 Text=50. Last occupation
+ 
+  
+[Field]
+Name=COV_MAINOCCUPT
+Position=234,1309,844,1329
+Item=COV_MAINOCCUPT,LABOURFORCE_DICT
+Protected=Yes
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+Form=2
+  
+[Text]
+Position=65,1312,201,1328
+Text=52c. Main Occupation
+ 
+  
+[Field]
+Name=COV_MAINOCCUP
+Position=234,1341,291,1361
+Item=COV_MAINOCCUP,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+Form=2
+  
+[Text]
+Position=65,1344,201,1360
+Text=52c. Main Occupation
+ 
+  
+[Field]
+Name=COV_INDUST
+Position=234,1398,844,1418
+Item=COV_INDUST,LABOURFORCE_DICT
+Protected=Yes
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+Form=2
+  
+[Text]
+Position=65,1401,180,1417
+Text=52d. Main Industry
+ 
+  
+[Field]
+Name=COV_INDUS
+Position=234,1430,291,1450
+Item=COV_INDUS,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+Form=2
+  
+[Text]
+Position=65,1433,180,1449
+Text=52d. Main industry
+ 
+  
+[Field]
+Name=COV2_MAINOCCUPT
+Position=234,1501,844,1521
+Item=COV2_MAINOCCUPT,LABOURFORCE_DICT
+Protected=Yes
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+Form=2
+  
+[Text]
+Position=65,1504,201,1520
+Text=53c. Main Occupation
+ 
+  
+[Field]
+Name=COV2_MAINOCCUP
+Position=234,1527,291,1547
+Item=COV2_MAINOCCUP,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+Form=2
+  
+[Text]
+Position=65,1530,201,1546
+Text=53c. Main Occupation
+ 
+  
+[Field]
+Name=COV2_MAININDUST
+Position=234,1584,844,1604
+Item=COV2_MAININDUST,LABOURFORCE_DICT
+Protected=Yes
+FieldLabelType=DictionaryLabel
+UseUnicodeTextBox=Yes
+Form=2
+  
+[Text]
+Position=65,1587,180,1603
+Text=53d. Main Industry
+ 
+  
+[Field]
+Name=COV2_MAININDUS
+Position=234,1614,291,1634
+Item=COV2_MAININDUS,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+Form=2
+  
+[Text]
+Position=65,1617,180,1633
+Text=53d. Main Industry
  
 [EndGroup]
   
