@@ -272,7 +272,7 @@ function uploadData()
 			inc(errflag);
 		endif;
 		if not syncfile(PUT,maketext("../Data/Labourforce%02d%03d.cslog",ME_ROUND,ME_ED),maketext("LabourforceLogs/Labourforce%02d%03d%s.cslog",ME_ROUND,ME_ED,getdeviceid())) then		//Upload paradata logs
-			inc(errflag);
+			//inc(errflag);
 		endif;
 		if USERID >= 90 or USERID = 1 then
 			if not syncdata(BOTH, ALLOCATION_DICT) then		//sync allocations if supervisor
@@ -863,7 +863,7 @@ postproc
 	
 	//get allocations
 	uid = maketext("%2d",$);
-	if loadcase(ALLOCATION_DICT,uid) = 0 and USERID in 2:90 then		//if no allocations found	(excluding marcia best)
+	if loadcase(ALLOCATION_DICT,uid) = 0 {and USERID in 2:90} then		//if no allocations found	(excluding marcia best)
 		if connection() then		//if on the internet
 			if syncconnect(CSWeb,cswebip1,ftpun,ftppw) then		//connect to csweb when outside of the Government WAN
 				syncdata(GET, ALLOCATION_DICT);		//get allocations
@@ -1048,7 +1048,7 @@ postproc
 		reenter;
 	elseif $ = 3 then		//enumeration report
 		enumerationRpt();
-		errmsg("before enumerationrpt()");
+		errmsg("Loading enumeration report. Press OK");
 		execpff("Menu.pff",stop);
 		errmsg("please ignore me too");
 		reenter;
