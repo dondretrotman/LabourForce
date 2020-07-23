@@ -804,6 +804,13 @@ Text=Add another person?
  
 [EndColumn]
   
+[Block]
+Name=BLOCK_NAME
+Label=Name
+DisplayTogether=Yes
+Position=1
+Length=3
+  
 [EndGrid]
  
 [EndGroup]
@@ -3184,6 +3191,25 @@ Text=52d. Main Industry
 [EndColumn]
   
 [Column]
+Width=56
+  
+[HeaderText]
+Position=31,0,104,56
+Text=52d. Main Industry Sector
+ 
+[Field]
+Name=COV_INDUS_SECT
+Position=1386,0,1401,20
+Item=COV_INDUS_SECT,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
+  
+[Text]
+Text=52d. Main Industry Sector
+ 
+[EndColumn]
+  
+[Column]
 Width=40
   
 [HeaderText]
@@ -3294,6 +3320,25 @@ UseUnicodeTextBox=Yes
   
 [Text]
 Text=53d. Main Industry
+ 
+[EndColumn]
+  
+[Column]
+Width=56
+  
+[HeaderText]
+Position=31,0,104,56
+Text=53d. Main Industry Sector
+ 
+[Field]
+Name=COV2_MAININDUS_SECT
+Position=1386,0,1401,20
+Item=COV2_MAININDUS_SECT,LABOURFORCE_DICT
+FieldLabelType=DictionaryLabel
+DataCaptureType=RadioButton
+  
+[Text]
+Text=53d. Main Industry Sector
  
 [EndColumn]
   
@@ -3438,25 +3483,67 @@ Position=39
 Length=0
   
 [Block]
+Name=LSTOCCUPINDUS_BLOCK
+Label=Last occupation-industry
+DisplayTogether=Yes
+Position=54
+Length=3
+  
+[Block]
+Name=UNEMPLSAUEARNGS_BLOCK
+Label=Income\earnings
+DisplayTogether=Yes
+Position=58
+Length=5
+  
+[Block]
 Name=EMPLOYEDBLOCK
 Label=Employed
 DisplayTogether=Yes
-Position=62
+Position=64
 Length=0
   
 [Block]
 Name=INACTIVEBLOCK
 Label=Inactive
 DisplayTogether=Yes
-Position=92
+Position=94
 Length=0
+  
+[Block]
+Name=FOCCUPINCINDUS_BLOCK
+Label=Occupation-industry
+DisplayTogether=Yes
+Position=97
+Length=3
+  
+[Block]
+Name=SCINCOMEIN2EARNG_BLOCK
+Label=Income\earnings
+DisplayTogether=Yes
+Position=103
+Length=4
   
 [Block]
 Name=COV
 Label=Covid19 questions
 DisplayTogether=Yes
-Position=104
+Position=108
 Length=0
+  
+[Block]
+Name=COVMAINOCINDUST_BLOCK
+Label=occupation\industry
+DisplayTogether=Yes
+Position=113
+Length=3
+  
+[Block]
+Name=COV2MAINOCIND_BLOCK
+Label=occupation\industry
+DisplayTogether=Yes
+Position=121
+Length=3
   
 [EndGrid]
  

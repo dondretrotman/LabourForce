@@ -89,6 +89,15 @@ EN=\pard\widctlpar\cf1\fs24 53f. \f1 Was \b %LFIRST_NAME% \b0 employed full time
 EN=}
 
 [QUESTION]
+Field=LABOURFORCE_DICT.COV2_MAININDUS_SECT
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
+EN=\pard\cf1\fs24 53d. Is this business/industry (\b %INCINDUS_TEXT%\b0 ) in Government (public), or is it a private business?\par
+EN=}
+
+[QUESTION]
 Field=LABOURFORCE_DICT.COV2_MAININDUST
 Occurrences=1:40
 EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}{\f1\fswiss\fprq2\fcharset0 Arial;}}
@@ -164,6 +173,15 @@ EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fchars
 EN={\colortbl ;\red0\green0\blue0;}
 EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
 EN=\pard\cf1\fs24 Please Specify...\par
+EN=}
+
+[QUESTION]
+Field=LABOURFORCE_DICT.COV_INDUS_SECT
+Occurrences=1:40
+EN={\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+EN={\colortbl ;\red0\green0\blue0;}
+EN={\*\generator Riched20 10.0.18362}\viewkind4\uc1
+EN=\pard\cf1\fs24 52d. Is this business/industry (\b %INCINDUS_TEXT%\b0 ) in Government (public), or is it a private business?\par
 EN=}
 
 [QUESTION]

@@ -1352,6 +1352,15 @@ preproc
 	ask if COV_MAINJOB = 6;
 	
 //-----------------------------------------------------
+PROC COV_INDUS_SECT
+Preproc
+	ask if length(strip(COV_INDUS)) > 0;
+{onfocus	
+	if $ = notappl then
+		$ = 9;
+	endif;
+}
+//----------------------------------------------------------
 PROC COV2_ACTIVCHANGE
 postproc
 	//if no then end there
@@ -1369,6 +1378,15 @@ postproc
 	endif;
 	
 //-----------------------------------------------------------
+PROC COV2_MAININDUS_SECT
+Preproc
+	ask if length(strip(COV2_MAININDUS)) > 0;
+{onfocus	
+	if $ = notappl then
+		$ = 9;
+	endif;
+}
+//----------------------------------------------------------
 PROC COV_REASONOTHER
 preproc
 	//only ask if other is selected

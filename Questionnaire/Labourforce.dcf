@@ -575,7 +575,7 @@ Name=LABOURFORCE_REC
 RecordTypeValue='2'
 Required=No
 MaxRecords=40
-RecordLen=2394
+RecordLen=2396
 
 [Item]
 Label=Individual Number
@@ -3379,3 +3379,25 @@ Name=COV_INCOMEOTHER
 Start=2365
 Len=30
 DataType=Alpha
+
+[Item]
+Label=52d. Main Industry Sector
+Name=COV_INDUS_SECT
+Start=2395
+Len=1
+
+[ValueSet]
+Label=52d. Main Industry Sector
+Name=COV_INDUS_SECT_VS1
+Link=114282216
+
+[Item]
+Label=53d. Main Industry Sector
+Name=COV2_MAININDUS_SECT
+Start=2396
+Len=1
+
+[ValueSet]
+Label=53d. Main Industry Sector
+Name=COV2_MAININDUS_SECT_VS1
+Link=114282216
