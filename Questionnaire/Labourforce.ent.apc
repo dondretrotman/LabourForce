@@ -876,15 +876,26 @@ onfocus
 	endif;
 	
 //--------------------------------------------
-PROC MCHILDRN
+PROC HEADCHILDRENBLOCK
+//PROC MCHILDRN
 onfocus
-	$ = count(LSEX where LSEX = 1 and LAGE < 15);
+	MCHILDRN = count(LSEX where LSEX = 1 and LAGE < 15);
 	
 //-----------------------------------------------------------
-PROC FCHILDRN
-onfocus
-	$ = count(LSEX where LSEX = 2 and LAGE < 15);
+//PROC FCHILDRN
+//onfocus
+	FCHILDRN = count(LSEX where LSEX = 2 and LAGE < 15);
 	
+//-----------------------------------------------------------
+PROC MCHILDRN
+{onfocus
+	$ = count(LSEX where LSEX = 1 and LAGE < 15);
+}	
+//-----------------------------------------------------------
+PROC FCHILDRN
+{onfocus
+	$ = count(LSEX where LSEX = 2 and LAGE < 15);
+}	
 //-----------------------------------------------------------
 PROC INDIVNO
 onfocus

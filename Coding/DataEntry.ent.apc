@@ -338,6 +338,11 @@ postproc
 	endif;
 
 //-----------------------------------------------------------------------------
+PROC COV_INDUS_SECT
+preproc
+	ask if length(strip(COV_INDUST)) > 0;
+	
+//------------------------------------------------------
 PROC COV_INDUS
 preproc
 	ask if length(strip(COV_INDUST)) > 0;
@@ -376,6 +381,11 @@ postproc
 	endif;
 
 //-----------------------------------------------------------------------------
+PROC COV2_MAININDUS_SECT
+preproc
+	ask if length(strip(COV2_MAININDUST)) > 0;
+	
+//------------------------------------------------------
 PROC COV2_MAININDUS
 preproc
 	ask if length(strip(COV2_MAININDUST)) > 0;

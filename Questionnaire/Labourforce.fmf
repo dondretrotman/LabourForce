@@ -3476,73 +3476,108 @@ Text=55. Other
 [EndColumn]
   
 [Block]
+Name=HEADCHILDRENBLOCK
+Label=head Children
+DisplayTogether=Yes
+Position=10
+Length=2
+  
+[Block]
+Name=MARITALEDUCAT_BLOCK
+Label=Marital_education
+DisplayTogether=Yes
+Position=21
+Length=2
+  
+[Block]
+Name=TRAINING_BLOCK
+Label=Training block
+DisplayTogether=Yes
+Position=28
+Length=3
+  
+[Block]
 Name=UNEMPLOYEDBLOCK
 Label=Unemployed
 DisplayTogether=Yes
-Position=39
+Position=42
 Length=0
   
 [Block]
 Name=LSTOCCUPINDUS_BLOCK
 Label=Last occupation-industry
 DisplayTogether=Yes
-Position=54
+Position=57
 Length=3
   
 [Block]
 Name=UNEMPLSAUEARNGS_BLOCK
 Label=Income\earnings
 DisplayTogether=Yes
-Position=58
+Position=61
 Length=5
   
 [Block]
 Name=EMPLOYEDBLOCK
 Label=Employed
 DisplayTogether=Yes
-Position=64
+Position=67
 Length=0
+  
+[Block]
+Name=HRWRKD_BLOCK
+Label=Hours Worked
+DisplayTogether=Yes
+Position=90
+Length=2
+  
+[Block]
+Name=LSTLOOKKINDWRK_BLOCK
+Label=Last look 
+DisplayTogether=Yes
+Position=96
+Length=2
   
 [Block]
 Name=INACTIVEBLOCK
 Label=Inactive
 DisplayTogether=Yes
-Position=94
+Position=99
 Length=0
   
 [Block]
 Name=FOCCUPINCINDUS_BLOCK
 Label=Occupation-industry
 DisplayTogether=Yes
-Position=97
+Position=102
 Length=3
   
 [Block]
 Name=SCINCOMEIN2EARNG_BLOCK
 Label=Income\earnings
 DisplayTogether=Yes
-Position=103
+Position=108
 Length=4
   
 [Block]
 Name=COV
 Label=Covid19 questions
 DisplayTogether=Yes
-Position=108
+Position=113
 Length=0
   
 [Block]
 Name=COVMAINOCINDUST_BLOCK
 Label=occupation\industry
 DisplayTogether=Yes
-Position=113
+Position=118
 Length=3
   
 [Block]
 Name=COV2MAINOCIND_BLOCK
 Label=occupation\industry
 DisplayTogether=Yes
-Position=121
+Position=126
 Length=3
   
 [EndGrid]
