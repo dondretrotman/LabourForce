@@ -865,7 +865,7 @@ postproc
 	//get allocations
 	uid = maketext("%2d",$);
 	if loadcase(ALLOCATION_DICT,uid) = 0 or count(ALLOCATION_REC) = 0 {and USERID in 2:90} then		//if no allocations found	(excluding marcia best)
-		if AROLE = 1 then	//and user is a normal user
+		if (loadcase(ALLOCATION_DICT,uid) <> 0 and AROLE = 1) or (loadcase(ALLOCATION_DICT,uid) = 0) then	//and user is a normal user
 			if connection() then		//if on the internet
 				if syncconnect(CSWeb,cswebip1,ftpun,ftppw) then		//connect to csweb when outside of the Government WAN
 					syncdata(GET, ALLOCATION_DICT);		//get allocations
