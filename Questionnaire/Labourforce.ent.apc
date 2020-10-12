@@ -1137,8 +1137,8 @@ Preproc
 PROC U2EARNGS
 postproc
 	//end of Unemployed section
-	//skip to next;
-	skip to COV; //go to covid questions
+	skip to next;
+	//skip to COV; //go to covid questions
 
 //--------------------------------------------------------
 PROC FULLPART
@@ -1269,8 +1269,8 @@ PROC NHRSWRKD
 postproc
 	//end if worked 40 or more hours
 	if HRSWRKD in 10,11 then
-		//skip to next;
-		skip to COV;
+		skip to next;
+		//skip to COV;
 	endif;
 
 //-----------------------------------------------------------------------
@@ -1285,16 +1285,16 @@ PROC ADDWRK
 postproc
 	//if not willling to do additional work, end interview
 	if $ = 2 then
-		//skip to next;
-		skip to COV;
+		skip to next;
+		//skip to COV;
 	endif;
 
 //-----------------------------------------------------------------------
 PROC KINDWRK
 postproc
 	//end of employed section
-	//skip to next;
-	skip to COV;
+	skip to next;
+	//skip to COV;
 	
 //--------------------------------------------------------
 PROC HPWORK
@@ -1343,27 +1343,27 @@ postproc
 	endif;
 	
 //--------------------------------------------------------
-PROC COV_MAINACT
+{PROC COV_MAINACT
 postproc
 	//if main activity is anything other than working then end there
 	if $ in 2:9 then
 		skip to next;
 	endif;
 	
-//-------------------------------------------------------	
-PROC COV_MAINACTOTHER
+//-------------------------------------------------------}	
+{PROC COV_MAINACTOTHER
 preproc
 	//only ask if other is selected
 	ask if COV_MAINACT = 8;
 	
-//-----------------------------------------------------
-PROC COV_MAINJOBOTHER
+//-----------------------------------------------------}
+{PROC COV_MAINJOBOTHER
 preproc
 	//only ask if other is selected
 	ask if COV_MAINJOB = 6;
 	
-//-----------------------------------------------------
-PROC COV_INDUS_SECT
+//-----------------------------------------------------}
+{PROC COV_INDUS_SECT
 Preproc
 	ask if length(strip(COV_INDUS)) > 0;
 {onfocus	
@@ -1371,16 +1371,16 @@ Preproc
 		$ = 9;
 	endif;
 }
-//----------------------------------------------------------
-PROC COV2_ACTIVCHANGE
+//----------------------------------------------------------}
+{PROC COV2_ACTIVCHANGE
 postproc
 	//if no then end there
 	if $ = 2 then
 		skip to next;
 	endif;
 	
-//----------------------------------------------------------
-PROC COV2_NEWACTIV
+//----------------------------------------------------------}
+{PROC COV2_NEWACTIV
 postproc
 	if $ in 1:2 then		//if working same job then don't ask about occupation\industry
 		skip to COV2_WAGE;
@@ -1388,8 +1388,8 @@ postproc
 		skip to COV_REASON;
 	endif;
 	
-//-----------------------------------------------------------
-PROC COV2_MAININDUS_SECT
+//-----------------------------------------------------------}
+{PROC COV2_MAININDUS_SECT
 Preproc
 	ask if length(strip(COV2_MAININDUS)) > 0;
 {onfocus	
@@ -1397,24 +1397,24 @@ Preproc
 		$ = 9;
 	endif;
 }
-//----------------------------------------------------------
-PROC COV_REASONOTHER
+//----------------------------------------------------------}
+{PROC COV_REASONOTHER
 preproc
 	//only ask if other is selected
 	ask if COV_REASON = 10;
 	
-//-----------------------------------------------------
-PROC COV_INCOME
+//-----------------------------------------------------}
+{PROC COV_INCOME
 postproc
 	if pos("J",$) > 0 and length(strip($)) > 1 then		//If not stated selected with another option
 		errmsg("cannot be Not Stated and another option");
 		reenter;
 	endif;
 	
-//------------------------------------------------------------------
-PROC COV_INCOMEOTHER
+//------------------------------------------------------------------}
+{PROC COV_INCOMEOTHER
 preproc
 	//only ask if other is selected
 	ask if pos("I",COV_INCOME) > 0;
 	
-//-----------------------------------------------------
+//-----------------------------------------------------}
