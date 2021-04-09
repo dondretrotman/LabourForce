@@ -194,7 +194,7 @@ onfocus
 	
 postproc
 	string telnum = maketext("%V",$);		//convert to string to do regex
-	if regexmatch(telnum,"^([0-9])(7)$") = 0 and telnum <> "" then			//phone number must be in the format #######
+	if regexmatch(telnum,"^[0-9]{7}$") = 0 and telnum <> "" then			//phone number must be in the format #######
 		errmsg("Phone number must have 7 digits");
 		reenter;
 	endif;
